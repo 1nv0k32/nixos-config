@@ -4,7 +4,7 @@ let
   cfg = config.services.alpaca;
 in
 {
-  options.service.alpaca = {
+  options.services.alpaca = {
     enable = mkEnableOption "alpaca service";
     pacUrl = mkOption {
       type = types.nullOr types.str;
