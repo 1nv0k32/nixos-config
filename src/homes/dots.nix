@@ -7,15 +7,17 @@ with lib;
       cd -- $1 || exit 1
       nixpkgs-fmt .
       while true; do
-        git --no-pager diff
+        git add -A
+        git --no-pager diff --cached
         read -p "Do you wish to commit these changes? [Yn] " yn
         case $yn in
           [Nn]* )
             break
             ;;
           * )
-            git add .
+            
             git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
+            git rebase origin/main  || (git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
             git push
             break
             ;;
