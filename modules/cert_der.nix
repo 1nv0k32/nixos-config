@@ -34,7 +34,7 @@ in
           '';
         };
       in
-      options.security.pki.certificateFiles.default ++ [ "${corporateCert}/cert/${cfg.name}.crt" ];
+      options.security.pki.certificateFiles.default ++ [ "${cert}/cert/${cfg.name}.crt" ];
   };
 }
 
