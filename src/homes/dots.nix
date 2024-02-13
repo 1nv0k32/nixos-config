@@ -7,12 +7,6 @@ with lib;
       cd -- $1 || exit 1
       nixpkgs-fmt .
       while true; do
-        read -p "Do you wish to commit configuration.nix changes? [yN] " yn_conf
-        case $yn_conf in
-            [Yy]* )
-              git update-index --no-skip-worktree configuration.nix
-              ;;
-        esac
         git --no-pager diff
         read -p "Do you wish to commit these changes? [Yn] " yn
         case $yn in
@@ -27,7 +21,6 @@ with lib;
               ;;
         esac
       done
-      git update-index --skip-worktree configuration.nix
     )
 
     if test -f ~/.bashrc.local; then
