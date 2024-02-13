@@ -13,6 +13,7 @@ in
     ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix
     ++ [
     (import "${configRepo}/src")
+    (import "${configRepo}/modules")
     (import "${configRepo}/system/vm.nix")
     #(import "${configRepo}/system/z13.nix")
     #(import "${configRepo}/system/usb.nix")
