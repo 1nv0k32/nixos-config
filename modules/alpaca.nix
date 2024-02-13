@@ -49,7 +49,7 @@ in
           install -m755 -D $src $out/bin/${pname}
           autoPatchelf $out/bin/${pname}
           echo "NTLM_CREDENTIALS=${cfg.ntlmHash}" > $out/ntlm.env
-          chown root:root $out/ntlm.env
+          chown root $out/ntlm.env
           chmod 400 $out/ntlm.env
         '';
       };
