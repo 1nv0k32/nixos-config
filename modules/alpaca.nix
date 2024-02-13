@@ -6,10 +6,10 @@ in
 {
   options.services.alpaca = {
     enable = mkEnableOption "alpaca service";
-    pacUrl = mkOption {
-      type = types.nullOr types.str;
-      default = null;
-    };
+    #pacUrl = mkOption {
+    #  type = types.nullOr types.str;
+    #  default = null;
+    #};
     ntlmHash = mkOption {
       type = types.str;
     };
