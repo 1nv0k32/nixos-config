@@ -13,11 +13,11 @@ in
       type = types.nullOr types.str;
       default = null;
     };
-    listenAddr = {
+    listenAddr = mkOption {
       type = types.str;
       default = "0.0.0.0";
     };
-    listenPort = {
+    listenPort = mkOption {
       type = types.str;
       default = "3128";
     };
@@ -64,19 +64,19 @@ in
         };
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
-        #environment = {
-        #  NTLM_CREDENTIALS = "${cfg.ntlmHash}";
-        #};
+        environment = {
+          NTLM_CREDENTIALS = "${cfg.ntlmHash}";
+        };
       };
 
       # Set proxy on system and services
-      #systemd.services = {
-      #  nix-daemon.environment = proxies;
-      #  k3s.environment = proxies;
-      #};
-      #networking = {
-      #  proxy.default = mkForce proxy;
-      #};
+      systemd.services = {
+        nix-daemon.environment = proxies;
+        k3s.environment = proxies;
+      };
+      networking = {
+        proxy.default = mkForce proxy;
+      };
     };
 }
 
