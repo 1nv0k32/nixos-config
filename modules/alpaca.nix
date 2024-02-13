@@ -48,8 +48,6 @@ in
         installPhase = ''
           install -m755 -D $src $out/bin/${pname}
           autoPatchelf $out/bin/${pname}
-          echo "NTLM_CREDENTIALS=${cfg.ntlmHash}" > $out/ntlm.env
-          chmod 400 $out/ntlm.env
         '';
       };
       pac_arg = "" + optionalString (cfg.pacUrl != null) "-C ${cfg.pacUrl}";
@@ -63,10 +61,12 @@ in
           ExecStart = "${alpaca}/bin/alpaca -l ${cfg.listenAddr} -p ${cfg.listenPort} ${pac_arg}";
           Restart = "always";
           KillMode = "mixed";
-          EnvironmentFile = "${alpaca}/ntlm.env";
         };
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
+        environment = {
+          NTLM_CREDENTIALS = "${cfg.ntlmHash}";
+        };
       };
 
       # Set proxy on system and services
