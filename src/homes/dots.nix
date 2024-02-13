@@ -17,6 +17,7 @@ with lib;
           * )
             
             git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
+            git fetch
             git rebase origin/main  || (git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
             git push
             break
