@@ -1,7 +1,5 @@
 { pkgs, lib, options, ... }:
 with lib;
-let
-in
 {
   imports = [
     <nixos-wsl/modules>
