@@ -70,10 +70,10 @@ in
       #};
 
       # Set proxy on system and services
-      systemd.services = {
-        nix-daemon.environment = proxies;
-        k3s.environment = proxies;
-      };
+      #systemd.services = {
+      #  nix-daemon.environment = proxies;
+      #  k3s.environment = proxies;
+      #};
       #networking = {
       #  proxy.default = mkForce proxy;
       #};
