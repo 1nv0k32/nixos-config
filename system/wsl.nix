@@ -43,6 +43,15 @@ let
   # };
 in
 {
+  imports = [
+    <nixos-wsl/modules>
+  ];
+
+  wsl = {
+    enable = true;
+    defaultUser = "rick";
+  };
+
   home-manager.users."rick".programs.git = {
     userName = mkDefault "Name";
     userEmail = mkDefault "Name@domain.local";
@@ -87,15 +96,6 @@ in
 
   # Add corporate certificate to the system
   # security.pki.certificateFiles = [ "${corporateCert}/cert/CorporateCA.crt" ];
-
-  imports = [
-    <nixos-wsl/modules>
-  ];
-
-  wsl = {
-    enable = true;
-    defaultUser = "rick";
-  };
 }
 
 # vim:expandtab ts=2 sw=2
