@@ -74,9 +74,9 @@ in
         nix-daemon.environment = proxies;
         k3s.environment = proxies;
       };
-      networking = {
-        proxy.default = mkForce proxy;
-      };
+      #networking = {
+      #  proxy.default = mkForce proxy;
+      #};
     };
 }
 
