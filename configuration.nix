@@ -2,9 +2,8 @@
 , ...
 }:
 let
-  configRepo = builtins.fetchGit {
-    url = "https://github.com/1nv0k32/nixoscfg.git";
-    ref = "main";
+  configRepo = builtins.fetchTarball {
+    url = "https://github.com/1nv0k32/nixoscfg/tarball/main";
   };
 in
 {
@@ -22,3 +21,4 @@ in
 }
 
 # vim:expandtab ts=2 sw=2
+

@@ -1,6 +1,8 @@
 { ... }:
 {
-  imports = [
+  imports = [ ]
+    ++ lib.optional (builtins.pathExists ./dev.nix) ./dev.nix
+    ++ [
     ./cert_der.nix
     ./alpaca.nix
   ];
