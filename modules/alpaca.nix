@@ -6,10 +6,10 @@ in
 {
   options.services.alpaca = {
     enable = mkEnableOption "alpaca service";
-    #pacUrl = mkOption {
-    #  type = types.nullOr types.str;
-    #  default = null;
-    #};
+    pacUrl = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+    };
     ntlmHash = mkOption {
       type = types.str;
     };
@@ -54,20 +54,20 @@ in
     in
     mkIf cfg.enable {
       # Setup service
-      systemd.services."alpaca" = {
-        enable = true;
-        description = "alpaca proxy service";
-        serviceConfig = {
-          ExecStart = "${alpaca}/bin/alpaca -l ${cfg.listenAddr} -p ${cfg.listenPort}";
-          Restart = "always";
-          KillMode = "mixed";
-        };
-        after = [ "network.target" ];
-        wantedBy = [ "multi-user.target" ];
-        environment = {
-          NTLM_CREDENTIALS = "${cfg.ntlmHash}";
-        };
-      };
+      #systemd.services.alpaca = {
+      #  enable = true;
+      #  description = "alpaca proxy service";
+      #  serviceConfig = {
+      #    ExecStart = "${alpaca}/bin/alpaca -l ${cfg.listenAddr} -p ${cfg.listenPort}";
+      #    Restart = "always";
+      #    KillMode = "mixed";
+      #  };
+      #  after = [ "network.target" ];
+      #  wantedBy = [ "multi-user.target" ];
+      #  environment = {
+      #    NTLM_CREDENTIALS = "${cfg.ntlmHash}";
+      #  };
+      #};
 
       # Set proxy on system and services
       systemd.services = {
