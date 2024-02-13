@@ -117,6 +117,7 @@ with pkgs;
     distrobox
     quickemu
     git-crypt
+    kind
 
     nvme-cli
     gparted

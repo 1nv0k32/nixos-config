@@ -15,6 +15,10 @@ with lib;
     userEmail = mkDefault "Name@domain.local";
   };
 
+  services = {
+    xserver.enable = mkForce false;
+  };
+
   systemd.services = {
     systemd-resolved.enable = mkForce false;
   };
@@ -28,10 +32,6 @@ with lib;
   virtualisation.docker.daemon.settings = {
     iptables = false;
     ipv6 = false;
-  };
-
-  environment = {
-    systemPackages = with pkgs; [ git-crypt ];
   };
 }
 
