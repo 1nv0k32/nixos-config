@@ -10,15 +10,15 @@ with lib;
         git --no-pager diff
         read -p "Do you wish to commit these changes? [Yn] " yn
         case $yn in
-            [Nn]* )
-              break
-              ;;
-            * )
-              git add .
-              git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
-              git push
-              break
-              ;;
+          [Nn]* )
+            break
+            ;;
+          * )
+            git add .
+            git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
+            git push
+            break
+            ;;
         esac
       done
     )
