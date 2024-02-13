@@ -2,6 +2,7 @@
 {
   imports = [
     ./cert_der.nix
+    ./alpaca.nix
   ];
 }
 
