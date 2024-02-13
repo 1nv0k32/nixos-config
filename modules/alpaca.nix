@@ -50,7 +50,7 @@ in
           autoPatchelf $out/bin/${pname}
         '';
       };
-      pac_arg = "" + optionalString (cfg.pacUrl != null) "-C ${cfg.pacUrl}";
+      #pac_arg = "" + optionalString (cfg.pacUrl != null) "-C ${cfg.pacUrl}";
     in
     mkIf cfg.enable {
       # Setup service
@@ -58,7 +58,7 @@ in
         enable = true;
         description = "alpaca proxy service";
         serviceConfig = {
-          ExecStart = "${alpaca}/bin/alpaca -l ${cfg.listenAddr} -p ${cfg.listenPort} ${pac_arg}";
+          ExecStart = "${alpaca}/bin/alpaca -l ${cfg.listenAddr} -p ${cfg.listenPort}";
           Restart = "always";
           KillMode = "mixed";
         };
