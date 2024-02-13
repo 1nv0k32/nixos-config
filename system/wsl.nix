@@ -27,20 +27,6 @@ let
     all_proxy = proxy;
     rsync_proxy = proxy;
   };
-
-  # corporateCert = pkgs.stdenv.mkDerivation rec {
-  #   name = "CorporateCA";
-  #   src = pkgs.fetchurl {
-  #     url = "URL";
-  #     hash = "sha256-HASH";
-  #   };
-  #   nativeBuildInputs = [ pkgs.openssl ];
-  #   phases = ["installPhase"];
-  #   installPhase = ''
-  #     install -m644 -D $src $out/cert/${name}.der
-  #     openssl x509 -inform der -in $out/cert/${name}.der -out $out/cert/${name}.crt
-  #   '';
-  # };
 in
 {
   imports = [
@@ -93,9 +79,6 @@ in
   environment = {
     systemPackages = with pkgs; [ git-crypt ];
   };
-
-  # Add corporate certificate to the system
-  # security.pki.certificateFiles = [ "${corporateCert}/cert/CorporateCA.crt" ];
 }
 
 # vim:expandtab ts=2 sw=2
