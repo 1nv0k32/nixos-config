@@ -9,6 +9,7 @@ with lib;
   users.users."rick" = {
     uid = 1000;
     isNormalUser = true;
+    linger = true;
     extraGroups = [
       "wheel"
       "networkmanager"
