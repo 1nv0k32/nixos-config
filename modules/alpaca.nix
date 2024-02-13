@@ -54,7 +54,7 @@ in
     in
     mkIf cfg.enable {
       # Setup service
-      systemd.services.alpaca = {
+      systemd.services."alpaca" = {
         enable = true;
         description = "alpaca proxy service";
         serviceConfig = {
