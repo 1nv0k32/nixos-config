@@ -7,8 +7,8 @@ in
   options.services.alpaca = {
     enable = mkEnableOption "alpaca service";
     pacUrl = mkOption {
-      type = types.str;
-      default = "";
+      type = types.nullOr types.str;
+      default = null;
     };
     ntlmHash = mkOption {
       type = types.str;
