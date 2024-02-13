@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   imports = [ ]
     ++ lib.optional (builtins.pathExists ./dev.nix) ./dev.nix
