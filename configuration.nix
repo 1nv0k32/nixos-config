@@ -2,23 +2,23 @@
 , ...
 }:
 let
-  configRepo = builtins.fetchTarball {
-    url = "https://github.com/1nv0k32/nixoscfg/tarball/main";
-  };
-in
-{
-  imports = [ ]
-    ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix
-    ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix
-    ++ [
-    (import "${configRepo}/src")
-    (import "${configRepo}/modules")
-    (import "${configRepo}/system/vm.nix")
-    #(import "${configRepo}/system/z13.nix")
-    #(import "${configRepo}/system/usb.nix")
-    #(import "${configRepo}/system/wsl.nix")
-  ];
-}
+  configRepo = builtins.fetchGit {
+    url = "https://github.com/1nv0k32/nixoscfg.git";
+    ref = "main";
+    in
+    {
+    imports = [ ]
+      ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix
+      ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix
+      ++ [
+      (import "${configRepo}/src")
+      (import "${configRepo}/modules")
+      (import "${configRepo}/system/vm.nix")
+      #(import "${configRepo}/system/z13.nix")
+      #(import "${configRepo}/system/usb.nix")
+      #(import "${configRepo}/system/wsl.nix")
+    ];
+  }
 
 # vim:expandtab ts=2 sw=2
 
