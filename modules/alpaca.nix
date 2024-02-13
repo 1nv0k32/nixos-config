@@ -15,7 +15,7 @@ in
     };
     listenAddr = mkOption {
       type = types.str;
-      default = "0.0.0.0";
+      default = "127.0.0.1";
     };
     listenPort = mkOption {
       type = types.str;
