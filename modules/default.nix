@@ -1,7 +1,7 @@
 { ... }:
 {
   import = [
-    cert_der.nix
+    ./cert_der.nix
   ];
 }
 
