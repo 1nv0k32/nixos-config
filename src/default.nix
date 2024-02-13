@@ -64,9 +64,6 @@ with lib;
       "L+ /lib/ld-linux.so.2 - - - - ${pkgs.glibc_multi}/lib/32/ld-linux.so.2"
       "L+ /lib64/ld-linux-x86-64.so.2 - - - - ${pkgs.glibc}/lib64/ld-linux-x86-64.so.2"
     ];
-    services = {
-      k3s.wantedBy = mkForce [ ];
-    };
   };
 
   time = {
@@ -85,7 +82,6 @@ with lib;
 
   services = {
     envfs.enable = true;
-    k3s.enable = mkDefault true;
     avahi.enable = mkForce false;
     gnome = {
       core-utilities.enable = mkForce false;
