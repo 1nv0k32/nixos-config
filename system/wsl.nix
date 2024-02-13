@@ -52,8 +52,10 @@ in
     defaultUser = "rick";
   };
 
-  home-manager.users."rick".programs.git.userName = mkDefault "Name";
-  home-manager.users."rick".programs.git.userEmail = mkDefault "Name@domain.local";
+  home-manager.users."rick".programs.git = {
+    userName = mkDefault "Name";
+    userEmail = mkDefault "Name@domain.local";
+  };
 
   systemd.services = {
     systemd-resolved.enable = mkForce false;
@@ -77,9 +79,11 @@ in
   };
 
   boot.loader.systemd-boot.enable = mkForce false;
-  networking.networkmanager.enable = mkForce false;
-  networking.firewall.enable = mkForce false;
-  networking.proxy.default = mkForce proxy;
+  networking = {
+    networkmanager.enable = mkForce false;
+    firewall.enable = mkForce false;
+    proxy.default = mkForce proxy;
+  };
 
   virtualisation.docker.daemon.settings = {
     iptables = false;
