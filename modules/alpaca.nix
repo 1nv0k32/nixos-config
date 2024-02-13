@@ -64,9 +64,9 @@ in
         };
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
-        environment = {
-          NTLM_CREDENTIALS = "${cfg.ntlmHash}";
-        };
+        #environment = {
+        #  NTLM_CREDENTIALS = "${cfg.ntlmHash}";
+        #};
       };
 
       # Set proxy on system and services
