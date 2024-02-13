@@ -1,6 +1,6 @@
 { ... }:
 {
-  import = [
+  imports = [
     ./cert_der.nix
   ];
 }
