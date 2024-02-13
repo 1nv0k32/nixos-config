@@ -2,7 +2,7 @@
 with lib;
 {
   DOT_BASHRC = mkDefault ''
-    confCommit() (
+    nixconf() (
       [ -z $1 ] && exit 1
       cd -- $1 || exit 1
       nixpkgs-fmt .

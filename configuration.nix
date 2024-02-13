@@ -3,7 +3,7 @@
 }:
 let
   configRepo = builtins.fetchGit {
-    url = "https://github.com/1nv0k32/NixOS.git";
+    url = "https://github.com/1nv0k32/nixoscfg.git";
     ref = "main";
   };
 in
