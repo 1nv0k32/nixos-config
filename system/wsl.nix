@@ -52,8 +52,8 @@ in
     defaultUser = "rick";
   };
 
-  home-manager.users."rick".programs.git.userName = mkForce "Name";
-  home-manager.users."rick".programs.git.userEmail = mkForce "Name@domain.local";
+  home-manager.users."rick".programs.git.userName = mkDefault "Name";
+  home-manager.users."rick".programs.git.userEmail = mkDefault "Name@domain.local";
 
   systemd.services = {
     systemd-resolved.enable = mkForce false;
