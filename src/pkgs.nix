@@ -103,7 +103,6 @@ with pkgs;
 
     nixopsUnstable
     kubectl
-    kubeswitch
     kubernetes-helm
     k9s
     argocd
