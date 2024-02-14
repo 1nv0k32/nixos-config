@@ -69,12 +69,12 @@ with lib;
 
   i18n.defaultLocale = mkDefault "en_GB.UTF-8";
 
-  # console = {
-  #   earlySetup = mkDefault true;
-  #   packages = customPkgs.CONSOLE;
-  #   font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
-  #   keyMap = mkDefault "us";
-  # };
+  console = {
+    earlySetup = mkDefault true;
+    packages = customPkgs.CONSOLE;
+    font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
+    keyMap = mkDefault "us";
+  };
 
   services = {
     #   avahi.enable = mkForce false;
