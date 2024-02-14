@@ -136,12 +136,12 @@ with lib;
     bind -T copy-mode-vi Enter send-keys -X copy-pipe
 
     set -g base-index 1
-    #set -g escape-time 0
+    set -g escape-time 0
     set -g mode-keys vi
     set -g prefix C-a
     set -g history-limit 50000
     #set -g set-titles on
-    #set -g mouse on
+    set -g mouse on
     set -g monitor-activity on
     set -g default-terminal "xterm-256color"
     set -g default-command "''${SHELL}"
