@@ -6,40 +6,40 @@ with lib;
   imports = [ (import ./users.nix { customPkgs = customPkgs; }) ];
 
   nix = {
-    # settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
+    settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
     extraOptions = customConfs.NIX_CONFIG;
   };
 
-  # documentation.nixos.enable = mkDefault false;
+  documentation.nixos.enable = mkDefault false;
 
   system = {
     stateVersion = mkDefault "23.11";
-    # autoUpgrade = {
-    #   enable = mkDefault true;
-    #   allowReboot = mkDefault false;
-    #   operation = mkDefault "boot";
-    #   flags = mkDefault [ "--upgrade-all" ];
-    # };
+    autoUpgrade = {
+      enable = mkDefault true;
+      allowReboot = mkDefault false;
+      operation = mkDefault "boot";
+      flags = mkDefault [ "--upgrade-all" ];
+    };
   };
 
-  # boot = {
-  #   blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
-  #   extraModprobeConfig = mkDefault "options kvm_amd nested=1";
-  #   binfmt.emulatedSystems = [ "aarch64-linux" ];
-  #   loader = {
-  #     efi.canTouchEfiVariables = mkDefault true;
-  #     timeout = mkDefault 0;
-  #     systemd-boot = {
-  #       enable = mkDefault true;
-  #       editor = mkForce false;
-  #       consoleMode = mkDefault "max";
-  #     };
-  #   };
-  #   initrd.systemd = {
-  #     enable = mkDefault true;
-  #     extraConfig = customConfs.SYSTEMD_CONFIG;
-  #   };
-  # };
+  boot = {
+    blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
+    extraModprobeConfig = mkDefault "options kvm_amd nested=1";
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    loader = {
+      efi.canTouchEfiVariables = mkDefault true;
+      timeout = mkDefault 0;
+      systemd-boot = {
+        enable = mkDefault true;
+        editor = mkForce false;
+        consoleMode = mkDefault "max";
+      };
+    };
+    initrd.systemd = {
+      enable = mkDefault true;
+      extraConfig = customConfs.SYSTEMD_CONFIG;
+    };
+  };
 
   networking = {
     hostName = mkDefault "nyx";
