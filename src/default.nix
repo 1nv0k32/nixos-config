@@ -102,18 +102,18 @@ with lib;
       lidSwitch = mkDefault "suspend";
       extraConfig = customConfs.LOGIND_CONFIG;
     };
-    #   xserver = {
-    #     enable = mkDefault true;
-    #     layout = mkDefault "us";
-    #     desktopManager = {
-    #       gnome.enable = mkDefault true;
-    #       wallpaper.mode = "center";
-    #     };
-    #     displayManager = {
-    #       gdm.enable = mkDefault true;
-    #       defaultSession = mkDefault "gnome";
-    #     };
-    #   };
+    xserver = {
+      enable = mkDefault true;
+      layout = mkDefault "us";
+      desktopManager = {
+        gnome.enable = mkDefault true;
+        wallpaper.mode = "center";
+      };
+      displayManager = {
+        gdm.enable = mkDefault true;
+        defaultSession = mkDefault "gnome";
+      };
+    };
     #   pipewire = {
     #     enable = mkDefault true;
     #     alsa.enable = mkDefault true;
