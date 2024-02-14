@@ -117,12 +117,12 @@ with lib;
         defaultSession = mkDefault "gnome";
       };
     };
-    pipewire = {
-      enable = mkDefault true;
-      alsa.enable = mkDefault true;
-      alsa.support32Bit = mkDefault true;
-      pulse.enable = mkDefault true;
-    };
+    # pipewire = {
+    #   enable = mkDefault true;
+    #   alsa.enable = mkDefault true;
+    #   alsa.support32Bit = mkDefault true;
+    #   pulse.enable = mkDefault true;
+    # };
     tor = {
       enable = mkDefault false;
       client.enable = mkDefault false;
