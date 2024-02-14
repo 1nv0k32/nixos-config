@@ -7,7 +7,7 @@ with lib;
 
   wsl = {
     enable = true;
-    defaultUser = "nixos";
+    defaultUser = "rick";
   };
 
   home-manager.users."rick".programs.git = {
