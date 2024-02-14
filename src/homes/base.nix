@@ -24,7 +24,7 @@ with lib.hm.gvariant;
     includes = [ "~/.ssh/config.d/*.config" ];
     proxyCommand =
       let
-        proxy_url = builtins.elemAt (builtins.split systemConfig.networking.proxy.default) 4;
+        proxy_url = builtins.elemAt (builtins.split "/" systemConfig.networking.proxy.default) 4;
       in
       lib.mkIf systemConfig.networking.proxy.default "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
   };
