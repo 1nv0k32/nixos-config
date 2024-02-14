@@ -26,7 +26,7 @@ with lib.hm.gvariant;
       let
         proxy_url = builtins.parseDrvName systemConfig.networking.proxy.default;
       in
-      lib.mkIf systemConfig.networking.proxy.default "${pkgs.nc}/bin/nc -X connect -x ${proxy_url.host}:${proxy_url.port} %h %p";
+      lib.mkIf systemConfig.networking.proxy.default "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url.host}:${proxy_url.port} %h %p";
   };
 
   programs.gnome-terminal = {
