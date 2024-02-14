@@ -19,8 +19,8 @@ with lib;
     xserver.enable = mkForce false;
   };
 
-  systemd.services = {
-    systemd-resolved.enable = mkForce false;
+  services = {
+    resolved.enable = mkForce false;
   };
 
   boot.loader.systemd-boot.enable = mkForce false;

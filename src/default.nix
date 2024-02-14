@@ -76,52 +76,52 @@ with lib;
   #   keyMap = mkDefault "us";
   # };
 
-  # services = {
-  #   avahi.enable = mkForce false;
-  #   gnome = {
-  #     core-utilities.enable = mkForce false;
-  #     gnome-keyring.enable = mkDefault true;
-  #   };
-  #   fstrim.enable = mkDefault true;
-  #   fwupd.enable = mkDefault true;
-  #   resolved = {
-  #     enable = mkDefault true;
-  #     extraConfig = customConfs.RESOLVED_CONFIG;
-  #   };
-  #   logind = {
-  #     killUserProcesses = mkDefault true;
-  #     suspendKeyLongPress = mkDefault "lock";
-  #     suspendKey = mkDefault "lock";
-  #     rebootKeyLongPress = mkDefault "lock";
-  #     rebootKey = mkDefault "lock";
-  #     powerKeyLongPress = mkDefault "lock";
-  #     powerKey = mkDefault "lock";
-  #     hibernateKeyLongPress = mkDefault "lock";
-  #     hibernateKey = mkDefault "lock";
-  #     lidSwitchExternalPower = mkDefault "lock";
-  #     lidSwitchDocked = mkDefault "lock";
-  #     lidSwitch = mkDefault "suspend";
-  #     extraConfig = customConfs.LOGIND_CONFIG;
-  #   };
-  #   xserver = {
-  #     enable = mkDefault true;
-  #     layout = mkDefault "us";
-  #     desktopManager = {
-  #       gnome.enable = mkDefault true;
-  #       wallpaper.mode = "center";
-  #     };
-  #     displayManager = {
-  #       gdm.enable = mkDefault true;
-  #       defaultSession = mkDefault "gnome";
-  #     };
-  #   };
-  #   pipewire = {
-  #     enable = mkDefault true;
-  #     alsa.enable = mkDefault true;
-  #     alsa.support32Bit = mkDefault true;
-  #     pulse.enable = mkDefault true;
-  #   };
-  # };
+  services = {
+    #   avahi.enable = mkForce false;
+    #   gnome = {
+    #     core-utilities.enable = mkForce false;
+    #     gnome-keyring.enable = mkDefault true;
+    #   };
+    #   fstrim.enable = mkDefault true;
+    #   fwupd.enable = mkDefault true;
+    resolved = {
+      enable = mkDefault true;
+      extraConfig = customConfs.RESOLVED_CONFIG;
+    };
+    #   logind = {
+    #     killUserProcesses = mkDefault true;
+    #     suspendKeyLongPress = mkDefault "lock";
+    #     suspendKey = mkDefault "lock";
+    #     rebootKeyLongPress = mkDefault "lock";
+    #     rebootKey = mkDefault "lock";
+    #     powerKeyLongPress = mkDefault "lock";
+    #     powerKey = mkDefault "lock";
+    #     hibernateKeyLongPress = mkDefault "lock";
+    #     hibernateKey = mkDefault "lock";
+    #     lidSwitchExternalPower = mkDefault "lock";
+    #     lidSwitchDocked = mkDefault "lock";
+    #     lidSwitch = mkDefault "suspend";
+    #     extraConfig = customConfs.LOGIND_CONFIG;
+    #   };
+    #   xserver = {
+    #     enable = mkDefault true;
+    #     layout = mkDefault "us";
+    #     desktopManager = {
+    #       gnome.enable = mkDefault true;
+    #       wallpaper.mode = "center";
+    #     };
+    #     displayManager = {
+    #       gdm.enable = mkDefault true;
+    #       defaultSession = mkDefault "gnome";
+    #     };
+    #   };
+    #   pipewire = {
+    #     enable = mkDefault true;
+    #     alsa.enable = mkDefault true;
+    #     alsa.support32Bit = mkDefault true;
+    #     pulse.enable = mkDefault true;
+    #   };
+  };
 
   # sound.enable = mkDefault true;
   # hardware = {
