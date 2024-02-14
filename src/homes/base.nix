@@ -22,7 +22,7 @@ with lib.hm.gvariant;
   programs.ssh = {
     enable = true;
     includes = [ "~/.ssh/config.d/*.config" ];
-    proxyCommand =
+    matchBlocks."*".proxyCommand =
       let
         proxy_url = builtins.elemAt (builtins.split "/" systemConfig.networking.proxy.default) 4;
       in
