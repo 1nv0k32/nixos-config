@@ -22,24 +22,23 @@ with lib;
     };
   };
 
-  # boot = {
-  #   blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
-  #   extraModprobeConfig = mkDefault "options kvm_amd nested=1";
-  #   binfmt.emulatedSystems = [ "aarch64-linux" ];
-  #   loader = {
-  #     efi.canTouchEfiVariables = mkDefault true;
-  #     timeout = mkDefault 0;
-  #     systemd-boot = {
-  #       enable = mkDefault true;
-  #       editor = mkForce false;
-  #       consoleMode = mkDefault "max";
-  #     };
-  #   };
-  #   initrd.systemd = {
-  #     enable = mkDefault true;
-  #     extraConfig = customConfs.SYSTEMD_CONFIG;
-  #   };
-  # };
+  boot = {
+    blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
+    extraModprobeConfig = mkDefault "options kvm_amd nested=1";
+    loader = {
+      efi.canTouchEfiVariables = mkDefault true;
+      timeout = mkDefault 0;
+      systemd-boot = {
+        enable = mkDefault true;
+        editor = mkForce false;
+        consoleMode = mkDefault "max";
+      };
+    };
+    initrd.systemd = {
+      enable = mkDefault true;
+      extraConfig = customConfs.SYSTEMD_CONFIG;
+    };
+  };
 
   networking = {
     hostName = mkDefault "nyx";
