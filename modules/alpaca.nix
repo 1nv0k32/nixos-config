@@ -77,9 +77,6 @@ in
       networking = {
         proxy.default = mkForce proxy;
       };
-      programs.ssh.extraConfig = options.programs.ssh.extraConfig.default ++ ''
-        ProxyCommand nc -X connect -x 127.0.0.1:3128 %h %p
-      '';
     };
 }
 

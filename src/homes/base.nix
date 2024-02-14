@@ -19,15 +19,14 @@ with lib.hm.gvariant;
     bashrcExtra = customDots.DOT_BASHRC;
   };
 
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-
   programs.ssh = {
     enable = true;
     includes = [ "~/.ssh/config.d/*.config" ];
+    proxyCommand =
+      let
+        proxy_url = builtins.parseDrvName config.networking.proxy.default;
+      in
+      lib.mkIf config.networking.proxy.default "${pkgs.nc}/bin/nc -X connect ${proxy_url.host}:${proxy_url.port} %h %p";
   };
 
   programs.gnome-terminal = {
