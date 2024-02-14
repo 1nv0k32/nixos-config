@@ -27,7 +27,7 @@ with lib;
     packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
   };
 
-  users.users."nixos" = {
+  users.users."nixos" = mkForce {
     uid = 1003;
     isNormalUser = true;
     linger = true;
