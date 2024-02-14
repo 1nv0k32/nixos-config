@@ -11,58 +11,58 @@ with pkgs;
   ];
 
   USER = [
-    # chromium
-    # firefox
-    # spotify
-    # flameshot
-    # otpclient
-    # winbox
-    # gns3-gui
-    # gns3-server
-    # dynamips
-    # inetutils
-    # pavucontrol
-    # networkmanagerapplet
-    # imagemagick
-    # ghostscript
-    # ffmpeg
-    # vlc
-    # gimp
-    # evince
-    # rivalcfg
-    # discord
-    # transmission
-    # transmission-gtk
-    # pulseaudio
-    # unrar-wrapper
-    # cobang
-    # alsa-utils
-    # bitwarden
-    # ghidra-bin
-    # rpi-imager
-    # yt-dlp
-    # media-downloader
-    # pass
+    chromium
+    firefox
+    spotify
+    flameshot
+    otpclient
+    winbox
+    gns3-gui
+    gns3-server
+    dynamips
+    inetutils
+    pavucontrol
+    networkmanagerapplet
+    imagemagick
+    ghostscript
+    ffmpeg
+    vlc
+    gimp
+    evince
+    rivalcfg
+    discord
+    transmission
+    transmission-gtk
+    pulseaudio
+    unrar-wrapper
+    cobang
+    alsa-utils
+    bitwarden
+    ghidra-bin
+    rpi-imager
+    yt-dlp
+    media-downloader
+    pass
 
-    # gnome.gnome-terminal
-    # gnome.dconf-editor
-    # gnome.gnome-tweaks
-    # gnome.nautilus
-    # gnome.file-roller
-    # gnome.gnome-calculator
-    # gnome.eog
+    gnome.gnome-terminal
+    gnome.dconf-editor
+    gnome.gnome-tweaks
+    gnome.nautilus
+    gnome.file-roller
+    gnome.gnome-calculator
+    gnome.eog
   ];
 
   GNOME_EXT = [
-    # gnomeExtensions.appindicator
-    # gnomeExtensions.just-perfection
-    # gnomeExtensions.unblank
-    # gnomeExtensions.tiling-assistant
-    # gnomeExtensions.caffeine
+    gnomeExtensions.appindicator
+    gnomeExtensions.just-perfection
+    gnomeExtensions.unblank
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.caffeine
   ];
 
   SYSTEM = [
-    # nixos-generators
+    nixos-generators
     vim_configurable
     cryptsetup
     openssl
@@ -70,81 +70,81 @@ with pkgs;
     tmux
     bat
     nixpkgs-fmt
-    # tree
-    # file
-    # htop
-    # acpi
-    # efibootmgr
-    # nload
-    # ncdu
-    # aria
-    # wget
-    # unzip
-    # tpm2-tss
-    # jq
-    # yq
+    tree
+    file
+    htop
+    acpi
+    efibootmgr
+    nload
+    ncdu
+    aria
+    wget
+    unzip
+    tpm2-tss
+    jq
+    yq
 
-    # ntfs3g
-    # gnumake
-    # cmake
-    # libgcc
-    # glibc
-    # gcc
-    # gdb
-    # valgrind
-    # android-tools
+    ntfs3g
+    gnumake
+    cmake
+    libgcc
+    glibc
+    gcc
+    gdb
+    valgrind
+    android-tools
 
-    # wireguard-tools
-    # conntrack-tools
-    # nftables
-    # openvpn
-    # ubridge
-    # iw
+    wireguard-tools
+    conntrack-tools
+    nftables
+    openvpn
+    ubridge
+    iw
 
-    # nixopsUnstable
-    # kubectl
-    # kubernetes-helm
-    # k9s
-    # argocd
-    # awscli
+    nixopsUnstable
+    kubectl
+    kubernetes-helm
+    k9s
+    argocd
+    awscli
     vscode
-    # virt-manager
-    # win-virtio
-    # vagrant
-    # terraform
-    # ansible
-    # podman-compose
-    # distrobox
-    # quickemu
-    # git-crypt
-    # kind
+    virt-manager
+    win-virtio
+    vagrant
+    terraform
+    ansible
+    podman-compose
+    distrobox
+    quickemu
+    git-crypt
+    kind
 
-    # nvme-cli
-    # gparted
-    # stress
-    # pwgen
-    # qrencode
-    # usbutils
-    # pciutils
+    nvme-cli
+    gparted
+    stress
+    pwgen
+    qrencode
+    usbutils
+    pciutils
 
-    # nmap
-    # burpsuite
-    # radare2
-    # pwntools
-    # pwndbg
-    # aircrack-ng
-    # binwalk
+    nmap
+    burpsuite
+    radare2
+    pwntools
+    pwndbg
+    aircrack-ng
+    binwalk
 
-    # python3
-    # poetry
-    # hatch
+    python3
+    poetry
+    hatch
 
-    # stm32cubemx
-    # stm32loader
-    # stm32flash
+    stm32cubemx
+    stm32loader
+    stm32flash
 
-    # wl-clipboard
-    # wineWowPackages.stable
+    wl-clipboard
+    wineWowPackages.stable
   ];
 }
 

@@ -10,10 +10,10 @@ with lib;
     defaultUser = "rick";
   };
 
-  home-manager.users."rick".programs.git = {
-    userName = mkDefault "Name";
-    userEmail = mkDefault "Name@domain.local";
-  };
+  # home-manager.users."rick".programs.git = {
+  #   userName = mkDefault "Name";
+  #   userEmail = mkDefault "Name@domain.local";
+  # };
 
   services = {
     xserver.enable = mkForce false;
