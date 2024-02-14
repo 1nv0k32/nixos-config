@@ -17,6 +17,7 @@ with lib;
 
   services = {
     xserver.enable = mkForce false;
+    pipewire.enable = mkForce false;
   };
 
   services = {
