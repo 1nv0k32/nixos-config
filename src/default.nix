@@ -60,10 +60,10 @@ with lib;
   systemd = {
     extraConfig = customConfs.SYSTEMD_CONFIG;
     user.extraConfig = customConfs.SYSTEMD_USER_CONFIG;
-    tmpfiles.rules = mkDefault [
-      "L+ /lib/ld-linux.so.2 - - - - ${pkgs.glibc_multi}/lib/32/ld-linux.so.2"
-      "L+ /lib64/ld-linux-x86-64.so.2 - - - - ${pkgs.glibc}/lib64/ld-linux-x86-64.so.2"
-    ];
+    # tmpfiles.rules = mkDefault [
+    #   "L+ /lib/ld-linux.so.2 - - - - ${pkgs.glibc_multi}/lib/32/ld-linux.so.2"
+    #   "L+ /lib64/ld-linux-x86-64.so.2 - - - - ${pkgs.glibc}/lib64/ld-linux-x86-64.so.2"
+    # ];
   };
 
   time = {
