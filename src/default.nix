@@ -189,7 +189,7 @@ with lib;
     dconf.enable = mkDefault true;
     tmux = {
       enable = mkDefault true;
-      #extraConfig = customConfs.TMUX_CONFIG;
+      extraConfig = customConfs.TMUX_CONFIG;
     };
     git = {
       enable = mkDefault true;
