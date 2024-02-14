@@ -131,21 +131,21 @@ with lib;
   #   wirelessRegulatoryDatabase = mkDefault true;
   # };
 
-  # security = {
-  #   rtkit.enable = mkDefault true;
-  #   pam = {
-  #     services = {
-  #       gdm.enableGnomeKeyring = mkDefault true;
-  #     };
-  #   };
-  #   wrappers.ubridge = {
-  #     source = mkDefault "${pkgs.ubridge}/bin/ubridge";
-  #     capabilities = mkDefault "cap_net_admin,cap_net_raw=ep";
-  #     owner = mkDefault "root";
-  #     group = mkDefault "ubridge";
-  #     permissions = mkDefault "u+rx,g+x";
-  #   };
-  # };
+  security = {
+    rtkit.enable = mkDefault true;
+    pam = {
+      services = {
+        gdm.enableGnomeKeyring = mkDefault true;
+      };
+    };
+    wrappers.ubridge = {
+      source = mkDefault "${pkgs.ubridge}/bin/ubridge";
+      capabilities = mkDefault "cap_net_admin,cap_net_raw=ep";
+      owner = mkDefault "root";
+      group = mkDefault "ubridge";
+      permissions = mkDefault "u+rx,g+x";
+    };
+  };
 
   virtualisation = {
     podman = {
