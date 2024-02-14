@@ -24,9 +24,9 @@ with lib.hm.gvariant;
     includes = [ "~/.ssh/config.d/*.config" ];
     proxyCommand =
       let
-        proxy_url = builtins.parseDrvName systemConfig.networking.proxy.default;
+        proxy_url = builtins.elemAt (builtins.split systemConfig.networking.proxy.default) 4;
       in
-      lib.mkIf systemConfig.networking.proxy.default "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url.host}:${proxy_url.port} %h %p";
+      lib.mkIf systemConfig.networking.proxy.default "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
   };
 
   programs.gnome-terminal = {
