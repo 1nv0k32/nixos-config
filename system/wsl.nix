@@ -44,7 +44,7 @@ with lib;
     description = "tmux background service";
     serviceConfig = {
       Type = "forking";
-      ExecStart = "-${pkgs.tmux}/bin/tmux new-session -d -s background";
+      ExecStart = "${pkgs.bash} -c '${pkgs.tmux}/bin/tmux new-session -d -s background || true'";
     };
     wantedBy = [ "multi-user.target" ];
   };
