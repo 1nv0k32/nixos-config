@@ -14,7 +14,7 @@ in
     ++ [
     (import "${configRepo}/src")
     (import "${configRepo}/modules")
-    (import "${configRepo}/system/vm.nix")
+    #(import "${configRepo}/system/vm.nix")
     #(import "${configRepo}/system/z13.nix")
     #(import "${configRepo}/system/usb.nix")
     #(import "${configRepo}/system/wsl.nix")

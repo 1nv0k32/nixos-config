@@ -1,5 +1,5 @@
 { customPkgs, ... }: { config, pkgs, lib, ... }:
-# let homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz"; in
+let homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz"; in
 with lib;
 {
   users.groups."ubridge" = {
@@ -34,11 +34,11 @@ with lib;
     };
   };
 
-  # imports = [
-  #   (import "${homeManager}/nixos")
-  #   (import ./homes/rick.nix { customPkgs = customPkgs; systemConfig = config; })
-  #   (import ./homes/guest.nix { customPkgs = customPkgs; systemConfig = config; })
-  # ];
+  imports = [
+    (import "${homeManager}/nixos")
+    (import ./homes/rick.nix { customPkgs = customPkgs; systemConfig = config; })
+    (import ./homes/guest.nix { customPkgs = customPkgs; systemConfig = config; })
+  ];
 }
 
 # vim:expandtab ts=2 sw=2
