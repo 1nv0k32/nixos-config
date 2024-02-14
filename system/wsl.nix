@@ -12,6 +12,7 @@ with lib;
       { src = "${coreutils}/bin/uname"; }
     ];
   };
+  boot.loader.systemd-boot.enable = mkForce false;
 
   home-manager.users."rick".programs.git = {
     userName = mkDefault "Name";
