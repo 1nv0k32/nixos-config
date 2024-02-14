@@ -38,6 +38,15 @@ with lib;
     iptables = false;
     ipv6 = false;
   };
+
+  systemd.services.tmux-background = {
+    enable = true;
+    description = "tmux background service";
+    serviceConfig = {
+      ExecStart = "${pkgs.tmux}/bin/tmux new-session -d -s background";
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
 }
 
 # vim:expandtab ts=2 sw=2
