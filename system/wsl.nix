@@ -43,7 +43,7 @@ with lib;
     enable = true;
     description = "tmux background service";
     serviceConfig = {
-      Type = "simple";
+      Type = "exec";
       ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.tmux}/bin/tmux new-session -d -s background || true'";
     };
     wantedBy = [ "multi-user.target" ];
