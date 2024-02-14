@@ -22,49 +22,49 @@ with lib;
     };
   };
 
-  boot = {
-    blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
-    extraModprobeConfig = mkDefault "options kvm_amd nested=1";
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
-    loader = {
-      efi.canTouchEfiVariables = mkDefault true;
-      timeout = mkDefault 0;
-      systemd-boot = {
-        enable = mkDefault true;
-        editor = mkForce false;
-        consoleMode = mkDefault "max";
-      };
-    };
-    initrd.systemd = {
-      enable = mkDefault true;
-      extraConfig = customConfs.SYSTEMD_CONFIG;
-    };
-  };
+  # boot = {
+  #   blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
+  #   extraModprobeConfig = mkDefault "options kvm_amd nested=1";
+  #   binfmt.emulatedSystems = [ "aarch64-linux" ];
+  #   loader = {
+  #     efi.canTouchEfiVariables = mkDefault true;
+  #     timeout = mkDefault 0;
+  #     systemd-boot = {
+  #       enable = mkDefault true;
+  #       editor = mkForce false;
+  #       consoleMode = mkDefault "max";
+  #     };
+  #   };
+  #   initrd.systemd = {
+  #     enable = mkDefault true;
+  #     extraConfig = customConfs.SYSTEMD_CONFIG;
+  #   };
+  # };
 
   networking = {
     hostName = mkDefault "nyx";
-    # networkmanager = {
-    #   enable = mkDefault true;
-    #   dns = mkDefault "systemd-resolved";
-    #   extraConfig = customConfs.NETWORK_MANAGER_CONFIG;
-    # };
-    # firewall = {
-    #   enable = mkDefault true;
-    #   checkReversePath = mkDefault false;
-    #   allowPing = mkDefault false;
-    #   allowedTCPPorts = mkDefault [ ];
-    #   allowedUDPPorts = mkDefault [ ];
-    # };
+    networkmanager = {
+      enable = mkDefault true;
+      dns = mkDefault "systemd-resolved";
+      extraConfig = customConfs.NETWORK_MANAGER_CONFIG;
+    };
+    firewall = {
+      enable = mkDefault true;
+      checkReversePath = mkDefault false;
+      allowPing = mkDefault false;
+      allowedTCPPorts = mkDefault [ ];
+      allowedUDPPorts = mkDefault [ ];
+    };
   };
 
-  # systemd = {
-  #   extraConfig = customConfs.SYSTEMD_CONFIG;
-  #   user.extraConfig = customConfs.SYSTEMD_USER_CONFIG;
-  # };
+  systemd = {
+    extraConfig = customConfs.SYSTEMD_CONFIG;
+    user.extraConfig = customConfs.SYSTEMD_USER_CONFIG;
+  };
 
   time = {
     timeZone = mkDefault "CET";
-    # hardwareClockInLocalTime = mkDefault false;
+    hardwareClockInLocalTime = mkDefault false;
   };
 
   i18n.defaultLocale = mkDefault "en_GB.UTF-8";
