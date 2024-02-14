@@ -142,11 +142,11 @@ with lib;
     set -g history-limit 50000
     set -g set-titles on
     set -g mouse on
-    set -g monitor-activity on
-    set -g default-terminal "xterm-256color"
-    set -g default-command "''${SHELL}"
-    set -s set-clipboard external
-    set -g copy-command "${pkgs.wl-clipboard}/bin/wl-copy"
+    #set -g monitor-activity on
+    #set -g default-terminal "xterm-256color"
+    #set -g default-command "''${SHELL}"
+    #set -s set-clipboard external
+    #set -g copy-command "${pkgs.wl-clipboard}/bin/wl-copy"
     #set -ga terminal-overrides ",*256col*:Tc"
     #set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
     set -g status-interval 60
