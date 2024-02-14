@@ -85,7 +85,7 @@ with lib;
     };
     fstrim.enable = mkDefault true;
     fwupd.enable = mkDefault true;
-    flatpak.enable = mkDefault true;
+    # flatpak.enable = mkDefault true;
     resolved = {
       enable = mkDefault true;
       extraConfig = customConfs.RESOLVED_CONFIG;
