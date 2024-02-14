@@ -107,7 +107,7 @@ with pkgs;
     # k9s
     # argocd
     # awscli
-    # vscode
+    vscode
     # virt-manager
     # win-virtio
     # vagrant
