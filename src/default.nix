@@ -77,13 +77,13 @@ with lib;
   };
 
   services = {
-    #   avahi.enable = mkForce false;
+    avahi.enable = mkForce false;
     #   gnome = {
     #     core-utilities.enable = mkForce false;
     #     gnome-keyring.enable = mkDefault true;
     #   };
-    #   fstrim.enable = mkDefault true;
-    #   fwupd.enable = mkDefault true;
+    fstrim.enable = mkDefault true;
+    fwupd.enable = mkDefault true;
     resolved = {
       enable = mkDefault true;
       extraConfig = customConfs.RESOLVED_CONFIG;
@@ -123,7 +123,7 @@ with lib;
     #   };
   };
 
-  # sound.enable = mkDefault true;
+  sound.enable = mkDefault true;
   # hardware = {
   #   opengl.driSupport32Bit = mkDefault true;
   #   pulseaudio.enable = mkForce false;
