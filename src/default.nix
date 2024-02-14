@@ -6,153 +6,153 @@ with lib;
   imports = [ (import ./users.nix { customPkgs = customPkgs; }) ];
 
   nix = {
-    settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
+    # settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
     extraOptions = customConfs.NIX_CONFIG;
   };
 
-  documentation.nixos.enable = mkDefault false;
+  # documentation.nixos.enable = mkDefault false;
 
   system = {
     stateVersion = mkDefault "23.11";
-    autoUpgrade = {
-      enable = mkDefault true;
-      allowReboot = mkDefault false;
-      operation = mkDefault "boot";
-      flags = mkDefault [ "--upgrade-all" ];
-    };
+    # autoUpgrade = {
+    #   enable = mkDefault true;
+    #   allowReboot = mkDefault false;
+    #   operation = mkDefault "boot";
+    #   flags = mkDefault [ "--upgrade-all" ];
+    # };
   };
 
-  boot = {
-    blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
-    extraModprobeConfig = mkDefault "options kvm_amd nested=1";
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
-    loader = {
-      efi.canTouchEfiVariables = mkDefault true;
-      timeout = mkDefault 0;
-      systemd-boot = {
-        enable = mkDefault true;
-        editor = mkForce false;
-        consoleMode = mkDefault "max";
-      };
-    };
-    initrd.systemd = {
-      enable = mkDefault true;
-      extraConfig = customConfs.SYSTEMD_CONFIG;
-    };
-  };
+  # boot = {
+  #   blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
+  #   extraModprobeConfig = mkDefault "options kvm_amd nested=1";
+  #   binfmt.emulatedSystems = [ "aarch64-linux" ];
+  #   loader = {
+  #     efi.canTouchEfiVariables = mkDefault true;
+  #     timeout = mkDefault 0;
+  #     systemd-boot = {
+  #       enable = mkDefault true;
+  #       editor = mkForce false;
+  #       consoleMode = mkDefault "max";
+  #     };
+  #   };
+  #   initrd.systemd = {
+  #     enable = mkDefault true;
+  #     extraConfig = customConfs.SYSTEMD_CONFIG;
+  #   };
+  # };
 
   networking = {
     hostName = mkDefault "nyx";
-    networkmanager = {
-      enable = mkDefault true;
-      dns = mkDefault "systemd-resolved";
-      extraConfig = customConfs.NETWORK_MANAGER_CONFIG;
-    };
-    firewall = {
-      enable = mkDefault true;
-      checkReversePath = mkDefault false;
-      allowPing = mkDefault false;
-      allowedTCPPorts = mkDefault [ ];
-      allowedUDPPorts = mkDefault [ ];
-    };
+    # networkmanager = {
+    #   enable = mkDefault true;
+    #   dns = mkDefault "systemd-resolved";
+    #   extraConfig = customConfs.NETWORK_MANAGER_CONFIG;
+    # };
+    # firewall = {
+    #   enable = mkDefault true;
+    #   checkReversePath = mkDefault false;
+    #   allowPing = mkDefault false;
+    #   allowedTCPPorts = mkDefault [ ];
+    #   allowedUDPPorts = mkDefault [ ];
+    # };
   };
 
-  systemd = {
-    extraConfig = customConfs.SYSTEMD_CONFIG;
-    user.extraConfig = customConfs.SYSTEMD_USER_CONFIG;
-  };
+  # systemd = {
+  #   extraConfig = customConfs.SYSTEMD_CONFIG;
+  #   user.extraConfig = customConfs.SYSTEMD_USER_CONFIG;
+  # };
 
   time = {
     timeZone = mkDefault "CET";
-    hardwareClockInLocalTime = mkDefault false;
+    # hardwareClockInLocalTime = mkDefault false;
   };
 
   i18n.defaultLocale = mkDefault "en_GB.UTF-8";
 
-  console = {
-    earlySetup = mkDefault true;
-    packages = customPkgs.CONSOLE;
-    font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
-    keyMap = mkDefault "us";
-  };
+  # console = {
+  #   earlySetup = mkDefault true;
+  #   packages = customPkgs.CONSOLE;
+  #   font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
+  #   keyMap = mkDefault "us";
+  # };
 
-  services = {
-    envfs.enable = true;
-    avahi.enable = mkForce false;
-    gnome = {
-      core-utilities.enable = mkForce false;
-      gnome-keyring.enable = mkDefault true;
-    };
-    fstrim.enable = mkDefault true;
-    fwupd.enable = mkDefault true;
-    flatpak.enable = mkDefault true;
-    resolved = {
-      enable = mkDefault true;
-      extraConfig = customConfs.RESOLVED_CONFIG;
-    };
-    logind = {
-      killUserProcesses = mkDefault true;
-      suspendKeyLongPress = mkDefault "lock";
-      suspendKey = mkDefault "lock";
-      rebootKeyLongPress = mkDefault "lock";
-      rebootKey = mkDefault "lock";
-      powerKeyLongPress = mkDefault "lock";
-      powerKey = mkDefault "lock";
-      hibernateKeyLongPress = mkDefault "lock";
-      hibernateKey = mkDefault "lock";
-      lidSwitchExternalPower = mkDefault "lock";
-      lidSwitchDocked = mkDefault "lock";
-      lidSwitch = mkDefault "suspend";
-      extraConfig = customConfs.LOGIND_CONFIG;
-    };
-    xserver = {
-      enable = mkDefault true;
-      layout = mkDefault "us";
-      desktopManager = {
-        gnome.enable = mkDefault true;
-        wallpaper.mode = "center";
-      };
-      displayManager = {
-        gdm.enable = mkDefault true;
-        defaultSession = mkDefault "gnome";
-      };
-    };
-    pipewire = {
-      enable = mkDefault true;
-      alsa.enable = mkDefault true;
-      alsa.support32Bit = mkDefault true;
-      pulse.enable = mkDefault true;
-    };
-    tor = {
-      enable = mkDefault false;
-      client.enable = mkDefault false;
-    };
-  };
+  # services = {
+  #   envfs.enable = true;
+  #   avahi.enable = mkForce false;
+  #   gnome = {
+  #     core-utilities.enable = mkForce false;
+  #     gnome-keyring.enable = mkDefault true;
+  #   };
+  #   fstrim.enable = mkDefault true;
+  #   fwupd.enable = mkDefault true;
+  #   flatpak.enable = mkDefault true;
+  #   resolved = {
+  #     enable = mkDefault true;
+  #     extraConfig = customConfs.RESOLVED_CONFIG;
+  #   };
+  #   logind = {
+  #     killUserProcesses = mkDefault true;
+  #     suspendKeyLongPress = mkDefault "lock";
+  #     suspendKey = mkDefault "lock";
+  #     rebootKeyLongPress = mkDefault "lock";
+  #     rebootKey = mkDefault "lock";
+  #     powerKeyLongPress = mkDefault "lock";
+  #     powerKey = mkDefault "lock";
+  #     hibernateKeyLongPress = mkDefault "lock";
+  #     hibernateKey = mkDefault "lock";
+  #     lidSwitchExternalPower = mkDefault "lock";
+  #     lidSwitchDocked = mkDefault "lock";
+  #     lidSwitch = mkDefault "suspend";
+  #     extraConfig = customConfs.LOGIND_CONFIG;
+  #   };
+  #   xserver = {
+  #     enable = mkDefault true;
+  #     layout = mkDefault "us";
+  #     desktopManager = {
+  #       gnome.enable = mkDefault true;
+  #       wallpaper.mode = "center";
+  #     };
+  #     displayManager = {
+  #       gdm.enable = mkDefault true;
+  #       defaultSession = mkDefault "gnome";
+  #     };
+  #   };
+  #   pipewire = {
+  #     enable = mkDefault true;
+  #     alsa.enable = mkDefault true;
+  #     alsa.support32Bit = mkDefault true;
+  #     pulse.enable = mkDefault true;
+  #   };
+  #   tor = {
+  #     enable = mkDefault false;
+  #     client.enable = mkDefault false;
+  #   };
+  # };
 
-  sound.enable = mkDefault true;
-  hardware = {
-    opengl.driSupport32Bit = mkDefault true;
-    pulseaudio.enable = mkForce false;
-    bluetooth.powerOnBoot = mkDefault false;
-    wirelessRegulatoryDatabase = mkDefault true;
-  };
+  # sound.enable = mkDefault true;
+  # hardware = {
+  #   opengl.driSupport32Bit = mkDefault true;
+  #   pulseaudio.enable = mkForce false;
+  #   bluetooth.powerOnBoot = mkDefault false;
+  #   wirelessRegulatoryDatabase = mkDefault true;
+  # };
 
-  security = {
-    rtkit.enable = mkDefault true;
-    pam = {
-      services = {
-        gdm.enableGnomeKeyring = mkDefault true;
-        gdm.fprintAuth = mkDefault true;
-      };
-    };
-    wrappers.ubridge = {
-      source = mkDefault "${pkgs.ubridge}/bin/ubridge";
-      capabilities = mkDefault "cap_net_admin,cap_net_raw=ep";
-      owner = mkDefault "root";
-      group = mkDefault "ubridge";
-      permissions = mkDefault "u+rx,g+x";
-    };
-  };
+  # security = {
+  #   rtkit.enable = mkDefault true;
+  #   pam = {
+  #     services = {
+  #       gdm.enableGnomeKeyring = mkDefault true;
+  #       gdm.fprintAuth = mkDefault true;
+  #     };
+  #   };
+  #   wrappers.ubridge = {
+  #     source = mkDefault "${pkgs.ubridge}/bin/ubridge";
+  #     capabilities = mkDefault "cap_net_admin,cap_net_raw=ep";
+  #     owner = mkDefault "root";
+  #     group = mkDefault "ubridge";
+  #     permissions = mkDefault "u+rx,g+x";
+  #   };
+  # };
 
   virtualisation = {
     podman = {
@@ -169,9 +169,9 @@ with lib;
   nixpkgs = {
     config = {
       allowUnfree = mkDefault true;
-      packageOverrides = pkgs: {
-        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-      };
+      # packageOverrides = pkgs: {
+      #   vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      # };
     };
   };
 
@@ -197,13 +197,7 @@ with lib;
       enableSSHSupport = mkDefault true;
     };
     ssh.extraConfig = customConfs.SSH_CLIENT_CONFIG;
-    mtr.enable = mkDefault true;
     dconf.enable = mkDefault true;
-    steam.enable = mkDefault true;
-    wireshark = {
-      enable = mkDefault true;
-      package = mkDefault pkgs.wireshark;
-    };
     tmux = {
       enable = mkDefault true;
       extraConfig = customConfs.TMUX_CONFIG;
@@ -223,6 +217,12 @@ with lib;
         rerere.enabled = mkDefault true;
       };
     };
+    # mtr.enable = mkDefault true;
+    # steam.enable = mkDefault true;
+    # wireshark = {
+    #   enable = mkDefault true;
+    #   package = mkDefault pkgs.wireshark;
+    # };
   };
 
   fonts = {
