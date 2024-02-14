@@ -76,58 +76,58 @@ with lib;
   #   keyMap = mkDefault "us";
   # };
 
-  # services = {
-  #   envfs.enable = true;
-  #   avahi.enable = mkForce false;
-  #   gnome = {
-  #     core-utilities.enable = mkForce false;
-  #     gnome-keyring.enable = mkDefault true;
-  #   };
-  #   fstrim.enable = mkDefault true;
-  #   fwupd.enable = mkDefault true;
-  #   flatpak.enable = mkDefault true;
-  #   resolved = {
-  #     enable = mkDefault true;
-  #     extraConfig = customConfs.RESOLVED_CONFIG;
-  #   };
-  #   logind = {
-  #     killUserProcesses = mkDefault true;
-  #     suspendKeyLongPress = mkDefault "lock";
-  #     suspendKey = mkDefault "lock";
-  #     rebootKeyLongPress = mkDefault "lock";
-  #     rebootKey = mkDefault "lock";
-  #     powerKeyLongPress = mkDefault "lock";
-  #     powerKey = mkDefault "lock";
-  #     hibernateKeyLongPress = mkDefault "lock";
-  #     hibernateKey = mkDefault "lock";
-  #     lidSwitchExternalPower = mkDefault "lock";
-  #     lidSwitchDocked = mkDefault "lock";
-  #     lidSwitch = mkDefault "suspend";
-  #     extraConfig = customConfs.LOGIND_CONFIG;
-  #   };
-  #   xserver = {
-  #     enable = mkDefault true;
-  #     layout = mkDefault "us";
-  #     desktopManager = {
-  #       gnome.enable = mkDefault true;
-  #       wallpaper.mode = "center";
-  #     };
-  #     displayManager = {
-  #       gdm.enable = mkDefault true;
-  #       defaultSession = mkDefault "gnome";
-  #     };
-  #   };
-  #   pipewire = {
-  #     enable = mkDefault true;
-  #     alsa.enable = mkDefault true;
-  #     alsa.support32Bit = mkDefault true;
-  #     pulse.enable = mkDefault true;
-  #   };
-  #   tor = {
-  #     enable = mkDefault false;
-  #     client.enable = mkDefault false;
-  #   };
-  # };
+  services = {
+    envfs.enable = true;
+    avahi.enable = mkForce false;
+    gnome = {
+      core-utilities.enable = mkForce false;
+      gnome-keyring.enable = mkDefault true;
+    };
+    fstrim.enable = mkDefault true;
+    fwupd.enable = mkDefault true;
+    flatpak.enable = mkDefault true;
+    resolved = {
+      enable = mkDefault true;
+      extraConfig = customConfs.RESOLVED_CONFIG;
+    };
+    logind = {
+      killUserProcesses = mkDefault true;
+      suspendKeyLongPress = mkDefault "lock";
+      suspendKey = mkDefault "lock";
+      rebootKeyLongPress = mkDefault "lock";
+      rebootKey = mkDefault "lock";
+      powerKeyLongPress = mkDefault "lock";
+      powerKey = mkDefault "lock";
+      hibernateKeyLongPress = mkDefault "lock";
+      hibernateKey = mkDefault "lock";
+      lidSwitchExternalPower = mkDefault "lock";
+      lidSwitchDocked = mkDefault "lock";
+      lidSwitch = mkDefault "suspend";
+      extraConfig = customConfs.LOGIND_CONFIG;
+    };
+    xserver = {
+      enable = mkDefault true;
+      layout = mkDefault "us";
+      desktopManager = {
+        gnome.enable = mkDefault true;
+        wallpaper.mode = "center";
+      };
+      displayManager = {
+        gdm.enable = mkDefault true;
+        defaultSession = mkDefault "gnome";
+      };
+    };
+    pipewire = {
+      enable = mkDefault true;
+      alsa.enable = mkDefault true;
+      alsa.support32Bit = mkDefault true;
+      pulse.enable = mkDefault true;
+    };
+    tor = {
+      enable = mkDefault false;
+      client.enable = mkDefault false;
+    };
+  };
 
   # sound.enable = mkDefault true;
   # hardware = {
@@ -169,9 +169,6 @@ with lib;
   nixpkgs = {
     config = {
       allowUnfree = mkDefault true;
-      # packageOverrides = pkgs: {
-      #   vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-      # };
     };
   };
 
@@ -217,12 +214,12 @@ with lib;
         rerere.enabled = mkDefault true;
       };
     };
-    # mtr.enable = mkDefault true;
-    # steam.enable = mkDefault true;
-    # wireshark = {
-    #   enable = mkDefault true;
-    #   package = mkDefault pkgs.wireshark;
-    # };
+    mtr.enable = mkDefault true;
+    steam.enable = mkDefault true;
+    wireshark = {
+      enable = mkDefault true;
+      package = mkDefault pkgs.wireshark;
+    };
   };
 
   fonts = {
