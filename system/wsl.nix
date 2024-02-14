@@ -8,6 +8,9 @@ with lib;
   wsl = {
     enable = true;
     defaultUser = "rick";
+    extraBin = with pkgs; [
+      { src = "${coreutils}/bin/uname"; }
+    ];
   };
 
   home-manager.users."rick".programs.git = {
@@ -18,13 +21,13 @@ with lib;
   services = {
     xserver.enable = mkForce false;
     pipewire.enable = mkForce false;
-  };
-
-  services = {
     resolved.enable = mkForce false;
   };
 
-  boot.loader.systemd-boot.enable = mkForce false;
+  programs = {
+    nix-ld.enable = true;
+  };
+
   networking = {
     networkmanager.enable = mkForce false;
     firewall.enable = mkForce false;
