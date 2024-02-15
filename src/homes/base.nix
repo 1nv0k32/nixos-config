@@ -26,7 +26,7 @@ with lib.hm.gvariant;
       let
         proxy_url = builtins.elemAt (builtins.split "/" systemConfig.networking.proxy.default) 4;
       in
-      lib.mkIf systemConfig.networking.proxy.default "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
+      lib.mkIf (systemConfig.networking.proxy.default != null) "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
   };
 
   programs.gnome-terminal = {
