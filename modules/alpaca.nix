@@ -69,6 +69,8 @@ in
         };
       };
 
+      environment.systemPackages = [ alpaca ];
+
       # Set proxy on system and services
       systemd.services = {
         nix-daemon.environment = proxies;
