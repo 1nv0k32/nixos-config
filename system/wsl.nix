@@ -35,6 +35,10 @@ with lib;
     ];
   };
 
+  programs = {
+    nix-ld.enable = true;
+  };
+
   networking = {
     networkmanager.enable = mkForce false;
     firewall.enable = mkForce false;
