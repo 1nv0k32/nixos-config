@@ -25,8 +25,14 @@ with lib;
     resolved.enable = mkForce false;
   };
 
-  programs = {
-    nix-ld.enable = true;
+  environment = {
+    variables = {
+      ORACLE_HOME = "${pkgs.oracle-instantclient.lib}";
+    };
+    systemPackages = with pkgs; [
+      python311
+      python312
+    ];
   };
 
   networking = {
