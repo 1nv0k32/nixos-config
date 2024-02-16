@@ -37,7 +37,6 @@ with pkgs;
     unrar-wrapper
     cobang
     alsa-utils
-    bitwarden
     ghidra-bin
     rpi-imager
     yt-dlp
