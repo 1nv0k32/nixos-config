@@ -19,12 +19,6 @@ with lib.hm.gvariant;
     bashrcExtra = customDots.DOT_BASHRC;
   };
 
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-
   programs.ssh = {
     enable = true;
     includes = [ "~/.ssh/config.d/*.config" ];
