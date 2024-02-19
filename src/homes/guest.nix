@@ -4,7 +4,7 @@
       username = "guest";
     };
 
-    imports = [ (import ./base.nix { customPkgs = customPkgs; systemConfig = systemConfig; }) ];
+    imports = [ (import ./base.nix { inherit customPkgs systemConfig; }) ];
   };
 }
 

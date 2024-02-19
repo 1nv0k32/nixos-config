@@ -3,7 +3,7 @@ let customConfs = pkgs.callPackage (import ./confs.nix) { }; in
 let customPkgs = pkgs.callPackage (import ./pkgs.nix) { }; in
 with lib;
 {
-  imports = [ (import ./users.nix { customPkgs = customPkgs; }) ];
+  imports = [ (import ./users.nix { inherit customPkgs; }) ];
 
   nix = {
     settings.experimental-features = mkDefault [ "nix-command" "flakes" ];

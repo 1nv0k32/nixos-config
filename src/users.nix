@@ -27,13 +27,6 @@ with lib;
     packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
   };
 
-  services.xserver = {
-    displayManager = {
-      autoLogin.enable = mkDefault false;
-      autoLogin.user = mkDefault "guest";
-    };
-  };
-
   imports = [
     (import "${homeManager}/nixos")
     (import ./homes/rick.nix { customPkgs = customPkgs; systemConfig = config; })
