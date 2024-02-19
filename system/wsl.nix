@@ -28,6 +28,7 @@ with lib;
   environment = {
     variables = {
       ORACLE_HOME = "${pkgs.oracle-instantclient.lib}";
+      PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring";
     };
     systemPackages = with pkgs; [
       python311
