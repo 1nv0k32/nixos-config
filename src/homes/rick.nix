@@ -1,4 +1,4 @@
-{ customPkgs, systemConfig, ... }: { ... }:
+{ stateVersion, customPkgs, systemConfig, ... }: { ... }:
 {
   home-manager.users."rick" = { ... }: {
     home = {
@@ -11,7 +11,7 @@
       userEmail = "Armin.Mahdilou@gmail.com";
     };
 
-    imports = [ (import ./base.nix { inherit customPkgs systemConfig; }) ];
+    imports = [ (import ./base.nix { inherit stateVersion customPkgs systemConfig; }) ];
   };
 }
 

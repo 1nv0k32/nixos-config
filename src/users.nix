@@ -1,5 +1,7 @@
-{ customPkgs, ... }: { config, pkgs, lib, ... }:
-let homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz"; in
+{ customPkgs, stateVersion, ... }: { config, pkgs, lib, ... }:
+let
+  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
+in
 with lib;
 {
   users.groups."ubridge" = {
@@ -29,8 +31,8 @@ with lib;
 
   imports = [
     (import "${homeManager}/nixos")
-    (import ./homes/rick.nix { customPkgs = customPkgs; systemConfig = config; })
-    (import ./homes/guest.nix { customPkgs = customPkgs; systemConfig = config; })
+    (import ./homes/rick.nix { inherit customPkgs stateVersion; systemConfig = config; })
+    (import ./homes/guest.nix { inherit customPkgs stateVersion; systemConfig = config; })
   ];
 }
 
