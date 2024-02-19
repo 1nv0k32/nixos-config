@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
-let customConfs = pkgs.callPackage (import ./confs.nix) { }; in
-let customPkgs = pkgs.callPackage (import ./pkgs.nix) { }; in
+let
+  customConfs = pkgs.callPackage (import ./confs.nix) { };
+  customPkgs = pkgs.callPackage (import ./pkgs.nix) { };
+  stateVersion = "23.11";
+in
 with lib;
 {
   imports = [ (import ./users.nix { inherit customPkgs; }) ];
@@ -13,7 +16,7 @@ with lib;
   documentation.nixos.enable = mkDefault false;
 
   system = {
-    stateVersion = mkDefault "23.11";
+    stateVersion = mkDefault stateVersion;
     autoUpgrade = {
       enable = mkDefault true;
       allowReboot = mkDefault false;
