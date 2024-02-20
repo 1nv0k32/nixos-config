@@ -1,7 +1,4 @@
 { pkgs, lib, options, config, ... }:
-let
-  mainUser = config.environment.sysConf.mainUser;
-in
 with lib;
 {
   imports = [
@@ -10,7 +7,7 @@ with lib;
 
   wsl = {
     enable = true;
-    defaultUser = mainUser;
+    defaultUser = config.environment.sysConf.mainUser;
     extraBin = with pkgs; [
       { src = "${coreutils}/bin/uname"; }
     ];
