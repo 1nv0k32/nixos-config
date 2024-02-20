@@ -1,9 +1,10 @@
 { customPkgs }: { config, pkgs, lib, ... }:
 let
-  homeManager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-  };
+  homeManagerStateVersion = "23.11";
   mainUser = config.environment.sysConf.mainUser;
+  homeManager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/release-${homeManagerStateVersion}.tar.gz";
+  };
 in
 with lib;
 {
@@ -39,6 +40,7 @@ with lib;
   home-manager.users."${mainUser}" = { ... }: {
     home = {
       username = mainUser;
+      stateVersion = homeManagerStateVersion;
     };
 
     imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
@@ -47,6 +49,7 @@ with lib;
   home-manager.users."guest" = { ... }: {
     home = {
       username = "guest";
+      stateVersion = homeManagerStateVersion;
     };
 
     imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
