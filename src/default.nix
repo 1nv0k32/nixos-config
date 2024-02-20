@@ -17,7 +17,7 @@ with lib;
   documentation.nixos.enable = mkDefault false;
 
   system = {
-    stateVersion = config.programs.sysConf.stateVersion;
+    stateVersion = config.environment.sysConf.stateVersion;
     autoUpgrade = {
       enable = mkDefault true;
       allowReboot = mkDefault false;
@@ -45,7 +45,7 @@ with lib;
   };
 
   networking = {
-    hostName = config.programs.sysConf.hostName;
+    hostName = config.environment.sysConf.hostName;
     networkmanager = {
       enable = mkDefault true;
       dns = mkDefault "systemd-resolved";

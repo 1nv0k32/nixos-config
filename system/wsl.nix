@@ -1,6 +1,6 @@
 { pkgs, lib, options, ... }:
 let
-  mainUser = config.programs.sysConf.mainUser;
+  mainUser = config.environment.sysConf.mainUser;
 in
 with lib;
 {
