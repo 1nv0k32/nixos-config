@@ -1,4 +1,4 @@
-{ modulesPath, options, ... }:
+{ modulesPath, options, config, ... }:
 let
   mainUser = config.sysConf.mainUser;
 in
