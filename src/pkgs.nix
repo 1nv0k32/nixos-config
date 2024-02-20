@@ -134,7 +134,6 @@ with pkgs;
     aircrack-ng
     binwalk
 
-    python3
     poetry
     hatch
 
