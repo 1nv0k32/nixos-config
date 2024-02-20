@@ -3,6 +3,7 @@ let
   customConfs = pkgs.callPackage (import ./confs.nix) { };
   customPkgs = pkgs.callPackage (import ./pkgs.nix) { };
   stateVersion = "23.11";
+  hostName = "nyx";
 in
 with lib;
 {
@@ -44,7 +45,7 @@ with lib;
   };
 
   networking = {
-    hostName = mkDefault "nyx";
+    hostName = mkDefault hostName;
     networkmanager = {
       enable = mkDefault true;
       dns = mkDefault "systemd-resolved";

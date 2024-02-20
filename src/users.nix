@@ -39,12 +39,6 @@ with lib;
       username = mainUser;
     };
 
-    programs.git = {
-      enable = true;
-      userName = "Armin";
-      userEmail = "Armin.Mahdilou@gmail.com";
-    };
-
     imports = [ (import ./homes/base.nix { inherit stateVersion customPkgs; systemConfig = config; }) ];
   };
 

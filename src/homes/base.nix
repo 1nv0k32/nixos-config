@@ -31,6 +31,10 @@ with lib.hm.gvariant;
       lib.mkIf (systemConfig.networking.proxy.default != null) "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
   };
 
+  programs.git = {
+    enable = true;
+  };
+
   programs.gnome-terminal = {
     enable = true;
     themeVariant = "dark";
