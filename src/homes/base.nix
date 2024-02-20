@@ -1,4 +1,4 @@
-{ customPkgs, systemConfig, systemOptions }: { options, config, pkgs, lib, ... }:
+{ customPkgs, systemConfig }: { options, config, pkgs, lib, ... }:
 let
   customDots = pkgs.callPackage (import ./dots.nix) { };
 in
