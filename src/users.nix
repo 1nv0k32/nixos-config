@@ -1,7 +1,7 @@
 { customPkgs, stateVersion }: { config, pkgs, lib, ... }:
 let
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${stateVersion}.tar.gz";
-  mainUser = "rick";
+  mainUser = if (customVars.mainUser != null) then customVars.mainUser else "rick";
 in
 with lib;
 {
