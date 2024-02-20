@@ -13,7 +13,7 @@ with lib;
     name = "ubridge";
   };
 
-  users.users.mainUser = {
+  users.users."${mainUser}" = {
     uid = 1000;
     isNormalUser = true;
     linger = true;
@@ -34,7 +34,7 @@ with lib;
     packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
   };
 
-  home-manager.users.mainUser = { ... }: {
+  home-manager.users."${mainUser}" = { ... }: {
     home = {
       username = mainUser;
     };
