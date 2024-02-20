@@ -1,7 +1,7 @@
 { customPkgs }: { config, pkgs, lib, ... }:
 let
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-  mainUser = config.system.sysConf.mainUser;
+  mainUser = config.programs.sysConf.mainUser;
 in
 with lib;
 {
