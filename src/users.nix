@@ -1,7 +1,7 @@
 { customPkgs }: { config, pkgs, lib, ... }:
 let
   mainUser = config.environment.sysConf.mainUser;
-  stateVersion = config.environment.sysConf.stateVersion;
+  stateVersion = "23.11";
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${stateVersion}.tar.gz";
 in
 with lib;
