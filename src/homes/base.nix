@@ -1,4 +1,4 @@
-{ stateVersion, customPkgs, systemConfig }: { config, pkgs, lib, ... }:
+{ customPkgs, systemConfig }: { config, pkgs, lib, ... }:
 let
   customDots = pkgs.callPackage (import ./dots.nix) { };
 in
@@ -7,7 +7,7 @@ with lib.hm.gvariant;
   programs.home-manager.enable = true;
 
   home = {
-    stateVersion = stateVersion;
+    stateVersion = config.sysConf.stateVersion;
     homeDirectory = "/home/${config.home.username}";
     file."${config.home.homeDirectory}/.background-image" = { source = ../bin/backgroud-image; };
     file."${config.home.homeDirectory}/.face" = { source = ../bin/backgroud-image; };

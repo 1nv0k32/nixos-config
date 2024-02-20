@@ -6,7 +6,7 @@ in
 with lib;
 {
   imports = [
-    (import ./users.nix { inherit customPkgs; stateVersion = config.sysConf.stateVersion; })
+    (import ./users.nix { inherit customPkgs; })
   ];
 
   nix = {
