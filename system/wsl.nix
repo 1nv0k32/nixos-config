@@ -1,4 +1,4 @@
-{ pkgs, lib, options, ... }:
+{ pkgs, lib, options, config, ... }:
 let
   mainUser = config.environment.sysConf.mainUser;
 in
