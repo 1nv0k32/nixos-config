@@ -43,6 +43,11 @@ with lib;
       stateVersion = homeManagerStateVersion;
     };
 
+    programs.git = {
+      userName = config.environment.sysConf.gitUserName;
+      userEmail = config.environment.sysConf.gitEmail;
+    };
+
     imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
   };
 

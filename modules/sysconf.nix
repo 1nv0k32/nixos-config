@@ -11,6 +11,18 @@ in
       description = "The main user of the system";
     };
 
+    gitUserName = mkOption {
+      type = types.str;
+      default = "Rick Sanchez";
+      description = "The name to use for git commits";
+    };
+
+    gitEmail = mkOption {
+      type = types.str;
+      default = "Rick.Sanchez@Wabalaba.dubdub";
+      description = "The email to use for git commits";
+    };
+
     hostName = mkOption {
       type = types.str;
       default = "nyx";
