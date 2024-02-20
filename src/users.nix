@@ -1,7 +1,8 @@
 { customPkgs }: { config, pkgs, lib, ... }:
 let
-  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${config.environment.sysConf.stateVersion}.tar.gz";
   mainUser = config.environment.sysConf.mainUser;
+  stateVersion = config.environment.sysConf.stateVersion;
+  homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${stateVersion}.tar.gz";
 in
 with lib;
 {
