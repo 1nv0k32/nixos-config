@@ -45,7 +45,7 @@ with lib;
   };
 
   networking = {
-    hostName = options.sysConf.hostName;
+    hostName = config.sysConf.hostName;
     networkmanager = {
       enable = mkDefault true;
       dns = mkDefault "systemd-resolved";

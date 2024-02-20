@@ -1,7 +1,7 @@
 { stateVersion, customPkgs }: { options, config, pkgs, lib, ... }:
 let
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-  mainUser = options.sysConf.mainUser;
+  mainUser = config.sysConf.mainUser;
 in
 with lib;
 {
