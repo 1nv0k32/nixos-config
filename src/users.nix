@@ -38,7 +38,7 @@ with lib;
   home-manager.users."${mainUser}" = { ... }: {
     home = {
       username = mainUser;
-      stateVersion = stateVersion;
+      stateVersion = "23.11";
     };
 
     imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
@@ -47,7 +47,7 @@ with lib;
   home-manager.users."guest" = { ... }: {
     home = {
       username = "guest";
-      stateVersion = stateVersion;
+      stateVersion = "23.11";
     };
 
     imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
