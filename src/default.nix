@@ -7,7 +7,7 @@ let
 in
 with lib;
 {
-  imports = [ (import ./users.nix { inherit customPkgs stateVersion config pkgs lib; }) ];
+  imports = [ (import ./users.nix { inherit customPkgs stateVersion; }) ];
 
   nix = {
     settings.experimental-features = mkDefault [ "nix-command" "flakes" ];

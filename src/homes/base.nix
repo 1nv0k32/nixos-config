@@ -1,4 +1,4 @@
-{ stateVersion, customPkgs, systemConfig, ... }: { config, pkgs, lib, ... }:
+{ stateVersion, customPkgs, systemConfig }: { config, pkgs, lib, ... }:
 let
   customDots = pkgs.callPackage (import ./dots.nix) { };
 in
