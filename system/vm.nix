@@ -1,4 +1,8 @@
-{ modulesPath, options, ... }: {
+{ modulesPath, options, ... }:
+let
+  mainUser = "rick";
+in
+{
   virtualisation.vmVariant = {
     imports = [
       (modulesPath + "/virtualisation/qemu-vm.nix")
@@ -9,7 +13,7 @@
       cores = 6;
     };
 
-    users.users."rick".initialPassword = "rick";
+    users.users."${mainUser}".initialPassword = mainUser;
     boot.kernelParams = options.boot.kernelParams.default ++ [ "console=ttyS0,115200" ];
 
     networking = {

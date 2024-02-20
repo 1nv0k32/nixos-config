@@ -1,4 +1,7 @@
 { pkgs, lib, options, ... }:
+let
+  mainUser = "rick";
+in
 with lib;
 {
   imports = [
@@ -7,17 +10,12 @@ with lib;
 
   wsl = {
     enable = true;
-    defaultUser = "rick";
+    defaultUser = mainUser;
     extraBin = with pkgs; [
       { src = "${coreutils}/bin/uname"; }
     ];
   };
   boot.loader.systemd-boot.enable = mkForce false;
-
-  home-manager.users."rick".programs.git = {
-    userName = mkDefault "Name";
-    userEmail = mkDefault "Name@domain.local";
-  };
 
   services = {
     xserver.enable = mkForce false;
