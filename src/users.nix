@@ -1,7 +1,6 @@
 { customPkgs }: { config, pkgs, lib, ... }:
 let
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-  mainUser = config.sysConf.mainUser;
 in
 with lib;
 {
@@ -13,7 +12,7 @@ with lib;
     name = "ubridge";
   };
 
-  users.users."${mainUser}" = {
+  users.users."${config.sysConf.mainUser}" = {
     uid = 1000;
     isNormalUser = true;
     linger = true;
@@ -34,9 +33,9 @@ with lib;
     packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
   };
 
-  home-manager.users."${mainUser}" = { ... }: {
+  home-manager.users."${config.sysConf.mainUser}" = { ... }: {
     home = {
-      username = mainUser;
+      username = config.sysConf.mainUser;
     };
 
     imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
