@@ -2,12 +2,10 @@
 let
   customConfs = pkgs.callPackage (import ./confs.nix) { };
   customPkgs = pkgs.callPackage (import ./pkgs.nix) { };
-  stateVersion = "23.11";
-  hostName = "nyx";
 in
 with lib;
 {
-  imports = [ (import ./users.nix { inherit customPkgs stateVersion; }) ];
+  imports = [ (import ./users.nix { inherit customPkgs; }) ];
 
   nix = {
     settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
@@ -17,7 +15,7 @@ with lib;
   documentation.nixos.enable = mkDefault false;
 
   system = {
-    stateVersion = mkDefault stateVersion;
+    stateVersion = options.sysConf.stateVersion;
     autoUpgrade = {
       enable = mkDefault true;
       allowReboot = mkDefault false;
@@ -45,7 +43,7 @@ with lib;
   };
 
   networking = {
-    hostName = mkDefault hostName;
+    hostName = options.sysConf.hostName;
     networkmanager = {
       enable = mkDefault true;
       dns = mkDefault "systemd-resolved";

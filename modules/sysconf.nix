@@ -10,6 +10,18 @@ in
       default = "rick";
       description = "The main user of the system";
     };
+
+    hostName = mkOption {
+      type = types.str;
+      default = "nyx";
+      description = "The hostname of the system";
+    };
+
+    stateVersion = mkOption {
+      type = types.str;
+      default = "23.11";
+      description = "The version of the system state";
+    };
   };
 
   config = { };
