@@ -1,14 +1,19 @@
 { customPkgs, stateVersion, ... }: { config, pkgs, lib, ... }:
 let
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${stateVersion}.tar.gz";
+  mainUser = "rick";
 in
 with lib;
 {
+  imports = [
+    (import "${homeManager}/nixos")
+  ];
+
   users.groups."ubridge" = {
     name = "ubridge";
   };
 
-  users.users."rick" = {
+  users.users.mainUser = {
     uid = 1000;
     isNormalUser = true;
     linger = true;
@@ -29,11 +34,27 @@ with lib;
     packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
   };
 
-  imports = [
-    (import "${homeManager}/nixos")
-    (import ./homes/rick.nix { inherit customPkgs stateVersion; systemConfig = config; })
-    (import ./homes/guest.nix { inherit customPkgs stateVersion; systemConfig = config; })
-  ];
+  home-manager.users.mainUser = { ... }: {
+    home = {
+      username = mainUser;
+    };
+
+    programs.git = {
+      enable = true;
+      userName = "Armin";
+      userEmail = "Armin.Mahdilou@gmail.com";
+    };
+
+    imports = [ (import ./homes/base.nix { inherit stateVersion customPkgs; systemConfig = config; }) ];
+  };
+
+  home-manager.users."guest" = { ... }: {
+    home = {
+      username = "guest";
+    };
+
+    imports = [ (import ./homes/base.nix { inherit stateVersion customPkgs; systemConfig = config; }) ];
+  };
 }
 
 # vim:expandtab ts=2 sw=2
