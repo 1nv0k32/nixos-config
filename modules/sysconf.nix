@@ -1,10 +1,10 @@
 { lib, pkgs, config, options, ... }:
 with lib;
 let
-  cfg = config.sysConf;
+  cfg = config.system.sysConf;
 in
 {
-  options.sysConf = {
+  options.system.sysConf = {
     mainUser = mkOption {
       type = types.str;
       default = "rick";
