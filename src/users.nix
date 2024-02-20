@@ -41,7 +41,7 @@ with lib;
       username = mainUser;
     };
 
-    imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
+    imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; systemOptions = options; }) ];
   };
 
   home-manager.users."guest" = { ... }: {
@@ -49,7 +49,7 @@ with lib;
       username = "guest";
     };
 
-    imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
+    imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; systemOptions = options; }) ];
   };
 }
 
