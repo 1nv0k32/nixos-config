@@ -7,7 +7,7 @@ with lib;
 {
   imports = [
     (import ./users.nix {
-      inherit customPkgs; stateVersion = options.sysConf.stateVersion;
+      inherit customPkgs; stateVersion = sysConf.stateVersion;
     })
   ];
 
@@ -19,7 +19,7 @@ with lib;
   documentation.nixos.enable = mkDefault false;
 
   system = {
-    stateVersion = options.sysConf.stateVersion;
+    stateVersion = sysConf.stateVersion;
     autoUpgrade = {
       enable = mkDefault true;
       allowReboot = mkDefault false;
