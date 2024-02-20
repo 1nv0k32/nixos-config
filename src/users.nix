@@ -1,4 +1,4 @@
-{ customPkgs, stateVersion, ... }: { config, pkgs, lib, ... }:
+{ customPkgs, stateVersion, config, pkgs, lib, ... }:
 let
   homeManager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${stateVersion}.tar.gz";
   mainUser = "rick";
