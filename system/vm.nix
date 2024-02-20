@@ -1,6 +1,6 @@
 { modulesPath, options, ... }:
 let
-  mainUser = "rick";
+  mainUser = options.sysConf.mainUser;
 in
 {
   virtualisation.vmVariant = {

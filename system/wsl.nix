@@ -1,6 +1,6 @@
 { pkgs, lib, options, ... }:
 let
-  mainUser = "rick";
+  mainUser = options.sysConf.mainUser;
 in
 with lib;
 {
