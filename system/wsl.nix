@@ -39,10 +39,9 @@ with lib;
     firewall.enable = mkForce false;
   };
 
-  virtualisation.docker.daemon.settings = {
-    iptables = false;
-    ipv6 = false;
-  };
+  #virtualisation.docker.daemon.settings = {
+  #  iptables = false;
+  #};
 }
 
 # vim:expandtab ts=2 sw=2
