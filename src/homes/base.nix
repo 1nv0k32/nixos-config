@@ -15,7 +15,7 @@ with lib.hm.gvariant;
   programs.bash = {
     enable = true;
     shellAliases = {
-      cat = "bat";
+      cat = "bat -p";
     };
     bashrcExtra = customDots.DOT_BASHRC;
   };
