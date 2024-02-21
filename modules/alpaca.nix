@@ -13,10 +13,6 @@ in
       type = types.nullOr types.str;
       default = null;
     };
-    listenAddr = mkOption {
-      type = types.str;
-      default = "127.0.0.1";
-    };
     listenPort = mkOption {
       type = types.str;
       default = "3128";
@@ -25,7 +21,7 @@ in
 
   config =
     let
-      proxy = "http://${cfg.listenAddr}:${cfg.listenPort}";
+      proxy = "http://127.0.0.1:${cfg.listenPort}";
       proxies = {
         no_proxy = "127.0.0.1,localhost";
         ftp_proxy = proxy;
@@ -58,7 +54,7 @@ in
         enable = true;
         description = "alpaca proxy service";
         serviceConfig = {
-          ExecStart = "${alpaca}/bin/alpaca -l ${cfg.listenAddr} -p ${cfg.listenPort} ${pac_arg}";
+          ExecStart = "${alpaca}/bin/alpaca -l 0.0.0.0 -p ${cfg.listenPort} ${pac_arg}";
           Restart = "always";
           KillMode = "mixed";
         };
