@@ -62,7 +62,6 @@ with pkgs;
 
   SYSTEM = [
     nixos-generators
-    vim_configurable
     cryptsetup
     openssl
     git

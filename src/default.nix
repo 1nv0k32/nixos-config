@@ -171,7 +171,6 @@ with lib;
   environment = {
     systemPackages = customPkgs.SYSTEM;
     variables = {
-      EDITOR = mkForce "vim";
       VAGRANT_DEFAULT_PROVIDER = mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = mkForce "qemu:///system";
     };
@@ -179,11 +178,16 @@ with lib;
     etc = {
       "inputrc".text = customConfs.INPUTRC_CONFIG;
       "bashrc.local".text = customConfs.BASHRC_CONFIG;
-      "vimrc".text = customConfs.VIMRC_CONFIG;
     };
   };
 
   programs = {
+    neovim = {
+      enable = mkDefault true;
+      defaultEditor = mkDefault true;
+      viAlias = mkDefault true;
+      vimAlias = mkDefault true;
+    };
     gnupg.agent = {
       enable = mkDefault true;
       pinentryFlavor = mkDefault "curses";
