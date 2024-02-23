@@ -188,7 +188,7 @@ with lib;
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
       configure = {
-        customRC = customConfs.VIM_CONFIG;
+        customRC = customConfs.VIMRC_CONFIG;
       };
     };
     gnupg.agent = {
