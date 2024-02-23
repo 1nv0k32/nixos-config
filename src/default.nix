@@ -187,6 +187,9 @@ with lib;
       defaultEditor = mkDefault true;
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
+      configure = {
+        customRC = customConfs.VIM_CONFIG;
+      };
     };
     gnupg.agent = {
       enable = mkDefault true;
