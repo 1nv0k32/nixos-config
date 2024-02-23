@@ -91,7 +91,7 @@ with lib;
     alias diff='diff --color=auto'
   '';
 
-  VIMRC_CONFIG = mkDefault ''
+  VIMRC_CONFIG = ''
     syntax enable
     filetype indent on
     set mouse=a
