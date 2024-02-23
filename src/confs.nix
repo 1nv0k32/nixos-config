@@ -110,9 +110,6 @@ with lib;
     set nowrap
     set modeline
     set modelines=1
-    lua require('telescope').setup()
-    lua require("telescope").load_extension("file_browser")
-
   '';
 
   SSH_CLIENT_CONFIG = mkDefault ''

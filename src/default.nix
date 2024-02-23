@@ -189,12 +189,6 @@ with lib;
       vimAlias = mkDefault true;
       configure = {
         customRC = customConfs.VIMRC_CONFIG;
-        packages.myVimPackage = with pkgs.vimPlugins; {
-          start = [
-            telescope-nvim
-            telescope-file-browser-nvim
-          ];
-        };
       };
     };
     gnupg.agent = {
