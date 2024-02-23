@@ -191,7 +191,8 @@ with lib;
         customRC = customConfs.VIMRC_CONFIG;
         packages.myVimPackage = with pkgs.vimPlugins; {
           start = [
-            nvim-tree-lua
+            telescope-nvim
+            telescope-file-browser-nvim
           ];
         };
       };
