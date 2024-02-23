@@ -111,6 +111,7 @@ with lib;
     set modeline
     set modelines=1
     lua require("nvim-tree").setup()
+    lua require'nvim-web-devicons'.setup()
   '';
 
   SSH_CLIENT_CONFIG = mkDefault ''
