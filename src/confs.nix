@@ -94,6 +94,7 @@ with lib;
   VIMRC_CONFIG = ''
     syntax enable
     filetype indent on
+    set guicursor=
     set mouse=a
     set encoding=utf-8
     set belloff=all
