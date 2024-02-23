@@ -192,7 +192,6 @@ with lib;
         packages.myVimPackage = with pkgs.vimPlugins; {
           start = [
             nvim-tree-lua
-            nvim-web-devicons
           ];
         };
       };

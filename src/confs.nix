@@ -110,8 +110,9 @@ with lib;
     set nowrap
     set modeline
     set modelines=1
-    lua require("nvim-tree").setup()
-    lua require'nvim-web-devicons'.setup()
+    lua require("nvim-tree").setup({
+      renderer.icons.show = false,
+    })
   '';
 
   SSH_CLIENT_CONFIG = mkDefault ''
