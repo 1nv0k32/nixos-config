@@ -189,11 +189,11 @@ with lib;
       vimAlias = mkDefault true;
       configure = {
         customRC = customConfs.VIMRC_CONFIG;
-      };
-      packages.myVimPackage = with pkgs.vimPlugins; {
-        start = [
-          nvim-tree-lua
-        ];
+        packages.myVimPackage = with pkgs.vimPlugins; {
+          start = [
+            nvim-tree-lua
+          ];
+        };
       };
     };
     gnupg.agent = {
