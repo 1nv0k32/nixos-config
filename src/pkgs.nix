@@ -58,6 +58,7 @@ with pkgs;
     gnomeExtensions.unblank
     gnomeExtensions.tiling-assistant
     gnomeExtensions.caffeine
+    gnomeExtensions.gsconnect
   ];
 
   SYSTEM = [
