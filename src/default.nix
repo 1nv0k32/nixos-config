@@ -55,10 +55,12 @@ with lib;
       enable = mkDefault true;
       checkReversePath = mkDefault false;
       allowPing = mkDefault false;
-      allowedTCPPorts = mkDefault [
+      allowedTCPPorts = mkDefault [ ];
+      allowedTCPPortRanges = mkDefault [
         { from = 1714; to = 1764; } # KDE Connect
       ];
-      allowedUDPPorts = mkDefault [
+      allowedUDPPorts = mkDefault [ ];
+      allowedUDPPortRanges = mkDefault [
         { from = 1714; to = 1764; } # KDE Connect
       ];
     };
