@@ -112,6 +112,7 @@ with pkgs;
     vagrant
     terraform
     ansible
+    docker-compose
     podman-compose
     distrobox
     quickemu
