@@ -92,6 +92,7 @@ with lib;
   '';
 
   VIMRC_CONFIG = ''
+    colorscheme slate
     syntax enable
     filetype indent on
     set guicursor=
