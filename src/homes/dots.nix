@@ -29,8 +29,6 @@ with lib;
     if test -f ~/.bashrc.local; then
     . ~/.bashrc.local
     fi
-
-    ${pkgs.tmux}/bin/tmux new-session -d -s background &> /dev/null || true
   '';
 }
 
