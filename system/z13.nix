@@ -5,7 +5,6 @@ with lib;
   boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
 
   services = {
-    fprintd.enable = false;
     power-profiles-daemon.enable = mkForce false;
     auto-cpufreq = {
       enable = true;
