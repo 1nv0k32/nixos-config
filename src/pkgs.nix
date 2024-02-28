@@ -115,7 +115,7 @@ with pkgs;
     docker-compose
     podman-compose
     distrobox
-    quickemu
+    #quickemu
     git-crypt
     kind
 

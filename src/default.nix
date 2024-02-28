@@ -184,6 +184,9 @@ with lib;
     etc = {
       "inputrc".text = customConfs.INPUTRC_CONFIG;
       "bashrc.local".text = customConfs.BASHRC_CONFIG;
+      "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = mkDefault ''
+        bluetooth_policy.policy["media-role.use-headset-profile"] = false
+      '';
     };
   };
 
