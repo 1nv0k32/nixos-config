@@ -104,7 +104,7 @@ with lib;
     set shiftwidth=2
     set expandtab
     set smarttab
-    set number
+    set nonumber
     set wildmenu
     set foldenable
     set clipboard=unnamedplus
@@ -144,7 +144,7 @@ with lib;
     set -g set-titles on
     set -g mouse on
     set -g monitor-activity on
-    set -g default-terminal "xterm-256color"
+    set -g default-terminal "screen-256color"
     set -g default-command "''${SHELL}"
     set -s set-clipboard external
     set -g copy-command "${pkgs.wl-clipboard}/bin/wl-copy"
