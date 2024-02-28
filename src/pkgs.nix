@@ -72,6 +72,7 @@ with pkgs;
     tree
     file
     htop
+    btop
     acpi
     efibootmgr
     nload
@@ -82,6 +83,8 @@ with pkgs;
     tpm2-tss
     jq
     yq
+    fzf
+    tldr
 
     ntfs3g
     gnumake
