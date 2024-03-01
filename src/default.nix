@@ -86,6 +86,7 @@ with lib;
   };
 
   services = {
+    pcscd.enable = mkDefault true;
     avahi.enable = mkForce false;
     gnome = {
       core-utilities.enable = mkForce false;
