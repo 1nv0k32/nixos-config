@@ -10,6 +10,8 @@ with lib;
     defaultUser = config.environment.sysConf.mainUser;
     extraBin = with pkgs; [
       { src = "${coreutils}/bin/uname"; }
+      { src = "${wget}/bin/wget"; }
+      { src = "${curl}/bin/curl"; }
     ];
   };
   boot.loader.systemd-boot.enable = mkForce false;
