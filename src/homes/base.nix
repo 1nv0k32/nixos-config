@@ -16,8 +16,10 @@ with lib.hm.gvariant;
     enable = true;
     shellAliases = {
       cat = "bat -p";
+      k = "kubectl";
     };
     bashrcExtra = customDots.DOT_BASHRC;
+    initExtra = "complete -o default -F __start_kubectl k";
   };
 
   programs.ssh = {
