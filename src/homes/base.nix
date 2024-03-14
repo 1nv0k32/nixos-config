@@ -19,7 +19,9 @@ with lib.hm.gvariant;
       k = "kubectl";
     };
     bashrcExtra = customDots.DOT_BASHRC;
-    initExtra = "complete -o default -F __start_kubectl k";
+    initExtra = ''
+      complete -o default -F __start_kubectl k
+    '';
   };
 
   programs.ssh = {
