@@ -106,6 +106,7 @@ with pkgs;
     nixopsUnstable
     kubectl
     kubernetes-helm
+    krew
     k9s
     argocd
     awscli
