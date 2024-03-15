@@ -10,8 +10,8 @@ with lib;
       enable = true;
       settings = {
         "charger" = {
-          governor = "ondemand";
-          turbo = "auto";
+          governor = "performance";
+          turbo = "always";
         };
         "battery" = {
           governor = "ondemand";
