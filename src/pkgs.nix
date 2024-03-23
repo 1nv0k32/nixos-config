@@ -50,6 +50,8 @@ with pkgs;
     gnome.file-roller
     gnome.gnome-calculator
     gnome.eog
+    gnome.geary
+    gnome.gnome-calendar
   ];
 
   GNOME_EXT = [
@@ -119,7 +121,7 @@ with pkgs;
     docker-compose
     podman-compose
     distrobox
-    #quickemu
+    quickemu
     git-crypt
     kind
 
