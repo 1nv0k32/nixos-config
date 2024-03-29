@@ -132,6 +132,7 @@ with pkgs;
     qrencode
     usbutils
     pciutils
+    silver-searcher
 
     nmap
     burpsuite
