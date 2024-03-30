@@ -64,6 +64,7 @@ with pkgs;
   ];
 
   SYSTEM = [
+    niv
     nixos-generators
     cryptsetup
     openssl
