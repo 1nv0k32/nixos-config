@@ -42,6 +42,7 @@ with pkgs;
     yt-dlp
     media-downloader
     pass
+    citrix_workspace
 
     gnome.gnome-terminal
     gnome.dconf-editor
