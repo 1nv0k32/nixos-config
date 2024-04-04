@@ -4,10 +4,6 @@ let
   cfg = config.security.pki;
 
   certOpts = { name, ... }: {
-    name = mkOption {
-      default = name;
-      type = types.str;
-    };
     url = mkOption {
       type = types.str;
     };
@@ -23,25 +19,29 @@ in
   };
 
   config = {
-    #security.pki.certificateFiles =
-    #  let
-    #    cert = pkgs.stdenv.mkDerivation rec {
-    #      name = cfg.name;
-    #      src = pkgs.fetchurl {
-    #        url = cfg.url;
-    #        hash = cfg.hash;
-    #      };
-    #      nativeBuildInputs = [ pkgs.openssl ];
-    #      phases = [ "installPhase" ];
-    #      installPhase = ''
-    #        install -m644 -D $src $out/cert/${name}.der
-    #        openssl x509 -inform der -in $out/cert/${name}.der -out $out/cert/${name}.crt
-    #      '';
-    #    };
-    #  in
-    #  options.security.pki.certificateFiles.default ++ [ "${cert}/cert/${cfg.name}.crt" ];
-  };
-}
+    security.pki.certificateFiles =
+      let
+        certs = mapAttrsToList cfg.certDER
+          (certName: certOpt:
+            pkgs.stdenv.mkDerivation rec {
+              name = certName;
+              src = pkgs.fetchurl {
+                url = certOpt.url;
+                hash = certOpt.hash;
+              };
+              nativeBuildInputs = [ pkgs.openssl ];
+              phases = [ "installPhase" ];
+              installPhase = ''
+                install -m644 -D $src $out/cert/${name}.der
+                openssl x509 -inform der -in $out/cert/${name}.der -out $out/cert/${name}.crt
+              '';
+            };
+          )
+          in
+          #options.security.pki.certificateFiles.default ++ [ "${cert}/cert/${cfg.name}.crt" ];
+          options.security.pki.certificateFiles.default ++ [ ];
+        };
+        }
 
 # vim:expandtab ts=2 sw=2
 
