@@ -13,9 +13,11 @@ let
   };
 in
 {
-  options.security.pki.certDER = mkOption {
-    default = { };
-    type = with types; attrsOf (submodule certOpts);
+  options = {
+    security.pki.certDER = mkOption {
+      default = { };
+      type = with types; attrsOf (submodule certOpts);
+    };
   };
 
   config = {
