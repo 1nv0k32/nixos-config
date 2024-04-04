@@ -38,7 +38,7 @@ in
             }
           );
       in
-      options.security.pki.certificateFiles.default ++ [ "${certs}/cert/rootCore.crt" ];
+      options.security.pki.certificateFiles.default ++ [ "${builtins.elemAt certs 0}/cert/rootCore.crt" ];
   };
 }
 
