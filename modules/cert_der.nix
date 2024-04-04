@@ -36,12 +36,12 @@ in
                 openssl x509 -inform der -in $out/cert/${name}.der -out $out/cert/${name}.crt
               '';
             }
-          )
-          in
-          #options.security.pki.certificateFiles.default ++ [ "${cert}/cert/${cfg.name}.crt" ];
-          options.security.pki.certificateFiles.default ++ [ ];
-        };
-        }
+          );
+      in
+      #options.security.pki.certificateFiles.default ++ [ "${cert}/cert/${cfg.name}.crt" ];
+      options.security.pki.certificateFiles.default ++ [ ];
+  };
+}
 
 # vim:expandtab ts=2 sw=2
 
