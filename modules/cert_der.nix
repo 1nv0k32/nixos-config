@@ -23,7 +23,7 @@ in
   config = {
     security.pki.certificateFiles =
       let
-        certs = mapAttrsToList cfg.certDER
+        certs = mapAttrs cfg.certDER
           (certName: certOpt:
             pkgs.stdenv.mkDerivation rec {
               name = certName;
