@@ -4,11 +4,13 @@ let
   cfg = config.security.pki;
 
   certOpts = { name, ... }: {
-    url = mkOption {
-      type = types.str;
-    };
-    hash = mkOption {
-      type = types.str;
+    options = {
+      url = mkOption {
+        type = types.str;
+      };
+      hash = mkOption {
+        type = types.str;
+      };
     };
   };
 in
