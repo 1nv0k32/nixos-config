@@ -38,8 +38,7 @@ in
             }
           );
       in
-      #options.security.pki.certificateFiles.default ++ [ "${cert}/cert/${cfg.name}.crt" ];
-      options.security.pki.certificateFiles.default ++ [ ];
+      options.security.pki.certificateFiles.default ++ [ "${certs}/cert/${rootCore}.crt" ];
   };
 }
 
