@@ -23,7 +23,7 @@ in
   config = {
     security.pki.certificateFiles =
       let
-        certs = mapAttrs cfg.certDER
+        certs = mapAttrsToList
           (certName: certOpt:
             pkgs.stdenv.mkDerivation rec {
               name = certName;
@@ -38,7 +38,8 @@ in
                 openssl x509 -inform der -in $out/cert/${name}.der -out $out/cert/${name}.crt
               '';
             }
-          );
+          )
+          cfg.certDER;
       in
       options.security.pki.certificateFiles.default ++ [ "${builtins.elemAt certs 0}/cert/rootCore.crt" ];
   };
