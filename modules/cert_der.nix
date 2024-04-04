@@ -43,7 +43,7 @@ in
           )
           cfg.certDER;
       in
-      options.security.pki.certificateFiles.default ++ [ "${builtins.elemAt certs 0}/cert/rootCore.crt" ];
+      options.security.pki.certificateFiles.default ++ map (cert: "${cert}/cert/${cert.name}.crt") certs;
   };
 }
 
