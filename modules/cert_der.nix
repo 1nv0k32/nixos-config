@@ -5,6 +5,7 @@ let
 
   certOpts = { name, ... }: {
     name = mkOption {
+      default = name;
       type = types.str;
     };
     url = mkOption {
