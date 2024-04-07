@@ -5,6 +5,13 @@ with lib;
   boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
 
   services = {
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 50;
+        STOP_CHARGE_THRESH_BAT0 = 95;
+      };
+    };
     power-profiles-daemon.enable = mkForce false;
     auto-cpufreq = {
       enable = true;
