@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  repo = builtins.fetchTarball https://github.com/1nv0k32/nixpkgs/tarball/kubeswitch-fix-name-and-shell-completion;
+  repo = builtins.fetchTarball https://github.com/NixOS/nixpkgs/tarball/master;
   repo_pkgs = import (repo) { config = config.nixpkgs.config; };
 in
 {
