@@ -125,6 +125,7 @@ with pkgs;
     quickemu
     git-crypt
     kind
+    k3d
 
     nvme-cli
     gparted
