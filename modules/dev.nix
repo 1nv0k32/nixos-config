@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  repo = builtins.fetchTarball https://github.com/NixOS/nixpkgs/tarball/master;
+  repo = builtins.fetchTarball https://github.com/NixOS/nixpkgs/tarball/nixos-unstable;
   repo_pkgs = import (repo) { config = config.nixpkgs.config; };
 in
 {
