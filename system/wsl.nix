@@ -14,6 +14,7 @@ with lib;
       { src = "${coreutils}/bin/readlink"; }
       { src = "${wget}/bin/wget"; }
       { src = "${curl}/bin/curl"; }
+      { src = "${getconf}/bin/getconf"; }
     ];
   };
   boot.loader.systemd-boot.enable = mkForce false;
