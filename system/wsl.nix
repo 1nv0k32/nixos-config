@@ -12,6 +12,8 @@ with lib;
       { src = "${coreutils}/bin/uname"; }
       { src = "${coreutils}/bin/dirname"; }
       { src = "${coreutils}/bin/readlink"; }
+      { src = "${coreutils}/bin/cat"; }
+      { src = "${coreutils}/bin/sed"; }
       { src = "${wget}/bin/wget"; }
       { src = "${curl}/bin/curl"; }
       { src = "${getconf}/bin/getconf"; }
