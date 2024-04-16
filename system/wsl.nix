@@ -13,10 +13,10 @@ with lib;
       { src = "${coreutils}/bin/dirname"; }
       { src = "${coreutils}/bin/readlink"; }
       { src = "${coreutils}/bin/cat"; }
-      { src = "${coreutils}/bin/sed"; }
       { src = "${wget}/bin/wget"; }
       { src = "${curl}/bin/curl"; }
       { src = "${getconf}/bin/getconf"; }
+      { src = "${gnused}/bin/sed"; }
     ];
   };
   boot.loader.systemd-boot.enable = mkForce false;
