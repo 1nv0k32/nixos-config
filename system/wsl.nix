@@ -11,6 +11,7 @@ with lib;
     extraBin = with pkgs; [
       { src = "${coreutils}/bin/uname"; }
       { src = "${coreutils}/bin/dirname"; }
+      { src = "${coreutils}/bin/readlink"; }
       { src = "${wget}/bin/wget"; }
       { src = "${curl}/bin/curl"; }
     ];
