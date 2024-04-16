@@ -112,7 +112,7 @@ with pkgs;
     krew
     k9s
     argocd
-    awscli
+    awscli2
     vscode
     virt-manager
     win-virtio
