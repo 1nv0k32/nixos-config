@@ -74,7 +74,7 @@ with lib;
     CY="\[\e[0;36m\]"
 
     PS_STAT="[ \$? = "0" ] && printf '$GR*$WH' || printf '$RE*$WH'"
-    PS_GIT="[ -z \$(__git_ps1 %s) ] && printf ' ' || __git_ps1 '$CY{%s}$WH'"
+    PS_GIT="[ -z \"\$(__git_ps1 %s)\" ] && printf ' ' || __git_ps1 '$CY{%s}$WH'"
     if [ "`id -u`" -eq 0 ]; then
       DoC=$RE
       PS_SH="$RE# $WH"

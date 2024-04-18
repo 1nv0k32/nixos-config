@@ -59,7 +59,6 @@ with lib.hm.gvariant;
       { id = "nngceckbapebfimnlniiiahkandclblb"; } # bitwarden
       { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
       { id = "ponfpcnoihfmfllpaingbgckeeldkhle"; } # enhancer for youtube
-      { id = "dhegojkfhodaifdnkoigmdoncoonbifd"; } # watch later for youtube
     ];
   };
 
