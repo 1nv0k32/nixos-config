@@ -9,7 +9,7 @@ with lib;
       enable = true;
       settings = {
         START_CHARGE_THRESH_BAT0 = 90;
-        STOP_CHARGE_THRESH_BAT0 = 95;
+        STOP_CHARGE_THRESH_BAT0 = 99;
       };
     };
     power-profiles-daemon.enable = mkForce false;
