@@ -126,6 +126,7 @@ with pkgs;
     git-crypt
     kind
     k3d
+    istioctl
 
     nvme-cli
     gparted
