@@ -57,10 +57,8 @@ with pkgs;
   GNOME_EXT = [
     gnomeExtensions.appindicator
     gnomeExtensions.just-perfection
-    gnomeExtensions.unblank
     gnomeExtensions.tiling-assistant
     gnomeExtensions.caffeine
-    gnomeExtensions.gsconnect
   ];
 
   SYSTEM = [
