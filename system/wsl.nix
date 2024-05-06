@@ -8,6 +8,7 @@ with lib;
   wsl = {
     enable = true;
     defaultUser = config.environment.sysConf.mainUser;
+    startMenuLaunchers = true;
     extraBin = with pkgs; [
       { src = "${coreutils}/bin/uname"; }
       { src = "${coreutils}/bin/dirname"; }
