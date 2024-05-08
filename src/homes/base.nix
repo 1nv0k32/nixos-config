@@ -47,7 +47,7 @@ with lib.hm.gvariant;
       showScrollbar = false;
       cursorShape = "ibeam";
       cursorBlinkMode = "on";
-      font = "Monospace 13";
+      font = "Monospace 15";
       customCommand = "tmux";
 
     };
