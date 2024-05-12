@@ -156,7 +156,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/unblank" = {
-      power = true;
+      power = false;
       time = mkInt32 0;
     };
   };
