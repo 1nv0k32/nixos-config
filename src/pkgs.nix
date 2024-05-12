@@ -59,6 +59,7 @@ with pkgs;
     gnomeExtensions.just-perfection
     gnomeExtensions.tiling-assistant
     gnomeExtensions.caffeine
+    gnomeExtensions.unblank
   ];
 
   SYSTEM = [
