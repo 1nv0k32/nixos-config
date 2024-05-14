@@ -16,7 +16,6 @@ with pkgs;
     spotify
     flameshot
     otpclient
-    winbox
     gns3-gui
     gns3-server
     dynamips
