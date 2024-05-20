@@ -22,18 +22,6 @@ in
       default = "Rick.Sanchez@Wabalaba.dubdub";
       description = "The email to use for git commits";
     };
-
-    hostName = mkOption {
-      type = types.str;
-      default = "nyx";
-      description = "The hostname of the system";
-    };
-
-    stateVersion = mkOption {
-      type = types.str;
-      default = "23.11";
-      description = "The version of the system state";
-    };
   };
 
   config = { };

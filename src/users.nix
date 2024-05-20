@@ -1,15 +1,11 @@
-{ customPkgs }: { config, pkgs, lib, ... }:
+{ customPkgs }: { inputs, stateVersion, config, pkgs, lib, ... }:
 let
-  homeManagerStateVersion = "23.11";
   mainUser = config.environment.sysConf.mainUser;
-  homeManager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-${homeManagerStateVersion}.tar.gz";
-  };
 in
 with lib;
 {
   imports = [
-    (import "${homeManager}/nixos")
+    (import "${inputs.home-manager}/nixos")
   ];
 
   users.groups."ubridge" = {
@@ -40,7 +36,7 @@ with lib;
   home-manager.users."${mainUser}" = { ... }: {
     home = {
       username = mainUser;
-      stateVersion = homeManagerStateVersion;
+      stateVersion = stateVersion;
     };
 
     programs.git = {
@@ -54,7 +50,7 @@ with lib;
   home-manager.users."guest" = { ... }: {
     home = {
       username = "guest";
-      stateVersion = homeManagerStateVersion;
+      stateVersion = stateVersion;
     };
 
     imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];

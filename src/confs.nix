@@ -1,4 +1,4 @@
-{ pkgs, lib }:
+{ inputs, pkgs, lib }:
 with lib;
 {
   NIX_CONFIG = mkDefault ''
@@ -48,7 +48,7 @@ with lib;
   '';
 
   INPUTRC_CONFIG = mkForce (
-    builtins.readFile <nixpkgs/nixos/modules/programs/bash/inputrc>
+    builtins.readFile "${inputs.nixpkgs}/nixos/modules/programs/bash/inputrc"
     +
     ''
       set completion-ignore-case on

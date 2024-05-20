@@ -1,6 +1,6 @@
-{ config, pkgs, lib, ... }:
+{ inputs, stateVersion, hostName, config, pkgs, lib, ... }:
 let
-  customConfs = pkgs.callPackage (import ./confs.nix) { };
+  customConfs = pkgs.callPackage (import ./confs.nix) { inherit inputs; };
   customPkgs = pkgs.callPackage (import ./pkgs.nix) { };
 in
 with lib;
@@ -17,7 +17,7 @@ with lib;
   documentation.nixos.enable = mkDefault false;
 
   system = {
-    stateVersion = config.environment.sysConf.stateVersion;
+    stateVersion = stateVersion;
     autoUpgrade = {
       enable = mkDefault true;
       allowReboot = mkDefault false;
@@ -45,7 +45,7 @@ with lib;
   };
 
   networking = {
-    hostName = config.environment.sysConf.hostName;
+    hostName = hostName;
     networkmanager = {
       enable = mkDefault true;
       dns = mkDefault "systemd-resolved";

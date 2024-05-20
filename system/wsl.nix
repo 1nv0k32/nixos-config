@@ -1,8 +1,8 @@
-{ pkgs, lib, options, config, ... }:
+{ inputs, pkgs, lib, options, config, ... }:
 with lib;
 {
   imports = [
-    <nixos-wsl/modules>
+    (import "${inputs.nixos-wsl}/modules")
   ];
 
   wsl = {

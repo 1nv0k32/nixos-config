@@ -1,16 +1,14 @@
-{ config, pkgs, ... }:
+{ inputs, ... }:
 let
-  repo = builtins.fetchTarball https://github.com/NixOS/nixpkgs/tarball/nixos-unstable;
-  repo_pkgs = import (repo) { config = config.nixpkgs.config; };
+  nixpkgs-unstable_pkgs = import (inputs.nixpkgs-unstable) { system = "x86_64-linux"; };
 in
 {
   imports = [
-    (import "${repo}/nixos/modules/programs/kubeswitch.nix")
+    (import "${inputs.nixpkgs-unstable}/nixos/modules/programs/kubeswitch.nix")
   ];
 
   programs.kubeswitch = {
     enable = true;
-    package = repo_pkgs.kubeswitch;
+    package = nixpkgs-unstable_pkgs.kubeswitch;
   };
 }
-
