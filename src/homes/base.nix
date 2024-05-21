@@ -142,7 +142,7 @@ with lib.hm.gvariant;
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       name = "flameshot";
       binding = "<Super>Print";
-      command = "script --command " flameshot gui " /dev/null";
+      command = "script --command ' flameshot gui ' /dev/null";
     };
 
     # Extensions
