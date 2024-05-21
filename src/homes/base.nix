@@ -142,7 +142,7 @@ with lib.hm.gvariant;
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       name = "flameshot";
       binding = "<Super>Print";
-      command = "flameshot gui";
+      command = "sh -c 'QT_QPA_PLATFORM=wayland flameshot gui'";
     };
 
     # Extensions
