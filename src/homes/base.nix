@@ -126,6 +126,7 @@ with lib.hm.gvariant;
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -137,6 +138,11 @@ with lib.hm.gvariant;
       name = "suspend";
       binding = "<Super><Shift>S";
       command = "systemctl suspend";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "flameshot";
+      binding = "<Super>Print";
+      command = "flameshot gui";
     };
 
     # Extensions
