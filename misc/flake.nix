@@ -33,11 +33,11 @@
           ];
         };
 
-        "wsl-nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
+        "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
           system = user-config.outputs.system;
           specialArgs = {
             stateVersion = user-config.outputs.stateVersion;
-            hostName = "wsl-nixos";
+            hostName = "nixos";
             inputs = user-config.inputs;
           };
           modules = baseModules ++ [
