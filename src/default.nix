@@ -116,15 +116,17 @@ with lib;
     };
     xserver = {
       enable = mkDefault true;
-      layout = mkDefault "us";
+      xkb.layout = mkDefault "us";
       desktopManager = {
         gnome.enable = mkDefault true;
-        wallpaper.mode = "center";
+        wallpaper.mode = mkDefault "center";
       };
       displayManager = {
         gdm.enable = mkDefault true;
-        defaultSession = mkDefault "gnome";
       };
+    };
+    displayManager = {
+      defaultSession = mkDefault "gnome";
     };
     pipewire = {
       enable = mkDefault true;
