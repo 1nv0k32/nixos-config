@@ -49,7 +49,12 @@ with lib;
     networkmanager = {
       enable = mkDefault true;
       dns = mkDefault "systemd-resolved";
-      extraConfig = customConfs.NETWORK_MANAGER_CONFIG;
+      settings = {
+        main = {
+          no-auto-default = "*";
+          systemd-resolved = true;
+        };
+      };
     };
     firewall = {
       enable = mkDefault true;

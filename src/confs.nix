@@ -5,13 +5,6 @@ with lib;
     tarball-ttl = 0
   '';
 
-  NETWORK_MANAGER_CONFIG = mkDefault ''
-    [main]
-    dns=systemd-resolved
-    no-auto-default=*
-    systemd-resolved=true
-  '';
-
   RESOLVED_CONFIG = mkDefault ''
     [Resolve]
     #DNS=
