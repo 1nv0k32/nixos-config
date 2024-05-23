@@ -234,6 +234,9 @@ with lib;
       enable = mkDefault true;
       package = mkDefault pkgs.wireshark;
     };
+    programs.kubeswitch = {
+      enable = true;
+    };
   };
 
   fonts = {
