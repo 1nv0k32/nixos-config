@@ -104,7 +104,6 @@ with pkgs;
     ubridge
     iw
 
-    nixopsUnstable
     kubectl
     kubernetes-helm
     krew
