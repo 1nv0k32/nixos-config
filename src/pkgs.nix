@@ -143,7 +143,6 @@ with pkgs;
     binwalk
 
     poetry
-    hatch
 
     stm32cubemx
     stm32loader
