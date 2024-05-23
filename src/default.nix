@@ -204,7 +204,7 @@ with lib;
     };
     gnupg.agent = {
       enable = mkDefault true;
-      pinentryFlavor = mkDefault "curses";
+      pinentryPackage = mkDefault pkgs.pinentry-curses;
       enableSSHSupport = mkDefault true;
     };
     ssh.extraConfig = customConfs.SSH_CLIENT_CONFIG;
