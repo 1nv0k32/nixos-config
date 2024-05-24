@@ -9,7 +9,8 @@ with lib;
       while true; do
         git add -A
         git --no-pager diff --cached
-        read -p "Do you wish to commit these changes? [Yn] " yn
+        WORK_BRANCH=$(git branch --show-current)
+        read -p "Do you wish to commit these changes on $WORK_BRANCH? [Yn] " yn
         case $yn in
           [Nn]* )
             break
@@ -18,7 +19,7 @@ with lib;
             
             git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
             git fetch
-            git rebase origin/main  || (git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
+            git rebase origin/$WORK_BRANCH  || (git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
             git push
             break
             ;;
