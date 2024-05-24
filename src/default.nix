@@ -1,7 +1,7 @@
 { inputs, stateVersion, hostName, config, pkgs, lib, ... }:
 let
   customConfs = pkgs.callPackage (import ./confs.nix) { inherit inputs; };
-  customPkgs = pkgs.callPackage (import ./pkgs.nix) { };
+  customPkgs = pkgs.callPackage (import ./pkgs.nix) { inherit inputs; };
 in
 with lib;
 {
@@ -11,7 +11,6 @@ with lib;
 
   nix = {
     settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
-    extraOptions = customConfs.NIX_CONFIG;
   };
 
   documentation.nixos.enable = mkDefault false;

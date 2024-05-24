@@ -1,10 +1,6 @@
 { inputs, pkgs, lib }:
 with lib;
 {
-  NIX_CONFIG = mkDefault ''
-    tarball-ttl = 0
-  '';
-
   RESOLVED_CONFIG = mkDefault ''
     [Resolve]
     #DNS=

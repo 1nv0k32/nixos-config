@@ -1,5 +1,8 @@
-{ pkgs }:
+{ inputs, config, pkgs }:
 with pkgs;
+let
+  unstable = import (inputs.nixpkgs-unstable) { config = config.nixpkgs.config; };
+in
 {
   CONSOLE = [
     terminus_font
@@ -142,7 +145,7 @@ with pkgs;
     aircrack-ng
     binwalk
 
-    poetry
+    unstable.poetry
 
     stm32cubemx
     stm32loader
