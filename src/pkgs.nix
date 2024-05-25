@@ -149,6 +149,7 @@ in
     binwalk
 
     unstable.poetry
+    unstable.winbox
 
     stm32cubemx
     stm32loader
