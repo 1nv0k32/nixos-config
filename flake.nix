@@ -24,7 +24,7 @@
         }
       )
       "./src"
-      "./modules
+      "./modules"
     ];
   };
 }
