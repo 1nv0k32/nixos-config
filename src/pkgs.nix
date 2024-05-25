@@ -3,7 +3,7 @@ with pkgs;
 let
   unstable = import (inputs.nixpkgs-unstable) {
     system = "x86_64-linux";
-    # config = config;
+    config = config;
   };
 in
 {
