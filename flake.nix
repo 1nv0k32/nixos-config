@@ -23,8 +23,8 @@
             ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix;
         }
       )
-      (import "src")
-      (import "modules")
+      (import "./src")
+      (import "./modules")
     ];
   };
 }
