@@ -23,8 +23,8 @@
             ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix;
         }
       )
-      (import "${inputs.user-config}/src")
-      (import "${inputs.user-config}/modules")
+      (import "src")
+      (import "modules")
     ];
   };
 }
