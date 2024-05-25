@@ -26,6 +26,7 @@
           specialArgs = {
             stateVersion = user-config.outputs.stateVersion;
             hostName = "nyx";
+            system = user-config.outputs.system;
             inputs = user-config.inputs;
           };
           modules = baseModules ++ [
@@ -38,6 +39,7 @@
           specialArgs = {
             stateVersion = user-config.outputs.stateVersion;
             hostName = "nixos";
+            system = user-config.outputs.system;
             inputs = user-config.inputs;
           };
           modules = baseModules ++ [
