@@ -5,47 +5,33 @@
     };
   };
 
-  outputs = { user-config, ... }@inputs:
-    let
-      baseModules = [
-        (
-          { lib, ... }: {
-            imports = [ ]
-              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix
-              ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix;
-          }
-        )
-        (import "${inputs.user-config}/src")
-        (import "${inputs.user-config}/modules")
-      ];
-    in
-    {
-      nixosConfigurations = {
-        "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
+  outputs = { user-config, ... }@inputs: {
+    nixosConfigurations = {
+      "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
+        system = user-config.outputs.system;
+        specialArgs = {
+          stateVersion = user-config.outputs.stateVersion;
+          hostName = "nyx";
           system = user-config.outputs.system;
-          specialArgs = {
-            stateVersion = user-config.outputs.stateVersion;
-            hostName = "nyx";
-            system = user-config.outputs.system;
-            inputs = user-config.inputs;
-          };
-          modules = baseModules ++ [
-            (import "${inputs.user-config}/system/z13.nix")
-          ];
+          inputs = user-config.inputs;
         };
+        modules = user-config.outputs.baseModules ++ [
+          (import "${inputs.user-config}/system/z13.nix")
+        ];
+      };
 
-        "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
+      "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
+        system = user-config.outputs.system;
+        specialArgs = {
+          stateVersion = user-config.outputs.stateVersion;
+          hostName = "nixos";
           system = user-config.outputs.system;
-          specialArgs = {
-            stateVersion = user-config.outputs.stateVersion;
-            hostName = "nixos";
-            system = user-config.outputs.system;
-            inputs = user-config.inputs;
-          };
-          modules = baseModules ++ [
-            (import "${inputs.user-config}/system/wsl.nix")
-          ];
+          inputs = user-config.inputs;
         };
+        modules = user-config.outputs.baseModules ++ [
+          (import "${inputs.user-config}/system/wsl.nix")
+        ];
       };
     };
+  };
 }
