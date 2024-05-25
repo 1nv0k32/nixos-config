@@ -98,21 +98,25 @@ with lib;
       enable = mkDefault true;
       extraConfig = customConfs.RESOLVED_CONFIG;
     };
-    logind = {
-      killUserProcesses = mkDefault true;
-      suspendKeyLongPress = mkDefault "lock";
-      suspendKey = mkDefault "lock";
-      rebootKeyLongPress = mkDefault "lock";
-      rebootKey = mkDefault "lock";
-      powerKeyLongPress = mkDefault "lock";
-      powerKey = mkDefault "lock";
-      hibernateKeyLongPress = mkDefault "lock";
-      hibernateKey = mkDefault "lock";
-      lidSwitchExternalPower = mkDefault "lock";
-      lidSwitchDocked = mkDefault "lock";
-      lidSwitch = mkDefault "suspend";
-      extraConfig = customConfs.LOGIND_CONFIG;
-    };
+    logind =
+      let
+        defaultAction = "lock";
+      in
+      {
+        lidSwitch = mkDefault "suspend";
+        lidSwitchDocked = mkDefault defaultAction;
+        lidSwitchExternalPower = mkDefault defaultAction;
+        suspendKey = mkDefault defaultAction;
+        suspendKeyLongPress = mkDefault defaultAction;
+        rebootKey = mkDefault defaultAction;
+        rebootKeyLongPress = mkDefault defaultAction;
+        powerKey = mkDefault defaultAction;
+        powerKeyLongPress = mkDefault defaultAction;
+        hibernateKey = mkDefault defaultAction;
+        hibernateKeyLongPress = mkDefault defaultAction;
+        killUserProcesses = mkDefault true;
+        extraConfig = customConfs.LOGIND_CONFIG;
+      };
     xserver = {
       enable = mkDefault true;
       xkb.layout = mkDefault "us";
