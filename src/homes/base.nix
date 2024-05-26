@@ -6,7 +6,7 @@
   ...
 }:
 let
-  customDots = pkgs.callPackage (import ./dots.nix) { };
+  customDots = (import ./dots.nix) {};
 in
 with lib.hm.gvariant;
 {
