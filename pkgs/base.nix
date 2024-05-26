@@ -63,12 +63,6 @@ in
     kind
     k3d
     istioctl
-    vscode
-    win-virtio
-    virt-manager
-    vagrant
-    krew
-    distrobox
 
     nvme-cli
     stress

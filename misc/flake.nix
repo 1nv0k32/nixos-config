@@ -28,6 +28,7 @@
             inputs = user-config.inputs;
           };
           modules = user-config.outputs.baseModules ++ localModules ++ [
+            (import "${inputs.user-config}/pkgs/extra.nix")
             (import "${inputs.user-config}/system/z13.nix")
           ];
         };
