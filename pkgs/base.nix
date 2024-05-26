@@ -1,7 +1,8 @@
 { inputs, system, config, pkgs, ... }:
 let
   unstable = import (inputs.nixpkgs-unstable) {
-    inherit system; inherit config;
+    system = system;
+    config = config;
   };
 in
 {
