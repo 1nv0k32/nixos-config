@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   lib,
-  ...
 }:
 with lib;
 {
