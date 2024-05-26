@@ -1,6 +1,10 @@
 { options, lib, ... }:
 with lib;
 {
+  imports = [
+    (import ../src/extra.nix { })
+    (import ../pkgs/extra.nix { })
+  ];
   boot.kernelParams = options.boot.kernelParams.default ++ [
     "amd_pstate=passive"
     "amd_iommu=on"

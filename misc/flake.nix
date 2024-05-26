@@ -31,13 +31,7 @@
             inputs = user-config.inputs;
           };
           modules =
-            user-config.baseModules
-            ++ localModules
-            ++ [
-              (import "${inputs.user-config}/src/extra.nix")
-              (import "${inputs.user-config}/pkgs/extra.nix")
-              (import "${inputs.user-config}/system/z13.nix")
-            ];
+            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
 
         "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
