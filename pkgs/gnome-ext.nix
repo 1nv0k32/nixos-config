@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ 
+  pkgs,
+  ...
+}:
 with pkgs;
 {
   gnomeExtensions = [
