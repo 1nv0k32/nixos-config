@@ -86,8 +86,8 @@ in
     aircrack-ng
     binwalk
 
-    # unstable.poetry
-    # unstable.winbox
+    unstable.poetry
+    unstable.winbox
 
     wl-clipboard
     wineWowPackages.stable
