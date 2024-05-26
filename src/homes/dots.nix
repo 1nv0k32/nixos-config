@@ -5,7 +5,7 @@ with lib;
     nixconf() (
       [ -z $1 ] && exit 1
       cd -- $1 || exit 1
-      nixpkgs-fmt .
+      nixfmt .
       while true; do
         git add -A
         git --no-pager diff --cached
