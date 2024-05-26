@@ -1,4 +1,5 @@
-{}: {
+{}:
+{
   DOT_BASHRC = mkDefault ''
     nixconf() (
       [ -z $1 ] && exit 1
