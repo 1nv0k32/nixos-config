@@ -9,11 +9,10 @@
 }:
 let
   customConfs = pkgs.callPackage (import ./confs.nix) { inherit inputs; };
-  customPkgs = pkgs.callPackage (import ./pkgs.nix) { inherit inputs; };
 in
 with lib;
 {
-  imports = [ (import ./users.nix { inherit customPkgs; }) ];
+  imports = [ (import ./users.nix) ];
 
   nix = {
     settings.experimental-features = mkDefault [

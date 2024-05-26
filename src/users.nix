@@ -1,4 +1,3 @@
-{ customPkgs }:
 {
   inputs,
   stateVersion,
@@ -9,6 +8,7 @@
 }:
 let
   mainUser = config.environment.sysConf.mainUser;
+  customPkgs = pkgs.callPackage (import ./pkgs.nix) { inherit inputs; };
 in
 with lib;
 {
