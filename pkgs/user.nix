@@ -1,13 +1,7 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 with pkgs;
 let
-  unstable = import (inputs.nixpkgs-unstable) {
-    config = config.nixpkgs.config;
-  };
+  unstable = import (inputs.nixpkgs-unstable) { config = config.nixpkgs.config; };
 in
 {
   userPkgs = [

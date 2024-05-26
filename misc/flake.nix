@@ -48,9 +48,7 @@
             inputs = user-config.inputs;
           };
           modules =
-            user-config.baseModules
-            ++ localModules
-            ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
+            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
         };
       };
     };

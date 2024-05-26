@@ -38,41 +38,40 @@ with lib;
     packages = userPkgs ++ gnomeExtensions;
   };
 
-  home-manager.users."${mainUser}" =
-    { ... }:
-    {
-      home = {
-        username = mainUser;
-        stateVersion = stateVersion;
-      };
-
-      programs.git = {
-        userName = config.environment.sysConf.gitUserName;
-        userEmail = config.environment.sysConf.gitEmail;
-      };
-
-      imports = [
-        (import ./homes/base.nix {
+  home-manager.users =
+    let
+      baseImport = (
+        import ./homes/base.nix {
           inherit gnomeExtensions;
           systemConfig = config;
-        })
-      ];
-    };
-
-  home-manager.users."guest" =
-    { ... }:
+        }
+      );
+    in
     {
-      home = {
-        username = "guest";
-        stateVersion = stateVersion;
-      };
+      "${mainUser}" =
+        { ... }:
+        {
+          imports = [ baseImport ];
+          home = {
+            username = mainUser;
+            stateVersion = stateVersion;
+          };
 
-      imports = [
-        (import ./homes/base.nix {
-          inherit gnomeExtensions;
-          systemConfig = config;
-        })
-      ];
+          programs.git = {
+            userName = config.environment.sysConf.gitUserName;
+            userEmail = config.environment.sysConf.gitEmail;
+          };
+        };
+
+      "guest" =
+        { ... }:
+        {
+          imports = [ baseImport ];
+          home = {
+            username = "guest";
+            stateVersion = stateVersion;
+          };
+        };
     };
 }
 
