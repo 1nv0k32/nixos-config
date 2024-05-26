@@ -1,7 +1,7 @@
 {
   inputs = {
     user-config = {
-      url = "github:1nv0k32/nixoscfg/main";
+      url = "github:1nv0k32/nixoscfg/dev";
     };
   };
 
@@ -23,15 +23,15 @@
     {
       nixosConfigurations = {
         "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
-          system = user-config.outputs.system;
+          system = user-config.system;
           specialArgs = {
-            stateVersion = user-config.outputs.stateVersion;
+            stateVersion = user-config.stateVersion;
             hostName = "nyx";
-            system = user-config.outputs.system;
+            system = user-config.system;
             inputs = user-config.inputs;
           };
           modules =
-            user-config.outputs.baseModules
+            user-config.baseModules
             ++ localModules
             ++ [
               (import "${inputs.user-config}/pkgs/extra.nix")
@@ -40,15 +40,15 @@
         };
 
         "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
-          system = user-config.outputs.system;
+          system = user-config.system;
           specialArgs = {
-            stateVersion = user-config.outputs.stateVersion;
+            stateVersion = user-config.stateVersion;
             hostName = "nixos";
-            system = user-config.outputs.system;
+            system = user-config.system;
             inputs = user-config.inputs;
           };
           modules =
-            user-config.outputs.baseModules
+            user-config.baseModules
             ++ localModules
             ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
         };

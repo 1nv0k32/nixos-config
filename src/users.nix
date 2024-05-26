@@ -12,8 +12,6 @@ let
 in
 with lib;
 {
-  imports = [ (import "${inputs.home-manager}/nixos") ];
-
   users.groups."ubridge" = {
     name = "ubridge";
   };

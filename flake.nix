@@ -13,7 +13,7 @@
   };
 
   outputs =
-    { self, ... }@inputs:
+    { self, home-manager, ... }@inputs:
     {
       stateVersion = "24.05";
       system = "x86_64-linux";
@@ -27,6 +27,7 @@
               ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix;
           }
         )
+        home-manager.nixosModules
         (import "${self}/src")
         (import "${self}/modules")
         (import "${self}/pkgs/base.nix")
