@@ -8,7 +8,7 @@
   ...
 }:
 let
-  customConfs = (import ./confs.nix);
+  customConfs = (import ./confs.nix { });
 in
 with lib;
 {
