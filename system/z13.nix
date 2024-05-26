@@ -32,12 +32,6 @@ with lib;
       };
     };
   };
-
-  services.fprintd.enable = true;
-  security.pam.services = {
-    login.fprintAuth = false;
-    gdm-fingerprint.fprintAuth = true;
-  };
 }
 
 # vim:expandtab ts=2 sw=2

@@ -34,6 +34,7 @@
             user-config.baseModules
             ++ localModules
             ++ [
+              (import "${inputs.user-config}/src/extra.nix")
               (import "${inputs.user-config}/pkgs/extra.nix")
               (import "${inputs.user-config}/system/z13.nix")
             ];
