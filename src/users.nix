@@ -28,13 +28,13 @@ with lib;
       "ubridge"
       "wireshark"
     ];
-    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix {}).gnomeExtensions;
+    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix { inherit pkgs; }).gnomeExtensions;
   };
 
   users.users."guest" = {
     uid = 1001;
     isNormalUser = true;
-    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix {}).gnomeExtensions;
+    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix { inherit pkgs; }).gnomeExtensions;
   };
 
   home-manager.users."${mainUser}" =
