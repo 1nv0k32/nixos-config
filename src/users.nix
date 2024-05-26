@@ -8,7 +8,8 @@
 }:
 let
   mainUser = config.environment.sysConf.mainUser;
-  customPkgs = pkgs.callPackage (import ./pkgs.nix) { inherit inputs; };
+  userPkgs = (import ../pkgs/gnome-ext.nix { inherit pkgs; }).userPkgs;
+  gnomeExtensions = (import ../pkgs/gnome-ext.nix { inherit pkgs; }).gnomeExtensions;
 in
 with lib;
 {
@@ -28,13 +29,13 @@ with lib;
       "ubridge"
       "wireshark"
     ];
-    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix { inherit pkgs; }).gnomeExtensions;
+    packages = userPkgs ++ gnomeExtensions;
   };
 
   users.users."guest" = {
     uid = 1001;
     isNormalUser = true;
-    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix { inherit pkgs; }).gnomeExtensions;
+    packages = userPkgs ++ gnomeExtensions;
   };
 
   home-manager.users."${mainUser}" =
@@ -50,12 +51,12 @@ with lib;
         userEmail = config.environment.sysConf.gitEmail;
       };
 
-      # imports = [
-      #   (import ./homes/base.nix {
-      #     inherit customPkgs;
-      #     systemConfig = config;
-      #   })
-      # ];
+      imports = [
+        (import ./homes/base.nix {
+          inherit gnomeExtensions;
+          systemConfig = config;
+        })
+      ];
     };
 
   home-manager.users."guest" =
@@ -66,12 +67,12 @@ with lib;
         stateVersion = stateVersion;
       };
 
-      # imports = [
-      #   (import ./homes/base.nix {
-      #     inherit customPkgs;
-      #     systemConfig = config;
-      #   })
-      # ];
+      imports = [
+        (import ./homes/base.nix {
+          inherit gnomeExtensions;
+          systemConfig = config;
+        })
+      ];
     };
 }
 
