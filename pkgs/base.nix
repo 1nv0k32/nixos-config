@@ -1,12 +1,11 @@
-{ inputs, system, config, pkgs }:
-with pkgs;
+{ inputs, system, config, pkgs, ... }:
 let
   unstable = import (inputs.nixpkgs-unstable) {
     inherit system; inherit config;
   };
 in
 {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     nixos-generators
     nixfmt-rfc-style
     cryptsetup
