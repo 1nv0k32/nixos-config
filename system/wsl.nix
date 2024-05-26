@@ -1,9 +1,14 @@
-{ inputs, pkgs, lib, options, config, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 with lib;
 {
-  imports = [
-    (import "${inputs.nixos-wsl}/modules")
-  ];
+  imports = [ (import "${inputs.nixos-wsl}/modules") ];
 
   wsl = {
     enable = true;
@@ -34,9 +39,7 @@ with lib;
       ORACLE_HOME = "${pkgs.oracle-instantclient.lib}";
       PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring";
     };
-    systemPackages = with pkgs; [
-      python312
-    ];
+    systemPackages = with pkgs; [ python312 ];
   };
 
   programs = {
@@ -55,4 +58,3 @@ with lib;
 }
 
 # vim:expandtab ts=2 sw=2
-

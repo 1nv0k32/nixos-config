@@ -1,4 +1,10 @@
-{ lib, pkgs, config, options, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  options,
+  ...
+}:
 with lib;
 let
   cfg = config.environment.sysConf;
@@ -28,4 +34,3 @@ in
 }
 
 # vim:expandtab ts=2 sw=2
-

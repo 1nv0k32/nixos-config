@@ -5,12 +5,15 @@
     };
   };
 
-  outputs = { user-config, ... }@inputs:
+  outputs =
+    { user-config, ... }@inputs:
     let
       localModules = [
         (
-          { lib, ... }: {
-            imports = [ ]
+          { lib, ... }:
+          {
+            imports =
+              [ ]
               ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix
               ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix;
           }
@@ -27,10 +30,13 @@
             system = user-config.outputs.system;
             inputs = user-config.inputs;
           };
-          modules = user-config.outputs.baseModules ++ localModules ++ [
-            (import "${inputs.user-config}/pkgs/extra.nix")
-            (import "${inputs.user-config}/system/z13.nix")
-          ];
+          modules =
+            user-config.outputs.baseModules
+            ++ localModules
+            ++ [
+              (import "${inputs.user-config}/pkgs/extra.nix")
+              (import "${inputs.user-config}/system/z13.nix")
+            ];
         };
 
         "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
@@ -41,9 +47,10 @@
             system = user-config.outputs.system;
             inputs = user-config.inputs;
           };
-          modules = user-config.outputs.baseModules ++ localModules ++ [
-            (import "${inputs.user-config}/system/wsl.nix")
-          ];
+          modules =
+            user-config.outputs.baseModules
+            ++ localModules
+            ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
         };
       };
     };

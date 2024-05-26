@@ -1,16 +1,25 @@
-{ inputs, stateVersion, hostName, config, pkgs, lib, ... }:
+{
+  inputs,
+  stateVersion,
+  hostName,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   customConfs = pkgs.callPackage (import ./confs.nix) { inherit inputs; };
   customPkgs = pkgs.callPackage (import ./pkgs.nix) { inherit inputs; };
 in
 with lib;
 {
-  imports = [
-    (import ./users.nix { inherit customPkgs; })
-  ];
+  imports = [ (import ./users.nix { inherit customPkgs; }) ];
 
   nix = {
-    settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
+    settings.experimental-features = mkDefault [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   documentation.nixos.enable = mkDefault false;
@@ -242,11 +251,20 @@ with lib;
   };
 
   fonts = {
-    packages = with pkgs; [ ubuntu_font_family vazir-fonts ];
+    packages = with pkgs; [
+      ubuntu_font_family
+      vazir-fonts
+    ];
     enableDefaultPackages = mkDefault true;
     fontconfig.defaultFonts = {
-      serif = mkDefault [ "Vazirmatn" "DejaVu Serif" ];
-      sansSerif = mkDefault [ "Vazirmatn" "DejaVu Sans" ];
+      serif = mkDefault [
+        "Vazirmatn"
+        "DejaVu Serif"
+      ];
+      sansSerif = mkDefault [
+        "Vazirmatn"
+        "DejaVu Sans"
+      ];
     };
   };
 }

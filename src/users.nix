@@ -1,12 +1,18 @@
-{ customPkgs }: { inputs, stateVersion, config, pkgs, lib, ... }:
+{ customPkgs }:
+{
+  inputs,
+  stateVersion,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   mainUser = config.environment.sysConf.mainUser;
 in
 with lib;
 {
-  imports = [
-    (import "${inputs.home-manager}/nixos")
-  ];
+  imports = [ (import "${inputs.home-manager}/nixos") ];
 
   users.groups."ubridge" = {
     name = "ubridge";
@@ -33,28 +39,42 @@ with lib;
     packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
   };
 
-  home-manager.users."${mainUser}" = { ... }: {
-    home = {
-      username = mainUser;
-      stateVersion = stateVersion;
+  home-manager.users."${mainUser}" =
+    { ... }:
+    {
+      home = {
+        username = mainUser;
+        stateVersion = stateVersion;
+      };
+
+      programs.git = {
+        userName = config.environment.sysConf.gitUserName;
+        userEmail = config.environment.sysConf.gitEmail;
+      };
+
+      imports = [
+        (import ./homes/base.nix {
+          inherit customPkgs;
+          systemConfig = config;
+        })
+      ];
     };
 
-    programs.git = {
-      userName = config.environment.sysConf.gitUserName;
-      userEmail = config.environment.sysConf.gitEmail;
+  home-manager.users."guest" =
+    { ... }:
+    {
+      home = {
+        username = "guest";
+        stateVersion = stateVersion;
+      };
+
+      imports = [
+        (import ./homes/base.nix {
+          inherit customPkgs;
+          systemConfig = config;
+        })
+      ];
     };
-
-    imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
-  };
-
-  home-manager.users."guest" = { ... }: {
-    home = {
-      username = "guest";
-      stateVersion = stateVersion;
-    };
-
-    imports = [ (import ./homes/base.nix { inherit customPkgs; systemConfig = config; }) ];
-  };
 }
 
 # vim:expandtab ts=2 sw=2

@@ -1,4 +1,10 @@
-{ customPkgs, systemConfig }: { config, pkgs, lib, ... }:
+{ customPkgs, systemConfig }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   customDots = pkgs.callPackage (import ./dots.nix) { };
 in
@@ -8,8 +14,12 @@ with lib.hm.gvariant;
 
   home = {
     homeDirectory = "/home/${config.home.username}";
-    file."${config.home.homeDirectory}/.background-image" = { source = ../bin/backgroud-image; };
-    file."${config.home.homeDirectory}/.face" = { source = ../bin/backgroud-image; };
+    file."${config.home.homeDirectory}/.background-image" = {
+      source = ../bin/backgroud-image;
+    };
+    file."${config.home.homeDirectory}/.face" = {
+      source = ../bin/backgroud-image;
+    };
   };
 
   programs.bash = {
@@ -28,7 +38,9 @@ with lib.hm.gvariant;
       let
         proxy_url = builtins.elemAt (builtins.split "/" systemConfig.networking.proxy.default) 4;
       in
-      lib.mkIf (systemConfig.networking.proxy.default != null) "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
+      lib.mkIf (
+        systemConfig.networking.proxy.default != null
+      ) "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
   };
 
   programs.git = {
@@ -49,7 +61,6 @@ with lib.hm.gvariant;
       cursorBlinkMode = "on";
       font = "Monospace 15";
       customCommand = "tmux";
-
     };
   };
 
@@ -104,7 +115,16 @@ with lib.hm.gvariant;
     };
     "org/gnome/desktop/input-sources" = {
       per-window = true;
-      sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "ir" ]) ];
+      sources = [
+        (mkTuple [
+          "xkb"
+          "us"
+        ])
+        (mkTuple [
+          "xkb"
+          "ir"
+        ])
+      ];
     };
     "org/gnome/desktop/wm/preferences" = {
       audible-bell = false;
@@ -169,4 +189,3 @@ with lib.hm.gvariant;
 }
 
 # vim:expandtab ts=2 sw=2
-

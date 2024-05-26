@@ -1,4 +1,10 @@
-{ lib, pkgs, config, options, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  options,
+  ...
+}:
 with lib;
 let
   cfg = config.services.alpaca;
@@ -6,9 +12,7 @@ in
 {
   options.services.alpaca = {
     enable = mkEnableOption "alpaca service";
-    ntlmHash = mkOption {
-      type = types.str;
-    };
+    ntlmHash = mkOption { type = types.str; };
     pacUrl = mkOption {
       type = types.nullOr types.str;
       default = null;
@@ -79,4 +83,3 @@ in
 }
 
 # vim:expandtab ts=2 sw=2
-
