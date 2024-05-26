@@ -7,6 +7,9 @@
   lib,
   ...
 }:
+let
+  customConfs = (import ./confs.nix) { inherit inputs pkgs lib; };
+in
 with lib;
 {
   boot = {
