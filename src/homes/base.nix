@@ -6,7 +6,7 @@
   ...
 }:
 let
-  customDots = (import ./dots.nix) {};
+  customDots = (import ./dots.nix) { inherit lib; };
 in
 with lib.hm.gvariant;
 {

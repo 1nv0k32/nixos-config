@@ -1,4 +1,8 @@
-{}:
+{
+  lib,
+  ...
+}:
+with lib;
 {
   DOT_BASHRC = mkDefault ''
     nixconf() (
