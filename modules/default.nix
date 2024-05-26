@@ -2,7 +2,7 @@
 {
   imports =
     [ ]
-    ++ lib.optional (builtins.pathExists ./dev.nix) ./dev.nix
+    ++ lib.optional (builtins.pathExists ./dev.nix) (import ./dev.nix)
     ++ [
       ./sysconf.nix
       ./cert-der.nix

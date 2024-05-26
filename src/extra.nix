@@ -5,7 +5,7 @@
   ...
 }:
 let
-  customConfs = (import ./confs.nix) { inherit inputs pkgs lib; };
+  customConfs = (import ./confs.nix { inherit inputs pkgs lib; });
 in
 with lib;
 {
