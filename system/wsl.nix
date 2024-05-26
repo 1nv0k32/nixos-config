@@ -30,6 +30,7 @@ with lib;
 
   environment = {
     variables = {
+      VAGRANT_WSL_ENABLE_WINDOWS_ACCESS = "0";
       ORACLE_HOME = "${pkgs.oracle-instantclient.lib}";
       PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring";
     };
