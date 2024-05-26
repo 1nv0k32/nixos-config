@@ -1,5 +1,6 @@
 {
   inputs,
+  system,
   options,
   pkgs,
   lib,
@@ -8,8 +9,22 @@
 with lib;
 {
   imports = [
-    (import ../src/extra.nix { inherit inputs pkgs lib; })
-    (import ../pkgs/extra.nix { inherit inputs pkgs lib; })
+    (import ../src/extra.nix {
+      inherit
+        inputs
+        system
+        pkgs
+        lib
+        ;
+    })
+    (import ../pkgs/extra.nix {
+      inherit
+        inputs
+        system
+        pkgs
+        lib
+        ;
+    })
   ];
   boot.kernelParams = options.boot.kernelParams.default ++ [
     "amd_pstate=passive"
