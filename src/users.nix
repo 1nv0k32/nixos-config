@@ -8,8 +8,8 @@
 }:
 let
   mainUser = config.environment.sysConf.mainUser;
-  userPkgs = (import ../pkgs/user.nix { inherit inputs; }).userPkgs;
-  gnomeExtensions = (import ../pkgs/gnome-ext.nix { inherit inputs; }).gnomeExtensions;
+  userPkgs = (import ../pkgs/user.nix { inherit inputs pkgs; }).userPkgs;
+  gnomeExtensions = (import ../pkgs/gnome-ext.nix { inherit inputs pkgs; }).gnomeExtensions;
 in
 with lib;
 {
