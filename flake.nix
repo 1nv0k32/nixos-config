@@ -27,7 +27,7 @@
               ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix;
           }
         )
-        home-manager.nixosModules
+        home-manager.nixosModules.home-manager
         (import "${self}/src")
         (import "${self}/modules")
         (import "${self}/pkgs/base.nix")
