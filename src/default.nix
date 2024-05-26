@@ -8,7 +8,7 @@
   ...
 }:
 let
-  customConfs = pkgs.callPackage (import ./confs.nix) { inherit inputs; };
+  customConfs = (import ./confs.nix) { inherit inputs; };
 in
 with lib;
 {
