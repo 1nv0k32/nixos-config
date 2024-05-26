@@ -5,7 +5,7 @@
   ...
 }:
 let
-  customConfs = (import ./confs.nix { inherit inputs pkgs lib; });
+  customConfigs = (import ./configs.nix { inherit inputs pkgs lib; });
 in
 with lib;
 {
@@ -23,7 +23,7 @@ with lib;
     };
     initrd.systemd = {
       enable = mkDefault true;
-      extraConfig = customConfs.SYSTEMD_CONFIG;
+      extraConfig = customConfigs.SYSTEMD_CONFIG;
     };
   };
 
@@ -56,7 +56,7 @@ with lib;
     fwupd.enable = mkDefault true;
     resolved = {
       enable = mkDefault true;
-      extraConfig = customConfs.RESOLVED_CONFIG;
+      extraConfig = customConfigs.RESOLVED_CONFIG;
     };
     xserver = {
       enable = mkDefault true;

@@ -19,8 +19,8 @@
       system = "x86_64-linux";
       baseModules = [
         home-manager.nixosModules.home-manager
-        (import "${self}/src")
         (import "${self}/modules")
+        (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
     };

@@ -6,7 +6,7 @@
   ...
 }:
 let
-  customDots = (import ./dots.nix { inherit lib; });
+  customConfigs = (import ./configs.nix { inherit lib; });
 in
 with lib.hm.gvariant;
 {
@@ -28,7 +28,7 @@ with lib.hm.gvariant;
       cat = "bat -p";
       k = "kubectl";
     };
-    bashrcExtra = customDots.DOT_BASHRC;
+    bashrcExtra = customConfigs.DOT_BASHRC;
   };
 
   programs.ssh = {

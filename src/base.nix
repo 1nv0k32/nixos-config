@@ -8,7 +8,7 @@
   ...
 }:
 let
-  customConfs = (import ./confs.nix { inherit inputs pkgs lib; });
+  customConfigs = (import ./configs.nix { inherit inputs pkgs lib; });
 in
 with lib;
 {
@@ -38,8 +38,8 @@ with lib;
   };
 
   systemd = {
-    extraConfig = customConfs.SYSTEMD_CONFIG;
-    user.extraConfig = customConfs.SYSTEMD_USER_CONFIG;
+    extraConfig = customConfigs.SYSTEMD_CONFIG;
+    user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
   };
 
   time = {
@@ -79,7 +79,7 @@ with lib;
         hibernateKey = mkDefault defaultAction;
         hibernateKeyLongPress = mkDefault defaultAction;
         killUserProcesses = mkDefault true;
-        extraConfig = customConfs.LOGIND_CONFIG;
+        extraConfig = customConfigs.LOGIND_CONFIG;
       };
   };
 
@@ -116,8 +116,8 @@ with lib;
     };
 
     etc = {
-      "inputrc".text = customConfs.INPUTRC_CONFIG;
-      "bashrc.local".text = customConfs.BASHRC_CONFIG;
+      "inputrc".text = customConfigs.INPUTRC_CONFIG;
+      "bashrc.local".text = customConfigs.BASHRC_CONFIG;
       "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = mkDefault ''
         bluetooth_policy.policy["media-role.use-headset-profile"] = false
       '';
@@ -131,7 +131,7 @@ with lib;
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
       configure = {
-        customRC = customConfs.VIMRC_CONFIG;
+        customRC = customConfigs.VIMRC_CONFIG;
       };
     };
     gnupg.agent = {
@@ -139,11 +139,11 @@ with lib;
       pinentryPackage = mkDefault pkgs.pinentry-curses;
       enableSSHSupport = mkDefault true;
     };
-    ssh.extraConfig = customConfs.SSH_CLIENT_CONFIG;
+    ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
     dconf.enable = mkDefault true;
     tmux = {
       enable = mkDefault true;
-      extraConfig = customConfs.TMUX_CONFIG;
+      extraConfig = customConfigs.TMUX_CONFIG;
     };
     git = {
       enable = mkDefault true;
