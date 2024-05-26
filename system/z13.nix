@@ -9,22 +9,10 @@
 with lib;
 {
   imports = [
-    (import ../src/extra.nix {
-      inherit
-        inputs
-        system
-        pkgs
-        lib
-        ;
-    })
-    (import ../pkgs/extra.nix {
-      inherit
-        inputs
-        system
-        pkgs
-        lib
-        ;
-    })
+    pkgs.callPackage
+    (import ../src/extra.nix { })
+    pkgs.callPackage
+    (import ../pkgs/extra.nix { })
   ];
   boot.kernelParams = options.boot.kernelParams.default ++ [
     "amd_pstate=passive"
