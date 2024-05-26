@@ -1,8 +1,5 @@
 {
   inputs,
-  stateVersion,
-  hostName,
-  config,
   pkgs,
   lib,
   ...
