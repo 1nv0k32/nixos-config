@@ -14,11 +14,60 @@ in
 {
   environment.systemPackages = with pkgs; [
     vscode
+    gparted
+    firefox
+    spotify
+    flameshot
+    otpclient
+    vlc
+    gimp
+    discord
+    rivalcfg
+    cobang
+    rpi-imager
+    yt-dlp
+    media-downloader
+
+    evince
+    gnome.gnome-terminal
+    gnome.dconf-editor
+    gnome.gnome-tweaks
+    gnome.nautilus
+    gnome.file-roller
+    gnome.gnome-calculator
+    gnome.eog
+    gnome.geary
+    gnome.gnome-calendar
+
+    gns3-gui
+    gns3-server
+    dynamips
+    inetutils
+
+    stm32cubemx
+    stm32loader
+    stm32flash
+
     win-virtio
     virt-manager
     vagrant
     krew
     distrobox
+    quickemu
+    pavucontrol
+    networkmanagerapplet
+    alsa-utils
+    pulseaudio
+
+    nmap
+    valgrind
+    radare2
+    pwntools
+    pwndbg
+    aircrack-ng
+    binwalk
+    burpsuite
+    ghidra-bin
   ];
 }
 

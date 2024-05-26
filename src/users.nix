@@ -8,7 +8,6 @@
 }:
 let
   mainUser = config.environment.sysConf.mainUser;
-  userPkgs = (import ../pkgs/user.nix { inherit inputs pkgs; }).userPkgs;
   gnomeExtensions = (import ../pkgs/gnome-ext.nix { inherit inputs pkgs; }).gnomeExtensions;
 in
 with lib;
@@ -29,13 +28,13 @@ with lib;
       "ubridge"
       "wireshark"
     ];
-    packages = userPkgs ++ gnomeExtensions;
+    packages = gnomeExtensions;
   };
 
   users.users."guest" = {
     uid = 1001;
     isNormalUser = true;
-    packages = userPkgs ++ gnomeExtensions;
+    packages = gnomeExtensions;
   };
 
   home-manager.users =

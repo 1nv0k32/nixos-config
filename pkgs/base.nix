@@ -39,6 +39,10 @@ in
     pass
     parted
 
+    chromium
+    transmission
+    transmission-gtk
+
     ntfs3g
     gnumake
     cmake
@@ -65,7 +69,6 @@ in
     ansible
     docker-compose
     podman-compose
-    quickemu
     git-crypt
     kind
     k3d
@@ -78,14 +81,9 @@ in
     usbutils
     pciutils
     silver-searcher
-
-    nmap
-    valgrind
-    radare2
-    pwntools
-    pwndbg
-    aircrack-ng
-    binwalk
+    imagemagick
+    ghostscript
+    ffmpeg
 
     unstable.poetry
     unstable.winbox
