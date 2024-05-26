@@ -1,9 +1,10 @@
-{ inputs, system, config, pkgs, ... }:
-# let
-#   unstable = import (inputs.nixpkgs-unstable) {
-#     inherit system; inherit config;
-#   };
-# in
+{ inputs, system, pkgs, config, ... }:
+let
+  unstable = import (inputs.nixpkgs-unstable) {
+    config = config.nixpkgs.config;
+    inherit system;
+  };
+in
 {
   environment.systemPackages = with pkgs; [
     nixos-generators
