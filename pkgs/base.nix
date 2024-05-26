@@ -47,6 +47,7 @@ in
     gcc
     gdb
     android-tools
+    unrar-wrapper
 
     wireguard-tools
     conntrack-tools

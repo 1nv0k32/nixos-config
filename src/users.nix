@@ -28,13 +28,13 @@ with lib;
       "ubridge"
       "wireshark"
     ];
-    packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
+    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix {}).gnomeExtensions;
   };
 
   users.users."guest" = {
     uid = 1001;
     isNormalUser = true;
-    packages = customPkgs.USER ++ customPkgs.GNOME_EXT;
+    packages = customPkgs.USER ++ (import ../pkgs/gnome-ext.nix {}).gnomeExtensions;
   };
 
   home-manager.users."${mainUser}" =
@@ -50,12 +50,12 @@ with lib;
         userEmail = config.environment.sysConf.gitEmail;
       };
 
-      imports = [
-        (import ./homes/base.nix {
-          inherit customPkgs;
-          systemConfig = config;
-        })
-      ];
+      # imports = [
+      #   (import ./homes/base.nix {
+      #     inherit customPkgs;
+      #     systemConfig = config;
+      #   })
+      # ];
     };
 
   home-manager.users."guest" =
@@ -66,12 +66,12 @@ with lib;
         stateVersion = stateVersion;
       };
 
-      imports = [
-        (import ./homes/base.nix {
-          inherit customPkgs;
-          systemConfig = config;
-        })
-      ];
+      # imports = [
+      #   (import ./homes/base.nix {
+      #     inherit customPkgs;
+      #     systemConfig = config;
+      #   })
+      # ];
     };
 }
 

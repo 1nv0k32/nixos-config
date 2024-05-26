@@ -35,7 +35,6 @@ in
     transmission
     transmission-gtk
     pulseaudio
-    unrar-wrapper
     cobang
     alsa-utils
     ghidra-bin
@@ -57,14 +56,6 @@ in
     gnome.eog
     gnome.geary
     gnome.gnome-calendar
-  ];
-
-  GNOME_EXT = [
-    gnomeExtensions.appindicator
-    gnomeExtensions.just-perfection
-    gnomeExtensions.tiling-assistant
-    gnomeExtensions.caffeine
-    gnomeExtensions.unblank
   ];
 }
 
