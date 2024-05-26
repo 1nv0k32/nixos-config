@@ -4,7 +4,7 @@
     ++ lib.optional (builtins.pathExists ./dev.nix) ./dev.nix
     ++ [
     ./sysconf.nix
-    ./cert_der.nix
+    ./cert-der.nix
     ./alpaca.nix
   ];
 }

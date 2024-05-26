@@ -80,7 +80,7 @@ with lib;
 
   console = {
     earlySetup = mkDefault true;
-    packages = customPkgs.CONSOLE;
+    packages = with pkgs; [ terminus_font ];
     font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
     keyMap = mkDefault "us";
   };
@@ -182,7 +182,6 @@ with lib;
   };
 
   environment = {
-    systemPackages = customPkgs.SYSTEM;
     variables = {
       VAGRANT_DEFAULT_PROVIDER = mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = mkForce "qemu:///system";
@@ -243,7 +242,7 @@ with lib;
   };
 
   fonts = {
-    packages = customPkgs.FONT;
+    packages = with pkgs; [ ubuntu_font_family vazir-fonts ];
     enableDefaultPackages = mkDefault true;
     fontconfig.defaultFonts = {
       serif = mkDefault [ "Vazirmatn" "DejaVu Serif" ];
