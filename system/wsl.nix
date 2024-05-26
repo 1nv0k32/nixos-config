@@ -25,17 +25,9 @@ with lib;
       { src = "${gnused}/bin/sed"; }
     ];
   };
-  boot.loader.systemd-boot.enable = mkForce false;
-
-  services = {
-    xserver.enable = mkForce false;
-    pipewire.enable = mkForce false;
-    resolved.enable = mkForce false;
-  };
 
   environment = {
     variables = {
-      VAGRANT_WSL_ENABLE_WINDOWS_ACCESS = "0";
       ORACLE_HOME = "${pkgs.oracle-instantclient.lib}";
       PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring";
     };
@@ -44,11 +36,6 @@ with lib;
 
   programs = {
     nix-ld.enable = true;
-  };
-
-  networking = {
-    networkmanager.enable = mkForce false;
-    firewall.enable = mkForce false;
   };
 
   virtualisation.docker.daemon.settings = {

@@ -30,11 +30,37 @@ with lib;
     };
   };
 
+  networking = {
+    networkmanager = {
+      enable = mkDefault true;
+      dns = mkDefault "systemd-resolved";
+      settings = {
+        main = {
+          no-auto-default = "*";
+          systemd-resolved = true;
+        };
+      };
+    };
+    firewall = {
+      enable = mkDefault true;
+      checkReversePath = mkDefault false;
+      allowPing = mkDefault false;
+      allowedTCPPorts = mkDefault [ ];
+      allowedTCPPortRanges = mkDefault [ ];
+      allowedUDPPorts = mkDefault [ ];
+      allowedUDPPortRanges = mkDefault [ ];
+    };
+  };
+
   services = {
     avahi.enable = mkForce false;
     fstrim.enable = mkDefault true;
     fprintd.enable = mkDefault true;
     fwupd.enable = mkDefault true;
+    resolved = {
+      enable = mkDefault true;
+      extraConfig = customConfs.RESOLVED_CONFIG;
+    };
     xserver = {
       enable = mkDefault true;
       xkb.layout = mkDefault "us";

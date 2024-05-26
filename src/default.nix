@@ -35,25 +35,6 @@ with lib;
 
   networking = {
     hostName = hostName;
-    networkmanager = {
-      enable = mkDefault true;
-      dns = mkDefault "systemd-resolved";
-      settings = {
-        main = {
-          no-auto-default = "*";
-          systemd-resolved = true;
-        };
-      };
-    };
-    firewall = {
-      enable = mkDefault true;
-      checkReversePath = mkDefault false;
-      allowPing = mkDefault false;
-      allowedTCPPorts = mkDefault [ ];
-      allowedTCPPortRanges = mkDefault [ ];
-      allowedUDPPorts = mkDefault [ ];
-      allowedUDPPortRanges = mkDefault [ ];
-    };
   };
 
   systemd = {
@@ -80,10 +61,6 @@ with lib;
     gnome = {
       core-utilities.enable = mkForce false;
       gnome-keyring.enable = mkDefault true;
-    };
-    resolved = {
-      enable = mkDefault true;
-      extraConfig = customConfs.RESOLVED_CONFIG;
     };
     logind =
       let
