@@ -25,7 +25,7 @@
       )
       (import "${self}/src")
       (import "${self}/modules")
-      "${self}/pkgs/base.nix"
+      (import "${self}/pkgs/base.nix")
     ];
   };
 }

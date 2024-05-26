@@ -1,9 +1,9 @@
 { inputs, system, config, pkgs, ... }:
-let
-  unstable = import (inputs.nixpkgs-unstable) {
-    inherit system; inherit config;
-  };
-in
+# let
+#   unstable = import (inputs.nixpkgs-unstable) {
+#     inherit system; inherit config;
+#   };
+# in
 {
   environment.systemPackages = with pkgs; [
     nixos-generators
@@ -85,8 +85,8 @@ in
     aircrack-ng
     binwalk
 
-    unstable.poetry
-    unstable.winbox
+    # unstable.poetry
+    # unstable.winbox
 
     wl-clipboard
     wineWowPackages.stable
