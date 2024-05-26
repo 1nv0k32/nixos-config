@@ -1,7 +1,7 @@
 {
   inputs = {
     user-config = {
-      url = "github:1nv0k32/nixoscfg/dev";
+      url = "github:1nv0k32/nixoscfg/main";
     };
   };
 

@@ -40,7 +40,7 @@ with lib;
   home-manager.users =
     let
       baseImport = (
-        import ./homes/base.nix {
+        import ./home/base.nix {
           inherit gnomeExtensions;
           systemConfig = config;
         }
