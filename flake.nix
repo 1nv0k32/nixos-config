@@ -18,15 +18,6 @@
       stateVersion = "24.05";
       system = "x86_64-linux";
       baseModules = [
-        (
-          { lib, ... }:
-          {
-            imports =
-              [ ]
-              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix
-              ++ lib.optional (builtins.pathExists ./local.nix) ./local.nix;
-          }
-        )
         home-manager.nixosModules.home-manager
         (import "${self}/src")
         (import "${self}/modules")
