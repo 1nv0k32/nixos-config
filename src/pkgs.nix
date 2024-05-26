@@ -119,7 +119,7 @@ in
     vscode
     virt-manager
     win-virtio
-    vagrant
+    # vagrant
     terraform
     ansible
     docker-compose
