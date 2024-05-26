@@ -1,8 +1,14 @@
-{ 
+{
+  inputs,
   pkgs,
   ...
 }:
 with pkgs;
+let
+  unstable = import (inputs.nixpkgs-unstable) {
+    config = config.nixpkgs.config;
+  };
+in
 {
   gnomeExtensions = [
     gnomeExtensions.appindicator
