@@ -23,5 +23,16 @@
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
+      localModules = [
+        (
+          { lib, ... }:
+          {
+            imports =
+              [ ]
+              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) (import ./hardware-configuration.nix)
+              ++ lib.optional (builtins.pathExists ./local.nix) (import ./local.nix);
+          }
+        )
+      ];
     };
 }

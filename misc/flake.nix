@@ -7,19 +7,6 @@
 
   outputs =
     { user-config, ... }@inputs:
-    let
-      localModules = [
-        (
-          { lib, ... }:
-          {
-            imports =
-              [ ]
-              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) (import ./hardware-configuration.nix)
-              ++ lib.optional (builtins.pathExists ./local.nix) (import ./local.nix);
-          }
-        )
-      ];
-    in
     {
       nixosConfigurations = {
         "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
@@ -31,7 +18,9 @@
             inputs = user-config.inputs;
           };
           modules =
-            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
+            user-config.baseModules
+            ++ user-config.localModules
+            ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
 
         "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
@@ -43,7 +32,9 @@
             inputs = user-config.inputs;
           };
           modules =
-            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
+            user-config.baseModules
+            ++ user-config.localModules
+            ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
         };
       };
     };
