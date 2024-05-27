@@ -2,21 +2,22 @@
   inputs,
   system,
   options,
+  config,
   pkgs,
   lib,
   ...
 }:
+let
+  addCrypttabExtraOpts = dev: devAttr: devAttr // { crypttabExtraOpts = [ "tpm2-device=auto" ]; };
+in
 with lib;
 {
   imports = [
     (import ../src/extra.nix)
     (import ../pkgs/extra.nix)
   ];
-  # boot.kernelParams = options.boot.kernelParams.default ++ [
-  #   "amd_pstate=passive"
-  #   "amd_iommu=on"
-  # ];
-  boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
+
+  boot.initrd.luks.devices = builtins.mapAttrs addCrypttabExtraOpts options.boot.initrd.luks.devices;
 
   services = {
     tlp = {
