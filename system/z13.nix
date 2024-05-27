@@ -17,7 +17,7 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices = builtins.mapAttrs addCrypttabExtraOpts options.boot.initrd.luks.devices;
+  # boot.initrd.luks.devices = builtins.mapAttrs addCrypttabExtraOpts options.boot.initrd.luks.devices;
 
   services = {
     tlp = {
