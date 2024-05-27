@@ -13,7 +13,6 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    nixos-generators
     nixfmt-rfc-style
     cryptsetup
     openssl
@@ -50,7 +49,6 @@ in
     glibc
     gcc
     gdb
-    android-tools
     unrar-wrapper
 
     wireguard-tools
@@ -86,7 +84,6 @@ in
     ffmpeg
 
     unstable.poetry
-    unstable.winbox
 
     wl-clipboard
     wineWowPackages.stable

@@ -27,6 +27,7 @@ in
     rpi-imager
     yt-dlp
     media-downloader
+    unstable.winbox
 
     evince
     gnome.gnome-terminal
@@ -52,12 +53,14 @@ in
     virt-manager
     vagrant
     krew
+    nixos-generators
     distrobox
     quickemu
     pavucontrol
     networkmanagerapplet
     alsa-utils
     pulseaudio
+    android-tools
 
     nmap
     valgrind
