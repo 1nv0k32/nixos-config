@@ -1,7 +1,17 @@
 name: Build Nix Flake
-on: [push]
+on: 
+  - push
 jobs:
-  build:
+  build-nyx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+      - name: Build flake
+        run: |
+          nix build --output-lock-file /tmp/flake.lock \
+          github:1nv0k32/nixoscfg?dir=misc#nixosConfigurations.nyx.config.system.build.toplevel
+  build-nixos:
     runs-on: ubuntu-latest
     steps:
       - name: Install Nix
