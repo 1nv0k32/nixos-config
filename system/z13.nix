@@ -12,10 +12,10 @@ with lib;
     (import ../src/extra.nix)
     (import ../pkgs/extra.nix)
   ];
-  boot.kernelParams = options.boot.kernelParams.default ++ [
-    "amd_pstate=passive"
-    "amd_iommu=on"
-  ];
+  # boot.kernelParams = options.boot.kernelParams.default ++ [
+  #   "amd_pstate=passive"
+  #   "amd_iommu=on"
+  # ];
   boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
 
   services = {
