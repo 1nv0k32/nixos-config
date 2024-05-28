@@ -2,14 +2,10 @@
   inputs,
   system,
   options,
-  config,
   pkgs,
   lib,
   ...
 }:
-let
-  luksDevices = lib.attrsets.mapAttrsToList (name: device: name) config.boot.initrd.luks.devices;
-in
 with lib;
 {
   imports = [
@@ -17,9 +13,7 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices = lib.lists.forEach luksDevices (dev: {
-    dev.crypttabExtraOpts = [ "tpm2-device=auto" ];
-  });
+  boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
 
   services = {
     tlp = {
