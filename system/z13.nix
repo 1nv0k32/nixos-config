@@ -9,6 +9,7 @@
 }:
 let
   addCrypttabExtraOpts = dev: devAttr: devAttr // { crypttabExtraOpts = [ "tpm2-device=auto" ]; };
+  devices = builtins.mapAttrs addCrypttabExtraOpts config.boot.initrd.luks.devices;
 in
 with lib;
 {
@@ -17,7 +18,7 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices = builtins.mapAttrs addCrypttabExtraOpts config.boot.initrd.luks.devices;
+  boot.initrd.luks.devices = devices;
 
   services = {
     tlp = {
