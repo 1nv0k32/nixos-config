@@ -8,7 +8,7 @@
   ...
 }:
 let
-  luksDevices = lib.attrset.mapAttrsToList (name: device: name) config.boot.initrd.luks.devices;
+  luksDevices = lib.attrsets.mapAttrsToList (name: device: name) config.boot.initrd.luks.devices;
 in
 with lib;
 {
