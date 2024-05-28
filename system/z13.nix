@@ -17,9 +17,9 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices = map (
-    device: device // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }
-  ) builtins.attrNames devices;
+  boot.initrd.luks.devices = map (device: device // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }) (
+    builtins.attrNames devices
+  );
 
   services = {
     tlp = {
