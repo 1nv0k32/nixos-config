@@ -16,7 +16,7 @@ with lib;
 
   boot.initrd.luks.devices = lib.attrsets.mapAttrs (
     dev: devAttrs: devAttrs // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }
-  ) boot.initrd.luks.devices;
+  ) config.boot.initrd.luks.devices;
 
   services = {
     tlp = {
