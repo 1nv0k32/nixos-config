@@ -2,6 +2,7 @@
   inputs,
   system,
   options,
+  config,
   pkgs,
   lib,
   ...
@@ -13,7 +14,9 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
+  config.boot.initrd.luks.devices = map (device: device // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }) (
+    builtins.attrNames config.boot.initrd.luks.devices
+  )
 
   services = {
     tlp = {
