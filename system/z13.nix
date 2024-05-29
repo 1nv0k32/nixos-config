@@ -7,13 +7,6 @@
   lib,
   ...
 }:
-let
-  devices = rec {
-    devs = map (device: device // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }) (
-      builtins.attrNames config.boot.initrd.luks.devices
-    );
-  };
-in
 with lib;
 {
   imports = [
@@ -21,9 +14,9 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
-
-  boot.initrd.luks.devices = devices.devs;
+  boot.initrd.luks.devices = mapValues (
+    devAttrs: devAttrs // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }
+  ) boot.initrd.luks.devices;
 
   services = {
     tlp = {
