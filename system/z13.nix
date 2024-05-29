@@ -11,7 +11,7 @@ let
   devicesModule =
     { name, config, ... }:
     {
-      options.crypttabExtraOpts = mkOption {
+      options.crypttabExtraOpts = lib.mkOption {
         default = (options.boot.initrd.luks.devices.type.getSubOptions [ ]).crypttabExtraOpts.default ++ [
           "tpm2-device=auto"
         ];
