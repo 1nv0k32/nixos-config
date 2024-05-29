@@ -8,7 +8,7 @@
   ...
 }:
 let
-  subOptions = boot.initrd.luks.devices.type.getSubOptions [ ];
+  subOptions = options.boot.initrd.luks.devices.type.getSubOptions [ ];
 in
 with lib;
 {
