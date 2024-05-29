@@ -14,7 +14,8 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
+  # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
+  (boot.initrd.luks.devices.type.getSubOptions []).crypttabExtraOpts = lib.mkOptionDefault ((options.boot.initrd.luks.devices.type.getSubOptions []).crypttabExtraOpts.default ++ [ "tpm2-device=auto" ]);
 
   services = {
     tlp = {
