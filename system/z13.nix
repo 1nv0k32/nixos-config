@@ -14,8 +14,8 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices = mapValues (
-    devAttrs: devAttrs // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }
+  boot.initrd.luks.devices = lib.attrsets.mapAttrs (
+    dev: devAttrs: devAttrs // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }
   ) boot.initrd.luks.devices;
 
   services = {
