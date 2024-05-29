@@ -7,6 +7,9 @@
   lib,
   ...
 }:
+let
+  subOptions = boot.initrd.luks.devices.type.getSubOptions [ ];
+in
 with lib;
 {
   imports = [
@@ -15,7 +18,10 @@ with lib;
   ];
 
   # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
-  (boot.initrd.luks.devices.type.getSubOptions []).crypttabExtraOpts = lib.mkOptionDefault ((options.boot.initrd.luks.devices.type.getSubOptions []).crypttabExtraOpts.default ++ [ "tpm2-device=auto" ]);
+  subOptions.crypttabExtraOpts = lib.mkOptionDefault (
+    (options.boot.initrd.luks.devices.type.getSubOptions [ ]).crypttabExtraOpts.default
+    ++ [ "tpm2-device=auto" ]
+  );
 
   services = {
     tlp = {
