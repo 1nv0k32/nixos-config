@@ -14,10 +14,10 @@ with lib;
     (import ../pkgs/extra.nix)
   ];
 
-  boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
-  # boot.initrd.luks.devices = map (device: device // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }) (
-  #   builtins.attrNames config.boot.initrd.luks.devices
-  # );
+  # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
+  boot.initrd.luks.devices = lib.attrsets.mapAttrs (
+    dev: devAttrs: devAttrs // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }
+  ) config.boot.initrd.luks.devices;
 
   services = {
     tlp = {
