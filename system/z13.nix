@@ -10,13 +10,13 @@ let
   devicesModule =
     { name, ... }:
     {
-      options.crypttabExtraOpts.default = [ "tpm2-device=auto" ];
+      options.crypttabExtraOpts = lib.mergeEqualOption { default = [ "tpm2-device=auto" ]; };
     };
 in
 with lib;
 {
   # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
-  options.boot.initrd.luks.devices = mkOption {
+  options.boot.initrd.luks.devices = mergeEqualOption {
     type = types.attrsOf (types.submodule devicesModule);
   };
 
