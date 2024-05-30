@@ -15,11 +15,10 @@ let
       ...
     }:
     {
-      options.crypttabExtraOpts = lib.mkMerge {
-        default = (options.boot.initrd.luks.devices.type.getSubOptions [ ]).crypttabExtraOpts.default ++ [
-          "tpm2-device=auto"
-        ];
+      options.crypttabExtraOpts = {
+        default = [ "tpm2-device=auto" ];
       };
+      config = { };
     };
 in
 with lib;
