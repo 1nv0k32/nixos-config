@@ -84,6 +84,7 @@ in
     ffmpeg
 
     unstable.poetry
+    unstable.hatch
 
     wl-clipboard
     wineWowPackages.stable
