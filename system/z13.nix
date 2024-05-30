@@ -16,7 +16,7 @@ let
       ...
     }:
     {
-      options.crypttabExtraOpts = lib.mkMerge {
+      options.crypttabExtraOpts = lib.mkOption {
         default = (options.boot.initrd.luks.devices.type.getSubOptions [ ]).crypttabExtraOpts.default ++ [
           "tpm2-device=auto"
         ];
@@ -31,7 +31,7 @@ with lib;
   ];
 
   # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
-  boot.initrd.luks.devices = mkMerge {
+  boot.initrd.luks.devices = mkOption {
     type = mkMerge types.attrsOf (types.submodule devicesModule);
   };
 
