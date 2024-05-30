@@ -29,11 +29,12 @@ with lib;
     type = types.attrsOf (types.submodule devicesModule);
   };
 
+  imports = [
+    (import ../src/extra.nix)
+    (import ../pkgs/extra.nix)
+  ];
+
   config = {
-    imports = [
-      (import ../src/extra.nix)
-      (import ../pkgs/extra.nix)
-    ];
 
     services = {
       tlp = {
