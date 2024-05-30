@@ -15,7 +15,7 @@ let
       ...
     }:
     {
-      options.crypttabExtraOpts = lib.mkMerge { default = lib.mkDefault [ "tpm2-device=auto" ]; };
+      options.crypttabExtraOpts.default = lib.mkDefault [ "tpm2-device=auto" ];
       config = { };
     };
 in
