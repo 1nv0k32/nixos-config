@@ -9,7 +9,12 @@
 }:
 let
   devicesModule =
-    { name, config, ... }:
+    {
+      name,
+      config,
+      options,
+      ...
+    }:
     {
       options.crypttabExtraOpts = lib.mkMerge {
         default = (options.boot.initrd.luks.devices.type.getSubOptions [ ]).crypttabExtraOpts.default ++ [
