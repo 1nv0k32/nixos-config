@@ -10,6 +10,10 @@ let
     config = config.nixpkgs.config;
     inherit system;
   };
+  master = import (inputs.nixpkgs-master) {
+    config = config.nixpkgs.config;
+    inherit system;
+  };
 in
 {
   environment.systemPackages = with pkgs; [
@@ -84,6 +88,7 @@ in
     ffmpeg
 
     unstable.poetry
+    master.hatch
 
     wl-clipboard
     wineWowPackages.stable
