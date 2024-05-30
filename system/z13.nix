@@ -16,7 +16,7 @@ let
     }:
     {
       options.crypttabExtraOpts = {
-        default = [ "tpm2-device=auto" ];
+        default = lib.mkDefault [ "tpm2-device=auto" ];
       };
       config = { };
     };
