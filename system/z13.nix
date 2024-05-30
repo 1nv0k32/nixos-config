@@ -8,12 +8,7 @@
 }:
 let
   devicesModule =
-    {
-      name,
-      config,
-      options,
-      ...
-    }:
+    { name, ... }:
     {
       options.crypttabExtraOpts.default = [ "tpm2-device=auto" ];
     };
