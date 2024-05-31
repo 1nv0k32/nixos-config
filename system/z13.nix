@@ -10,7 +10,10 @@ let
   devicesModule =
     { name, ... }:
     {
-      options.crypttabExtraOpts = lib.mkOption { default = [ "tpm2-device=auto" ]; };
+      options.crypttabExtraOpts = lib.mkOption {
+        type = with types; listOf singleLineStr;
+        default = [ "tpm2-device=auto" ];
+      };
     };
 in
 with lib;
