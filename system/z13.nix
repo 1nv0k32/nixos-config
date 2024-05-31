@@ -12,7 +12,7 @@ let
     with lib;
     {
       options.crypttabExtraOpts = lib.mkOption {
-        type = with types; listOf singleLineStr;
+        type = with types; listOf str;
         default = [ "tpm2-device=auto" ];
       };
     };
