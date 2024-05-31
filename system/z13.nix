@@ -9,6 +9,7 @@
 let
   devicesModule =
     { name, ... }:
+    with lib;
     {
       options.crypttabExtraOpts = lib.mkOption {
         type = with types; listOf singleLineStr;
