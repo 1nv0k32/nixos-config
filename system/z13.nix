@@ -6,52 +6,40 @@
   lib,
   ...
 }:
-let
-  devicesModule =
-    { name, ... }:
-    with lib;
-    {
-      options.crypttabExtraOpts = mkForce (mkOption {
-        default = [ "tpm2-device=auto" ];
-      });
-    };
-in
 with lib;
 {
-  # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
-  options.boot.initrd.luks.devices = mkOption {
-    type = types.attrsOf (types.submodule devicesModule);
-  };
-
   imports = [
     (import ../src/extra.nix)
     (import ../pkgs/extra.nix)
   ];
 
-  config = {
+  # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
 
-    services = {
-      tlp = {
-        enable = true;
-        settings = {
-          START_CHARGE_THRESH_BAT0 = 90;
-          STOP_CHARGE_THRESH_BAT0 = 99;
-        };
+  boot.initrd.luks.devices = attrsets.mapAttrs (
+    dev: devAttrs: devAttrs // { crypttabExtraOpts = [ "tpm2-device=auto" ]; }
+  ) config.boot.initrd.luks.devices.value;
+
+  services = {
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 90;
+        STOP_CHARGE_THRESH_BAT0 = 99;
       };
-      power-profiles-daemon.enable = mkForce false;
-      auto-cpufreq = {
-        enable = true;
-        settings = {
-          "charger" = {
-            governor = "performance";
-            turbo = "always";
-          };
-          "battery" = {
-            governor = "ondemand";
-            scaling_min_freq = 400000;
-            scaling_max_freq = 1600000;
-            turbo = "never";
-          };
+    };
+    power-profiles-daemon.enable = mkForce false;
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        "charger" = {
+          governor = "performance";
+          turbo = "always";
+        };
+        "battery" = {
+          governor = "ondemand";
+          scaling_min_freq = 400000;
+          scaling_max_freq = 1600000;
+          turbo = "never";
         };
       };
     };
