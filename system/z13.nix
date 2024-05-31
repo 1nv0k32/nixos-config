@@ -10,7 +10,9 @@ let
   devicesModule =
     { name, ... }:
     {
-      options.crypttabExtraOpts = lib.mkOption { visible = [ "tpm2-device=auto" ]; };
+      options.crypttabExtraOpts = {
+        default = [ "tpm2-device=auto" ];
+      };
     };
 in
 with lib;
