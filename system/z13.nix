@@ -11,7 +11,7 @@ let
     { name, ... }:
     with lib;
     {
-      options.crypttabExtraOpts = mkOption { default = mkForce [ "tpm2-device=auto" ]; };
+      options.crypttabExtraOpts = mkForce mkOption { default = [ "tpm2-device=auto" ]; };
     };
 in
 with lib;
