@@ -10,11 +10,8 @@ with lib;
 {
   # boot.initrd.luks.devices."root".crypttabExtraOpts = [ "tpm2-device=auto" ];
   options.boot.initrd.luks.devices = mkOption {
-    type = types.attrsOf (types.submodule
-      { name, ... }:
-      {
-        options.crypttabExtraOpts = mkOption { default = [ "tpm2-device=auto" ]; };
-      }
+    type = types.attrsOf (
+      types.submodule { options.crypttabExtraOpts = mkOption { default = [ "tpm2-device=auto" ]; }; }
     );
   };
 
