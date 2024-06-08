@@ -19,6 +19,8 @@ with lib;
       videoDrivers = [ "hyperv_fb" ];
     };
   };
+
+  virtualisation.hypervGuest.enable = true;
 }
 
 # vim:expandtab ts=2 sw=2
