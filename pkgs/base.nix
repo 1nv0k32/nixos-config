@@ -68,6 +68,7 @@ in
     argocd
     awscli2
     terraform
+    opentofu
     ansible
     docker-compose
     podman-compose
