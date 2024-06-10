@@ -20,6 +20,7 @@ with lib;
   };
 
   services = {
+    power-profiles-daemon.enable = mkForce false;
     tlp = {
       enable = true;
       settings = {
@@ -27,7 +28,6 @@ with lib;
         STOP_CHARGE_THRESH_BAT0 = 100;
       };
     };
-    power-profiles-daemon.enable = mkForce false;
     auto-cpufreq = {
       enable = true;
       settings = {
@@ -40,6 +40,17 @@ with lib;
           scaling_min_freq = 400000;
           scaling_max_freq = 1600000;
           turbo = "never";
+        };
+      };
+    };
+    keyd = {
+      enable = true;
+      internal = {
+        ids = [ "0001:0001" ];
+        settings = {
+          main = {
+            "102nd" = "layer(shift)";
+          };
         };
       };
     };
