@@ -22,9 +22,6 @@ with lib;
   SYSTEMD_CONFIG = mkDefault ''
     [Manager]
     LogLevel=err
-    RuntimeWatchdogSec=off
-    RebootWatchdogSec=off
-    KExecWatchdogSec=off
     DefaultTimeoutStartSec=10s
     DefaultTimeoutStopSec=10s
     DefaultDeviceTimeoutSec=10s

@@ -38,6 +38,11 @@ with lib;
   };
 
   systemd = {
+    watchdog = {
+      runtimeTime = "off";
+      rebootTime = "off";
+      kexecTime = "off";
+    };
     extraConfig = customConfigs.SYSTEMD_CONFIG;
     user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
   };
