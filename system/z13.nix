@@ -13,7 +13,11 @@ with lib;
     (import ../overlays/initrd-luks.nix)
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    extraModprobeConfig = "options kvm_amd nested=1";
+    initrd.kernelModules = [ "amdgpu" ];
+  };
 
   services = {
     tlp = {

@@ -11,7 +11,6 @@ with lib;
 {
   boot = {
     blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
-    extraModprobeConfig = mkDefault "options kvm_amd nested=1";
     loader = {
       efi.canTouchEfiVariables = mkDefault true;
       timeout = mkDefault 0;
