@@ -14,6 +14,7 @@ with lib;
   ];
 
   services = {
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     tlp = {
       enable = true;
       settings = {
