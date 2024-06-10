@@ -52,7 +52,7 @@ with lib;
   console = {
     earlySetup = mkDefault true;
     packages = [ pkgs.terminus_font ];
-    font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
+    font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v32b.psf.gz";
     keyMap = mkDefault "us";
   };
 
