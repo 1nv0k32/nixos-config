@@ -10,8 +10,6 @@ let
 in
 with lib.hm.gvariant;
 {
-  programs.home-manager.enable = true;
-
   home = {
     homeDirectory = "/home/${config.home.username}";
     file."${config.home.homeDirectory}/.background-image" = {
@@ -21,6 +19,20 @@ with lib.hm.gvariant;
       source = ../bin/backgroud-image;
     };
   };
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "application/pdf" = [ "org.gnome.Evince.desktop" ];
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+    };
+    defaultApplications = {
+      "application/pdf" = [ "org.gnome.Evince.desktop" ];
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+    };
+  };
+
+  programs.home-manager.enable = true;
 
   programs.bash = {
     enable = true;
