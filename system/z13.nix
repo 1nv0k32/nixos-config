@@ -45,7 +45,7 @@ with lib;
     };
     keyd = {
       enable = true;
-      internal = {
+      keyboards.internal = {
         ids = [ "0001:0001" ];
         settings = {
           main = {
