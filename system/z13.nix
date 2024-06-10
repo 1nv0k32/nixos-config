@@ -13,8 +13,9 @@ with lib;
     (import ../overlays/initrd-luks.nix)
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services = {
-    boot.kernelPackages = pkgs.linuxPackages_latest;
     tlp = {
       enable = true;
       settings = {
