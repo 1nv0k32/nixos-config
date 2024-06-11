@@ -71,6 +71,7 @@ in
     binwalk
     burpsuite
     ghidra-bin
+    unstable.proxmark3
   ];
 }
 
