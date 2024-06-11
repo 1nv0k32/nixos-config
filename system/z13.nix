@@ -13,6 +13,17 @@ with lib;
     (import ../overlays/initrd-luks.nix)
   ];
 
+  networking = {
+    networkmanager = {
+      fccUnlockScripts = [
+        {
+          id = "2c7c:030a";
+          path = "${pkgs.modemmanager}/share/ModemManager/fcc-unlock.available.d/2c7c:030a";
+        }
+      ];
+    };
+  };
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     extraModprobeConfig = "options kvm_amd nested=1";
