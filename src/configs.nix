@@ -58,9 +58,7 @@ with lib;
     export HISTFILESIZE=2000
 
     # git prompt
-    export GIT_PS1_SHOWDIRTYSTATE=1
     export GIT_PS1_SHOWSTASHSTATE=1
-    export GIT_PS1_SHOWUNTRACKEDFILES=1
     export GIT_PS1_SHOWUPSTREAM="auto"
     source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
     WH="\[\e[0;00m\]"
