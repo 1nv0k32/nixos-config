@@ -30,6 +30,7 @@ in
     unstable.winbox
 
     evince
+    gnome-network-displays
     gnome.gnome-terminal
     gnome.dconf-editor
     gnome.gnome-tweaks
