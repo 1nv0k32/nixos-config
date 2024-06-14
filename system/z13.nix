@@ -14,6 +14,13 @@ with lib;
   ];
 
   networking = {
+    wlanInterfaces = {
+      wlp1s1 = {
+        device = "wlp1s0";
+        type = "managed";
+        mac = "x2:b0:de:ac:ec:28";
+      };
+    };
     networkmanager = {
       fccUnlockScripts = [
         {
