@@ -38,7 +38,7 @@ with lib;
       };
     };
     firewall = {
-      enable = mkDefault false;
+      enable = mkDefault true;
       checkReversePath = mkDefault false;
       allowPing = mkDefault false;
       allowedTCPPorts = mkDefault [ ];
