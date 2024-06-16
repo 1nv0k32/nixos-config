@@ -18,12 +18,12 @@ with lib;
       wlan0 = {
         device = "wlp1s0";
         type = "managed";
-        mac = "x2:b0:de:ac:ec:29";
+        mac = "02:b0:de:ac:ec:29";
       };
       wlan1 = {
         device = "wlp1s0";
         type = "managed";
-        mac = "x2:b0:de:ac:ec:2a";
+        mac = "02:b0:de:ac:ec:2a";
       };
     };
     networkmanager = {
