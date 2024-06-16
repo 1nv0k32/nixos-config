@@ -14,18 +14,6 @@ with lib;
   ];
 
   networking = {
-    wlanInterfaces = {
-      wlan0 = {
-        device = "wlp1s0";
-        type = "managed";
-        mac = "02:b0:de:ac:ec:29";
-      };
-      wlan1 = {
-        device = "wlan0";
-        type = "managed";
-        mac = "02:b0:de:ac:ec:30";
-      };
-    };
     networkmanager = {
       fccUnlockScripts = [
         {
