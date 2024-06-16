@@ -23,7 +23,7 @@ with lib;
       wlan1 = {
         device = "wlp1s0";
         type = "managed";
-        mac = "02:b0:de:ac:ec:2a";
+        mac = "02:b0:de:ac:ec:30";
       };
     };
     networkmanager = {
