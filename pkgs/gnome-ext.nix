@@ -10,6 +10,7 @@ in
     gnomeExtensions.tiling-assistant
     gnomeExtensions.caffeine
     gnomeExtensions.unblank
+    gnomeExtensions.astra-monitor
   ];
 }
 
