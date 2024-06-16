@@ -4,13 +4,13 @@ let
   unstable = import (inputs.nixpkgs-unstable) { config = config.nixpkgs.config; };
 in
 {
-  gnomeExtensions = [
-    gnomeExtensions.appindicator
-    gnomeExtensions.just-perfection
-    gnomeExtensions.tiling-assistant
-    gnomeExtensions.caffeine
-    gnomeExtensions.unblank
-    gnomeExtensions.astra-monitor
+  gnomeExtensions = with gnomeExtensions; [
+    appindicator
+    just-perfection
+    tiling-assistant
+    caffeine
+    unblank
+    astra-monitor
   ];
 }
 
