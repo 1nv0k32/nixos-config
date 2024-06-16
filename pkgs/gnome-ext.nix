@@ -10,7 +10,6 @@ in
     tiling-assistant
     caffeine
     unblank
-    astra-monitor
   ];
 }
 
