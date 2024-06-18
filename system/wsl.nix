@@ -26,7 +26,7 @@ with lib;
     ];
   };
 
-  nixpkgs.config.permittedInsecurePackages = [ "python-2.7.18.8" ];
+  nixpkgs.config.permittedInsecurePackages = [ "${pkgs.python27Full.name}" ];
 
   environment = {
     variables = {
@@ -36,7 +36,6 @@ with lib;
     systemPackages = with pkgs; [
       python312
       python27Full
-      pre-commit
       mdbook
       mdbook-mermaid
       mdbook-linkcheck
