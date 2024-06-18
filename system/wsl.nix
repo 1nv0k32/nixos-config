@@ -26,7 +26,7 @@ with lib;
     ];
   };
 
-  nixpkgs.config.permittedInsecurePackages = [ "python27Full" ];
+  nixpkgs.config.permittedInsecurePackages = [ "python-2.7.18.8" ];
 
   environment = {
     variables = {
