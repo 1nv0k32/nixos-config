@@ -26,12 +26,17 @@ with lib;
     ];
   };
 
+  nixpkgs.config.permittedInsecurePackages = [ "python27Full" ];
+
   environment = {
     variables = {
       ORACLE_HOME = "${pkgs.oracle-instantclient.lib}";
       PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring";
     };
-    systemPackages = with pkgs; [ python312 ];
+    systemPackages = with pkgs; [
+      python312
+      python27Full
+    ];
   };
 
   programs = {
