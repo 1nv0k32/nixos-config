@@ -28,7 +28,7 @@ with lib;
     kernelPackages = pkgs.linuxPackages_latest;
     extraModprobeConfig = "options kvm_amd nested=1";
     initrd.kernelModules = [ "amdgpu" ];
-    boot.kernelParams = [
+    kernelParams = [
       "acpi_backlight=native"
       "amd_pstate=guided"
       "amdgpu"
