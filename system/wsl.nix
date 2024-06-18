@@ -36,6 +36,10 @@ with lib;
     systemPackages = with pkgs; [
       python312
       python27Full
+      pre-commit
+      mdbook
+      mdbook-mermaid
+      mdbook-linkcheck
     ];
   };
 
