@@ -38,7 +38,7 @@ in
       };
       alpaca = pkgs.stdenv.mkDerivation rec {
         pname = "alpaca";
-        version = "2.0.3";
+        version = "2.0.4";
         src = pkgs.fetchurl {
           url = "https://github.com/samuong/alpaca/releases/download/v${version}/alpaca_v${version}_linux-amd64";
           sha256 = "HFT6URkSOtJLKcCRs/epHFeLgZxVh5YEYJJtl74MokM=";
