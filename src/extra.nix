@@ -93,7 +93,7 @@ with lib;
       services = {
         login = {
           fprintAuth = mkDefault true;
-          # rules.auth.fprintd.order = config.security.pam.services.login.rules.auth.unix.order + 10;
+          rules.auth.fprintd.order = config.security.pam.services.login.rules.auth.unix.order + 10;
         };
         # gdm-fingerprint = {
         #   fprintAuth = mkDefault true;
