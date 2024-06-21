@@ -34,6 +34,7 @@ with lib;
   users.users."guest" = {
     uid = 1001;
     isNormalUser = true;
+    password = "guest";
     packages = gnomeExtensions;
   };
 

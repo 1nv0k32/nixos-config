@@ -25,12 +25,6 @@ with lib;
 
   system = {
     stateVersion = stateVersion;
-    autoUpgrade = {
-      enable = mkDefault true;
-      allowReboot = mkDefault false;
-      operation = mkDefault "boot";
-      flags = mkDefault [ "--upgrade-all" ];
-    };
   };
 
   networking = {
@@ -38,11 +32,6 @@ with lib;
   };
 
   systemd = {
-    watchdog = {
-      runtimeTime = "off";
-      rebootTime = "off";
-      kexecTime = "off";
-    };
     extraConfig = customConfigs.SYSTEMD_CONFIG;
     user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
   };
@@ -54,48 +43,6 @@ with lib;
 
   i18n.defaultLocale = mkDefault "en_GB.UTF-8";
 
-  console = {
-    earlySetup = mkDefault true;
-    packages = [ pkgs.terminus_font ];
-    font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
-    keyMap = mkDefault "us";
-  };
-
-  services = {
-    pcscd.enable = mkDefault true;
-    gnome = {
-      core-utilities.enable = mkForce false;
-      gnome-keyring.enable = mkDefault true;
-    };
-    logind =
-      let
-        defaultAction = "lock";
-      in
-      {
-        lidSwitch = mkDefault "suspend";
-        lidSwitchDocked = mkDefault defaultAction;
-        lidSwitchExternalPower = mkDefault defaultAction;
-        suspendKey = mkDefault defaultAction;
-        suspendKeyLongPress = mkDefault defaultAction;
-        rebootKey = mkDefault defaultAction;
-        rebootKeyLongPress = mkDefault defaultAction;
-        powerKey = mkDefault defaultAction;
-        powerKeyLongPress = mkDefault defaultAction;
-        hibernateKey = mkDefault defaultAction;
-        hibernateKeyLongPress = mkDefault defaultAction;
-        killUserProcesses = mkDefault true;
-        extraConfig = customConfigs.LOGIND_CONFIG;
-      };
-  };
-
-  security = {
-    pam = {
-      services = {
-        gdm.enableGnomeKeyring = mkDefault true;
-      };
-    };
-  };
-
   virtualisation = {
     podman = {
       enable = mkDefault true;
@@ -103,9 +50,6 @@ with lib;
       defaultNetwork.settings.dns_enabled = mkDefault true;
     };
     docker.enable = true;
-    libvirtd = {
-      enable = mkDefault true;
-    };
   };
 
   nixpkgs = {
@@ -119,7 +63,6 @@ with lib;
       VAGRANT_DEFAULT_PROVIDER = mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = mkForce "qemu:///system";
     };
-
     etc = {
       "inputrc".text = customConfigs.INPUTRC_CONFIG;
       "bashrc.local".text = customConfigs.BASHRC_CONFIG;
