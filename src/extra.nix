@@ -92,13 +92,8 @@ with lib;
     rtkit.enable = mkDefault true;
     pam = {
       services = {
-        login = {
-          fprintAuth = mkDefault true;
-          rules.auth.fprintd.order = config.security.pam.services.login.rules.auth.unix.order + 10;
-        };
-        # gdm-fingerprint = {
-        #   fprintAuth = mkDefault true;
-        # };
+        login.fprintAuth = mkDefault false;
+        gdm-fingerprint.fprintAuth = mkDefault true;
       };
     };
     wrappers.ubridge = {
