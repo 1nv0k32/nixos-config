@@ -46,11 +46,14 @@ with lib;
     nix-ld.enable = true;
   };
 
-  virtualisation.docker = {
-    enable = true;
-    daemon.settings = {
-      iptables = false;
-      ipv6 = false;
+  virtualisation = {
+    podman.dockerCompat = false;
+    docker = {
+      enable = true;
+      daemon.settings = {
+        iptables = false;
+        ipv6 = false;
+      };
     };
   };
 }
