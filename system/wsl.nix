@@ -46,10 +46,12 @@ with lib;
     nix-ld.enable = true;
   };
 
-  virtualisation.docker.daemon.settings = {
-    iptables = false;
-    ipv6 = false;
-  };
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      iptables = false;
+      ipv6 = false;
+    };
 }
 
 # vim:expandtab ts=2 sw=2
