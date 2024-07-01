@@ -117,6 +117,10 @@ with lib;
       alsa.support32Bit = mkDefault true;
       pulse.enable = mkDefault true;
     };
+    udev.packages = [
+      pkgs.platformio-core
+      pkgs.openocd
+    ];
   };
 
   sound.enable = mkDefault true;
