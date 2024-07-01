@@ -46,10 +46,10 @@ with lib;
   virtualisation = {
     podman = {
       enable = mkDefault true;
-      dockerCompat = mkDefault true;
+      dockerCompat = mkDefault false;
       defaultNetwork.settings.dns_enabled = mkDefault true;
     };
-    docker.enable = mkDefault false;
+    docker.enable = mkDefault true;
   };
 
   nixpkgs = {
