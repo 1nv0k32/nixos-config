@@ -118,8 +118,8 @@ with lib;
     bind r source-file /etc/tmux.conf
     bind -  split-window -v  -c '#{pane_current_path}'
     bind \\ split-window -h  -c '#{pane_current_path}'
-    bind _  split-window -v  -c '#{pane_current_path}'
-    bind | split-window -h  -c '#{pane_current_path}'
+    bind _  split-window -vf  -c '#{pane_current_path}'
+    bind | split-window -hf  -c '#{pane_current_path}'
     bind -r C-k resize-pane -U
     bind -r C-j resize-pane -D
     bind -r C-h resize-pane -L
