@@ -153,7 +153,6 @@ with lib;
     libvirtd = {
       enable = mkDefault true;
     };
-    waydroid.enable = mkDefault true;
   };
 
   programs = {
