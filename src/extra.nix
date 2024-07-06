@@ -67,7 +67,7 @@ with lib;
   services = {
     avahi = {
       enable = mkDefault true;
-      nssmdns = mkDefault true;
+      nssmdns4 = mkDefault true;
     };
     fstrim.enable = mkDefault true;
     fprintd.enable = mkDefault true;
