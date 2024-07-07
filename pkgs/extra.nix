@@ -18,7 +18,6 @@ in
     firefox
     spotify
     flameshot
-    otpclient
     vlc
     gimp
     discord
@@ -28,6 +27,10 @@ in
     yt-dlp
     media-downloader
     unstable.winbox
+
+    otpclient
+    yubikey-manager
+    yubikey-manager-qt
 
     evince
     gnome-network-displays

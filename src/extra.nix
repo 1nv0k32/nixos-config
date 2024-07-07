@@ -123,6 +123,7 @@ with lib;
     udev.packages = [
       pkgs.platformio-core
       pkgs.openocd
+      pkgs.yubikey-personalization
     ];
   };
 
