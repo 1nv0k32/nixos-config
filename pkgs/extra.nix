@@ -77,6 +77,13 @@ in
     ghidra-bin
     unstable.proxmark3
   ];
+
+  services.udev.packages = [
+    pkgs.platformio-core
+    pkgs.openocd
+    pkgs.yubikey-personalization
+    unstable.proxmark3
+  ];
 }
 
 # vim:expandtab ts=2 sw=2
