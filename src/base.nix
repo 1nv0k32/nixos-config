@@ -15,7 +15,13 @@ with lib;
   imports = [ (import ./users.nix) ];
 
   nix = {
-    optimise.automatic = mkDefault true;
+    optimise = {
+      automatic = mkDefault true;
+      dates = mkDefault [
+        "00:00"
+        "12:00"
+      ];
+    };
     settings = {
       auto-optimise-store = mkDefault true;
       experimental-features = mkDefault [
