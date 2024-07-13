@@ -34,22 +34,10 @@
             user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
 
-        "vmnyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
+        "wslnix" = user-config.inputs.nixpkgs.lib.nixosSystem {
           system = user-config.system;
           specialArgs = {
-            hostName = "vmnyx";
-            stateVersion = user-config.stateVersion;
-            system = user-config.system;
-            inputs = user-config.inputs;
-          };
-          modules =
-            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/vm.nix") ];
-        };
-
-        "nixos" = user-config.inputs.nixpkgs.lib.nixosSystem {
-          system = user-config.system;
-          specialArgs = {
-            hostName = "nixos";
+            hostName = "wslnix";
             stateVersion = user-config.stateVersion;
             system = user-config.system;
             inputs = user-config.inputs;
@@ -60,3 +48,5 @@
       };
     };
 }
+
+# vim:expandtab ts=2 sw=2

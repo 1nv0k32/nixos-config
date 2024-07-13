@@ -15,10 +15,14 @@ with lib;
   imports = [ (import ./users.nix) ];
 
   nix = {
-    settings.experimental-features = mkDefault [
-      "nix-command"
-      "flakes"
-    ];
+    optimise.automatic = mkDefault true;
+    settings = {
+      auto-optimise-store = mkDefault true;
+      experimental-features = mkDefault [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
   documentation.nixos.enable = mkDefault false;
