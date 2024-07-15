@@ -27,14 +27,12 @@ with lib;
       "ubridge"
       "wireshark"
     ];
-    packages = gnomeExtensions;
   };
 
   users.users."guest" = {
     uid = 1001;
     isNormalUser = true;
     password = "guest";
-    packages = gnomeExtensions;
   };
 
   home-manager.users =
