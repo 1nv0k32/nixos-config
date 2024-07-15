@@ -20,10 +20,10 @@ with lib.hm.gvariant;
   home = {
     homeDirectory = "/home/${config.home.username}";
     file."${config.home.homeDirectory}/.background-image" = {
-      source = ../bin/backgroud-image;
+      source = ./bin/backgroud-image;
     };
     file."${config.home.homeDirectory}/.face" = {
-      source = ../bin/backgroud-image;
+      source = ./bin/backgroud-image;
     };
     packages = gnomeExtensions;
   };

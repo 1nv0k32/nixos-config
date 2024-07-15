@@ -39,7 +39,7 @@ with lib;
     "${mainUser}" =
       { ... }:
       {
-        imports = [ (import ./home/base.nix) ];
+        imports = [ (import ../home/base.nix) ];
         home = {
           username = mainUser;
           stateVersion = stateVersion;
@@ -54,7 +54,7 @@ with lib;
     "guest" =
       { ... }:
       {
-        imports = [ (import ./home/base.nix) ];
+        imports = [ (import ../home/base.nix) ];
         home = {
           username = "guest";
           stateVersion = stateVersion;
