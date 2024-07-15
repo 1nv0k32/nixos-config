@@ -6,6 +6,9 @@
   config,
   ...
 }:
+let
+  mainUser = config.environment.sysConf.mainUser;
+in
 with lib;
 {
   imports = [
@@ -16,7 +19,7 @@ with lib;
   wsl = {
     enable = true;
     startMenuLaunchers = true;
-    defaultUser = config.environment.sysConf.mainUser;
+    defaultUser = ;
     extraBin = with pkgs; [
       { src = "${coreutils}/bin/uname"; }
       { src = "${coreutils}/bin/dirname"; }
@@ -62,6 +65,14 @@ with lib;
         ipv6 = false;
       };
     };
+  };
+
+  home-manager.users = {
+    "${mainUser}" =
+        { ... }:
+        {
+          imports = [ (import "${inputs.vscode-server}/modules/vscode-server/home.nix") ];
+        };
   };
 }
 
