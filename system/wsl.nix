@@ -52,10 +52,6 @@ with lib;
     nix-ld.enable = true;
   };
 
-  services = {
-    vscode-server.enable = true;
-  };
-
   virtualisation = {
     podman.dockerCompat = false;
     docker = {
@@ -65,6 +61,10 @@ with lib;
         ipv6 = false;
       };
     };
+  };
+
+  services = {
+    vscode-server.enable = true;
   };
 
   home-manager.users = {
