@@ -8,7 +8,6 @@
 }:
 let
   mainUser = config.environment.sysConf.mainUser;
-  gnomeExtensions = (import ../pkgs/gnome-ext.nix { inherit inputs pkgs; }).gnomeExtensions;
 in
 with lib;
 {
@@ -40,12 +39,7 @@ with lib;
 
   home-manager.users =
     let
-      baseImport = (
-        import ./home/base.nix {
-          inherit gnomeExtensions;
-          systemConfig = config;
-        }
-      );
+      baseImport = (import ./home/base.nix);
     in
     {
       "${mainUser}" =

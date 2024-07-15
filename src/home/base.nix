@@ -1,6 +1,7 @@
-{ gnomeExtensions, systemConfig }:
+{ }:
 {
   config,
+  osConfig,
   pkgs,
   lib,
   ...
@@ -18,6 +19,13 @@ with lib.hm.gvariant;
     file."${config.home.homeDirectory}/.face" = {
       source = ../bin/backgroud-image;
     };
+    packages = with pkgs.gnomeExtensions; [
+      appindicator
+      just-perfection
+      tiling-assistant
+      caffeine
+      unblank
+    ];
   };
 
   xdg.mimeApps = {
@@ -48,10 +56,10 @@ with lib.hm.gvariant;
     includes = [ "~/.ssh/config.d/*.config" ];
     matchBlocks."*".proxyCommand =
       let
-        proxy_url = builtins.elemAt (builtins.split "/" systemConfig.networking.proxy.default) 4;
+        proxy_url = builtins.elemAt (builtins.split "/" osConfig.networking.proxy.default) 4;
       in
       lib.mkIf (
-        systemConfig.networking.proxy.default != null
+        osConfig.networking.proxy.default != null
       ) "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
   };
 
