@@ -7,6 +7,13 @@
 }:
 let
   customConfigs = (import ./configs.nix { inherit lib; });
+  gnomeExtensions = with pkgs.gnomeExtensions; [
+    appindicator
+    just-perfection
+    tiling-assistant
+    caffeine
+    unblank
+  ];
 in
 with lib.hm.gvariant;
 {
@@ -18,13 +25,7 @@ with lib.hm.gvariant;
     file."${config.home.homeDirectory}/.face" = {
       source = ../bin/backgroud-image;
     };
-    packages = with pkgs.gnomeExtensions; [
-      appindicator
-      just-perfection
-      tiling-assistant
-      caffeine
-      unblank
-    ];
+    packages = gnomeExtensions;
   };
 
   xdg.mimeApps = {
