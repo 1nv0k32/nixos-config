@@ -35,36 +35,32 @@ with lib;
     password = "guest";
   };
 
-  home-manager.users =
-    let
-      baseImport = (import ./home/base.nix);
-    in
-    {
-      "${mainUser}" =
-        { ... }:
-        {
-          imports = [ baseImport ];
-          home = {
-            username = mainUser;
-            stateVersion = stateVersion;
-          };
-
-          programs.git = {
-            userName = config.environment.sysConf.gitUserName;
-            userEmail = config.environment.sysConf.gitEmail;
-          };
+  home-manager.users = {
+    "${mainUser}" =
+      { ... }:
+      {
+        imports = [ (import ./home/base.nix) ];
+        home = {
+          username = mainUser;
+          stateVersion = stateVersion;
         };
 
-      "guest" =
-        { ... }:
-        {
-          imports = [ baseImport ];
-          home = {
-            username = "guest";
-            stateVersion = stateVersion;
-          };
+        programs.git = {
+          userName = config.environment.sysConf.gitUserName;
+          userEmail = config.environment.sysConf.gitEmail;
         };
-    };
+      };
+
+    "guest" =
+      { ... }:
+      {
+        imports = [ (import ./home/base.nix) ];
+        home = {
+          username = "guest";
+          stateVersion = stateVersion;
+        };
+      };
+  };
 }
 
 # vim:expandtab ts=2 sw=2
