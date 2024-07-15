@@ -46,6 +46,10 @@ with lib;
     nix-ld.enable = true;
   };
 
+  services = {
+    vscode-server.enable = true;
+  };
+
   virtualisation = {
     podman.dockerCompat = false;
     docker = {
