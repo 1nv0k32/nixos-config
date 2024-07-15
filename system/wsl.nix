@@ -8,7 +8,10 @@
 }:
 with lib;
 {
-  imports = [ (import "${inputs.nixos-wsl}/modules") ];
+  imports = [
+    (import "${inputs.nixos-wsl}/modules")
+    (import "${inputs.vscode-server}")
+  ];
 
   wsl = {
     enable = true;
