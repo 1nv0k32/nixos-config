@@ -19,7 +19,7 @@ with lib;
   wsl = {
     enable = true;
     startMenuLaunchers = true;
-    defaultUser = ;
+    defaultUser = mainUser;
     extraBin = with pkgs; [
       { src = "${coreutils}/bin/uname"; }
       { src = "${coreutils}/bin/dirname"; }
@@ -69,10 +69,10 @@ with lib;
 
   home-manager.users = {
     "${mainUser}" =
-        { ... }:
-        {
-          imports = [ (import "${inputs.vscode-server}/modules/vscode-server/home.nix") ];
-        };
+      { ... }:
+      {
+        imports = [ (import "${inputs.vscode-server}/modules/vscode-server/home.nix") ];
+      };
   };
 }
 
