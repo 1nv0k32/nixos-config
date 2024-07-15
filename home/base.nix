@@ -47,6 +47,7 @@ with lib.hm.gvariant;
     shellAliases = {
       cat = "bat -p";
       k = "kubectl";
+      nixup = "sudo bash -c 'nix flake update /etc/nixos && nixos-rebuild switch --upgrade-all'";
     };
     bashrcExtra = customConfigs.DOT_BASHRC;
   };
