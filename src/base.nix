@@ -70,7 +70,7 @@ with lib;
 
   environment = {
     sessionVariables = {
-      NIXOS_OZONE_WL = "1";
+      NIXOS_OZONE_WL = mkForce "1";
     };
     variables = {
       VAGRANT_DEFAULT_PROVIDER = mkForce "libvirt";
