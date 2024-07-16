@@ -22,20 +22,20 @@ with lib;
   SYSTEMD_CONFIG = mkDefault ''
     [Manager]
     LogLevel=err
-    DefaultTimeoutStartSec=10s
-    DefaultTimeoutStopSec=10s
-    DefaultDeviceTimeoutSec=10s
+    DefaultTimeoutStartSec=30s
+    DefaultTimeoutStopSec=30s
+    DefaultDeviceTimeoutSec=30s
   '';
 
   SYSTEMD_USER_CONFIG = mkDefault ''
     [Manager]
-    DefaultTimeoutStartSec=10s
-    DefaultTimeoutStopSec=10s
+    DefaultTimeoutStartSec=30s
+    DefaultTimeoutStopSec=30s
   '';
 
   LOGIND_CONFIG = mkDefault ''
     IdleAction=ignore
-    IdleActionSec=60
+    IdleActionSec=3600
   '';
 
   INPUTRC_CONFIG = mkForce (
