@@ -38,8 +38,16 @@ with lib;
   hardware.opengl = {
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = with pkgs; [ amdvlk ];
+    extraPackages = with pkgs; [
+      amdvlk
+      vaapiVdpau
+    ];
     extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  };
+
+  environment.variables = {
+    "VDPAU_DRIVER" = "radeonsi";
+    "LIBVA_DRIVER_NAME" = "radeonsi";
   };
 
   services = {
