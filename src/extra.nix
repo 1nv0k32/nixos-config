@@ -84,9 +84,10 @@ with lib;
     logind =
       let
         defaultAction = "lock";
+        suspendAction = "suspend";
       in
       {
-        lidSwitch = mkDefault "suspend";
+        lidSwitch = mkDefault suspendAction;
         lidSwitchDocked = mkDefault defaultAction;
         lidSwitchExternalPower = mkDefault defaultAction;
         suspendKey = mkDefault defaultAction;
@@ -161,6 +162,9 @@ with lib;
       enable = mkDefault true;
       package = mkDefault pkgs.wireshark;
     };
+    firefox = {
+      enable = mkDefault true;
+    }
   };
 }
 
