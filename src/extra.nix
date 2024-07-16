@@ -164,7 +164,7 @@ with lib;
     };
     firefox = {
       enable = mkDefault true;
-    }
+    };
   };
 }
 
