@@ -69,6 +69,9 @@ with lib;
   };
 
   environment = {
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
     variables = {
       VAGRANT_DEFAULT_PROVIDER = mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = mkForce "qemu:///system";
