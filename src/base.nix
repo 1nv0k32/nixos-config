@@ -86,13 +86,6 @@ with lib;
   };
 
   programs = {
-    nixvim = {
-      enable = mkDefault true;
-      viAlias = mkDefault true;
-      vimAlias = mkDefault true;
-      colorschemes.vscode.enable = true;
-      plugins.lightline.enable = true;
-    };
     gnupg.agent = {
       enable = mkDefault true;
       pinentryPackage = mkDefault pkgs.pinentry-curses;
