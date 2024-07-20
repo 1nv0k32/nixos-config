@@ -5,7 +5,7 @@
       enable = true;
       viAlias = true;
       vimAlias = true;
-      colorschemes.vscode.enable = true;
+      colorschemes.gruvbox.enable = true;
       opts = {
         number = true;
         relativenumber = true;
@@ -29,8 +29,11 @@
         providers.wl-copy.enable = true;
       };
       plugins = {
-        lightline.enable = true;
+        lualine.enable = true;
         lastplace.enable = true;
+        treesitter.enable = true;
+        treesitter-context.enable = true;
+        cmp.enable = true;
         lsp = {
           enable = true;
           servers = {
