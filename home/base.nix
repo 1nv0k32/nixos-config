@@ -80,7 +80,7 @@ with lib.hm.gvariant;
       showScrollbar = false;
       cursorShape = "ibeam";
       cursorBlinkMode = "on";
-      font = "Monospace 15";
+      font = "NotoMono Nerd Font Mono 15";
       customCommand = "tmux";
     };
   };

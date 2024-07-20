@@ -28,7 +28,7 @@
       providers.wl-copy.enable = true;
     };
     plugins = {
-      lightline.enable = true;
+      lualine.enable = true;
       indent-blankline.enable = true;
       lastplace.enable = true;
       treesitter.enable = true;
