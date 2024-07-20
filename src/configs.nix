@@ -85,28 +85,6 @@ with lib;
     alias diff='diff --color=auto'
   '';
 
-  VIMRC_CONFIG = ''
-    colorscheme slate
-    syntax enable
-    filetype indent on
-    set guicursor=
-    set mouse=a
-    set encoding=utf-8
-    set belloff=all
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
-    set expandtab
-    set smarttab
-    set nonumber
-    set wildmenu
-    set foldenable
-    set clipboard=unnamedplus
-    set nowrap
-    set modeline
-    set modelines=1
-  '';
-
   SSH_CLIENT_CONFIG = mkDefault ''
     Host *
       IdentitiesOnly yes
