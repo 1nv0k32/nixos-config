@@ -20,6 +20,7 @@ with lib;
         lightline.enable = mkDefault true;
         telescope.enable = mkDefault true;
         lastplace.enable = mkDefault true;
+        oil.enable = mkDefault true;
         lsp = {
           enable = mkDefault true;
           servers = {
