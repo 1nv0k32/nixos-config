@@ -30,6 +30,7 @@
       };
       plugins = {
         lualine.enable = true;
+        indent-blankline.enable = true;
         lastplace.enable = true;
         treesitter.enable = true;
         treesitter-context.enable = true;
