@@ -2,8 +2,14 @@
 {
   programs.tmux = {
     enable = true;
+    shortcut = "a";
+    keyMode = "vi";
+    terminal = "screen-256color";
+    baseIndex = 1;
+    escapeTime = 0;
+    clock24 = true;
+    historyLimit = 100000;
     extraConfig = ''
-      bind -r C-a send-prefix
       bind r source-file /etc/tmux.conf
       bind -  split-window -v  -c '#{pane_current_path}'
       bind \\ split-window -h  -c '#{pane_current_path}'
@@ -22,14 +28,9 @@
       bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe
       bind -T copy-mode-vi Enter send-keys -X copy-pipe
 
-      set -g base-index 1
-      set -g mode-keys vi
-      set -g prefix C-a
-      set -g history-limit 50000
       set -g set-titles on
       set -g mouse on
       set -g monitor-activity on
-      set -g default-terminal "screen-256color"
       set -g default-command "''${SHELL}"
       set -s set-clipboard external
       set -g copy-command "${pkgs.wl-clipboard}/bin/wl-copy"
@@ -44,7 +45,6 @@
       set -g status-right-length 100
       set -g status-right '#[fg=yellow]%Y/%m(%b)/%d %a %H:%M#[default]'
       set -g pane-border-lines double
-      set -g clock-mode-style 24
 
       set-environment -g COLORTERM "truecolor"
     '';
