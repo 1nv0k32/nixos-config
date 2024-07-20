@@ -7,7 +7,15 @@ with lib;
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
       colorschemes.vscode.enable = true;
-      plugins.lightline.enable = true;
+      plugins = {
+        lightline.enable = mkDefault true;
+        lsp = {
+          enable = mkDefault true;
+          servers = {
+            nixd.enable = mkDefault true
+          };
+        };
+      };
       extraConfigVim = mkDefault ''
         syntax enable
         filetype indent on
