@@ -32,14 +32,11 @@
       indent-blankline.enable = true;
       lastplace.enable = true;
       treesitter.enable = true;
-      treesitter-context.enable = true;
-      cmp.enable = true;
       nvim-autopairs.enable = true;
+      cmp.enable = true;
       lsp = {
         enable = true;
-        servers = {
-          nixd.enable = true;
-        };
+        servers = { };
       };
     };
   };
