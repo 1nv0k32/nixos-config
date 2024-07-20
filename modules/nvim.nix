@@ -29,7 +29,7 @@
         providers.wl-copy.enable = true;
       };
       plugins = {
-        lualine.enable = true;
+        lightline.enable = true;
         indent-blankline.enable = true;
         lastplace.enable = true;
         treesitter.enable = true;
