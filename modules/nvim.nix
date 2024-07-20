@@ -7,7 +7,7 @@ with lib;
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
       colorschemes.vscode.enable = true;
-      options = {
+      opts = {
         number = true;
         relativenumber = true;
       };
