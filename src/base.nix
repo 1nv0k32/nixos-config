@@ -115,6 +115,7 @@ with lib;
     packages = with pkgs; [
       ubuntu_font_family
       vazir-fonts
+      nerdfonts
     ];
     enableDefaultPackages = mkDefault true;
     fontconfig.defaultFonts = {
