@@ -32,6 +32,7 @@
       indent-blankline.enable = true;
       lastplace.enable = true;
       treesitter.enable = true;
+      neo-tree.enable = true;
       nvim-autopairs.enable = true;
       cmp.enable = true;
       lsp = {
