@@ -100,10 +100,6 @@ with lib;
     };
     ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
     dconf.enable = mkDefault true;
-    tmux = {
-      enable = mkDefault true;
-      extraConfig = customConfigs.TMUX_CONFIG;
-    };
     git = {
       enable = mkDefault true;
       config = {

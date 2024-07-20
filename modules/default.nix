@@ -6,6 +6,7 @@
     ++ [
       ./sysconf.nix
       ./nvim.nix
+      ./tmux.nix
       ./cert-der.nix
       ./alpaca.nix
     ];
