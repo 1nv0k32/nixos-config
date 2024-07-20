@@ -35,11 +35,6 @@ with lib;
         set mouse=a
         set encoding=utf-8
         set belloff=all
-        set tabstop=2
-        set softtabstop=2
-        set shiftwidth=2
-        set expandtab
-        set smarttab
         set wildmenu
         set foldenable
         set clipboard=unnamedplus
