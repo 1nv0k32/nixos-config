@@ -7,6 +7,10 @@ with lib;
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
       colorschemes.vscode.enable = true;
+      options = {
+        number = true;
+        relativenumber = true;
+      };
       plugins = {
         lightline.enable = mkDefault true;
         lsp = {
@@ -28,7 +32,6 @@ with lib;
         set shiftwidth=2
         set expandtab
         set smarttab
-        set nonumber
         set wildmenu
         set foldenable
         set clipboard=unnamedplus
