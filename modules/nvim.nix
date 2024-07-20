@@ -13,7 +13,6 @@
         encoding = "utf-8";
         signcolumn = "yes";
         belloff = "all";
-        guicursor = "";
         wrap = false;
         wildmenu = true;
         modeline = true;
