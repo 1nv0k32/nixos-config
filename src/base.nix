@@ -95,7 +95,7 @@ with lib;
     #     customRC = customConfigs.VIMRC_CONFIG;
     #   };
     # };
-    programs.nixvim = {
+    nixvim = {
       enable = true;
       colorschemes.gruvbox.enable = true;
       plugins.lightline.enable = true;
