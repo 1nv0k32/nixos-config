@@ -12,7 +12,7 @@ with lib;
         lsp = {
           enable = mkDefault true;
           servers = {
-            nixd.enable = mkDefault true
+            nixd.enable = mkDefault true;
           };
         };
       };
