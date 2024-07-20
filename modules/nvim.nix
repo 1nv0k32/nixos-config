@@ -5,7 +5,7 @@
       enable = true;
       viAlias = true;
       vimAlias = true;
-      colorschemes.gruvbox.enable = true;
+      colorschemes.vscode.enable = true;
       opts = {
         number = true;
         relativenumber = true;
