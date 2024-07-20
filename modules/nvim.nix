@@ -1,47 +1,43 @@
 { lib, ... }:
-with lib;
 {
   programs = {
     nixvim = {
-      enable = mkDefault true;
-      viAlias = mkDefault true;
-      vimAlias = mkDefault true;
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
       colorschemes.vscode.enable = true;
       opts = {
         number = true;
         relativenumber = true;
-        tabstop = mkDefault 2;
-        softtabstop = mkDefault 2;
-        shiftwidth = mkDefault 2;
+        undofile = true;
+        encoding = "utf-8";
+        signcolumn = "yes";
+        belloff = "all";
+        wrap = false;
+        wildmenu = true;
+        modeline = true;
+        modelines = 1;
+        tabstop = 2;
+        softtabstop = 2;
+        shiftwidth = 2;
         expandtab = true;
         smarttab = true;
+        autoindent = true;
+      };
+      clipboard = {
+        register = "unnamedplus";
+        providers.wl-copy.enable = true;
       };
       plugins = {
-        lightline.enable = mkDefault true;
-        telescope.enable = mkDefault true;
-        lastplace.enable = mkDefault true;
-        oil.enable = mkDefault true;
+        lightline.enable = true;
+        lastplace.enable = true;
         lsp = {
-          enable = mkDefault true;
+          enable = true;
           servers = {
-            nixd.enable = mkDefault true;
+            nixd.enable = true;
           };
         };
       };
-      extraConfigVim = mkDefault ''
-        syntax enable
-        filetype indent on
-        set guicursor=
-        set mouse=a
-        set encoding=utf-8
-        set belloff=all
-        set wildmenu
-        set foldenable
-        set clipboard=unnamedplus
-        set nowrap
-        set modeline
-        set modelines=1
-      '';
     };
   };
 }
