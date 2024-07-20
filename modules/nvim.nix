@@ -10,9 +10,15 @@ with lib;
       opts = {
         number = true;
         relativenumber = true;
+        tabstop = mkDefault 2;
+        softtabstop = mkDefault 2;
+        shiftwidth = mkDefault 2;
+        expandtab = true;
+        smarttab = true;
       };
       plugins = {
         lightline.enable = mkDefault true;
+        telescope.enable = mkDefault true;
         lsp = {
           enable = mkDefault true;
           servers = {
