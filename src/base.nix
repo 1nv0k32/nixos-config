@@ -86,18 +86,11 @@ with lib;
   };
 
   programs = {
-    # neovim = {
-    #   enable = mkDefault true;
-    #   defaultEditor = mkDefault true;
-    #   viAlias = mkDefault true;
-    #   vimAlias = mkDefault true;
-    #   configure = {
-    #     customRC = customConfigs.VIMRC_CONFIG;
-    #   };
-    # };
     nixvim = {
-      enable = true;
-      colorschemes.gruvbox.enable = true;
+      enable = mkDefault true;
+      viAlias = mkDefault true;
+      vimAlias = mkDefault true;
+      colorschemes.vscode.enable = true;
       plugins.lightline.enable = true;
     };
     gnupg.agent = {
