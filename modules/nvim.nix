@@ -35,6 +35,7 @@
         treesitter.enable = true;
         treesitter-context.enable = true;
         cmp.enable = true;
+        nvim-autopairs.enable = true;
         lsp = {
           enable = true;
           servers = {
