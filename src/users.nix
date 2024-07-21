@@ -35,11 +35,11 @@ with lib;
     password = "guest";
   };
 
+  home-manager.sharedModules = [ (import ../home/base.nix) ]
   home-manager.users = {
     "${mainUser}" =
       { ... }:
       {
-        imports = [ (import ../home/base.nix) ];
         home = {
           username = mainUser;
           stateVersion = stateVersion;
@@ -54,7 +54,6 @@ with lib;
     "guest" =
       { ... }:
       {
-        imports = [ (import ../home/base.nix) ];
         home = {
           username = "guest";
           stateVersion = stateVersion;
