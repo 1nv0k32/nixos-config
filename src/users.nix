@@ -35,7 +35,7 @@ with lib;
     password = "guest";
   };
 
-  home-manager.sharedModules = [ (import ../home/base.nix) ]
+  home-manager.sharedModules = [ (import ../home/base.nix) ];
   home-manager.users = {
     "${mainUser}" =
       { ... }:
