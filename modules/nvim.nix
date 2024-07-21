@@ -8,6 +8,7 @@
     opts = {
       number = true;
       relativenumber = true;
+      guicursor = "";
       undofile = true;
       encoding = "utf-8";
       signcolumn = "yes";
