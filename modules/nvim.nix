@@ -32,6 +32,8 @@
     plugins = {
       lualine.enable = true;
       barbar.enable = true;
+      gitblame.enable = true;
+      gitsigns.enable = true;
       indent-blankline.enable = true;
       lastplace.enable = true;
       treesitter.enable = true;
