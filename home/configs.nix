@@ -38,7 +38,6 @@ with lib;
     if test -f ~/.bashrc.local; then
     . ~/.bashrc.local
     fi
-
   '';
 }
 
