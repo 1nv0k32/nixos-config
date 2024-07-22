@@ -116,7 +116,7 @@ with lib;
       ubuntu_font_family
       vazir-fonts
       nerdfonts
-      (nerdfonts.override { fonts = [ "NotoMono" ]; })
+      (nerdfonts.override { fonts = [ "Noto" ]; })
     ];
     enableDefaultPackages = mkDefault true;
     fontconfig.defaultFonts = {
