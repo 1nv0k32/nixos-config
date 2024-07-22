@@ -166,6 +166,26 @@ with lib;
       enable = mkDefault true;
     };
   };
+
+  fonts = {
+    packages = with pkgs; [
+      ubuntu_font_family
+      vazir-fonts
+      nerdfonts
+      (nerdfonts.override { fonts = [ "Noto" ]; })
+    ];
+    enableDefaultPackages = mkDefault true;
+    fontconfig.defaultFonts = {
+      serif = mkDefault [
+        "Vazirmatn"
+        "DejaVu Serif"
+      ];
+      sansSerif = mkDefault [
+        "Vazirmatn"
+        "DejaVu Sans"
+      ];
+    };
+  };
 }
 
 # vim:expandtab ts=2 sw=2
