@@ -12,14 +12,10 @@
         (
           { lib, ... }:
           {
-            imports = [
-              lib.optional
-              (builtins.pathExists ./hardware-configuration.nix)
-              (import ./hardware-configuration.nix)
-              lib.optional
-              (builtins.pathExists ./local.nix)
-              (import ./local.nix)
-            ];
+            imports =
+              [ ]
+              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) (import ./hardware-configuration.nix)
+              ++ lib.optional (builtins.pathExists ./local.nix) (import ./local.nix);
           }
         )
       ];
