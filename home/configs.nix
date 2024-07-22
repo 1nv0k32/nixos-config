@@ -32,9 +32,13 @@ with lib;
       source "$(fzf-share)/completion.bash"
     fi
 
+    source <(kubectl completion bash)
+    complete -o default -o nospace -F __start_kubectl k
+
     if test -f ~/.bashrc.local; then
     . ~/.bashrc.local
     fi
+
   '';
 }
 
