@@ -39,6 +39,7 @@
       treesitter.enable = true;
       neo-tree.enable = true;
       nvim-autopairs.enable = true;
+      helm.enable = true;
       cmp.enable = true;
       lsp = {
         enable = true;
