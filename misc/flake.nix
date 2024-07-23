@@ -22,16 +22,11 @@
     in
     {
       nixosConfigurations = {
-        "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
-          system = user-config.system;
+        "nyx" = user-config.baseSystem {
           specialArgs = {
             hostName = "nyx";
-            stateVersion = user-config.stateVersion;
-            system = user-config.system;
-            inputs = user-config.inputs;
           };
-          modules =
-            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
+          modules = localModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
 
         "wslnix" = user-config.inputs.nixpkgs.lib.nixosSystem {
