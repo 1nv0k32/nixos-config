@@ -75,7 +75,6 @@ with lib;
     variables = {
       VAGRANT_DEFAULT_PROVIDER = mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = mkForce "qemu:///system";
-      DIRENV_WARN_TIMEOUT = mkForce 0;
     };
     etc = {
       "inputrc".text = customConfigs.INPUTRC_CONFIG;
