@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   python = pkgs.python312;
   pythonldlibpath = lib.makeLibraryPath (
