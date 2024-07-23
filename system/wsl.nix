@@ -52,14 +52,11 @@ with lib;
   programs = {
     nix-ld.enable = true;
     direnv = {
-      package = pkgs.direnv;
-      silent = false;
+      enable = true;
+      silent = true;
       loadInNixShell = true;
       direnvrcExtra = "";
-      nix-direnv = {
-        enable = true;
-        package = pkgs.nix-direnv;
-      };
+      nix-direnv.enable = true;
     };
   };
 
