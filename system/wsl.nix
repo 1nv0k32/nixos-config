@@ -51,12 +51,6 @@ with lib;
 
   programs = {
     nix-ld.enable = true;
-    direnv = {
-      enable = true;
-      silent = true;
-      loadInNixShell = true;
-      nix-direnv.enable = true;
-    };
   };
 
   virtualisation = {

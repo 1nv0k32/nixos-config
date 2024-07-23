@@ -52,6 +52,18 @@ with lib.hm.gvariant;
     bashrcExtra = customConfigs.DOT_BASHRC;
   };
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+    config = {
+      global = {
+        warn_timeout = 0;
+      };
+      whitelist.prefix = [ "~/" ];
+    };
+  };
+
   programs.ssh = {
     enable = true;
     includes = [ "~/.ssh/config.d/*.config" ];
