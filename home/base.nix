@@ -56,6 +56,7 @@ with lib.hm.gvariant;
     enable = true;
     enableBashIntegration = true;
     nix-direnv.enable = true;
+    silent = true;
     config = {
       global = {
         warn_timeout = 0;
