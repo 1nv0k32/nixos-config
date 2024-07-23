@@ -44,7 +44,6 @@ let
       postInstall =
         previousAttrs.postInstall
         + ''
-
           mv "$out/bin/poetry" "$out/bin/unpatched_poetry"
           cat << EOF >> "$out/bin/poetry"
           #!/run/current-system/sw/bin/bash
