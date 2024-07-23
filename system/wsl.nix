@@ -14,7 +14,6 @@ with lib;
   imports = [
     (import "${inputs.nixos-wsl}/modules")
     (import "${inputs.vscode-server}")
-    (import ../overlays/pyfix.nix)
   ];
 
   wsl = {
@@ -41,6 +40,7 @@ with lib;
       PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring";
     };
     systemPackages = with pkgs; [
+      poetry
       python312
       python27Full
       mdbook
