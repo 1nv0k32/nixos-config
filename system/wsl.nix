@@ -14,6 +14,7 @@ with lib;
   imports = [
     (import "${inputs.nixos-wsl}/modules")
     (import "${inputs.vscode-server}")
+    (import "../overlays/pyfix.nix")
   ];
 
   wsl = {

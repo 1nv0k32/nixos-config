@@ -88,9 +88,6 @@ in
     ghostscript
     ffmpeg
 
-    unstable.poetry
-    old.hatch
-
     wl-clipboard
     wineWowPackages.stable
   ];
