@@ -84,10 +84,10 @@ with lib;
           Unit.Description = "Automatically set .wslconfig in current windows user";
           Install.WantedBy = [ "default.target" ];
           Service.ExecStart = "${pkgs.writeShellScript "wslconfig-sh" ''
-            #!${pkgs.bash}/bin/bash
             set -e
             CURRENT_USER=$(/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe '$env:UserName')
-            cat << EOF > /mnt/c/Users/$CURRENT_USER/.wslconfig
+            CURRENT_USER=${CURRENT_USER//[^a-zA-Z0-9]/}
+            cat << EOF > /mnt/c/Users/${CURRENT_USER}/.wslconfig
             [wsl2]
             kernelCommandLine = vsyscall=emulate cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1
             networkingMode=mirrored
