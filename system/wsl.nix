@@ -85,7 +85,8 @@ with lib;
           Install.WantedBy = [ "default.target" ];
           Service.ExecStart = "${pkgs.writeShellScript "wslconfig-sh" ''
             #!${pkgs.bash}/bin/bash
-            CURRENT_USER=$(powershell.exe '$env:UserName')
+            set -e
+            CURRENT_USER=$(/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe '$env:UserName')
             cat << EOF > /mnt/c/Users/$CURRENT_USER/.wslconfig
             [wsl2]
             kernelCommandLine = vsyscall=emulate cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1
