@@ -84,7 +84,7 @@ with lib;
           Unit.Description = "Automatically set .wslconfig in current windows user";
           Install.WantedBy = [ "default.target" ];
           Service.ExecStart = "${pkgs.writeShellScript "wslconfig-sh" ''
-            #!${pkgs.bash}
+            #!${pkgs.bash}/bin/bash
             CURRENT_USER=$(powershell.exe '$env:UserName')
             cat << EOF > /mnt/c/Users/$CURRENT_USER/.wslconfig
             [wsl2]
