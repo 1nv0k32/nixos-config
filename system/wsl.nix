@@ -79,6 +79,24 @@ with lib;
       { ... }:
       {
         imports = [ (import "${inputs.vscode-server}/modules/vscode-server/home.nix") ];
+
+        systemd.user.services.wslconfig = {
+          Unit.Description = "Automatically set .wslconfig in current windows user";
+          Install.WantedBy = [ "default.target" ];
+          Service.ExecStart = "${pkgs.writeShellScript "wslconfig-sh" ''
+            #!${pkgs.bash}
+            CURRENT_USER=$(powershell.exe '$env:UserName')
+            cat << EOF > /mnt/c/Users/$CURRENT_USER/.wslconfig
+            [wsl2]
+            kernelCommandLine = vsyscall=emulate cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1
+            networkingMode=mirrored
+            autoProxy=false
+            firewall=false
+            [experimental]
+            sparseVhd=true
+            EOF
+          ''}";
+        };
       };
   };
 }
