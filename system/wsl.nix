@@ -40,8 +40,6 @@ with lib;
       PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring";
     };
     systemPackages = with pkgs; [
-      poetry
-      python312
       python27Full
       mdbook
       mdbook-mermaid
