@@ -26,6 +26,8 @@ in
     yt-dlp
     media-downloader
     unstable.winbox
+    wineWowPackages.stable
+    winetricks
 
     otpclient
     yubikey-manager

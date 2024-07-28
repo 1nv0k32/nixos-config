@@ -89,7 +89,6 @@ in
     ffmpeg
 
     wl-clipboard
-    wineWowPackages.stable
 
     poetry
     python312
