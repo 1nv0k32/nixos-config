@@ -25,6 +25,7 @@ in
     rpi-imager
     yt-dlp
     media-downloader
+    tor-browser-bundle-bin
     unstable.winbox
     wineWowPackages.stable
     winetricks
