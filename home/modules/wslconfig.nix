@@ -10,7 +10,7 @@
       CURRENT_USER=''${CURRENT_USER//[^a-zA-Z0-9]/}
       ${pkgs.coreutils}/bin/cat << EOF > /mnt/c/Users/$CURRENT_USER/.wslconfig
       [wsl2]
-      kernelCommandLine = vsyscall=emulate cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1
+      kernelCommandLine = vsyscall=emulate
       networkingMode=mirrored
       autoProxy=false
       firewall=false
