@@ -8,7 +8,7 @@
       CURRENT_USER=$(/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe '$env:UserName')
       CURRENT_USER=''${CURRENT_USER//[^a-zA-Z0-9]/}
       WSLCONFIG_FILE=/mnt/c/Users/$CURRENT_USER/.wslconfig
-      CONFIG=$(cat <<EOF
+      CONFIG=$(${pkgs.coreutils}/bin/cat <<EOF
       ### START GENERATED WSLCONFIG
       [wsl2]
       kernelCommandLine = vsyscall=emulate cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1
