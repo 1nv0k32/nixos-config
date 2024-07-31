@@ -10,6 +10,7 @@
       WSLCONFIG_FILE=/mnt/c/Users/$CURRENT_USER/.wslconfig
       CONFIG=$(${pkgs.coreutils}/bin/cat <<EOF
       ### START GENERATED WSLCONFIG
+      ### DO NOT ADD ANYTHING BETWEEN COMMENTS
       [wsl2]
       kernelCommandLine = vsyscall=emulate cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1
       networkingMode=mirrored
