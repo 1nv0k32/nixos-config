@@ -18,6 +18,7 @@
       firewall=false
       [experimental]
       sparseVhd=true
+      autoMemoryReclaim=gradual
       ### END GENERATED WSLCONFIG
       EOF
       )
