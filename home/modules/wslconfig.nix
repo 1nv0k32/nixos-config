@@ -7,7 +7,9 @@
       set -e
       CURRENT_USER=$(/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe '$env:UserName')
       CURRENT_USER=''${CURRENT_USER//[^a-zA-Z0-9]/}
-      ${pkgs.coreutils}/bin/cat << EOF > /mnt/c/Users/$CURRENT_USER/.wslconfig
+      WSLCONFIG_FILE=/mnt/c/Users/$CURRENT_USER/.wslconfig
+      CONFIG=$(cat <<EOF
+      ### START GENERATED WSLCONFIG
       [wsl2]
       kernelCommandLine = vsyscall=emulate cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1
       networkingMode=mirrored
@@ -15,7 +17,11 @@
       firewall=false
       [experimental]
       sparseVhd=true
+      ### END GENERATED WSLCONFIG
       EOF
+      )
+      ${pkgs.gnused}/bin/sed -in '/### START GENERATED WSLCONFIG/,/### END GENERATED WSLCONFIG/ {/.*/d}' $WSLCONFIG_FILE
+      echo "$CONFIG" >> $WSLCONFIG_FILE
     ''}";
   };
 }
