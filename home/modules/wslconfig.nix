@@ -3,7 +3,7 @@
   systemd.user.services.wslconfig = {
     Unit.Description = "Automatically set .wslconfig in current windows user";
     Install.WantedBy = [ "default.target" ];
-    Service.Type = "Oneshot";
+    Service.Type = "oneshot";
     Service.RemainAfterExit = "yes";
     Service.ExecStart = "${pkgs.writeShellScript "wslconfig-sh" ''
       set -e
