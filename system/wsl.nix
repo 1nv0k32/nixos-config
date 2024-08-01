@@ -32,8 +32,6 @@ with lib;
     ];
   };
 
-  systemd.enableUnifiedCgroupHierarchy = false;
-
   nixpkgs.config.permittedInsecurePackages = [ "${pkgs.python27Full.name}" ];
 
   environment = {
