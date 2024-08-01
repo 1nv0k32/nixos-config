@@ -21,6 +21,7 @@
       [experimental]
       sparseVhd=true
       autoMemoryReclaim=gradual
+      # just change
       ### END GENERATED WSLCONFIG
       EOF
       )
