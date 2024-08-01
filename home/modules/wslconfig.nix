@@ -3,8 +3,6 @@
   systemd.user.services.wslconfig = {
     Unit.Description = "Automatically set .wslconfig in current windows user";
     Install.WantedBy = [ "default.target" ];
-    Service.Type = "oneshot";
-    Service.RemainAfterExit = "yes";
     Service.ExecStart = "${pkgs.writeShellScript "wslconfig-sh" ''
       set -e
       CURRENT_USER=$(/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe '$env:UserName')
@@ -21,7 +19,6 @@
       [experimental]
       sparseVhd=true
       autoMemoryReclaim=gradual
-      # just change
       ### END GENERATED WSLCONFIG
       EOF
       )
