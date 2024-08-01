@@ -12,7 +12,7 @@
       ### START GENERATED WSLCONFIG
       ### DO NOT ADD ANYTHING BETWEEN COMMENTS
       [wsl2]
-      kernelCommandLine=vsyscall=emulate systemd.unified_cgroup_hierarchy=0 cgroup_no_v1=
+      kernelCommandLine = vsyscall=emulate
       networkingMode=mirrored
       autoProxy=false
       firewall=false
