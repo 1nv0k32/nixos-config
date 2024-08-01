@@ -41,7 +41,7 @@ in
         version = "2.0.9";
         src = pkgs.fetchurl {
           url = "https://github.com/samuong/alpaca/releases/download/v${version}/alpaca_v${version}_linux-amd64";
-          sha256 = "wxrfY0Rzhzga5jhewFxaXV1HDAPnAH8y7l2fRnR6q04=";
+          sha256 = "tCqA1EqgTZodwoyi1fdrK/Uim+ZxVvLfRgwoQr2Io84=";
         };
         nativeBuildInputs = [ pkgs.autoPatchelfHook ];
         phases = [ "installPhase" ];
