@@ -14,7 +14,6 @@ with lib;
   imports = [
     (import "${inputs.nixos-wsl}/modules")
     (import "${inputs.vscode-server}")
-    #(import ../modules/systemd-legacy-cgroup.nix)
   ];
 
   wsl = {
