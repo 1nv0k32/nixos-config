@@ -80,13 +80,14 @@ with lib;
   };
 
   programs = {
+    ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
+    dconf.enable = mkDefault true;
+    kubeswitch.enable = mkDefault true;
     gnupg.agent = {
       enable = mkDefault true;
       pinentryPackage = mkDefault pkgs.pinentry-curses;
       enableSSHSupport = mkDefault true;
     };
-    ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
-    dconf.enable = mkDefault true;
     git = {
       enable = mkDefault true;
       config = {
@@ -102,7 +103,6 @@ with lib;
         rerere.enabled = mkDefault true;
       };
     };
-    kubeswitch.enable = mkDefault true;
   };
 }
 

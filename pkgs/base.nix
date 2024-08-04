@@ -72,8 +72,6 @@
     ghostscript
     ffmpeg
 
-    wl-clipboard
-
     poetry
     python312
   ];

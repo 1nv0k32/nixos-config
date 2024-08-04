@@ -65,14 +65,14 @@ with lib;
   };
 
   services = {
-    avahi = {
-      enable = mkDefault true;
-      nssmdns4 = mkDefault true;
-    };
     fstrim.enable = mkDefault true;
     fprintd.enable = mkDefault true;
     fwupd.enable = mkDefault true;
     pcscd.enable = mkDefault true;
+    avahi = {
+      enable = mkDefault true;
+      nssmdns4 = mkDefault true;
+    };
     gnome = {
       core-utilities.enable = mkDefault true;
       gnome-keyring.enable = mkDefault true;
