@@ -23,7 +23,7 @@
     { self, ... }@inputs:
     {
       stateVersion = "24.05";
-      system = "x86_64-linux"; # remove
+      system = "x86_64-linux";
 
       overlays = {
         pkgs-master = _: prev: {
