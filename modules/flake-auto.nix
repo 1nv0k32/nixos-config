@@ -7,7 +7,7 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "flake-auto-sh" ''
-        FLAKE_URL="https://raw.githubusercontent.com/1nv0k32/nixoscfg/main/misc/flake.nix"
+        FLAKE_URL="https://raw.githubusercontent.com/1nv0k32/nixos-config/main/misc/flake.nix"
         FLAKE_PATH=/etc/nixos/flake.nix
         ${pkgs.curl}/bin/curl -s $FLAKE_URL -o $FLAKE_PATH
         exit 0
