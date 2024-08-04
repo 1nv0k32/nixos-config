@@ -123,7 +123,6 @@ with lib;
     };
   };
 
-  sound.enable = mkDefault true;
   hardware = {
     opengl.driSupport32Bit = mkDefault true;
     pulseaudio.enable = mkForce false;
