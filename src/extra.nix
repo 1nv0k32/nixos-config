@@ -64,6 +64,7 @@ with lib;
     keyMap = mkDefault "us";
   };
 
+  sound.enable = mkDefault true;
   services = {
     fstrim.enable = mkDefault true;
     fprintd.enable = mkDefault true;
