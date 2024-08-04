@@ -1,4 +1,4 @@
-{ inputs, system, ... }:
+{ inputs, ... }:
 let
   overlayConfig = {
     config.allowUnfree = true;
