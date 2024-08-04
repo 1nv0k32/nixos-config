@@ -1,20 +1,4 @@
-{
-  inputs,
-  system,
-  pkgs,
-  config,
-  ...
-}:
-let
-  unstable = import (inputs.nixpkgs-unstable) {
-    config = config.nixpkgs.config;
-    inherit system;
-  };
-  old = import (inputs.nixpkgs-old) {
-    config = config.nixpkgs.config;
-    inherit system;
-  };
-in
+{ pkgs }:
 {
   environment.systemPackages = with pkgs; [
     nixfmt-rfc-style

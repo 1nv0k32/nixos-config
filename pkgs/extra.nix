@@ -1,10 +1,4 @@
-{
-  inputs,
-  system,
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs }:
 {
   environment.systemPackages = with pkgs; [
     vscode
