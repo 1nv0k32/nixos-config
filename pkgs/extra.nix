@@ -1,13 +1,14 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    flameshot
+    spotify
+    obs-studio
+    gimp
+    vlc
+    discord
     vscode
     gparted
-    spotify
-    flameshot
-    vlc
-    gimp
-    discord
     rivalcfg
     cobang
     rpi-imager
