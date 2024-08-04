@@ -71,14 +71,14 @@
     binwalk
     burpsuite
     ghidra-bin
-    unstable.proxmark3
+    pkgs-unstable.proxmark3
   ];
 
   services.udev.packages = [
     pkgs.platformio-core
     pkgs.openocd
     pkgs.yubikey-personalization
-    unstable.proxmark3
+    pkgs-unstable.proxmark3
   ];
 }
 
