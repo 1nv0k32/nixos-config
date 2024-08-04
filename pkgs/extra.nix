@@ -74,10 +74,10 @@
     pkgs-unstable.proxmark3
   ];
 
-  services.udev.packages = [
-    pkgs.platformio-core
-    pkgs.openocd
-    pkgs.yubikey-personalization
+  services.udev.packages = with pkgs; [
+    platformio-core
+    openocd
+    yubikey-personalization
     pkgs-unstable.proxmark3
   ];
 }
