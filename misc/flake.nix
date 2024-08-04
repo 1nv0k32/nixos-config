@@ -8,7 +8,7 @@
   outputs =
     { user-config, ... }@inputs:
     let
-      localModules = [
+      baseModules = user-config.baseModules ++ [
         (
           { lib, ... }:
           {
@@ -23,27 +23,21 @@
     {
       nixosConfigurations = {
         "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
-          system = user-config.system;
+          specialArgs.hostName = "nyx";
           specialArgs = {
-            hostName = "nyx";
-            stateVersion = user-config.stateVersion;
-            system = user-config.system;
-            inputs = user-config.inputs;
+            inherit (user-config) stateVersion system inputs;
           };
-          modules =
-            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
+          inherit (user-config) system;
+          modules = baseModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
 
         "wslnix" = user-config.inputs.nixpkgs.lib.nixosSystem {
-          system = user-config.system;
+          specialArgs.hostName = "wslnix";
           specialArgs = {
-            hostName = "wslnix";
-            stateVersion = user-config.stateVersion;
-            system = user-config.system;
-            inputs = user-config.inputs;
+            inherit (user-config) stateVersion system inputs;
           };
-          modules =
-            user-config.baseModules ++ localModules ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
+          inherit (user-config) system;
+          modules = baseModules ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
         };
       };
     };
