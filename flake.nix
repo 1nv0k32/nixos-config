@@ -25,7 +25,7 @@
   outputs =
     { self, ... }@inputs:
     {
-      system = "x86_64-linux"; # remove later
+      # system = "x86_64-linux"; # remove later
       stateVersion = "24.05";
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
