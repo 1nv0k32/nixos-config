@@ -21,43 +21,11 @@
 
   outputs =
     { self, ... }@inputs:
-    let
-      overlays = {
-        pkgs-master = _: prev: {
-          pkgs-master = import (inputs.nixpkgs-master) {
-            inherit (prev.stdenv) system;
-            config.allowUnfree = true;
-          };
-        };
-        pkgs-unstable = _: prev: {
-          pkgs-unstable = import (inputs.nixpkgs-unstable) {
-            inherit (prev.stdenv) system;
-            config.allowUnfree = true;
-          };
-        };
-        pkgs-old = _: prev: {
-          pkgs-old = import (inputs.nixpkgs-old) {
-            inherit (prev.stdenv) system;
-            config.allowUnfree = true;
-          };
-        };
-      };
-    in
     {
       stateVersion = "24.05";
       system = "x86_64-linux";
-
       baseModules = [
-        (
-          { config, pkgs, ... }:
-          {
-            nixpkgs.overlays = [
-              overlays.pkgs-master
-              overlays.pkgs-unstable
-              overlays.pkgs-old
-            ];
-          }
-        )
+        (import "${self}/pkgs/overlays.nix" { inherit inputs system; })
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/modules")

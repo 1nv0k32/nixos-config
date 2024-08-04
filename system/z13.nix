@@ -10,7 +10,7 @@ with lib;
   imports = [
     (import ../src/extra.nix)
     (import ../pkgs/extra.nix)
-    (import ../overlays/initrd-luks.nix)
+    (import ../overrides/initrd-luks.nix)
   ];
 
   networking = {
