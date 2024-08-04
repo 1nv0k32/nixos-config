@@ -31,9 +31,9 @@
       inherit system;
       stateVersion = "24.05";
       baseModules = [
-        (import "${self}/pkgs/overlays.nix" { inherit inputs system; })
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
+        (import "${self}/pkgs/overlays.nix" { inherit inputs system; })
         (import "${self}/modules")
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
