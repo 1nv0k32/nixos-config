@@ -21,13 +21,6 @@
 
   outputs =
     { self, ... }@inputs:
-    let
-      nixpkgsDefaults = {
-        config = {
-          allowUnfree = true;
-        };
-      };
-    in
     {
       stateVersion = "24.05";
       system = "x86_64-linux"; # remove
@@ -35,25 +28,35 @@
       overlays = {
         pkgs-master = _: prev: {
           pkgs-master = import (inputs.nixpkgs-master) {
-            inherit (nixpkgsDefaults) config;
             inherit (prev.stdenv) system;
+            config.allowUnfree = true;
           };
         };
         pkgs-unstable = _: prev: {
           pkgs-unstable = import (inputs.nixpkgs-unstable) {
-            inherit (nixpkgsDefaults) config;
             inherit (prev.stdenv) system;
+            config.allowUnfree = true;
           };
         };
         pkgs-old = _: prev: {
           pkgs-old = import (inputs.nixpkgs-old) {
-            inherit (nixpkgsDefaults) config;
             inherit (prev.stdenv) system;
+            config.allowUnfree = true;
           };
         };
       };
 
       baseModules = [
+        (
+          { config, pkgs, ... }:
+          {
+            nixpkgs.overlays = [
+              overlays.pkgs-master
+              overlays.pkgs-unstable
+              overlays.pkgs-old
+            ];
+          }
+        )
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/modules")
