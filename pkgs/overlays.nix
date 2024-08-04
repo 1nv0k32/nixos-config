@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, system, ... }:
 let
   overlays = {
     pkgs-master = _: prev: {

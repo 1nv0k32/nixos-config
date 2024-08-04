@@ -21,9 +21,12 @@
 
   outputs =
     { self, ... }@inputs:
-    {
-      stateVersion = "24.05";
+    let
       system = "x86_64-linux";
+    in
+    {
+      inherit system;
+      stateVersion = "24.05";
       baseModules = [
         (import "${self}/pkgs/overlays.nix" { inherit inputs system; })
         inputs.home-manager.nixosModules.home-manager
