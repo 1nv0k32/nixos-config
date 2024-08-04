@@ -24,19 +24,19 @@
       nixosConfigurations = {
         "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
           specialArgs.hostName = "nyx";
+          system = "x86_64-linux";
           specialArgs = {
-            inherit (user-config) stateVersion system inputs;
+            inherit (user-config) stateVersion inputs;
           };
-          inherit (user-config) system;
           modules = baseModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
 
         "wslnix" = user-config.inputs.nixpkgs.lib.nixosSystem {
           specialArgs.hostName = "wslnix";
+          system = "x86_64-linux";
           specialArgs = {
             inherit (user-config) stateVersion system inputs;
           };
-          inherit (user-config) system;
           modules = baseModules ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
         };
       };
