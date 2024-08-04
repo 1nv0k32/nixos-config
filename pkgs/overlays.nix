@@ -1,27 +1,30 @@
 { inputs, system, ... }:
 let
+  overlayConfig = {
+    config.allowUnfree = true;
+  };
   pkgs-master = _: prev: {
     pkgs-master = import (inputs.nixpkgs-master) {
       inherit (prev.stdenv) system;
-      config.allowUnfree = true;
+      inherit (overlayConfig) config;
     };
   };
   pkgs-unstable = _: prev: {
     pkgs-unstable = import (inputs.nixpkgs-unstable) {
       inherit (prev.stdenv) system;
-      config.allowUnfree = true;
+      inherit (overlayConfig) config;
     };
   };
   pkgs-old = _: prev: {
     pkgs-old = import (inputs.nixpkgs-old) {
       inherit (prev.stdenv) system;
-      config.allowUnfree = true;
+      inherit (overlayConfig) config;
     };
   };
 in
 {
   nixpkgs = {
-    config.allowUnfree = true;
+    inherit (overlayConfig) config;
     overlays = [
       pkgs-master
       pkgs-unstable
