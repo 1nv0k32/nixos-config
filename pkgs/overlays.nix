@@ -22,11 +22,14 @@ let
   };
 in
 {
-  nixpkgs.overlays = [
-    overlays.pkgs-master
-    overlays.pkgs-unstable
-    overlays.pkgs-old
-  ];
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      overlays.pkgs-master
+      overlays.pkgs-unstable
+      overlays.pkgs-old
+    ];
+  };
 }
 
 # vim:expandtab ts=2 sw=2

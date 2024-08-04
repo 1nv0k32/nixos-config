@@ -62,12 +62,6 @@ with lib;
     docker.enable = mkDefault true;
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = mkDefault true;
-    };
-  };
-
   environment = {
     sessionVariables = {
       NIXOS_OZONE_WL = mkForce "1";
