@@ -36,20 +36,6 @@ in
         all_proxy = proxy;
         rsync_proxy = proxy;
       };
-      alpaca = pkgs.stdenv.mkDerivation rec {
-        pname = "alpaca";
-        version = "2.0.9";
-        src = pkgs.fetchurl {
-          url = "https://github.com/samuong/alpaca/releases/download/v${version}/alpaca_v${version}_linux-amd64";
-          sha256 = "tCqA1EqgTZodwoyi1fdrK/Uim+ZxVvLfRgwoQr2Io84=";
-        };
-        nativeBuildInputs = [ pkgs.autoPatchelfHook ];
-        phases = [ "installPhase" ];
-        installPhase = ''
-          install -m755 -D $src $out/bin/${pname}
-          autoPatchelf $out/bin/${pname}
-        '';
-      };
       pac_arg = "" + optionalString (cfg.pacUrl != null) "-C ${cfg.pacUrl}";
     in
     mkIf cfg.enable {
@@ -58,7 +44,7 @@ in
         enable = true;
         description = "alpaca proxy service";
         serviceConfig = {
-          ExecStart = "${alpaca}/bin/alpaca -l 0.0.0.0 -p ${cfg.listenPort} ${pac_arg}";
+          ExecStart = "${pkgs.pkgs-master.alpaca-proxy}/bin/alpaca-proxy -l 0.0.0.0 -p ${cfg.listenPort} ${pac_arg}";
           Restart = "always";
           KillMode = "mixed";
         };
@@ -69,7 +55,7 @@ in
         };
       };
 
-      environment.systemPackages = [ alpaca ];
+      environment.systemPackages = [ pkgs.pkgs-master.alpaca-proxy ];
 
       # Set proxy on system and services
       systemd.services = {
