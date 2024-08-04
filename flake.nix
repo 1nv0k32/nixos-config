@@ -1,5 +1,6 @@
 {
   inputs = {
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -20,9 +21,38 @@
 
   outputs =
     { self, ... }@inputs:
+    let
+      nixpkgsDefaults = {
+        config = {
+          allowUnfree = true;
+        };
+      };
+    in
     {
       stateVersion = "24.05";
-      system = "x86_64-linux";
+      system = "x86_64-linux"; # remove
+
+      overlays = {
+        pkgs-master = _: prev: {
+          pkgs-master = import (inputs.nixpkgs-master) {
+            inherit (nixpkgsDefaults) config;
+            inherit (prev.stdenv) system;
+          };
+        };
+        pkgs-unstable = _: prev: {
+          pkgs-unstable = import (inputs.nixpkgs-unstable) {
+            inherit (nixpkgsDefaults) config;
+            inherit (prev.stdenv) system;
+          };
+        };
+        pkgs-old = _: prev: {
+          pkgs-old = import (inputs.nixpkgs-old) {
+            inherit (nixpkgsDefaults) config;
+            inherit (prev.stdenv) system;
+          };
+        };
+      };
+
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim

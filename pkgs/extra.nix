@@ -5,12 +5,6 @@
   config,
   ...
 }:
-let
-  unstable = import (inputs.nixpkgs-unstable) {
-    config = config.nixpkgs.config;
-    inherit system;
-  };
-in
 {
   environment.systemPackages = with pkgs; [
     vscode
@@ -26,7 +20,7 @@ in
     yt-dlp
     media-downloader
     tor-browser-bundle-bin
-    unstable.winbox
+    pkgs-unstable.winbox
     wineWowPackages.stable
     winetricks
 
