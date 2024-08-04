@@ -18,11 +18,10 @@ let
       config.allowUnfree = true;
     };
   };
-  pkgs = import inputs.nixpkgs { config.allowUnfree = true; };
 in
 {
   nixpkgs = {
-    pkgs = pkgs;
+    pkgs = (import inputs.nixpkgs { config.allowUnfree = true; });
     overlays = [
       pkgs-master
       pkgs-unstable
