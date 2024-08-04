@@ -21,7 +21,7 @@ let
 in
 {
   nixpkgs = {
-    pkgs = (import inputs.nixpkgs { config.allowUnfree = true; });
+    pkgs = import inputs.nixpkgs { config.allowUnfree = true; };
     overlays = [
       pkgs-master
       pkgs-unstable
