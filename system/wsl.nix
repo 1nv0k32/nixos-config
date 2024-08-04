@@ -78,7 +78,7 @@ with lib;
       {
         imports = [
           (import "${inputs.vscode-server}/modules/vscode-server/home.nix")
-          (import ../home/modules/wslconfig.nix)
+          (import "${inputs.user-config}/home/modules/wslconfig.nix")
         ];
       };
   };
