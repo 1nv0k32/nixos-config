@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   systemd.services.flake-auto = {
     enable = true;
@@ -7,6 +7,7 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "flake-auto-sh" ''
+        # ${config.system.path}
         FLAKE_URL="https://raw.githubusercontent.com/1nv0k32/nixoscfg/main/misc/flake.nix"
         FLAKE_PATH=/etc/nixos/flake.nix
         ${pkgs.curl}/bin/curl -s $FLAKE_URL -o $FLAKE_PATH
