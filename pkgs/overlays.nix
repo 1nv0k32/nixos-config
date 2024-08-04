@@ -21,8 +21,8 @@ let
 in
 {
   nixpkgs = {
-    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    config.allowUnfree = true;
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    # config.allowUnfree = true;
     overlays = [
       pkgs-master
       pkgs-unstable
