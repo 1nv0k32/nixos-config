@@ -21,10 +21,7 @@
 
   outputs =
     { self, ... }@inputs:
-    {
-      stateVersion = "24.05";
-      system = "x86_64-linux";
-
+    let
       overlays = {
         pkgs-master = _: prev: {
           pkgs-master = import (inputs.nixpkgs-master) {
@@ -45,6 +42,10 @@
           };
         };
       };
+    in
+    {
+      stateVersion = "24.05";
+      system = "x86_64-linux";
 
       baseModules = [
         (
