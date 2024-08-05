@@ -165,6 +165,11 @@ with lib;
     firefox = {
       enable = mkDefault true;
     };
+    winbox = {
+      enable = mkDefault true;
+      openFirewall = mkDefault true;
+      package = mkDefault pkgs-unstable.winbox;
+    };
   };
 
   fonts = {

@@ -15,7 +15,6 @@
     yt-dlp
     media-downloader
     tor-browser-bundle-bin
-    pkgs-unstable.winbox
     wineWowPackages.stable
     winetricks
 
