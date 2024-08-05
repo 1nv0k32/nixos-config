@@ -168,7 +168,7 @@ with lib;
     winbox = {
       enable = mkDefault true;
       openFirewall = mkDefault true;
-      package = mkDefault pkgs-unstable.winbox;
+      package = mkDefault pkgs.pkgs-unstable.winbox;
     };
   };
 
