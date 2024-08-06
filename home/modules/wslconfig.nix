@@ -22,7 +22,7 @@
       ### END GENERATED WSLCONFIG
       EOF
       )
-      if grep -q "### START GENERATED WSLCONFIG" $WSLCONFIG_FILE
+      if grep -q "### START GENERATED WSLCONFIG" $WSLCONFIG_FILE; then
         ${pkgs.gnused}/bin/sed -in '/### START GENERATED WSLCONFIG/,/### END GENERATED WSLCONFIG/ {/.*/d}' $WSLCONFIG_FILE
         echo "$CONFIG" >> $WSLCONFIG_FILE
       else
