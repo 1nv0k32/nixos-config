@@ -44,7 +44,7 @@ in
         enable = true;
         description = "alpaca proxy service";
         serviceConfig = {
-          ExecStart = "${pkgs.pkgs-master.alpaca-proxy}/bin/alpaca-proxy -l 0.0.0.0 -p ${cfg.listenPort} ${pac_arg}";
+          ExecStart = "${pkgs.pkgs-unstable.alpaca-proxy}/bin/alpaca-proxy -l 0.0.0.0 -p ${cfg.listenPort} ${pac_arg}";
           Restart = "always";
           KillMode = "mixed";
         };
@@ -55,7 +55,7 @@ in
         };
       };
 
-      environment.systemPackages = [ pkgs.pkgs-master.alpaca-proxy ];
+      environment.systemPackages = [ pkgs.pkgs-unstable.alpaca-proxy ];
 
       # Set proxy on system and services
       systemd.services = {
