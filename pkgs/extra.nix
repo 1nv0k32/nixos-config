@@ -8,6 +8,7 @@
     vlc
     discord
     vscode
+    pkgs-unstable.jetbrains.pycharm-community-bin
     gparted
     rivalcfg
     cobang
