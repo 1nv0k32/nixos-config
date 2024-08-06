@@ -22,8 +22,12 @@
       ### END GENERATED WSLCONFIG
       EOF
       )
-      ${pkgs.gnused}/bin/sed -in '/### START GENERATED WSLCONFIG/,/### END GENERATED WSLCONFIG/ {/.*/d}' $WSLCONFIG_FILE
-      echo "$CONFIG" >> $WSLCONFIG_FILE
+      if grep -q "### START GENERATED WSLCONFIG" $WSLCONFIG_FILE
+        ${pkgs.gnused}/bin/sed -in '/### START GENERATED WSLCONFIG/,/### END GENERATED WSLCONFIG/ {/.*/d}' $WSLCONFIG_FILE
+        echo "$CONFIG" >> $WSLCONFIG_FILE
+      else
+        echo "$CONFIG" > $WSLCONFIG_FILE
+      fi
     ''}";
   };
 }
