@@ -25,6 +25,7 @@
     tldr
     pass
     parted
+    bridge-utils
 
     chromium
     transmission
