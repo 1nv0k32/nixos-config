@@ -157,7 +157,6 @@ with lib;
 
   programs = {
     mtr.enable = mkDefault true;
-    steam.enable = mkDefault true;
     wireshark = {
       enable = mkDefault true;
       package = mkDefault pkgs.wireshark;
