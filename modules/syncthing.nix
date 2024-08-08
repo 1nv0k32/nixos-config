@@ -12,7 +12,6 @@ in
   services = {
     syncthing = {
       enable = true;
-      user = shareUser;
       overrideFolders = false;
       overrideDevices = true;
       openDefaultPorts = true;
