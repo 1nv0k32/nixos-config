@@ -135,7 +135,7 @@ with lib;
     rtkit.enable = mkDefault true;
     pam = {
       services = {
-        login.fprintAuth = mkDefault false;
+        login.fprintAuth = mkDefault true;
         gdm-fingerprint.fprintAuth = mkDefault true;
         gdm.enableGnomeKeyring = mkDefault true;
       };
