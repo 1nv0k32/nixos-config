@@ -3,8 +3,7 @@ with lib;
 {
   DOT_BASHRC = mkDefault ''
     nixconf() (
-      [ -z $1 ] && exit 1
-      cd -- $1 || exit 1
+      [ -f flake.nix ] && [ -f flake.lock ] || exit 1
       nixfmt .
       while true; do
         git add -A
@@ -16,7 +15,6 @@ with lib;
             break
             ;;
           * )
-            
             git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
             git fetch
             git rebase origin/$WORK_BRANCH  || (git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
