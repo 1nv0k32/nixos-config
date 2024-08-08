@@ -7,6 +7,7 @@
 let
   shareUser = config.environment.sysConf.mainUser;
   sharePath = "/home/shared";
+  shareName = config.networking.hostName;
 in
 {
   services = {
@@ -16,8 +17,9 @@ in
       overrideDevices = true;
       openDefaultPorts = true;
       settings = {
+        options.urAccepted = -1;
         folders = {
-          sharePath = {
+          "${shareName}" = {
             path = sharePath;
             ignorePerms = false;
           };
