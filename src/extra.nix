@@ -153,6 +153,8 @@ with lib;
     libvirtd = {
       enable = mkDefault true;
     };
+    podman.dockerCompat = mkForce true;
+    docker.enable = mkForce false;
   };
 
   programs = {
