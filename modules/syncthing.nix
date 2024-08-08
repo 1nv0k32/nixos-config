@@ -26,17 +26,7 @@ in
     };
   };
 
-  systemd.tmpfiles.settings = {
-    "Shared" = {
-      sharePath = {
-        d = {
-          user = shareUser;
-          group = "users";
-          mode = "0755";
-        };
-      };
-    };
-  };
+  systemd.tmpfiles.rules = [ "d ${sharePath} 0755 ${shareUser} users" ];
 }
 
 # vim:expandtab ts=2 sw=2
