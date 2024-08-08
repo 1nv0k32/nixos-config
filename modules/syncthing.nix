@@ -17,8 +17,7 @@ in
       openDefaultPorts = true;
       settings = {
         folders = {
-          "Shared" = {
-            path = sharePath;
+          sharePath = {
             ignorePerms = false;
           };
         };
