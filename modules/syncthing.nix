@@ -26,7 +26,7 @@ in
     };
   };
 
-  systemd.tmpfiles.rules = [ "d ${sharePath} 0660 ${shareUser} syncthing" ];
+  systemd.tmpfiles.rules = [ "d ${sharePath} 0770 ${shareUser} syncthing" ];
 }
 
 # vim:expandtab ts=2 sw=2
