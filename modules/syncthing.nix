@@ -17,8 +17,8 @@ in
       dataDir = dataDir;
       user = shareUser;
       group = "users";
-      overrideFolders = true;
-      overrideDevices = true;
+      overrideFolders = false;
+      overrideDevices = false;
       openDefaultPorts = true;
       settings = {
         options.urAccepted = -1;
