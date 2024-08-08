@@ -18,6 +18,7 @@ in
       settings = {
         folders = {
           sharePath = {
+            path = sharePath;
             ignorePerms = false;
           };
         };
