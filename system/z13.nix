@@ -10,6 +10,7 @@ with lib;
     (import ../src/extra.nix)
     (import ../pkgs/extra.nix)
     (import ../overrides/initrd-luks.nix)
+    (import ../modules/syncthing.nix)
   ];
 
   networking = {
