@@ -13,7 +13,7 @@ in
   services = {
     syncthing = {
       enable = true;
-      overrideFolders = false;
+      overrideFolders = true;
       overrideDevices = true;
       openDefaultPorts = true;
       settings = {
