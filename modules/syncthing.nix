@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   shareUser = config.environment.sysConf.mainUser;
   sharePath = "/home/shared";
@@ -32,7 +37,7 @@ in
         };
       };
     };
-  }
+  };
 }
 
 # vim:expandtab ts=2 sw=2
