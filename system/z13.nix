@@ -26,19 +26,21 @@ with lib;
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     extraModprobeConfig = "options kvm_amd nested=1";
-    initrd.kernelModules = [ "amdgpu" ];
     kernelParams = [
       "acpi_backlight=native"
-      "amd_pstate=guided"
+      "amd_pstate=active"
       "amdgpu"
     ];
   };
 
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [ amdvlk ];
-    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  hardware = {
+    amdgpu.initrd.enable = true;
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [ amdvlk ];
+      extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+    };
   };
 
   environment.variables = {
@@ -47,6 +49,7 @@ with lib;
   };
 
   services = {
+    xserver.videoDrivers = [ "modesetting" ];
     power-profiles-daemon.enable = mkForce false;
     tlp = {
       enable = true;

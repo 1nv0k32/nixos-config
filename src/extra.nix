@@ -129,6 +129,10 @@ with lib;
     pulseaudio.enable = mkForce false;
     bluetooth.powerOnBoot = false;
     wirelessRegulatoryDatabase = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   security = {
