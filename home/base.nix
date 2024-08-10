@@ -47,7 +47,7 @@ with lib.hm.gvariant;
     shellAliases = {
       cat = "bat -p";
       k = "kubectl";
-      nixup = "sudo bash -c 'nix flake update /etc/nixos && nixos-rebuild switch --upgrade-all'";
+      nixup = "sudo bash -c 'nix flake update /etc/nixos && nixos-rebuild switch'";
     };
     bashrcExtra = customConfigs.DOT_BASHRC;
   };
@@ -67,13 +67,6 @@ with lib.hm.gvariant;
   programs.ssh = {
     enable = true;
     includes = [ "~/.ssh/config.d/*.config" ];
-    matchBlocks."*".proxyCommand =
-      let
-        proxy_url = builtins.elemAt (builtins.split "/" osConfig.networking.proxy.default) 4;
-      in
-      lib.mkIf (
-        osConfig.networking.proxy.default != null
-      ) "${pkgs.netcat}/bin/nc -X connect -x ${proxy_url} %h %p";
   };
 
   programs.git = {

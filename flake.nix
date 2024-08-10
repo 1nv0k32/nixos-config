@@ -12,20 +12,11 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/2405.5.4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    vscode-server = {
-      url = "github:nix-community/nixos-vscode-server";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
     { self, ... }@inputs:
     {
-      system = "x86_64-linux"; # remove later
       stateVersion = "24.05";
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
