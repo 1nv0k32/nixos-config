@@ -30,16 +30,6 @@
           };
           modules = baseModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
-
-        "wslnix" = user-config.inputs.nixpkgs.lib.nixosSystem {
-          specialArgs.hostName = "wslnix";
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit (user-config) stateVersion system inputs;
-          };
-          modules = baseModules ++ [ (import "${inputs.user-config}/system/wsl.nix") ];
-        };
-      };
     };
 }
 
