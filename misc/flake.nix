@@ -30,6 +30,7 @@
           };
           modules = baseModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
         };
+      };
     };
 }
 
