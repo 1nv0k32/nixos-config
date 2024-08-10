@@ -66,6 +66,7 @@ with lib;
 
   sound.enable = true;
   services = {
+    ddccontrol.enable = true;
     fstrim.enable = true;
     fprintd.enable = true;
     fwupd.enable = true;
