@@ -11,26 +11,26 @@ in
 with lib;
 {
   boot = {
-    blacklistedKernelModules = mkDefault [ "snd_pcsp" ];
+    blacklistedKernelModules = [ "snd_pcsp" ];
     loader = {
-      efi.canTouchEfiVariables = mkDefault true;
-      timeout = mkDefault 0;
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
       systemd-boot = {
-        enable = mkDefault true;
+        enable = true;
         editor = mkForce false;
-        consoleMode = mkDefault "max";
+        consoleMode = "max";
       };
     };
     initrd.systemd = {
-      enable = mkDefault true;
+      enable = true;
       extraConfig = customConfigs.SYSTEMD_CONFIG;
     };
   };
 
   networking = {
     networkmanager = {
-      enable = mkDefault true;
-      dns = mkDefault "systemd-resolved";
+      enable = true;
+      dns = "systemd-resolved";
       settings = {
         main = {
           no-auto-default = "*";
@@ -39,13 +39,13 @@ with lib;
       };
     };
     firewall = {
-      enable = mkDefault true;
-      checkReversePath = mkDefault false;
-      allowPing = mkDefault false;
-      allowedTCPPorts = mkDefault [ ];
-      allowedTCPPortRanges = mkDefault [ ];
-      allowedUDPPorts = mkDefault [ ];
-      allowedUDPPortRanges = mkDefault [ ];
+      enable = true;
+      checkReversePath = false;
+      allowPing = false;
+      allowedTCPPorts = [ ];
+      allowedTCPPortRanges = [ ];
+      allowedUDPPorts = [ ];
+      allowedUDPPortRanges = [ ];
     };
   };
 
@@ -58,28 +58,28 @@ with lib;
   };
 
   console = {
-    earlySetup = mkDefault true;
+    earlySetup = true;
     packages = [ pkgs.terminus_font ];
-    font = mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
-    keyMap = mkDefault "us";
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
+    keyMap = "us";
   };
 
-  sound.enable = mkDefault true;
+  sound.enable = true;
   services = {
-    fstrim.enable = mkDefault true;
-    fprintd.enable = mkDefault true;
-    fwupd.enable = mkDefault true;
-    pcscd.enable = mkDefault true;
+    fstrim.enable = true;
+    fprintd.enable = true;
+    fwupd.enable = true;
+    pcscd.enable = true;
     avahi = {
-      enable = mkDefault true;
-      nssmdns4 = mkDefault true;
+      enable = true;
+      nssmdns4 = true;
     };
     gnome = {
-      core-utilities.enable = mkDefault true;
-      gnome-keyring.enable = mkDefault true;
+      core-utilities.enable = true;
+      gnome-keyring.enable = true;
     };
     resolved = {
-      enable = mkDefault true;
+      enable = true;
       extraConfig = customConfigs.RESOLVED_CONFIG;
     };
     logind =
@@ -88,86 +88,91 @@ with lib;
         suspendAction = "suspend";
       in
       {
-        lidSwitch = mkDefault suspendAction;
-        lidSwitchDocked = mkDefault defaultAction;
-        lidSwitchExternalPower = mkDefault defaultAction;
-        suspendKey = mkDefault defaultAction;
-        suspendKeyLongPress = mkDefault defaultAction;
-        rebootKey = mkDefault defaultAction;
-        rebootKeyLongPress = mkDefault defaultAction;
-        powerKey = mkDefault defaultAction;
-        powerKeyLongPress = mkDefault defaultAction;
-        hibernateKey = mkDefault defaultAction;
-        hibernateKeyLongPress = mkDefault defaultAction;
-        killUserProcesses = mkDefault true;
+        lidSwitch = suspendAction;
+        lidSwitchDocked = defaultAction;
+        lidSwitchExternalPower = defaultAction;
+        suspendKey = defaultAction;
+        suspendKeyLongPress = defaultAction;
+        rebootKey = defaultAction;
+        rebootKeyLongPress = defaultAction;
+        powerKey = defaultAction;
+        powerKeyLongPress = defaultAction;
+        hibernateKey = defaultAction;
+        hibernateKeyLongPress = defaultAction;
+        killUserProcesses = true;
         extraConfig = customConfigs.LOGIND_CONFIG;
       };
     xserver = {
-      enable = mkDefault true;
-      xkb.layout = mkDefault "us";
+      enable = true;
+      xkb.layout = "us";
       desktopManager = {
-        gnome.enable = mkDefault true;
-        wallpaper.mode = mkDefault "center";
+        gnome.enable = true;
+        wallpaper.mode = "center";
       };
       displayManager = {
-        gdm.enable = mkDefault true;
+        gdm.enable = true;
       };
     };
     displayManager = {
-      defaultSession = mkDefault "gnome";
+      defaultSession = "gnome";
     };
     pipewire = {
-      enable = mkDefault true;
-      alsa.enable = mkDefault true;
-      alsa.support32Bit = mkDefault true;
-      pulse.enable = mkDefault true;
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
     };
   };
 
   hardware = {
-    opengl.driSupport32Bit = mkDefault true;
+    opengl.driSupport32Bit = true;
     pulseaudio.enable = mkForce false;
-    bluetooth.powerOnBoot = mkDefault false;
-    wirelessRegulatoryDatabase = mkDefault true;
+    bluetooth.powerOnBoot = false;
+    wirelessRegulatoryDatabase = true;
   };
 
   security = {
-    rtkit.enable = mkDefault true;
+    rtkit.enable = true;
     pam = {
       services = {
-        login.fprintAuth = mkDefault false;
-        gdm-fingerprint.fprintAuth = mkDefault true;
-        gdm.enableGnomeKeyring = mkDefault true;
+        login.fprintAuth = false;
+        gdm-fingerprint.fprintAuth = true;
+        gdm.enableGnomeKeyring = true;
       };
     };
     wrappers.ubridge = {
-      source = mkDefault "${pkgs.ubridge}/bin/ubridge";
-      capabilities = mkDefault "cap_net_admin,cap_net_raw=ep";
-      owner = mkDefault "root";
-      group = mkDefault "ubridge";
-      permissions = mkDefault "u+rx,g+x";
+      source = "${pkgs.ubridge}/bin/ubridge";
+      capabilities = "cap_net_admin,cap_net_raw=ep";
+      owner = "root";
+      group = "ubridge";
+      permissions = "u+rx,g+x";
     };
   };
 
   virtualisation = {
     libvirtd = {
-      enable = mkDefault true;
+      enable = true;
     };
   };
 
   programs = {
-    mtr.enable = mkDefault true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraPackages = [ pkgs.mangohud ];
+    };
+    mtr.enable = true;
     wireshark = {
-      enable = mkDefault true;
-      package = mkDefault pkgs.wireshark;
+      enable = true;
+      package = pkgs.wireshark;
     };
     firefox = {
-      enable = mkDefault true;
+      enable = true;
     };
     winbox = {
-      enable = mkDefault true;
-      openFirewall = mkDefault true;
-      package = mkDefault pkgs.pkgs-unstable.winbox;
+      enable = true;
+      openFirewall = true;
+      package = pkgs.pkgs-unstable.winbox;
     };
   };
 
@@ -178,13 +183,13 @@ with lib;
       nerdfonts
       (nerdfonts.override { fonts = [ "Noto" ]; })
     ];
-    enableDefaultPackages = mkDefault true;
+    enableDefaultPackages = true;
     fontconfig.defaultFonts = {
-      serif = mkDefault [
+      serif = [
         "Vazirmatn"
         "DejaVu Serif"
       ];
-      sansSerif = mkDefault [
+      sansSerif = [
         "Vazirmatn"
         "DejaVu Sans"
       ];
