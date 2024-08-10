@@ -36,5 +36,3 @@ in
     "d ${sharePath} 0700 ${shareUser} users"
   ];
 }
-
-# vim:expandtab ts=2 sw=2

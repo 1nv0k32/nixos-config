@@ -214,5 +214,3 @@ with lib.hm.gvariant;
     };
   };
 }
-
-# vim:expandtab ts=2 sw=2
