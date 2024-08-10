@@ -7,5 +7,6 @@
       ./sysconf.nix
       ./nvim.nix
       ./tmux.nix
+      ./syncthing.nix
     ];
 }

@@ -6,8 +6,8 @@
 }:
 let
   dataDir = "/var/lib/syncthing";
-  shareUser = config.environment.sysConf.mainUser;
   sharePath = "/home/shared";
+  shareUser = config.environment.sysConf.mainUser;
   shareName = config.networking.hostName;
 in
 {
@@ -23,7 +23,7 @@ in
       settings = {
         options.urAccepted = -1;
         folders = {
-          "${shareName}" = {
+          "${shareName}-share" = {
             path = sharePath;
           };
         };
