@@ -19,7 +19,6 @@
     { self, ... }@inputs:
     {
       stateVersion = "24.05";
-      system = "x86_64-linux";
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
@@ -31,7 +30,7 @@
       systemTypes = {
         z13g2 = {
           specialArgs.hostName = "z13g2";
-          inherit system;
+          system = "x86_64-linux";
           specialArgs = {
             inherit (self) stateVersion inputs;
           };
