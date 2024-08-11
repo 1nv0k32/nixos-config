@@ -128,6 +128,10 @@ with lib;
     pulseaudio.enable = mkForce false;
     bluetooth.powerOnBoot = false;
     wirelessRegulatoryDatabase = true;
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
   };
 
   security = {
