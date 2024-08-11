@@ -156,11 +156,6 @@ with lib;
   };
 
   programs = {
-    steam = {
-      enable = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
-      extraPackages = [ pkgs.mangohud ];
-    };
     mtr.enable = true;
     wireshark = {
       enable = true;
