@@ -27,19 +27,6 @@
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
-      localModules = dir: [
-        (
-          { lib, ... }:
-          {
-            imports =
-              [ ]
-              ++ lib.optional (builtins.pathExists "${dir}/hardware-configuration.nix") (
-                import "${dir}/hardware-configuration.nix"
-              )
-              ++ lib.optional (builtins.pathExists "${dir}/local.nix") (import "${dir}/local.nix");
-          }
-        )
-      ];
       systemTypes = {
         z13g2 = {
           system = "x86_64-linux";
