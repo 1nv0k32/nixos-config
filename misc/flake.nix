@@ -20,7 +20,9 @@
         )
       ];
       nyxCfg = cfg.systemTypes.z13g2 // {
-        specialArgs.hostName = "nyx";
+        specialArgs = cfg.systemTypes.z13g2.specialArgs // {
+          hostName = "nyx";
+        };
         modules = cfg.systemTypes.z13g2.modules ++ localModules;
       };
     in
