@@ -27,5 +27,17 @@
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
+      systemTypes = {
+        z13g2 = {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit stateVersion inputs;
+          };
+          modules = baseModules ++ [
+            user-config.inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+            (import "${self}/system/z13.nix")
+          ];
+        };
+      };
     };
 }

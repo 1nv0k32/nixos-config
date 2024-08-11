@@ -8,7 +8,7 @@
   outputs =
     { user-config, ... }@inputs:
     let
-      baseModules = user-config.baseModules ++ [
+      baseModules = [
         (
           { lib, ... }:
           {
@@ -22,16 +22,9 @@
     in
     {
       nixosConfigurations = {
-        "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem {
+        "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem user-config.systemTypes.z13g2 // {
           specialArgs.hostName = "nyx";
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit (user-config) stateVersion inputs;
-          };
-          modules = baseModules ++ [
-            user-config.inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-            (import "${user-config}/system/z13.nix")
-          ];
+          modules = baseModules;
         };
       };
     };
