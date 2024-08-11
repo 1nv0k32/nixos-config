@@ -9,7 +9,7 @@
     { cfg, ... }@inputs:
     let
       lib = cfg.inputs.nixpkgs.lib;
-      localModules = cfg.localModules { dir = "."; };
+      localModules = cfg.localModules ".";
       nyxCfg = cfg.systemTypes.z13g2 // {
         specialArgs = cfg.systemTypes.z13g2.specialArgs // {
           hostName = "nyx";
