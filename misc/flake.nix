@@ -20,13 +20,15 @@
           }
         )
       ];
-      nyxCfg = lib.mkMerge [
-        cfg.systemTypes.z13g2
-        {
-          specialArgs.hostName = "nyx";
-          modules = localModules;
-        }
-      ];
+      nyxCfg = (
+        lib.mkMerge [
+          cfg.systemTypes.z13g2
+          {
+            specialArgs.hostName = "nyx";
+            modules = localModules;
+          }
+        ]
+      );
     in
     {
       nixosConfigurations = {
