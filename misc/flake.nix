@@ -19,15 +19,14 @@
           }
         )
       ];
+      nyxCfg = cfg.systemTypes.z13g2 // {
+        specialArgs.hostName = "nyx";
+        modules = localModules;
+      };
     in
     {
       nixosConfigurations = {
-        "nyx" = cfg.inputs.nixpkgs.lib.nixosSystem cfg.systemTypes.z13g2 // {
-          specialArgs = cfg.systemTypes.z13g2.specialArgs // {
-            hostName = "nyx";
-          };
-          modules = localModules;
-        };
+        "nyx" = cfg.inputs.nixpkgs.lib.nixosSystem nyxCfg;
       };
     };
 }
