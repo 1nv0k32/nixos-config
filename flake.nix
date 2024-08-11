@@ -34,7 +34,7 @@
             inherit (self) stateVersion inputs;
           };
           modules = self.baseModules ++ [
-            user-config.inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
             (import "${self}/system/z13.nix")
           ];
         };
