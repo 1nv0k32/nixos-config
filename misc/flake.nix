@@ -1,12 +1,12 @@
 {
   inputs = {
-    user-config = {
+    cfg = {
       url = "github:1nv0k32/nixos-config/main";
     };
   };
 
   outputs =
-    { user-config, ... }@inputs:
+    { cfg, ... }@inputs:
     let
       localModules = [
         (
@@ -22,8 +22,10 @@
     in
     {
       nixosConfigurations = {
-        "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem user-config.systemTypes.z13g2 // {
-          specialArgs.hostName = "nyx";
+        "nyx" = cfg.inputs.nixpkgs.lib.nixosSystem cfg.systemTypes.z13g2 // {
+          specialArgs = cfg.systemTypes.z13g2.specialArgs // {
+            hostName = "nyx";
+          };
           modules = localModules;
         };
       };

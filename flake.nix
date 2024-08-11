@@ -29,7 +29,6 @@
       ];
       systemTypes = {
         z13g2 = {
-          specialArgs.hostName = "z13g2";
           system = "x86_64-linux";
           specialArgs = {
             inherit (self) stateVersion inputs;
