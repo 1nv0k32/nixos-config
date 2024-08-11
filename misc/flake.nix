@@ -29,7 +29,7 @@
             inherit (user-config) stateVersion inputs;
           };
           modules = baseModules ++ [
-            user-config.inputs.nixos-hardware.nixosModules.dell-xps-13-9380
+            user-config.inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
             (import "${user-config}/system/z13.nix")
           ];
         };
