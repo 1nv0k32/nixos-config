@@ -24,7 +24,7 @@
       nixosConfigurations = {
         "nyx" = user-config.inputs.nixpkgs.lib.nixosSystem user-config.systemTypes.z13g2 // {
           specialArgs.hostName = "nyx";
-          modules = localModules ++ user-config.systemTypes.z13g2.modules;
+          modules = localModules;
         };
       };
     };
