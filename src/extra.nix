@@ -5,7 +5,7 @@
   ...
 }:
 let
-  customConfigs = (import ./configs.nix { inherit pkgs lib; });
+  customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
 in
 with lib;
 {
