@@ -27,14 +27,14 @@
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
-      localModules = [
+      localModules = dir: [
         (
           { lib, ... }:
           {
             imports =
               [ ]
-              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) (import ./hardware-configuration.nix)
-              ++ lib.optional (builtins.pathExists ./local.nix) (import ./local.nix);
+              ++ lib.optional (builtins.pathExists ${dir}/hardware-configuration.nix) (import ${dir}/hardware-configuration.nix)
+              ++ lib.optional (builtins.pathExists ${dir}/local.nix) (import ${dir}/local.nix);
           }
         )
       ];
