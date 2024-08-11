@@ -23,12 +23,13 @@
     in
     {
       nixosConfigurations = {
-        "nyx" = lib.nixosSystem lib.mkMerge (
-          cfg.systemTypes.z13g2 {
+        "nyx" = lib.nixosSystem lib.mkMerge [
+          cfg.systemTypes.z13g2
+          {
             specialArgs.hostName = "nyx";
             modules = localModules;
           }
-        );
+        ];
       };
     };
 }
