@@ -9,22 +9,14 @@
     { cfg, ... }@inputs:
     let
       lib = cfg.inputs.nixpkgs.lib;
-      localModules = [
-        (
-          { lib, ... }:
-          {
-            imports =
-              [ ]
-              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) (import ./hardware-configuration.nix)
-              ++ lib.optional (builtins.pathExists ./local.nix) (import ./local.nix);
-          }
-        )
-      ];
       nyxCfg = cfg.systemTypes.z13g2 // {
         specialArgs = cfg.systemTypes.z13g2.specialArgs // {
           hostName = "nyx";
         };
-        modules = cfg.systemTypes.z13g2.modules ++ localModules;
+        modules =
+          cfg.systemTypes.z13g2.modules
+          ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) (import ./hardware-configuration.nix)
+          ++ lib.optional (builtins.pathExists ./local.nix) (import ./local.nix);
       };
     in
     {
