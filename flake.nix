@@ -34,6 +34,7 @@
           specialArgs = {
             inherit (self) stateVersion inputs;
           };
+          modules = [ ];
           # modules = self.baseModules ++ [
           #   inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
           #   (import "${self}/system/z13.nix")
