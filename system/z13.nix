@@ -34,7 +34,10 @@ with lib;
   };
 
   hardware = {
-    amdgpu.initrd.enable = true;
+    amdgpu = {
+      initrd.enable = true;
+      amdvlk.enable = true;
+    };
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
@@ -49,7 +52,7 @@ with lib;
   };
 
   services = {
-    xserver.videoDrivers = [ "modesetting" ];
+    xserver.videoDrivers = [ "amdgpu" ];
     power-profiles-daemon.enable = mkForce false;
     tlp = {
       enable = true;
