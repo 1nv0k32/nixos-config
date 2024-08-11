@@ -1,9 +1,4 @@
-{
-  modulesPath,
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 with lib;
 {
   RESOLVED_CONFIG = mkDefault ''

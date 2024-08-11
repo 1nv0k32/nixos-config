@@ -1,5 +1,4 @@
 {
-  inputs,
   stateVersion,
   config,
   pkgs,

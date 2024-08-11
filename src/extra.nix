@@ -1,12 +1,11 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
   ...
 }:
 let
-  customConfigs = (import ./configs.nix { inherit inputs pkgs lib; });
+  customConfigs = (import ./configs.nix { inherit pkgs lib; });
 in
 with lib;
 {
