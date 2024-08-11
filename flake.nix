@@ -31,7 +31,7 @@
         z13g2 = {
           system = "x86_64-linux";
           specialArgs = {
-            inherit (self) stateVersion inputs;
+            inherit (self) stateVersion;
           };
           modules = self.baseModules ++ [
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
