@@ -134,7 +134,7 @@ with lib.hm.gvariant;
       idle-dim = false;
       power-button-action = "nothing";
       sleep-inactive-ac-type = "nothing";
-      sleep-inactive-battery-type = "nothing";
+      sleep-inactive-battery-type = "suspend";
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;

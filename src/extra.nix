@@ -88,7 +88,7 @@ with lib;
         suspendAction = "suspend";
       in
       {
-        lidSwitch = suspendAction;
+        lidSwitch = defaultAction;
         lidSwitchDocked = defaultAction;
         lidSwitchExternalPower = defaultAction;
         suspendKey = defaultAction;

@@ -28,7 +28,10 @@
           specialArgs = {
             inherit (user-config) stateVersion inputs;
           };
-          modules = baseModules ++ [ (import "${inputs.user-config}/system/z13.nix") ];
+          modules = baseModules ++ [
+            user-config.inputs.nixos-hardware.nixosModules.dell-xps-13-9380
+            (import "${user-config}/system/z13.nix")
+          ];
         };
       };
     };
