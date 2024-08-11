@@ -125,7 +125,6 @@ with lib;
   };
 
   hardware = {
-    opengl.driSupport32Bit = true;
     pulseaudio.enable = mkForce false;
     bluetooth.powerOnBoot = false;
     wirelessRegulatoryDatabase = true;
