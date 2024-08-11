@@ -1,5 +1,5 @@
 {
-  inputs,
+  modulesPath,
   pkgs,
   lib,
   ...
@@ -39,7 +39,7 @@ with lib;
   '';
 
   INPUTRC_CONFIG = mkForce (
-    builtins.readFile "${inputs.nixpkgs}/nixos/modules/programs/bash/inputrc"
+    builtins.readFile "${modulesPath}/programs/bash/inputrc"
     + ''
       set completion-ignore-case on
       set colored-completion-prefix on
