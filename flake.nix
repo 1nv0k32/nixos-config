@@ -18,6 +18,8 @@
   outputs =
     { self, ... }@inputs:
     {
+      optionalLocalModules =
+        nix_paths: lib.lists.forEach nix_paths (p: (lib.optionals (builtins.pathExists p) (import p)));
       stateVersion = "24.05";
       system = "x86_64-linux";
       baseModules = [

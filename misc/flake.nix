@@ -9,8 +9,7 @@
     { cfg, ... }@inputs:
     let
       lib = cfg.inputs.nixpkgs.lib;
-      localPaths =
-        nix_paths: lib.lists.forEach nix_paths (p: (lib.optionals (builtins.pathExists p) (import p)));
+
     in
     {
       nixosConfigurations = {
@@ -22,7 +21,7 @@
             };
             modules =
               cfg.systemTypes.z13g2.modules
-              ++ (localPaths [
+              ++ (cfg.optionalLocalModules [
                 ./hardware-configuration.nix
                 ./local.nix
               ]);
