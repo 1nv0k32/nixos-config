@@ -10,8 +10,7 @@
     let
       lib = cfg.inputs.nixpkgs.lib;
       localPaths =
-        nix_paths:
-        lib.lists.forEach nix_paths (p: lib.optional (builtins.pathExists nix_paths) (import nix_paths));
+        nix_paths: lib.lists.forEach nix_paths (p: lib.optional (builtins.pathExists p) (import p));
     in
     {
       nixosConfigurations = {
