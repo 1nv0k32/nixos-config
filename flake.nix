@@ -30,8 +30,8 @@
       ];
       systemTypes = {
         z13g2 = {
-          system = system;
-          specialArgs.stateVersion = stateVersion;
+          system = self.system;
+          specialArgs.stateVersion = self.stateVersion;
           modules = self.baseModules ++ [
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
             (import "${self}/system/z13.nix")
