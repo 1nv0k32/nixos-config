@@ -7,12 +7,9 @@
 
   outputs =
     { cfg, ... }@inputs:
-    let
-      lib = cfg.inputs.nixpkgs.lib;
-    in
     {
       nixosConfigurations = {
-        "nyx" = lib.nixosSystem (
+        "nyx" = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.z13g2
           // {
             specialArgs = cfg.systemTypes.z13g2.specialArgs // {
@@ -20,10 +17,10 @@
             };
             modules =
               cfg.systemTypes.z13g2.modules
-              ++ (cfg.optionalLocalModules [
+              ++ cfg.optionalLocalModules [
                 ./hardware-configuration.nix
                 ./local.nix
-              ]);
+              ];
           }
         );
       };
