@@ -17,6 +17,9 @@
 
   outputs =
     { self, ... }@inputs:
+    let
+      lib = cfg.inputs.nixpkgs.lib;
+    in
     {
       optionalLocalModules =
         nix_paths: lib.lists.forEach nix_paths (p: (lib.optionals (builtins.pathExists p) (import p)));

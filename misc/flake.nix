@@ -9,7 +9,6 @@
     { cfg, ... }@inputs:
     let
       lib = cfg.inputs.nixpkgs.lib;
-
     in
     {
       nixosConfigurations = {
