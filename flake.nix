@@ -18,7 +18,7 @@
   outputs =
     { self, ... }@inputs:
     let
-      lib = cfg.inputs.nixpkgs.lib;
+      lib = inputs.nixpkgs.lib;
     in
     {
       optionalLocalModules =
