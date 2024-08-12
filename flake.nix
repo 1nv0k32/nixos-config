@@ -19,6 +19,7 @@
     { self, ... }@inputs:
     {
       stateVersion = "24.05";
+      system = "x86_64-linux";
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
@@ -29,10 +30,8 @@
       ];
       systemTypes = {
         z13g2 = {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit (self) stateVersion;
-          };
+          system = system;
+          specialArgs.stateVersion = stateVersion;
           modules = self.baseModules ++ [
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
             (import "${self}/system/z13.nix")
