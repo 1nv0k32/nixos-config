@@ -9,6 +9,9 @@
     { cfg, ... }@inputs:
     let
       lib = cfg.inputs.nixpkgs.lib;
+      localPaths =
+        nix_paths:
+        lib.lists.forEach nix_paths (p: lib.optional (builtins.pathExists nix_paths) (import nix_paths));
     in
     {
       nixosConfigurations = {
@@ -20,8 +23,10 @@
             };
             modules =
               cfg.systemTypes.z13g2.modules
-              ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) (import ./hardware-configuration.nix)
-              ++ lib.optional (builtins.pathExists ./local.nix) (import ./local.nix);
+              ++ localPaths [
+                ./hardware-configuration.nix
+                ./local.nix
+              ];
           }
         );
       };
