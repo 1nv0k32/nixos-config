@@ -20,10 +20,12 @@
             specialArgs = cfg.systemTypes.z13g2.specialArgs // {
               hostName = "nyx";
             };
-            modules = cfg.systemTypes.z13g2.modules localPaths [
-              ./hardware-configuration.nix
-              ./local.nix
-            ];
+            modules =
+              cfg.systemTypes.z13g2.modules
+              ++ (localPaths [
+                ./hardware-configuration.nix
+                ./local.nix
+              ]);
           }
         );
       };
