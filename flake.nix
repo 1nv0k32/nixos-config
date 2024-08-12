@@ -17,12 +17,7 @@
 
   outputs =
     { self, ... }@inputs:
-    let
-      lib = inputs.nixpkgs.lib;
-    in
     {
-      optionalLocalModules =
-        nix_paths: lib.lists.forEach nix_paths (p: (lib.optionals (builtins.pathExists p) (import p)));
       stateVersion = "24.05";
       system = "x86_64-linux";
       baseModules = [
@@ -33,6 +28,11 @@
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
+      optionalLocalModules =
+        nix_paths:
+        inputs.nixpkgs.lib.lists.forEach nix_paths (
+          p: (inputs.nixpkgs.lib.optionals (builtins.pathExists p) (import p))
+        );
       systemTypes = {
         z13g2 = prop: {
           system = self.system;
