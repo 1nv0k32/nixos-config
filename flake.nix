@@ -34,13 +34,19 @@
         (import "${self}/pkgs/base.nix")
       ];
       systemTypes = {
-        z13g2 = {
+        z13g2 = prop: {
           system = self.system;
-          specialArgs.stateVersion = self.stateVersion;
-          modules = self.baseModules ++ [
-            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-            (import "${self}/system/z13g2.nix")
-          ];
+          specialArgs = {
+            stateVersion = self.stateVersion;
+            hostName = prop.hostName;
+          };
+          modules =
+            self.baseModules
+            ++ [
+              inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+              (import "${self}/system/z13g2.nix")
+            ]
+            ++ prop.modules;
         };
       };
     };

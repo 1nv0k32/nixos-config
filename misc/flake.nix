@@ -10,17 +10,12 @@
     {
       nixosConfigurations = {
         "nyx" = cfg.inputs.nixpkgs.lib.nixosSystem (
-          cfg.systemTypes.z13g2
-          // {
-            specialArgs = cfg.systemTypes.z13g2.specialArgs // {
-              hostName = "nyx";
-            };
-            modules =
-              cfg.systemTypes.z13g2.modules
-              ++ cfg.optionalLocalModules [
-                ./hardware-configuration.nix
-                ./local.nix
-              ];
+          cfg.systemTypes.z13g2 {
+            hostName = "nyx";
+            modules = cfg.optionalLocalModules [
+              ./hardware-configuration.nix
+              ./local.nix
+            ];
           }
         );
       };
