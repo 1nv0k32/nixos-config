@@ -126,7 +126,10 @@ with lib;
 
   hardware = {
     pulseaudio.enable = mkForce false;
-    bluetooth.powerOnBoot = false;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
     wirelessRegulatoryDatabase = true;
     logitech.wireless = {
       enable = true;
