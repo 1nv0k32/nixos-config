@@ -25,6 +25,7 @@ with lib;
       enable = true;
       extraConfig = customConfigs.SYSTEMD_CONFIG;
     };
+    extraModprobeConfig
   };
 
   networking = {
