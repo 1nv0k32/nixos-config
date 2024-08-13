@@ -23,6 +23,7 @@ with lib;
       ];
     };
     settings = {
+      flake-registry = mkDefault "";
       auto-optimise-store = mkDefault true;
       experimental-features = mkDefault [
         "nix-command"
