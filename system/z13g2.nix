@@ -25,28 +25,16 @@ with lib;
   };
 
   services = {
-    # power-profiles-daemon.enable = mkForce false;
+    power-profiles-daemon.enable = mkForce false;
     tlp = {
       enable = true;
       settings = {
         START_CHARGE_THRESH_BAT0 = 90;
         STOP_CHARGE_THRESH_BAT0 = 100;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_ENERGY_PERF_POLICY_ON_BAT = balance_power;
+        CPU_ENERGY_PERF_POLICY_ON_AC = balance_performance;
       };
     };
-    # auto-cpufreq = {
-    #   enable = true;
-    #   settings = {
-    #     "charger" = {
-    #       governor = "schedutil";
-    #       turbo = "auto";
-    #     };
-    #     "battery" = {
-    #       governor = "ondemand";
-    #       scaling_min_freq = 400000;
-    #       scaling_max_freq = 1600000;
-    #       turbo = "never";
-    #     };
-    #   };
-    # };
   };
 }
