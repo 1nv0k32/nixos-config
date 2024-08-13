@@ -7,16 +7,12 @@ with lib;
     (import ../overrides/initrd-luks.nix)
   ];
 
-  networking = {
-    networkmanager = {
-      fccUnlockScripts = [
-        {
-          id = "2c7c:030a";
-          path = "${pkgs.modemmanager}/share/ModemManager/fcc-unlock.available.d/2c7c:030a";
-        }
-      ];
-    };
-  };
+  networking.networkmanager.fccUnlockScripts = [
+    {
+      id = "2c7c:030a";
+      path = "${pkgs.modemmanager}/share/ModemManager/fcc-unlock.available.d/2c7c:030a";
+    }
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -45,7 +41,6 @@ with lib;
   };
 
   services = {
-    xserver.videoDrivers = [ "amdgpu" ];
     power-profiles-daemon.enable = mkForce false;
     tlp = {
       enable = true;
@@ -66,17 +61,6 @@ with lib;
           scaling_min_freq = 400000;
           scaling_max_freq = 1600000;
           turbo = "never";
-        };
-      };
-    };
-    keyd = {
-      enable = true;
-      keyboards.internal = {
-        ids = [ "0001:0001" ];
-        settings = {
-          main = {
-            "102nd" = "layer(shift)";
-          };
         };
       };
     };
