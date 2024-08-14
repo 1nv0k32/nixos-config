@@ -1,12 +1,6 @@
 { pkgs, lib, ... }:
 with lib;
 {
-  imports = [
-    (import ../src/extra.nix)
-    (import ../pkgs/extra.nix)
-    (import ../overrides/initrd-luks.nix)
-  ];
-
   networking.networkmanager.fccUnlockScripts = [
     {
       id = "2c7c:030a";

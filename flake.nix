@@ -44,6 +44,9 @@
             self.baseModules
             ++ [
               inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+              (import "${self}/src/extra.nix")
+              (import "${self}/pkgs/extra.nix")
+              (import "${self}/overrides/initrd-luks.nix")
               (import "${self}/system/z13g2.nix")
             ]
             ++ prop.modules;
