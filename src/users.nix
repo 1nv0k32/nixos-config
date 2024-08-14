@@ -22,6 +22,7 @@ with lib;
       "wheel"
       "networkmanager"
       "libvirtd"
+      "lxd"
       "docker"
       "ubridge"
       "wireshark"
