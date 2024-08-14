@@ -46,6 +46,7 @@ with lib;
       allowedTCPPortRanges = [ ];
       allowedUDPPorts = [ ];
       allowedUDPPortRanges = [ ];
+      trustedInterfaces = [ "lxdbr0" ];
     };
   };
 
