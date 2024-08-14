@@ -61,7 +61,10 @@ with lib;
       defaultNetwork.settings.dns_enabled = mkDefault true;
     };
     docker.enable = mkDefault true;
-    lxd.enable = true;
+    lxd = {
+      enable = mkDefault true;
+      recommendedSysctlSettings = mkDefault true;
+    };
   };
 
   environment = {
