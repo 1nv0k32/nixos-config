@@ -132,10 +132,6 @@ with lib;
       powerOnBoot = true;
     };
     wirelessRegulatoryDatabase = true;
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
   };
 
   security = {
