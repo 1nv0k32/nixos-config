@@ -39,7 +39,7 @@ with lib;
       };
     };
     firewall = {
-      enable = true;
+      enable = false;
       checkReversePath = false;
       allowPing = false;
       allowedTCPPorts = [ ];
