@@ -56,7 +56,6 @@
     alsa-utils
     pulseaudio
     android-tools
-    rquickshare
 
     nmap
     valgrind
