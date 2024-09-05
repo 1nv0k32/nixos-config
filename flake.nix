@@ -19,7 +19,6 @@
     { self, ... }@inputs:
     {
       stateVersion = "24.05";
-      system = "x86_64-linux";
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
@@ -35,7 +34,7 @@
         );
       systemTypes = {
         z13g2 = prop: {
-          system = self.system;
+          system = "x86_64-linux";
           specialArgs = {
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
@@ -52,7 +51,7 @@
             ++ prop.modules;
         };
         rpi5 = prop: {
-          system = "arm";
+          system = "aarch64-linux";
           specialArgs = {
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
