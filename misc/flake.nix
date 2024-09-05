@@ -7,7 +7,7 @@
 
   outputs =
     { cfg, ... }@inputs:
-    {
+    rec {
       nixosConfigurations = {
         "nyx" = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.z13g2 {
@@ -21,12 +21,13 @@
         "nyxpi" = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.rpi5 {
             hostName = "nyxpi";
-            modules = cfg.optionalLocalModules [
-              ./hardware-configuration.nix
-              ./local.nix
-            ];
+            # modules = cfg.optionalLocalModules [
+            #   ./hardware-configuration.nix
+            #   ./local.nix
+            # ];
           }
         );
       };
+      images.nyxpi = nixosConfigurations.nyxpi.config.system.build.sdImage;
     };
 }
