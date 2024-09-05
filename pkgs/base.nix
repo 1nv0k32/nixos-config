@@ -73,7 +73,7 @@
     ghostscript
     ffmpeg
 
-    uv
+    pkgs-master.uv
     python312
   ];
 }
