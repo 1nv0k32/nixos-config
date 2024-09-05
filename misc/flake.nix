@@ -9,7 +9,7 @@
     { cfg, ... }@inputs:
     rec {
       nixosConfigurations = {
-        "nyx" = cfg.inputs.nixpkgs.lib.nixosSystem (
+        nyx = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.z13g2 {
             hostName = "nyx";
             modules = cfg.optionalLocalModules [
@@ -18,7 +18,7 @@
             ];
           }
         );
-        "nyxpi" = cfg.inputs.nixpkgs.lib.nixosSystem (
+        nyxpi = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.rpi5 {
             hostName = "nyxpi";
             modules = cfg.optionalLocalModules [
