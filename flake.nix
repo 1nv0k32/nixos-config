@@ -25,6 +25,7 @@
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
         (import "${self}/src/base.nix")
+        (import "${self}/pkgs/base.nix")
       ];
       optionalLocalModules =
         nix_paths:
@@ -44,7 +45,6 @@
               inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
               (import "${self}/system/z13g2.nix")
               (import "${self}/overrides/initrd-luks.nix")
-              (import "${self}/pkgs/base.nix")
               (import "${self}/src/extra.nix")
               (import "${self}/pkgs/extra.nix")
             ]
