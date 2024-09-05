@@ -25,6 +25,7 @@ with lib;
     settings = {
       flake-registry = mkDefault "";
       auto-optimise-store = mkDefault true;
+      tarball-ttl = mkDefault 0;
       experimental-features = mkDefault [
         "nix-command"
         "flakes"
