@@ -73,7 +73,7 @@
     ghostscript
     ffmpeg
 
-    poetry
+    uv
     python312
   ];
 }
