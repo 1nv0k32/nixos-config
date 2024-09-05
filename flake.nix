@@ -44,10 +44,24 @@
             self.baseModules
             ++ [
               inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+              (import "${self}/system/z13g2.nix")
+              (import "${self}/overrides/initrd-luks.nix")
               (import "${self}/src/extra.nix")
               (import "${self}/pkgs/extra.nix")
-              (import "${self}/overrides/initrd-luks.nix")
-              (import "${self}/system/z13g2.nix")
+            ]
+            ++ prop.modules;
+        };
+        rpi5 = prop: {
+          system = "arm";
+          specialArgs = {
+            stateVersion = self.stateVersion;
+            hostName = prop.hostName;
+          };
+          modules =
+            self.baseModules
+            ++ [
+              inputs.nixos-hardware.nixosModules.raspberry-pi-5
+              (import "${self}/system/rpi5.nix")
             ]
             ++ prop.modules;
         };
