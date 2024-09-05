@@ -28,6 +28,5 @@
           }
         );
       };
-      images.nyxpi = nixosConfigurations.nyxpi.config.system.build.sdImage;
     };
 }
