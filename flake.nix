@@ -58,7 +58,7 @@
           };
           modules = self.baseModules ++ [
             inputs.nixos-hardware.nixosModules.raspberry-pi-5
-            (import "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image.nix")
+            (import "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix")
             (import "${self}/system/rpi5.nix")
           ];
           # ++ prop.modules;

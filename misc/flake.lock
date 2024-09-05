@@ -11,11 +11,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1725562086,
-        "narHash": "sha256-Cj1wjrIh+w4wC9C4mgG/XH1SvoxPqPvLYgQdDdTjPvY=",
+        "lastModified": 1725562332,
+        "narHash": "sha256-waaQDSBuIrtAA7UsdzxM34LV9OdBsdKnrJvsYAke9CM=",
         "owner": "1nv0k32",
         "repo": "nixos-config",
-        "rev": "078f99563e9940c5e9c49f6415005c2e9abcd057",
+        "rev": "c2d762f7de814c4351cfe7c0fc0cd5aea3ae85f0",
         "type": "github"
       },
       "original": {
