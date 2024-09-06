@@ -5,6 +5,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    rpi-nix.url = "github:nix-community/raspberry-pi-nix";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,7 +58,7 @@
             hostName = prop.hostName;
           };
           modules = self.baseModules ++ [
-            inputs.nixos-hardware.nixosModules.raspberry-pi-5
+            inputs.rpi-nix.raspberry-pi
             (import "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix")
             (import "${self}/system/rpi5.nix")
           ];
