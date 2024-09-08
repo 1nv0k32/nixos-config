@@ -56,7 +56,7 @@
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
-          modules = self.baseModules ++ [ (import "${self}/system/rpi5.nix") ];
+          modules = self.baseModules ++ [ (import "${self}/system/rpi5.nix") ] ++ prop.modules;
         };
       };
     };
