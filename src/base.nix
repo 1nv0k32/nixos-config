@@ -33,15 +33,15 @@ with lib;
     };
   };
 
-  # documentation.nixos.enable = false;
+  documentation.nixos.enable = false;
 
-  # boot = {
-  #   blacklistedKernelModules = [ "snd_pcsp" ];
-  #   loader = {
-  #     efi.canTouchEfiVariables = true;
-  #     timeout = 0;
-  #   };
-  # };
+  boot = {
+    blacklistedKernelModules = [ "snd_pcsp" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
+    };
+  };
 
   # hardware = {
   #   bluetooth = {
