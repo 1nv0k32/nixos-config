@@ -40,6 +40,15 @@ with lib;
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 0;
+      systemd-boot = {
+        enable = true;
+        editor = mkForce false;
+        consoleMode = "max";
+      };
+    };
+    initrd.systemd = {
+      enable = true;
+      extraConfig = customConfigs.SYSTEMD_CONFIG;
     };
   };
 
@@ -57,16 +66,6 @@ with lib;
 
   networking = {
     hostName = hostName;
-    # networkmanager = {
-    #   enable = true;
-    #   dns = "systemd-resolved";
-    #   settings = {
-    #     main = {
-    #       no-auto-default = "*";
-    #       systemd-resolved = true;
-    #     };
-    #   };
-    # };
   };
 
   systemd = {

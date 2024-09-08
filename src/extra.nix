@@ -11,17 +11,6 @@ in
 with lib;
 {
   boot = {
-    loader = {
-      systemd-boot = {
-        enable = true;
-        editor = mkForce false;
-        consoleMode = "max";
-      };
-    };
-    initrd.systemd = {
-      enable = true;
-      extraConfig = customConfigs.SYSTEMD_CONFIG;
-    };
     binfmt.emulatedSystems = [
       "x86_64-windows"
       "aarch64-linux"
@@ -29,6 +18,16 @@ with lib;
   };
 
   networking = {
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      settings = {
+        main = {
+          no-auto-default = "*";
+          systemd-resolved = true;
+        };
+      };
+    };
     firewall = {
       enable = true;
       checkReversePath = false;

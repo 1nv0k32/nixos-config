@@ -1,11 +1,18 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 with lib;
 {
-  raspberry-pi-nix.board = "bcm2712";
-  hardware = {
-    raspberry-pi.config.all.base-dt-params.krnbt = {
+  users.users."${config.environment.sysConf.mainUser}".initialPassword = "rpi5";
+  boot.kernelPackages = pkgs.pkgs-unstable.linuxPackages_rpi4;
+  networking = {
+    hostName = hostName;
+    connman = {
       enable = true;
-      value = "on";
+      extraFlags = [ "--with-dns-backend=systemd-resolved" ];
     };
   };
 }
