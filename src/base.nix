@@ -38,7 +38,6 @@ with lib;
   boot = {
     blacklistedKernelModules = [ "snd_pcsp" ];
     loader = {
-      efi.canTouchEfiVariables = true;
       timeout = 0;
       systemd-boot = {
         enable = true;
