@@ -35,25 +35,70 @@ with lib;
 
   documentation.nixos.enable = false;
 
+  boot = {
+    blacklistedKernelModules = [ "snd_pcsp" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
+      systemd-boot = {
+        enable = true;
+        editor = mkForce false;
+        consoleMode = "max";
+      };
+    };
+    initrd.systemd = {
+      enable = true;
+      extraConfig = customConfigs.SYSTEMD_CONFIG;
+    };
+  };
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    wirelessRegulatoryDatabase = true;
+  };
+
   system = {
     stateVersion = stateVersion;
   };
 
   networking = {
     hostName = hostName;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      settings = {
+        main = {
+          no-auto-default = "*";
+          systemd-resolved = true;
+        };
+      };
+    };
   };
 
   systemd = {
     extraConfig = customConfigs.SYSTEMD_CONFIG;
     user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
+    watchdog = {
+      runtimeTime = "off";
+      rebootTime = "off";
+      kexecTime = "off";
+    };
+  };
+
+  console = {
+    earlySetup = true;
+    packages = [ pkgs.terminus_font ];
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
+    keyMap = "us";
   };
 
   time = {
     timeZone = "CET";
     hardwareClockInLocalTime = false;
   };
-
-  i18n.defaultLocale = "en_GB.UTF-8";
 
   environment = {
     sessionVariables = {
@@ -72,9 +117,39 @@ with lib;
     };
   };
 
+  services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+    };
+    resolved = {
+      enable = true;
+      extraConfig = customConfigs.RESOLVED_CONFIG;
+    };
+    logind =
+      let
+        defaultAction = "lock";
+        suspendAction = "suspend";
+      in
+      {
+        lidSwitch = defaultAction;
+        lidSwitchDocked = defaultAction;
+        lidSwitchExternalPower = defaultAction;
+        suspendKey = defaultAction;
+        suspendKeyLongPress = defaultAction;
+        rebootKey = defaultAction;
+        rebootKeyLongPress = defaultAction;
+        powerKey = defaultAction;
+        powerKeyLongPress = defaultAction;
+        hibernateKey = defaultAction;
+        hibernateKeyLongPress = defaultAction;
+        killUserProcesses = true;
+        extraConfig = customConfigs.LOGIND_CONFIG;
+      };
+  };
+
   programs = {
     ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
-
     gnupg.agent = {
       enable = true;
       pinentryPackage = pkgs.pinentry-curses;

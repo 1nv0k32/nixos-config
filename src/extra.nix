@@ -11,20 +11,6 @@ in
 with lib;
 {
   boot = {
-    blacklistedKernelModules = [ "snd_pcsp" ];
-    loader = {
-      efi.canTouchEfiVariables = true;
-      timeout = 0;
-      systemd-boot = {
-        enable = true;
-        editor = mkForce false;
-        consoleMode = "max";
-      };
-    };
-    initrd.systemd = {
-      enable = true;
-      extraConfig = customConfigs.SYSTEMD_CONFIG;
-    };
     binfmt.emulatedSystems = [
       "x86_64-windows"
       "aarch64-linux"
@@ -32,16 +18,6 @@ with lib;
   };
 
   networking = {
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-      settings = {
-        main = {
-          no-auto-default = "*";
-          systemd-resolved = true;
-        };
-      };
-    };
     firewall = {
       enable = true;
       checkReversePath = false;
@@ -54,59 +30,16 @@ with lib;
     };
   };
 
-  systemd = {
-    watchdog = {
-      runtimeTime = "off";
-      rebootTime = "off";
-      kexecTime = "off";
-    };
-  };
-
-  console = {
-    earlySetup = true;
-    packages = [ pkgs.terminus_font ];
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
-    keyMap = "us";
-  };
-
   sound.enable = true;
   services = {
     fstrim.enable = true;
     fprintd.enable = true;
     fwupd.enable = true;
     pcscd.enable = true;
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-    };
     gnome = {
       core-utilities.enable = true;
       gnome-keyring.enable = true;
     };
-    resolved = {
-      enable = true;
-      extraConfig = customConfigs.RESOLVED_CONFIG;
-    };
-    logind =
-      let
-        defaultAction = "lock";
-        suspendAction = "suspend";
-      in
-      {
-        lidSwitch = defaultAction;
-        lidSwitchDocked = defaultAction;
-        lidSwitchExternalPower = defaultAction;
-        suspendKey = defaultAction;
-        suspendKeyLongPress = defaultAction;
-        rebootKey = defaultAction;
-        rebootKeyLongPress = defaultAction;
-        powerKey = defaultAction;
-        powerKeyLongPress = defaultAction;
-        hibernateKey = defaultAction;
-        hibernateKeyLongPress = defaultAction;
-        killUserProcesses = true;
-        extraConfig = customConfigs.LOGIND_CONFIG;
-      };
     xserver = {
       enable = true;
       xkb.layout = "us";
@@ -131,11 +64,6 @@ with lib;
 
   hardware = {
     pulseaudio.enable = mkForce false;
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-    wirelessRegulatoryDatabase = true;
   };
 
   security = {
@@ -189,6 +117,8 @@ with lib;
       package = pkgs.pkgs-unstable.winbox;
     };
   };
+
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   fonts = {
     packages = with pkgs; [
