@@ -56,13 +56,7 @@
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
-          modules =
-            self.baseModules
-            ++ [
-              (import "${inputs.nixpkgs}/nixos/modules/installer/scan/not-detected.nix")
-              (import "${self}/system/rpi5.nix")
-            ]
-            ++ prop.modules;
+          modules = self.baseModules ++ [ (import "${self}/system/rpi5.nix") ] ++ prop.modules;
         };
       };
     };
