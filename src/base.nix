@@ -40,7 +40,7 @@ with lib;
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 0;
-      systemd-boot = {
+      systemd-boot = mkDefault {
         enable = true;
         editor = mkForce false;
         consoleMode = "max";
