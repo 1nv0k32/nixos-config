@@ -40,11 +40,6 @@ with lib;
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 0;
-      systemd-boot = {
-        enable = mkDefault true;
-        editor = mkForce false;
-        consoleMode = "max";
-      };
     };
     initrd.systemd = {
       enable = true;

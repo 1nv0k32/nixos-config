@@ -11,6 +11,13 @@ in
 with lib;
 {
   boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        editor = mkForce false;
+        consoleMode = "max";
+      };
+    };
     binfmt.emulatedSystems = [
       "x86_64-windows"
       "aarch64-linux"
