@@ -14,7 +14,7 @@
 
   outputs =
     { cfg, ... }@inputs:
-    rec {
+    {
       nixosConfigurations = {
         nyx = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.z13g2 {
