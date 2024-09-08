@@ -46,6 +46,10 @@ with lib;
         consoleMode = "max";
       };
     };
+    initrd.systemd = {
+      enable = true;
+      extraConfig = customConfigs.SYSTEMD_CONFIG;
+    };
   };
 
   hardware = {
