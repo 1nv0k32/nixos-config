@@ -8,7 +8,7 @@ with lib;
 {
   users.users."${config.environment.sysConf.mainUser}".initialPassword = "rpi5";
   boot = {
-    kernelPackages = pkgs.pkgs-unstable.linuxPackages_rpi4;
+    kernelPackages = pkgs.linuxPackages_rpi4;
     initrd.availableKernelModules = [
       "nvme"
       "usbhid"
