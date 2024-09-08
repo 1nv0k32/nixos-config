@@ -12,7 +12,7 @@ let
 in
 with lib;
 {
-  # imports = [ (import ./users.nix) ];
+  imports = [ (import ./users.nix) ];
 
   nix = {
     optimise = {
