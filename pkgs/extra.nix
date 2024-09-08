@@ -30,7 +30,6 @@
     ubridge
     iw
 
-    kubectl
     kubernetes-helm
     k9s
     argocd

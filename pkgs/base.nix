@@ -12,5 +12,6 @@
     wget
     unzip
     fzf
+    kubectl
   ];
 }
