@@ -135,6 +135,7 @@ with lib;
   };
 
   programs = {
+    dconf.enable = true;
     ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
     gnupg.agent = {
       enable = true;

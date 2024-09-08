@@ -115,7 +115,6 @@ with lib;
   };
 
   programs = {
-    dconf.enable = true;
     kubeswitch.enable = true;
     mtr.enable = true;
     wireshark = {
