@@ -55,36 +55,36 @@ with lib;
     stateVersion = stateVersion;
   };
 
-  # networking = {
-  #   hostName = hostName;
-  #   networkmanager = {
-  #     enable = true;
-  #     dns = "systemd-resolved";
-  #     settings = {
-  #       main = {
-  #         no-auto-default = "*";
-  #         systemd-resolved = true;
-  #       };
-  #     };
-  #   };
-  # };
+  networking = {
+    hostName = hostName;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      settings = {
+        main = {
+          no-auto-default = "*";
+          systemd-resolved = true;
+        };
+      };
+    };
+  };
 
-  # systemd = {
-  #   extraConfig = customConfigs.SYSTEMD_CONFIG;
-  #   user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
-  #   watchdog = {
-  #     runtimeTime = "off";
-  #     rebootTime = "off";
-  #     kexecTime = "off";
-  #   };
-  # };
+  systemd = {
+    extraConfig = customConfigs.SYSTEMD_CONFIG;
+    user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
+    watchdog = {
+      runtimeTime = "off";
+      rebootTime = "off";
+      kexecTime = "off";
+    };
+  };
 
-  # console = {
-  #   earlySetup = true;
-  #   packages = [ pkgs.terminus_font ];
-  #   font = "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
-  #   keyMap = "us";
-  # };
+  console = {
+    earlySetup = true;
+    packages = [ pkgs.terminus_font ];
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
+    keyMap = "us";
+  };
 
   # time = {
   #   timeZone = "CET";
