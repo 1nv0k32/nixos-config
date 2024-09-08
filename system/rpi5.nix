@@ -18,7 +18,6 @@ with lib;
   services = {
     connman = {
       enable = true;
-      # extraFlags = [ "--with-dns-backend=systemd-resolved" ];
     };
   };
 }
