@@ -41,10 +41,6 @@ with lib;
       efi.canTouchEfiVariables = true;
       timeout = 0;
     };
-    initrd.systemd = {
-      enable = true;
-      extraConfig = customConfigs.SYSTEMD_CONFIG;
-    };
   };
 
   hardware = {
