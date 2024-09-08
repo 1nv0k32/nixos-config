@@ -26,7 +26,7 @@
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
         # (import "${self}/src/base.nix")
-        # (import "${self}/pkgs/base.nix")
+        (import "${self}/pkgs/base.nix")
       ];
       optionalLocalModules =
         nix_paths:
