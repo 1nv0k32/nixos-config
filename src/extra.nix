@@ -11,9 +11,6 @@ in
 with lib;
 {
   boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-    };
     initrd.systemd = {
       enable = true;
       extraConfig = customConfigs.SYSTEMD_CONFIG;
