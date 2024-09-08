@@ -43,17 +43,17 @@ with lib;
     };
   };
 
-  # hardware = {
-  #   bluetooth = {
-  #     enable = true;
-  #     powerOnBoot = true;
-  #   };
-  #   wirelessRegulatoryDatabase = true;
-  # };
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    wirelessRegulatoryDatabase = true;
+  };
 
-  # system = {
-  #   stateVersion = stateVersion;
-  # };
+  system = {
+    stateVersion = stateVersion;
+  };
 
   # networking = {
   #   hostName = hostName;
