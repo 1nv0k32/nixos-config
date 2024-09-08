@@ -160,9 +160,21 @@ with lib;
     libvirtd = {
       enable = true;
     };
+    podman = {
+      enable = mkDefault true;
+      dockerCompat = mkDefault false;
+      defaultNetwork.settings.dns_enabled = mkDefault true;
+    };
+    docker.enable = mkDefault true;
+    lxd = {
+      enable = mkDefault true;
+      recommendedSysctlSettings = mkDefault true;
+    };
   };
 
   programs = {
+    dconf.enable = true;
+    kubeswitch.enable = true;
     mtr.enable = true;
     wireshark = {
       enable = true;

@@ -16,24 +16,24 @@ with lib;
 
   nix = {
     optimise = {
-      automatic = mkDefault true;
-      dates = mkDefault [
+      automatic = true;
+      dates = [
         "00:00"
         "12:00"
       ];
     };
     settings = {
-      flake-registry = mkDefault "";
-      auto-optimise-store = mkDefault true;
-      tarball-ttl = mkDefault 0;
-      experimental-features = mkDefault [
+      flake-registry = "";
+      auto-optimise-store = true;
+      tarball-ttl = 0;
+      experimental-features = [
         "nix-command"
         "flakes"
       ];
     };
   };
 
-  documentation.nixos.enable = mkDefault false;
+  documentation.nixos.enable = false;
 
   system = {
     stateVersion = stateVersion;
@@ -49,24 +49,11 @@ with lib;
   };
 
   time = {
-    timeZone = mkDefault "CET";
-    hardwareClockInLocalTime = mkDefault false;
+    timeZone = "CET";
+    hardwareClockInLocalTime = false;
   };
 
-  i18n.defaultLocale = mkDefault "en_GB.UTF-8";
-
-  virtualisation = {
-    podman = {
-      enable = mkDefault true;
-      dockerCompat = mkDefault false;
-      defaultNetwork.settings.dns_enabled = mkDefault true;
-    };
-    docker.enable = mkDefault true;
-    lxd = {
-      enable = mkDefault true;
-      recommendedSysctlSettings = mkDefault true;
-    };
-  };
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   environment = {
     sessionVariables = {
@@ -79,7 +66,7 @@ with lib;
     etc = {
       "inputrc".text = customConfigs.INPUTRC_CONFIG;
       "bashrc.local".text = customConfigs.BASHRC_CONFIG;
-      "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = mkDefault ''
+      "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = ''
         bluetooth_policy.policy["media-role.use-headset-profile"] = false
       '';
     };
@@ -87,26 +74,25 @@ with lib;
 
   programs = {
     ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
-    dconf.enable = mkDefault true;
-    kubeswitch.enable = mkDefault true;
+
     gnupg.agent = {
-      enable = mkDefault true;
-      pinentryPackage = mkDefault pkgs.pinentry-curses;
-      enableSSHSupport = mkDefault true;
+      enable = true;
+      pinentryPackage = pkgs.pinentry-curses;
+      enableSSHSupport = true;
     };
     git = {
-      enable = mkDefault true;
+      enable = true;
       config = {
-        init.defaultBranch = mkDefault "main";
-        color.ui = mkDefault "auto";
-        push.autoSetupRemote = mkDefault true;
-        push.default = mkDefault "current";
-        pull.rebase = mkDefault true;
-        fetch.prune = mkDefault true;
-        fetch.pruneTags = mkDefault true;
-        alias.acommit = mkDefault "commit --amend --no-edit --all";
-        alias.fpush = mkDefault "push --force-with-lease";
-        rerere.enabled = mkDefault true;
+        init.defaultBranch = "main";
+        color.ui = "auto";
+        push.autoSetupRemote = true;
+        push.default = "current";
+        pull.rebase = true;
+        fetch.prune = true;
+        fetch.pruneTags = true;
+        alias.acommit = "commit --amend --no-edit --all";
+        alias.fpush = "push --force-with-lease";
+        rerere.enabled = true;
       };
     };
   };

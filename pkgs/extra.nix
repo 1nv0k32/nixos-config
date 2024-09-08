@@ -1,6 +1,59 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    nixfmt-rfc-style
+    cryptsetup
+    btop
+    acpi
+    efibootmgr
+    nload
+    ncdu
+    tpm2-tss
+    jq
+    yq
+    tldr
+    pass
+    parted
+    bridge-utils
+
+    chromium
+    transmission
+    transmission-gtk
+
+    ntfs3g
+    unrar-wrapper
+
+    wireguard-tools
+    conntrack-tools
+    nftables
+    openvpn
+    ubridge
+    iw
+
+    kubectl
+    kubernetes-helm
+    k9s
+    argocd
+    awscli2
+    terraform
+    opentofu
+    ansible
+    podman-compose
+    kind
+    k3d
+    istioctl
+
+    nvme-cli
+    stress
+    pwgen
+    qrencode
+    usbutils
+    pciutils
+    silver-searcher
+    imagemagick
+    ghostscript
+    ffmpeg
+
     flameshot
     spotify
     obs-studio

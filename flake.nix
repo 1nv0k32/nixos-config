@@ -57,7 +57,7 @@
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
-          modules = [
+          modules = self.baseModules ++ [
             inputs.rpi-nix.nixosModules.raspberry-pi
             (import "${self}/system/rpi5.nix")
           ];
