@@ -83,7 +83,7 @@ with lib;
     alias diff='diff --color=auto'
   '';
 
-  SSH_CLIENT_CONFIG = mkDefault ''
+  SSH_CLIENT_CONFIG = ''
     IdentitiesOnly yes
     TCPKeepAlive yes
     ServerAliveInterval 60
