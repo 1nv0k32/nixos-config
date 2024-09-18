@@ -88,6 +88,5 @@ with lib;
       IdentitiesOnly yes
       TCPKeepAlive yes
       ServerAliveInterval 60
-      ClientAliveInterval 60
   '';
 }
