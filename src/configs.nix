@@ -84,9 +84,10 @@ with lib;
   '';
 
   SSH_CLIENT_CONFIG = ''
-    IdentitiesOnly yes
-    TCPKeepAlive yes
-    ServerAliveInterval 60
-    ClientAliveInterval 60
+    Host *
+      IdentitiesOnly yes
+      TCPKeepAlive yes
+      ServerAliveInterval 60
+      ClientAliveInterval 60
   '';
 }
