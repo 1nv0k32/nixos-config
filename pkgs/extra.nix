@@ -70,6 +70,7 @@
     tor-browser-bundle-bin
     wineWowPackages.stable
     winetricks
+    pkgs-unstable.rquickshare
 
     otpclient
     yubikey-manager
