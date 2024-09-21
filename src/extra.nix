@@ -77,6 +77,10 @@ with lib;
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    k3s = {
+      enable = true;
+      clusterInit = true;
+    };
   };
 
   hardware = {
