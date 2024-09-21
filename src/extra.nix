@@ -80,6 +80,7 @@ with lib;
     k3s = {
       enable = true;
       clusterInit = true;
+      package = pkgs.pkgs-unstable.k3s;
     };
   };
 
