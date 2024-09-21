@@ -25,6 +25,8 @@ with lib;
     DefaultTimeoutStartSec=30s
     DefaultTimeoutStopSec=30s
     DefaultDeviceTimeoutSec=30s
+    DefaultMemoryAccounting=yes
+    DefaultTasksAccounting=yes
   '';
 
   SYSTEMD_USER_CONFIG = mkDefault ''
