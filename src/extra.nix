@@ -77,11 +77,6 @@ with lib;
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    k3s = {
-      enable = true;
-      clusterInit = true;
-      package = pkgs.pkgs-unstable.k3s;
-    };
   };
 
   hardware = {
