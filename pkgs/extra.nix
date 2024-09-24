@@ -120,6 +120,9 @@
     burpsuite
     ghidra-bin
     pkgs-unstable.proxmark3
+
+    pkgs-master.uv
+    python312
   ];
 
   services.udev.packages = with pkgs; [
