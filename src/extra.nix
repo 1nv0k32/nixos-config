@@ -105,15 +105,16 @@ with lib;
     libvirtd = {
       enable = true;
     };
+    vmware.host.enable = true;
     podman = {
-      enable = mkDefault true;
-      dockerCompat = mkDefault false;
-      defaultNetwork.settings.dns_enabled = mkDefault true;
+      enable = true;
+      dockerCompat = false;
+      defaultNetwork.settings.dns_enabled = true;
     };
-    docker.enable = mkDefault true;
+    docker.enable = true;
     lxd = {
-      enable = mkDefault true;
-      recommendedSysctlSettings = mkDefault true;
+      enable = true;
+      recommendedSysctlSettings = true;
     };
   };
 
