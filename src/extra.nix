@@ -112,10 +112,6 @@ with lib;
       defaultNetwork.settings.dns_enabled = true;
     };
     docker.enable = true;
-    lxd = {
-      enable = true;
-      recommendedSysctlSettings = true;
-    };
   };
 
   programs = {
