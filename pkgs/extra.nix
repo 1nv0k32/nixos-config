@@ -37,6 +37,7 @@
     terraform
     opentofu
     ansible
+    ansible-lint
     podman-compose
     kind
     k3d
