@@ -42,6 +42,7 @@
     kind
     k3d
     istioctl
+    vmware-workstation
 
     nvme-cli
     stress
