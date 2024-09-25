@@ -9,7 +9,6 @@ with lib;
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
     extraModprobeConfig = ''
       options kvm_amd nested=1
       options hid_apple fnmode=0
