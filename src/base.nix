@@ -65,12 +65,13 @@ with lib;
 
   systemd = {
     extraConfig = customConfigs.SYSTEMD_CONFIG;
-    user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
+    enableUnifiedCgroupHierarchy = true;
     watchdog = {
       runtimeTime = "off";
       rebootTime = "off";
       kexecTime = "off";
     };
+    user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
   };
 
   console = {
