@@ -1,4 +1,4 @@
-{ ... }:
+{ customConfigs, ... }:
 {
   services.logind =
     let
