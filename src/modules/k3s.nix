@@ -4,6 +4,6 @@
     enable = true;
     role = "server";
     clusterInit = true;
-    extraFlags = "--no-deploy traefik";
+    extraFlags = "--disable traefik";
   };
 }
