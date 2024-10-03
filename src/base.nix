@@ -12,7 +12,10 @@ let
 in
 with lib;
 {
-  imports = [ (import ./users.nix) ];
+  imports = [
+    (import ./users.nix)
+    ./modules/logind.nix
+  ];
 
   nix = {
     optimise = {
@@ -112,26 +115,6 @@ with lib;
       enable = true;
       extraConfig = customConfigs.RESOLVED_CONFIG;
     };
-    logind =
-      let
-        defaultAction = "lock";
-        suspendAction = "suspend";
-      in
-      {
-        lidSwitch = defaultAction;
-        lidSwitchDocked = defaultAction;
-        lidSwitchExternalPower = defaultAction;
-        suspendKey = defaultAction;
-        suspendKeyLongPress = defaultAction;
-        rebootKey = defaultAction;
-        rebootKeyLongPress = defaultAction;
-        powerKey = defaultAction;
-        powerKeyLongPress = defaultAction;
-        hibernateKey = defaultAction;
-        hibernateKeyLongPress = defaultAction;
-        killUserProcesses = true;
-        extraConfig = customConfigs.LOGIND_CONFIG;
-      };
   };
 
   programs = {
