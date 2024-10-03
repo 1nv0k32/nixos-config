@@ -10,6 +10,8 @@ let
 in
 with lib;
 {
+  imports = [ ./modules/k3s.nix ];
+
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
