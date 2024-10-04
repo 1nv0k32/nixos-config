@@ -23,5 +23,14 @@ with lib;
     connman = {
       enable = true;
     };
+    openssh = {
+      enable = true;
+      listenAddresses = [
+        {
+          addr = "0.0.0.0";
+          port = 22;
+        }
+      ];
+    };
   };
 }
