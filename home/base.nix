@@ -166,6 +166,9 @@ with lib.hm.gvariant;
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       home = [ "<Super>e" ];
+      volume-up = [ "<Super>F12" ];
+      volume-down = [ "<Super>F11" ];
+      volume-mute = [ "<Super>F10" ];
       next = [ "<Control><Super>Right" ];
       play = [ "<Control><Super>Down" ];
       previous = [ "<Control><Super>Left" ];
