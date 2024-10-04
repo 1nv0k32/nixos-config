@@ -6,6 +6,7 @@
 }:
 with lib;
 {
+  users.users.root.initialPassword = "root";
   raspberry-pi-nix.board = "bcm2712";
   hardware = {
     bluetooth.enable = true;
