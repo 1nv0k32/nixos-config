@@ -20,10 +20,14 @@ with lib;
       };
     };
   };
-  services = {
-    connman = {
-      enable = true;
+  networking = {
+    useDHCP = false;
+    interfaces = {
+      wlan0.useDHCP = true;
+      eth0.useDHCP = true;
     };
+  };
+  services = {
     openssh = {
       enable = true;
       listenAddresses = [
