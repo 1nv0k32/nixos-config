@@ -6,12 +6,18 @@
 }:
 with lib;
 {
-  # boot = {
-  #   kernelParams = [ "dtb=\\bcm2712-rpi-5-b.dtb" ];
-  #   loader = {
-  #     efi.canTouchEfiVariables = false;
-  #   };
-  # };
+  raspberry-pi-nix.board = "bcm2712";
+  hardware = {
+    bluetooth.enable = true;
+    raspberry-pi = {
+      config.all.base-dt-params = {
+        krnbt = {
+          enable = true;
+          value = "on";
+        };
+      };
+    };
+  };
   services = {
     connman = {
       enable = true;
