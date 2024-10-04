@@ -12,7 +12,7 @@ with lib;
     #Domains=
     DNSSEC=no
     #DNSOverTLS=no
-    MulticastDNS=no
+    MulticastDNS=yes
     LLMNR=no
     Cache=no
     CacheFromLocalhost=no

@@ -106,7 +106,7 @@ with lib;
     };
     resolved = {
       enable = true;
-      # extraConfig = customConfigs.RESOLVED_CONFIG;
+      extraConfig = customConfigs.RESOLVED_CONFIG;
     };
   };
 
