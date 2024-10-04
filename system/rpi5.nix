@@ -7,6 +7,7 @@
 with lib;
 {
   users.users.root.initialPassword = "root";
+  sdImage.compressImage = false;
   raspberry-pi-nix.board = "bcm2712";
   hardware = {
     bluetooth.enable = true;
