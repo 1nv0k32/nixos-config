@@ -42,11 +42,6 @@ with lib;
     blacklistedKernelModules = [ "snd_pcsp" ];
     loader = {
       timeout = 0;
-      systemd-boot = {
-        enable = true;
-        editor = mkForce false;
-        consoleMode = "max";
-      };
     };
   };
 

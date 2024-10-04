@@ -15,6 +15,11 @@ with lib;
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        editor = mkForce false;
+        consoleMode = "max";
+      };
     };
     initrd.systemd = {
       enable = true;
