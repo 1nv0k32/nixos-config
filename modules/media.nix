@@ -3,9 +3,9 @@ let
   media_dir = "/data/movies/";
 in
 {
-  users.users.minidlna = {
-    extraGroups = [ "users" ];
-  };
+  # users.users.minidlna = {
+  #   extraGroups = [ "users" ];
+  # };
 
   services = {
     # minidlna = {
