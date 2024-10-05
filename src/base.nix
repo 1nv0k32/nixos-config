@@ -14,7 +14,7 @@ with lib;
 {
   imports = [
     (import ./users.nix)
-    (import ./modules/logind.nix { inherit customConfigs; })
+    (import ./libs/logind.nix { inherit customConfigs; })
   ];
 
   nix = {

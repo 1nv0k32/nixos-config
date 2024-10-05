@@ -6,8 +6,13 @@
 }:
 with lib;
 {
-  imports = [ (import ../modules/media.nix) ];
+  imports = [
+    (import ../modules/media.nix)
+    (import ../modules/k3s.nix)
+  ];
+
   users.users.root.initialPassword = "root";
+
   sdImage.compressImage = false;
   raspberry-pi-nix.board = "bcm2712";
   hardware = {
@@ -21,13 +26,16 @@ with lib;
       };
     };
   };
+
   networking = {
+    firewall.enable = false;
     useDHCP = false;
     interfaces = {
       wlan0.useDHCP = true;
       eth0.useDHCP = true;
     };
   };
+
   services = {
     openssh = {
       enable = true;

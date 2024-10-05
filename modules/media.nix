@@ -7,7 +7,6 @@ in
     extraGroups = [ "users" ];
   };
 
-  networking.firewall.enable = false;
   systemd.tmpfiles.rules = [ "d ${media_dir} 0755 transmission users" ];
 
   services = {
