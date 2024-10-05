@@ -16,7 +16,7 @@ let
   ];
 in
 {
-  imports = [ (import ./libs/dconf.nix { inherit gnomeExtensions; }) ];
+  imports = [ (import ./libs/dconf.nix { inherit gnomeExtensions lib; }) ];
 
   home = {
     homeDirectory = "/home/${config.home.username}";
