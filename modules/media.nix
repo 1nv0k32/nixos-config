@@ -26,7 +26,8 @@ in
       settings = {
         download-dir = media_dir;
         rpc-bind-address = "0.0.0.0";
-        rpc-whitelist-enabled = false;
+        rpc-whitelist-enabled = true;
+        rpc-whitelist = "*.*.*.*";
         upload-limit-enabled = true;
         upload-limit = 0;
       };
