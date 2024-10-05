@@ -1,6 +1,7 @@
 { ... }:
 let
-  media_dir = "/data/media";
+  media_dir = "/home/media";
+  user = "transmission";
   group = "users";
 in
 {
@@ -8,14 +9,14 @@ in
     extraGroups = [ group ];
   };
 
-  systemd.tmpfiles.rules = [ "d ${media_dir} 0755 transmission ${group}" ];
+  systemd.tmpfiles.rules = [ "d ${media_dir} 0775 ${user} ${group}" ];
 
   services = {
     minidlna = {
       enable = true;
       openFirewall = true;
       settings = {
-        friendly_name = "nyxpi DLNA MEDIA";
+        friendly_name = "nyxpi DLNA";
         inotify = "yes";
         media_dir = [ "V,${media_dir}" ];
       };
