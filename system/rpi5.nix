@@ -13,7 +13,11 @@ with lib;
 
   users.users.root.initialPassword = "root";
 
-  boot.kernelParams = [ "cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" ];
+  boot.kernelParams = [
+    "cgroup_enable=memory"
+    "cgroup_enable=cpuset"
+    "cgroup_memory=1"
+  ];
   sdImage.compressImage = false;
   raspberry-pi-nix.board = "bcm2712";
   hardware = {
