@@ -15,7 +15,6 @@ let
     unblank
   ];
 in
-with lib.hm.gvariant;
 {
   imports = [ (import ./libs/dconf.nix { inherit gnomeExtensions; }) ];
 

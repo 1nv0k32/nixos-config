@@ -1,4 +1,5 @@
 { gnomeExtensions, lib, ... }:
+with lib.hm.gvariant;
 {
   dconf.settings = {
     "org/gnome/desktop/sound" = {
