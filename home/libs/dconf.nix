@@ -1,4 +1,4 @@
-{ gnomeExtensions, ... }:
+{ gnomeExtensions, lib, ... }:
 {
   dconf.settings = {
     "org/gnome/desktop/sound" = {
