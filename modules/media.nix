@@ -1,11 +1,13 @@
 { ... }:
 let
-  media_dir = "/data/movies/";
+  media_dir = "/data/media";
 in
 {
   # users.users.minidlna = {
   #   extraGroups = [ "users" ];
   # };
+
+  systemd.tmpfiles.rules = [ "d ${media_dir} 0755 transmission users" ];
 
   services = {
     # minidlna = {
