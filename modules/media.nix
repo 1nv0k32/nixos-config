@@ -10,7 +10,7 @@
       openFirewall = true;
       settings = {
         friendly_name = "nyxpi DLNA MEDIA";
-        inotify = true;
+        inotify = "yes";
         media_dir = [ "V,/data/movies/" ];
       };
     };
