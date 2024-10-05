@@ -13,6 +13,7 @@ with lib;
 
   users.users.root.initialPassword = "root";
 
+  boot.kernelParams = [ "cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" ];
   sdImage.compressImage = false;
   raspberry-pi-nix.board = "bcm2712";
   hardware = {
@@ -37,14 +38,6 @@ with lib;
   };
 
   services = {
-    openssh = {
-      enable = true;
-      listenAddresses = [
-        {
-          addr = "0.0.0.0";
-          port = 22;
-        }
-      ];
-    };
+    openssh.enable = true;
   };
 }
