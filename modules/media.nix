@@ -1,13 +1,14 @@
 { ... }:
 let
   media_dir = "/data/media";
+  group = "users";
 in
 {
   users.users.minidlna = {
-    extraGroups = [ "users" ];
+    extraGroups = [ group ];
   };
 
-  systemd.tmpfiles.rules = [ "d ${media_dir} 0755 transmission users" ];
+  systemd.tmpfiles.rules = [ "d ${media_dir} 0755 transmission ${group}" ];
 
   services = {
     minidlna = {
@@ -22,6 +23,7 @@ in
 
     transmission = {
       enable = true;
+      group = group;
       settings = {
         download-dir = media_dir;
         rpc-bind-address = "0.0.0.0";
