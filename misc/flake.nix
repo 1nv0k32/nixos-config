@@ -26,10 +26,7 @@
         nyxpi = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.rpi5 {
             hostName = "nyxpi";
-            modules = cfg.optionalLocalModules [
-              ./hardware-configuration.nix
-              ./local.nix
-            ];
+            modules = cfg.optionalLocalModules [ ./local.nix ];
           }
         );
       };

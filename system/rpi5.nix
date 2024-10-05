@@ -6,6 +6,7 @@
 }:
 with lib;
 {
+  imports = [ (import ../modules/media.nix) ];
   users.users.root.initialPassword = "root";
   sdImage.compressImage = false;
   raspberry-pi-nix.board = "bcm2712";
