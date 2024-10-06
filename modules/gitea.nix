@@ -1,0 +1,6 @@
+{ ... }:
+{
+  services.gitea = {
+    enable = true;
+  };
+}

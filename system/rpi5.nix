@@ -9,6 +9,7 @@ with lib;
   imports = [
     (import ../modules/media.nix)
     (import ../modules/k3s.nix)
+    (import ../modules/gitea.nix)
   ];
 
   users.users.root.initialPassword = "root";
