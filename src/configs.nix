@@ -75,7 +75,7 @@ with lib;
       DoC=$GR
     fi
     PS_SH="$DoC$ $WH"
-    PS1="$DoC[$WH\u@\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n$DoC[$WH\t$DoC] $PS_SH"
+    PS1="$DoC[$WH\u@\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n$PS_SH"
 
     alias rm='rm -I'
     alias ls='ls --color=auto'
