@@ -32,6 +32,8 @@ in
         rpc-host-whitelist-enabled = false;
         upload-limit-enabled = true;
         upload-limit = 0;
+        speed-limit-up-enabled = true;
+        speed-limit-up = 0;
       };
     };
   };
