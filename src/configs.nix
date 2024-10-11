@@ -74,9 +74,9 @@ with lib;
     else
       DoC=$GR
     fi
-    test $SSH_TTY && HOST_COLOR=$PR || HOST_COLOR=$WH
+    test $SSH_TTY && SSH="SSH: "
     PS_SH="$DoC$ $WH"
-    PS1="$DoC[$WH\u@$HOST_COLOR\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n$PS_SH"
+    PS1="$DoC[$WH$SSH\u@\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n$PS_SH"
 
     alias rm='rm -I'
     alias ls='ls --color=auto'
