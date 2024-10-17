@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 let
   gnomeExtensions = with pkgs.gnomeExtensions; [
     appindicator
