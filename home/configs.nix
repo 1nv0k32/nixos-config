@@ -25,11 +25,6 @@ with lib;
       done
     )
 
-    if command -v fzf-share >/dev/null; then
-      source "$(fzf-share)/key-bindings.bash"
-      source "$(fzf-share)/completion.bash"
-    fi
-
     source <(kubectl completion bash)
     complete -o default -o nospace -F __start_kubectl k
 

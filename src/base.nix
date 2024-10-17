@@ -113,6 +113,10 @@ with lib;
   programs = {
     dconf.enable = true;
     ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
+    fzf = {
+      keybindings = true;
+      fuzzyCompletion = true;
+    };
     gnupg.agent = {
       enable = true;
       pinentryPackage = pkgs.pinentry-curses;
