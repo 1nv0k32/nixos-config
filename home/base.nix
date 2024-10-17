@@ -7,16 +7,9 @@
 }:
 let
   customConfigs = (import ./configs.nix { inherit lib; });
-  gnomeExtensions = with pkgs.gnomeExtensions; [
-    appindicator
-    just-perfection
-    tiling-assistant
-    caffeine
-    unblank
-  ];
 in
 {
-  imports = [ (import ./libs/dconf.nix { inherit gnomeExtensions lib; }) ];
+  imports = [ (import ./libs/dconf.nix { inherit lib; }) ];
 
   home = {
     homeDirectory = "/home/${config.home.username}";
@@ -26,7 +19,6 @@ in
     file."${config.home.homeDirectory}/.face" = {
       source = ./bin/backgroud-image.jpg;
     };
-    packages = gnomeExtensions;
   };
 
   programs.home-manager.enable = true;
@@ -38,18 +30,6 @@ in
       nixup = "sudo bash -c 'nix flake update /etc/nixos && nixos-rebuild switch'";
     };
     bashrcExtra = customConfigs.DOT_BASHRC;
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-    config = {
-      global = {
-        warn_timeout = 0;
-      };
-      whitelist.prefix = [ "~/" ];
-    };
   };
 
   programs.ssh = {

@@ -1,6 +1,16 @@
-{ gnomeExtensions, lib, ... }:
+{ lib, ... }:
+let
+  gnomeExtensions = with pkgs.gnomeExtensions; [
+    appindicator
+    just-perfection
+    tiling-assistant
+    caffeine
+    unblank
+  ];
+in
 with lib.hm.gvariant;
 {
+  home.packages = gnomeExtensions;
   dconf.settings = {
     "org/gnome/desktop/sound" = {
       event-sounds = false;
