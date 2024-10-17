@@ -4,14 +4,12 @@
     openssl
     git
     git-crypt
-    bat
     tree
     file
     htop
     aria
     wget
     unzip
-    fzf
     kubectl
   ];
 }

@@ -25,6 +25,7 @@ with lib;
       done
     )
 
+    alias k='kubectl'
     source <(kubectl completion bash)
     complete -o default -o nospace -F __start_kubectl k
 

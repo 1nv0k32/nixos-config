@@ -21,10 +21,10 @@ in
   home = {
     homeDirectory = "/home/${config.home.username}";
     file."${config.home.homeDirectory}/.background-image" = {
-      source = ./bin/backgroud-image;
+      source = ./bin/backgroud-image.jpg;
     };
     file."${config.home.homeDirectory}/.face" = {
-      source = ./bin/backgroud-image;
+      source = ./bin/backgroud-image.jpg;
     };
     packages = gnomeExtensions;
   };
@@ -34,8 +34,7 @@ in
   programs.bash = {
     enable = true;
     shellAliases = {
-      cat = "bat -p";
-      k = "kubectl";
+      cat = "${pkgs.bat}/bin/bat -p";
       nixup = "sudo bash -c 'nix flake update /etc/nixos && nixos-rebuild switch'";
     };
     bashrcExtra = customConfigs.DOT_BASHRC;
