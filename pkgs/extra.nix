@@ -58,7 +58,6 @@
     spotify
     obs-studio
     gimp
-    vlc
     discord
     vscode
     pkgs-unstable.jetbrains.pycharm-community-bin
@@ -77,15 +76,12 @@
     yubikey-manager
     yubikey-manager-qt
 
-    evince
     gnome-network-displays
     gnome.gnome-terminal
     gnome.dconf-editor
     gnome.gnome-tweaks
-    gnome.nautilus
     gnome.file-roller
     gnome.gnome-calculator
-    gnome.eog
     gnome.geary
     gnome.gnome-calendar
 
