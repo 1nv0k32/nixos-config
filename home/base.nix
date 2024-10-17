@@ -1,15 +1,15 @@
 {
   config,
   osConfig,
-  pkgs,
   lib,
+  pkgs,
   ...
 }:
 let
   customConfigs = (import ./configs.nix { inherit lib; });
 in
 {
-  imports = [ (import ./libs/dconf.nix { inherit lib; }) ];
+  imports = [ (import ./libs/dconf.nix { inherit lib pkgs; }) ];
 
   home = {
     homeDirectory = "/home/${config.home.username}";
