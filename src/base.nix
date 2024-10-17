@@ -15,28 +15,9 @@ with lib;
   imports = [
     (import ./users.nix)
     (import ./libs/logind.nix { inherit customConfigs; })
+    (import ./libs/nix.nix)
+    (import ./libs/git.nix)
   ];
-
-  nix = {
-    optimise = {
-      automatic = true;
-      dates = [
-        "00:00"
-        "12:00"
-      ];
-    };
-    settings = {
-      flake-registry = "";
-      auto-optimise-store = true;
-      tarball-ttl = 0;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-  };
-
-  documentation.nixos.enable = false;
 
   boot = {
     blacklistedKernelModules = [ "snd_pcsp" ];
@@ -121,21 +102,6 @@ with lib;
       enable = true;
       pinentryPackage = pkgs.pinentry-curses;
       enableSSHSupport = true;
-    };
-    git = {
-      enable = true;
-      config = {
-        init.defaultBranch = "main";
-        color.ui = "auto";
-        push.autoSetupRemote = true;
-        push.default = "current";
-        pull.rebase = true;
-        fetch.prune = true;
-        fetch.pruneTags = true;
-        alias.acommit = "commit --amend --no-edit --all";
-        alias.fpush = "push --force-with-lease";
-        rerere.enabled = true;
-      };
     };
   };
 }
