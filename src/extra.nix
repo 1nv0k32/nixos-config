@@ -10,6 +10,8 @@ let
 in
 with lib;
 {
+  imports = [ (import ./libs/xdg.nix) ];
+
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
