@@ -9,6 +9,7 @@
     htop
     aria
     wget
+    dig
     unzip
     kubectl
   ];
