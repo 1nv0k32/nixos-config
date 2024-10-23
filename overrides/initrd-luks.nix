@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 with lib;
 {
   options.boot.initrd.luks.devices = mkOption {

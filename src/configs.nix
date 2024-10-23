@@ -4,9 +4,8 @@
   lib,
   ...
 }:
-with lib;
 {
-  RESOLVED_CONFIG = mkDefault ''
+  RESOLVED_CONFIG = lib.mkDefault ''
     [Resolve]
     #DNS=
     #Domains=
@@ -19,7 +18,7 @@ with lib;
     DNSStubListener=no
   '';
 
-  SYSTEMD_CONFIG = mkDefault ''
+  SYSTEMD_CONFIG = lib.mkDefault ''
     [Manager]
     LogLevel=err
     DefaultTimeoutStartSec=30s
@@ -29,18 +28,18 @@ with lib;
     DefaultTasksAccounting=yes
   '';
 
-  SYSTEMD_USER_CONFIG = mkDefault ''
+  SYSTEMD_USER_CONFIG = lib.mkDefault ''
     [Manager]
     DefaultTimeoutStartSec=30s
     DefaultTimeoutStopSec=30s
   '';
 
-  LOGIND_CONFIG = mkDefault ''
+  LOGIND_CONFIG = lib.mkDefault ''
     IdleAction=ignore
     IdleActionSec=3600
   '';
 
-  INPUTRC_CONFIG = mkForce (
+  INPUTRC_CONFIG = lib.mkForce (
     builtins.readFile "${modulesPath}/programs/bash/inputrc"
     + ''
       set completion-ignore-case on
@@ -52,7 +51,7 @@ with lib;
     ''
   );
 
-  BASHRC_CONFIG = mkDefault ''
+  BASHRC_CONFIG = lib.mkDefault ''
     shopt -s histappend
     shopt -s globstar
     export HISTCONTROL=ignoreboth
@@ -85,7 +84,7 @@ with lib;
     alias diff='diff --color=auto'
   '';
 
-  SSH_CLIENT_CONFIG = ''
+  SSH_CLIENT_CONFIG = lib.mkDefault ''
     Host *
       IdentitiesOnly yes
       TCPKeepAlive yes

@@ -8,7 +8,7 @@ let
     unblank
   ];
 in
-with lib.hm.gvariant;
+
 {
   home.packages = gnomeExtensions;
   dconf.settings = {
@@ -23,7 +23,7 @@ with lib.hm.gvariant;
       enable-hot-corners = false;
     };
     "org/gnome/desktop/session" = {
-      idle-delay = mkUint32 300;
+      idle-delay = lib.hm.gvariant.mkUint32 300;
     };
     "org/gnome/desktop/background" = {
       picture-options = "none";
@@ -54,11 +54,11 @@ with lib.hm.gvariant;
     "org/gnome/desktop/input-sources" = {
       per-window = true;
       sources = [
-        (mkTuple [
+        (lib.hm.gvariant.mkTuple [
           "xkb"
           "us"
         ])
-        (mkTuple [
+        (lib.hm.gvariant.mkTuple [
           "xkb"
           "ir"
         ])
@@ -113,18 +113,18 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
-      animation = mkInt32 4;
+      animation = lib.hm.gvariant.mkInt32 4;
       panel = true;
       panel-in-overview = true;
       double-super-to-appgrid = false;
       window-demands-attention-focus = true;
-      startup-status = mkInt32 0;
-      osd-position = mkInt32 2;
+      startup-status = lib.hm.gvariant.mkInt32 0;
+      osd-position = lib.hm.gvariant.mkInt32 2;
     };
 
     "org/gnome/shell/extensions/unblank" = {
       power = false;
-      time = mkInt32 0;
+      time = lib.hm.gvariant.mkInt32 0;
     };
   };
 }

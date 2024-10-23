@@ -2,7 +2,6 @@
   modulesPath,
   stateVersion,
   hostName,
-  config,
   pkgs,
   lib,
   ...
@@ -10,7 +9,6 @@
 let
   customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
 in
-with lib;
 {
   imports = [
     (import ./users.nix)
@@ -67,8 +65,8 @@ with lib;
 
   environment = {
     variables = {
-      VAGRANT_DEFAULT_PROVIDER = mkForce "libvirt";
-      LIBVIRT_DEFAULT_URI = mkForce "qemu:///system";
+      VAGRANT_DEFAULT_PROVIDER = lib.mkForce "libvirt";
+      LIBVIRT_DEFAULT_URI = lib.mkForce "qemu:///system";
     };
     etc = {
       "inputrc".text = customConfigs.INPUTRC_CONFIG;

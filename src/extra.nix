@@ -2,13 +2,11 @@
   modulesPath,
   pkgs,
   lib,
-  config,
   ...
 }:
 let
   customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
 in
-with lib;
 {
   imports = [ (import ./libs/xdg.nix) ];
 
@@ -17,7 +15,7 @@ with lib;
       efi.canTouchEfiVariables = true;
       systemd-boot = {
         enable = true;
-        editor = mkForce false;
+        editor = lib.mkForce false;
         consoleMode = "max";
       };
     };
@@ -87,7 +85,7 @@ with lib;
   };
 
   hardware = {
-    pulseaudio.enable = mkForce false;
+    pulseaudio.enable = lib.mkForce false;
   };
 
   security = {

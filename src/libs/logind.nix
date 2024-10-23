@@ -3,7 +3,6 @@
   services.logind =
     let
       defaultAction = "lock";
-      suspendAction = "suspend";
     in
     {
       lidSwitch = defaultAction;

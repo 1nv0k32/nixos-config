@@ -1,30 +1,20 @@
-{
-  lib,
-  pkgs,
-  config,
-  options,
-  ...
-}:
-with lib;
-let
-  cfg = config.environment.sysConf;
-in
+{ lib, ... }:
 {
   options.environment.sysConf = {
-    mainUser = mkOption {
-      type = types.str;
+    mainUser = lib.mkOption {
+      type = lib.types.str;
       default = "rick";
       description = "The main user of the system";
     };
 
-    gitUserName = mkOption {
-      type = types.str;
+    gitUserName = lib.mkOption {
+      type = lib.types.str;
       default = "Rick Sanchez";
       description = "The name to use for git commits";
     };
 
-    gitEmail = mkOption {
-      type = types.str;
+    gitEmail = lib.mkOption {
+      type = lib.types.str;
       default = "Rick.Sanchez@Wabalaba.dubdub";
       description = "The email to use for git commits";
     };

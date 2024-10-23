@@ -1,7 +1,6 @@
 { lib, ... }:
-with lib;
 {
-  DOT_BASHRC = mkDefault ''
+  DOT_BASHRC = lib.mkDefault ''
     nixconf() (
       [ -f flake.nix ] && [ -f flake.lock ] || exit 1
       nixfmt .

@@ -1,14 +1,7 @@
-{
-  stateVersion,
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ stateVersion, config, ... }:
 let
   mainUser = config.environment.sysConf.mainUser;
 in
-with lib;
 {
   users.groups."ubridge" = {
     name = "ubridge";
