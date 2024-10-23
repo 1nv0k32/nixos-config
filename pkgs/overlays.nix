@@ -23,7 +23,7 @@ let
   };
 in
 {
-  nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   nixpkgs = {
     inherit (overlayConfig) config;
     overlays = [
