@@ -30,8 +30,10 @@
       ];
       optionalLocalModules =
         nix_paths:
-        inputs.nixpkgs.lib.lists.forEach nix_paths (
-          path: inputs.nixpkgs.lib.optionals (builtins.pathExists path) (import path)
+        builtins.concatLists (
+          inputs.nixpkgs.lib.lists.forEach nix_paths (
+            path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
+          )
         );
       systemTypes = {
         z13g2 = prop: {
