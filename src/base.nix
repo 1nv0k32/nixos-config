@@ -78,11 +78,11 @@ in
   };
 
   services = {
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
+    # avahi = {
+    #   enable = true;
+    #   nssmdns4 = true;
+    #   openFirewall = true;
+    # };
     resolved = {
       enable = true;
       extraConfig = customConfigs.RESOLVED_CONFIG;

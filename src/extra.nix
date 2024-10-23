@@ -46,7 +46,9 @@ in
       allowPing = false;
       allowedTCPPorts = [ ];
       allowedTCPPortRanges = [ ];
-      allowedUDPPorts = [ ];
+      allowedUDPPorts = [
+        5353 # mDNS
+      ];
       allowedUDPPortRanges = [ ];
       trustedInterfaces = [ ];
     };
