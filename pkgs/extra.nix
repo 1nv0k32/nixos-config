@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     nixfmt-rfc-style
+    nixd
     cryptsetup
     btop
     acpi
