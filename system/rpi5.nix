@@ -1,10 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
-with lib;
+{ ... }:
 {
   imports = [
     (import ../modules/media.nix)

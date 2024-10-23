@@ -1,5 +1,4 @@
 { pkgs, lib, ... }:
-with lib;
 {
   networking.networkmanager.fccUnlockScripts = [
     {
@@ -21,7 +20,7 @@ with lib;
   };
 
   services = {
-    power-profiles-daemon.enable = mkForce false;
+    power-profiles-daemon.enable = lib.mkForce false;
     tlp = {
       enable = true;
       settings = {
