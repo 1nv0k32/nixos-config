@@ -9,13 +9,10 @@
     [Resolve]
     #DNS=
     #Domains=
-    DNSSEC=no
-    #DNSOverTLS=no
     MulticastDNS=yes
-    LLMNR=no
     Cache=no
     CacheFromLocalhost=no
-    DNSStubListener=no
+    DNSStubListener=yes
   '';
 
   SYSTEMD_CONFIG = lib.mkDefault ''
