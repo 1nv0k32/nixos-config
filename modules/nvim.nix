@@ -43,7 +43,9 @@
       cmp.enable = true;
       lsp = {
         enable = true;
-        servers = { };
+        servers = {
+          nixd.enable = true;
+        };
       };
     };
   };
