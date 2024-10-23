@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 let
   media_dir = "/home/media";
   user = "transmission";
@@ -16,7 +16,7 @@ in
       enable = true;
       openFirewall = true;
       settings = {
-        friendly_name = "nyxpi DLNA";
+        friendly_name = "${config.networking.hostName} DLNA";
         inotify = "yes";
         media_dir = [ "V,${media_dir}" ];
       };
