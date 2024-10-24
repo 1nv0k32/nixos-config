@@ -72,7 +72,11 @@ in
         wallpaper.mode = "center";
       };
       displayManager = {
-        gdm.enable = true;
+        gdm = {
+          enable = true;
+          autoSuspend = false;
+          wayland = true;
+        };
       };
     };
     displayManager = {
@@ -80,8 +84,10 @@ in
     };
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
       pulse.enable = true;
     };
   };
