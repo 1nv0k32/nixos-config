@@ -16,6 +16,7 @@
     package = pkgs.nix-ld-rs;
   };
 
+  environment.variables.VAGRANT_WSL_ENABLE_WINDOWS_ACCESS = lib.mkForce "0";
   services.resolved.enable = lib.mkForce false;
   boot = {
     loader.systemd-boot.enable = lib.mkForce false;
