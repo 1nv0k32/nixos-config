@@ -97,7 +97,7 @@
 
     win-virtio
     virt-manager
-    vagrant
+    # vagrant
     krew
     nixos-generators
     distrobox
