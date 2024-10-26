@@ -7,7 +7,9 @@
   };
 
   services.resolved.enable = lib.mkForce false;
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.initrd.systemd.enable = lib.mkForce false;
-  boot.binfmt.emulatedSystems = lib.mkForce [ ];
+  boot = {
+    loader.systemd-boot.enable = lib.mkForce false;
+    initrd.systemd.enable = lib.mkForce false;
+    binfmt.emulatedSystems = lib.mkForce [ ];
+  };
 }
