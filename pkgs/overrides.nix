@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    (vagrant.overrideAttrs (oldAttrs: {
-      installCheckPhase = "";
-    }))
+    vagrant.overrideAttrs
+    (oldAttrs: { installCheckPhase = ""; })
   ];
 }
