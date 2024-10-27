@@ -4,7 +4,7 @@
     (vagrant.overrideAttrs (oldAttrs: {
       installCheckPhase =
         ''
-          export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="0"
+          export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS=
         ''
         + oldAttrs.installCheckPhase;
     }))
