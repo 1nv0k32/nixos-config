@@ -4,7 +4,7 @@
     (vagrant.overrideAttrs (oldAttrs: {
       installCheckPhase =
         ''
-          export VAGRANT_WSL_DISABLE_WINDOWS_ACCESS=
+          export VAGRANT_WSL_ACCESS_WINDOWS_USER="0"
         ''
         + oldAttrs.installCheckPhase;
     }))
