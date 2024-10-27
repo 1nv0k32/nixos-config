@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [ ./overrides.nix ];
-
   environment.systemPackages = with pkgs; [
     nixfmt-rfc-style
     nixd
