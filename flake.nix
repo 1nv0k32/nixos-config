@@ -4,7 +4,7 @@
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixos-hardware.url = "github:1nv0k32/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
