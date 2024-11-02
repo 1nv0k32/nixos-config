@@ -81,6 +81,7 @@ in
           "browser.formfill.enable" = lock-false;
           "browser.search.suggest.enabled" = lock-true;
           "browser.search.suggest.enabled.private" = lock-true;
+          "browser.urlbar.suggest.trending" = lock-false;
           "browser.urlbar.suggest.searches" = lock-true;
           "browser.urlbar.showSearchSuggestionsFirst" = lock-true;
           "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
