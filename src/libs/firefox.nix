@@ -77,8 +77,8 @@ in
           "extensions.screenshots.disabled" = lock-true;
           "browser.topsites.contile.enabled" = lock-false;
           "browser.formfill.enable" = lock-false;
-          "browser.search.suggest.enabled" = lock-false;
-          "browser.search.suggest.enabled.private" = lock-false;
+          "browser.search.suggest.enabled" = lock-true;
+          "browser.search.suggest.enabled.private" = lock-true;
           "browser.urlbar.suggest.searches" = lock-false;
           "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
           "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
