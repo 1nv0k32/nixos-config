@@ -37,7 +37,6 @@ in
         DisplayBookmarksToolbar = "newtab";
         DisplayMenuBar = "default-off";
         SearchBar = "unified";
-
         ExtensionSettings = {
           "*".installation_mode = "blocked";
           # Bitwarden Password Manager:

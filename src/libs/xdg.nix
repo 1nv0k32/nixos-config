@@ -9,6 +9,7 @@
 
   xdg.mime =
     let
+      web = "firefox.desktop";
       inode = "org.gnome.Nautilus.desktop";
       pdf = "org.gnome.Evince.desktop";
       image = "org.gnome.eog.desktop";
@@ -18,6 +19,8 @@
       enable = true;
       addedAssociations = {
         "inode/directory" = [ inode ];
+        "x-scheme-handler/http" = [ web ];
+        "x-scheme-handler/https" = [ web ];
         "application/pdf" = [ pdf ];
         "image/bmp" = [ image ];
         "image/gif" = [ image ];
@@ -92,6 +95,8 @@
       };
       defaultApplications = {
         "inode/directory" = [ inode ];
+        "x-scheme-handler/http" = [ web ];
+        "x-scheme-handler/https" = [ web ];
         "application/pdf" = [ pdf ];
         "image/bmp" = [ image ];
         "image/gif" = [ image ];
