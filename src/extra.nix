@@ -134,9 +134,6 @@ in
       enable = true;
       package = pkgs.wireshark;
     };
-    firefox = {
-      enable = true;
-    };
     winbox = {
       enable = true;
       openFirewall = true;

@@ -15,6 +15,7 @@ in
     (import ./libs/logind.nix { inherit customConfigs; })
     (import ./libs/nix.nix)
     (import ./libs/git.nix)
+    (import ./libs/firefox.nix)
   ];
 
   boot = {
