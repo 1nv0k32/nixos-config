@@ -17,7 +17,6 @@
     parted
     bridge-utils
 
-    chromium
     transmission
     transmission-gtk
 

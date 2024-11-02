@@ -56,14 +56,4 @@ in
       customCommand = "tmux";
     };
   };
-
-  programs.chromium = {
-    enable = true;
-    extensions = [
-      { id = "nngceckbapebfimnlniiiahkandclblb"; } # bitwarden
-      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
-      { id = "ponfpcnoihfmfllpaingbgckeeldkhle"; } # enhancer for youtube
-      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
-    ];
-  };
 }
