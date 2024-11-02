@@ -79,8 +79,8 @@ in
           "browser.formfill.enable" = lock-false;
           "browser.search.suggest.enabled" = lock-true;
           "browser.search.suggest.enabled.private" = lock-true;
-          "browser.urlbar.suggest.searches" = lock-false;
-          "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
+          "browser.urlbar.suggest.searches" = lock-true;
+          "browser.urlbar.showSearchSuggestionsFirst" = lock-true;
           "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
           "browser.newtabpage.activity-stream.feeds.snippets" = lock-false;
           "browser.newtabpage.activity-stream.section.highlights.includePocket" = lock-false;
