@@ -15,9 +15,7 @@ in
     firefox = {
       enable = true;
       languagePacks = [ "en-US" ];
-
-      # ---- POLICIES ----
-      # Check about:policies#documentation for options.
+      # about:policies#documentation
       policies = {
         OfferToSaveLogins = false;
         PasswordManagerEnabled = false;
@@ -41,35 +39,34 @@ in
         SearchBar = "unified";
         ExtensionSettings = {
           "*".installation_mode = "blocked";
-          # Bitwarden Password Manager:
+          # Bitwarden Password Manager
           "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
             installation_mode = "force_installed";
           };
-          # uBlock Origin:
+          # uBlock Origin
           "uBlock0@raymondhill.net" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
           };
-          # Privacy Badger:
+          # Privacy Badger
           "jid1-MnnxcxisBPnSXQ@jetpack" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
             installation_mode = "force_installed";
           };
-          # Dark Reader:
+          # Dark Reader
           "addon@darkreader.org" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
             installation_mode = "force_installed";
           };
-          # Enhancer for YouTube:
+          # Enhancer for YouTube
           "enhancerforyoutube@maximerf.addons.mozilla.org" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi";
             installation_mode = "force_installed";
           };
         };
 
-        # ---- PREFERENCES ----
-        # Check about:config for options.
+        # about:config
         Preferences = {
           "browser.contentblocking.category" = {
             Value = "strict";
