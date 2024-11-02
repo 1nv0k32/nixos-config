@@ -19,6 +19,8 @@ in
       # ---- POLICIES ----
       # Check about:policies#documentation for options.
       policies = {
+        OfferToSaveLogins = false;
+        PasswordManagerEnabled = false;
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
