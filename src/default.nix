@@ -1,7 +1,6 @@
 {
   stateVersion,
   modulesPath,
-  hostName,
   pkgs,
   lib,
   ...

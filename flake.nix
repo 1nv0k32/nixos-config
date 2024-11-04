@@ -101,7 +101,6 @@
             hostName = prop.hostName;
           };
           modules = [
-            (import "${self}/pkgs/overlays.nix" { inherit inputs; })
             (import "${self}/src")
             (import "${self}/system/droid.nix")
           ] ++ prop.modules;
