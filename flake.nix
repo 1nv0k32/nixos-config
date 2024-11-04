@@ -101,9 +101,6 @@
           };
           modules = [
             inputs.home-manager.nixosModules.home-manager
-            inputs.nixvim.nixosModules.nixvim
-            (import "${self}/pkgs/overlays.nix" { inherit inputs; })
-            (import "${self}/modules")
             (import "${self}/system/droid.nix")
           ] ++ prop.modules;
           pkgs = import inputs.nixpkgs {
