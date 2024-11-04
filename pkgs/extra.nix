@@ -73,8 +73,6 @@
     rquickshare
 
     otpclient
-    yubikey-manager
-    yubikey-manager-qt
 
     gnome-network-displays
     gnome-terminal
