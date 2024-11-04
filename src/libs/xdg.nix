@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    gnome.nautilus
+    nautilus
     evince
-    gnome.eog
+    eog
     vlc
   ];
 
