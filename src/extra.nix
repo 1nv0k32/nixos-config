@@ -136,7 +136,7 @@ in
     winbox = {
       enable = true;
       openFirewall = true;
-      package = pkgs.pkgs-unstable.winbox;
+      package = pkgs.winbox;
     };
   };
 
