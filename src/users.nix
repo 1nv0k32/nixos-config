@@ -27,7 +27,10 @@ in
     password = "guest";
   };
 
-  home-manager.sharedModules = [ (import ../home/base.nix { inherit stateVersion; }) ];
+  home-manager.sharedModules = [ (import ../home/base.nix) ];
+  home-manager.extraSpecialArgs = {
+    inherit stateVersion;
+  };
   home-manager.users = {
     "${mainUser}" =
       { ... }:

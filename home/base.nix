@@ -1,7 +1,7 @@
 {
   stateVersion,
-  config,
   lib,
+  config,
   pkgs,
   ...
 }:
