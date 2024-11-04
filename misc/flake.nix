@@ -1,7 +1,7 @@
 {
   inputs = {
     cfg = {
-      url = "github:1nv0k32/nixos-config/main";
+      url = "github:1nv0k32/nixos-config";
     };
   };
 
@@ -11,7 +11,7 @@
   };
 
   outputs =
-    { cfg, ... }@inputs:
+    { cfg, ... }:
     {
       nixosConfigurations = {
         nyx = cfg.inputs.nixpkgs.lib.nixosSystem (
