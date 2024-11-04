@@ -18,6 +18,13 @@
       url = "github:nix-community/NixOS-WSL/2405.5.4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs =
@@ -86,6 +93,14 @@
               (import "${self}/system/rpi5.nix")
             ]
             ++ prop.modules;
+        };
+        droid = prop: {
+          system = "aarch64-linux";
+          specialArgs = {
+            stateVersion = self.stateVersion;
+            hostName = prop.hostName;
+          };
+          modules = self.baseModules ++ [ (import "${self}/system/droid.nix") ] ++ prop.modules;
         };
       };
     };
