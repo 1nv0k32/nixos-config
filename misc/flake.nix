@@ -38,7 +38,7 @@
         );
       };
       nixOnDroidConfigurations = {
-        default = cfg.nix-on-droid.lib.nixOnDroidConfiguration (
+        default = cfg.inputs.nix-on-droid.lib.nixOnDroidConfiguration (
           cfg.systemTypes.droid {
             hostName = "droid";
             modules = cfg.optionalLocalModules [
