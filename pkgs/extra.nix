@@ -17,8 +17,8 @@
     parted
     bridge-utils
 
-    transmission
-    transmission-gtk
+    transmission_3
+    transmission_3-gtk
 
     ntfs3g
     unrar-wrapper
