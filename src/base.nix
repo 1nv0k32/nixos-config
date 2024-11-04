@@ -1,5 +1,6 @@
 {
   modulesPath,
+  hostName,
   pkgs,
   lib,
   ...
@@ -19,6 +20,10 @@ in
     loader = {
       timeout = 0;
     };
+  };
+
+  networking = {
+    hostName = hostName;
   };
 
   hardware = {

@@ -14,10 +14,6 @@ in
     stateVersion = stateVersion;
   };
 
-  networking = {
-    hostName = hostName;
-  };
-
   home-manager.sharedModules = [ (import ../home/base.nix) ];
   home-manager.extraSpecialArgs = {
     inherit stateVersion;
