@@ -27,9 +27,6 @@ in
     etc = {
       "inputrc".text = customConfigs.INPUTRC_CONFIG;
       "bashrc.local".text = customConfigs.BASHRC_CONFIG;
-      "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = ''
-        bluetooth_policy.policy["media-role.use-headset-profile"] = false
-      '';
     };
   };
 }

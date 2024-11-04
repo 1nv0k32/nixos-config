@@ -57,6 +57,11 @@ in
       VAGRANT_DEFAULT_PROVIDER = lib.mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = lib.mkForce "qemu:///system";
     };
+    etc = {
+      "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = ''
+        bluetooth_policy.policy["media-role.use-headset-profile"] = false
+      '';
+    };
   };
 
   services = {
@@ -75,15 +80,5 @@ in
 
   programs = {
     dconf.enable = true;
-    ssh.extraConfig = customConfigs.SSH_CLIENT_CONFIG;
-    fzf = {
-      keybindings = true;
-      fuzzyCompletion = true;
-    };
-    gnupg.agent = {
-      enable = true;
-      pinentryPackage = pkgs.pinentry-curses;
-      enableSSHSupport = true;
-    };
   };
 }

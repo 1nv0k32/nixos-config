@@ -7,7 +7,10 @@
       ./sysconf.nix
       ./nvim.nix
       ./tmux.nix
+      ./gpg.nix
       ./git.nix
+      ./ssh.nix
+      ./fzf.nix
       ./firefox.nix
     ];
 }

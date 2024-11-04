@@ -80,11 +80,4 @@
     alias grep='grep --color=auto'
     alias diff='diff --color=auto'
   '';
-
-  SSH_CLIENT_CONFIG = lib.mkDefault ''
-    Host *
-      IdentitiesOnly yes
-      TCPKeepAlive yes
-      ServerAliveInterval 60
-  '';
 }
