@@ -49,7 +49,7 @@
       systemTypes = {
         z13g2 = prop: {
           system = "x86_64-linux";
-          extraSpecialArgs = {
+          specialArgs = {
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
@@ -66,7 +66,7 @@
         };
         wsl = prop: {
           system = "x86_64-linux";
-          extraSpecialArgs = {
+          specialArgs = {
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
@@ -82,7 +82,7 @@
         };
         rpi5 = prop: {
           system = "aarch64-linux";
-          extraSpecialArgs = {
+          specialArgs = {
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
