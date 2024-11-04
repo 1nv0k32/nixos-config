@@ -36,6 +36,7 @@
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
+        (import "${self}/src")
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
@@ -99,7 +100,12 @@
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
-          modules = [ (import "${self}/system/droid.nix") ] ++ prop.modules;
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            (import "${self}/modules")
+            (import "${self}/src")
+            (import "${self}/system/droid.nix")
+          ] ++ prop.modules;
           pkgs = import inputs.nixpkgs {
             system = "aarch64-linux";
             overlays = [ inputs.nix-on-droid.overlays.default ];

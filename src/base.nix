@@ -1,6 +1,5 @@
 {
   modulesPath,
-  stateVersion,
   hostName,
   pkgs,
   lib,
@@ -31,14 +30,6 @@ in
     wirelessRegulatoryDatabase = true;
   };
 
-  system = {
-    stateVersion = stateVersion;
-  };
-
-  networking = {
-    hostName = hostName;
-  };
-
   systemd = {
     extraConfig = customConfigs.SYSTEMD_CONFIG;
     enableUnifiedCgroupHierarchy = true;
@@ -66,13 +57,6 @@ in
     variables = {
       VAGRANT_DEFAULT_PROVIDER = lib.mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = lib.mkForce "qemu:///system";
-    };
-    etc = {
-      "inputrc".text = customConfigs.INPUTRC_CONFIG;
-      "bashrc.local".text = customConfigs.BASHRC_CONFIG;
-      "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = ''
-        bluetooth_policy.policy["media-role.use-headset-profile"] = false
-      '';
     };
   };
 
