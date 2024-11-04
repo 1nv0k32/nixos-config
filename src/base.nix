@@ -43,7 +43,6 @@ in
 
   systemd = {
     extraConfig = customConfigs.SYSTEMD_CONFIG;
-    enableUnifiedCgroupHierarchy = true;
     watchdog = {
       runtimeTime = "off";
       rebootTime = "off";
