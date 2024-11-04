@@ -1,4 +1,5 @@
 {
+  stateVersion,
   config,
   lib,
   pkgs,
@@ -11,6 +12,7 @@ in
   imports = [ (import ./libs/dconf.nix { inherit lib pkgs; }) ];
 
   home = {
+    stateVersion = stateVersion;
     homeDirectory = "/home/${config.home.username}";
     file."${config.home.homeDirectory}/.background-image" = {
       source = ./bin/backgroud-image.jpg;

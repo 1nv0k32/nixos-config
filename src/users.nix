@@ -34,7 +34,6 @@ in
       {
         home = {
           username = mainUser;
-          stateVersion = stateVersion;
         };
 
         programs.git = {
@@ -48,7 +47,6 @@ in
       {
         home = {
           username = "guest";
-          stateVersion = stateVersion;
         };
       };
   };
