@@ -101,9 +101,7 @@
             hostName = prop.hostName;
           };
           modules = [
-            inputs.nixvim.nixosModules.nixvim
             (import "${self}/pkgs/overlays.nix" { inherit inputs; })
-            (import "${self}/modules")
             (import "${self}/src")
             (import "${self}/system/droid.nix")
           ] ++ prop.modules;
