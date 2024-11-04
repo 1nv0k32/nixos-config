@@ -1,21 +1,19 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.05";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/2405.5.4";
+      url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -23,7 +21,7 @@
   outputs =
     { self, ... }@inputs:
     {
-      stateVersion = "24.05";
+      stateVersion = "24.11";
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim

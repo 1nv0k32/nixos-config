@@ -60,7 +60,7 @@
     gimp
     discord
     vscode
-    pkgs-unstable.jetbrains.pycharm-community-bin
+    jetbrains.pycharm-community-bin
     gparted
     rivalcfg
     cobang
@@ -70,7 +70,7 @@
     tor-browser-bundle-bin
     wineWowPackages.stable
     winetricks
-    pkgs-unstable.rquickshare
+    rquickshare
 
     otpclient
     yubikey-manager
@@ -115,7 +115,7 @@
     binwalk
     burpsuite
     ghidra-bin
-    pkgs-unstable.proxmark3
+    proxmark3
 
     pkgs-master.uv
     python312
@@ -125,6 +125,6 @@
     platformio-core
     openocd
     yubikey-personalization
-    pkgs-unstable.proxmark3
+    proxmark3
   ];
 }
