@@ -96,7 +96,7 @@
         };
         droid = prop: {
           system = "aarch64-linux";
-          specialArgs = {
+          extraSpecialArgs = {
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
