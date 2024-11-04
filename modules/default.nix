@@ -7,5 +7,7 @@
       ./sysconf.nix
       ./nvim.nix
       ./tmux.nix
+      ./git.nix
+      ./firefox.nix
     ];
 }
