@@ -54,7 +54,6 @@ in
     };
   };
 
-  sound.enable = true;
   services = {
     fstrim.enable = true;
     fprintd.enable = true;
