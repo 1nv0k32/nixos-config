@@ -27,14 +27,12 @@ in
     password = "guest";
   };
 
-  home-manager.sharedModules = [ (import ../home/base.nix) ];
+  home-manager.sharedModules = [ (import ../home/base.nix { inherit stateVersion; }) ];
   home-manager.users = {
     "${mainUser}" =
       { ... }:
       {
-        home = {
-          username = mainUser;
-        };
+        home.username = mainUser;
 
         programs.git = {
           userName = config.environment.sysConf.gitUserName;
@@ -45,9 +43,7 @@ in
     "guest" =
       { ... }:
       {
-        home = {
-          username = "guest";
-        };
+        home.username = "guest";
       };
   };
 }
