@@ -77,13 +77,13 @@
     yubikey-manager-qt
 
     gnome-network-displays
-    gnome.gnome-terminal
-    gnome.dconf-editor
-    gnome.gnome-tweaks
-    gnome.file-roller
-    gnome.gnome-calculator
-    gnome.geary
-    gnome.gnome-calendar
+    gnome-terminal
+    dconf-editor
+    gnome-tweaks
+    file-roller
+    gnome-calculator
+    geary
+    gnome-calendar
 
     gns3-gui
     gns3-server
