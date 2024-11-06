@@ -16,19 +16,19 @@
     };
   };
 
-  # environment = {
-  #   etc = {
-  #     "inputrc".text = lib.mkForce (
-  #       builtins.readFile "${inputs.nixpkgs.nixosModules}/programs/bash/inputrc"
-  #       + ''
-  #         set completion-ignore-case on
-  #         set colored-completion-prefix on
-  #         set skip-completed-text on
-  #         set visible-stats on
-  #         set colored-stats on
-  #         set mark-symlinked-directories on
-  #       ''
-  #     );
-  #   };
-  # };
+  environment = {
+    etc = {
+      "inputrc".text = lib.mkForce (
+        builtins.readFile "${inputs.nixpkgs}/nixos/modules/programs/bash/inputrc"
+        + ''
+          set completion-ignore-case on
+          set colored-completion-prefix on
+          set skip-completed-text on
+          set visible-stats on
+          set colored-stats on
+          set mark-symlinked-directories on
+        ''
+      );
+    };
+  };
 }
