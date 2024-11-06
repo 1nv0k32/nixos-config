@@ -59,7 +59,7 @@
     obs-studio
     gimp
     discord
-    pkgs-unstable.vscode
+    pkgs-master.vscode
     pkgs-unstable.jetbrains.pycharm-community-bin
     gparted
     rivalcfg
