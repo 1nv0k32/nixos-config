@@ -51,6 +51,7 @@
         z13g2 = prop: {
           system = "x86_64-linux";
           specialArgs = {
+            inherit inputs;
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
@@ -68,6 +69,7 @@
         wsl = prop: {
           system = "x86_64-linux";
           specialArgs = {
+            inherit inputs;
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
@@ -84,6 +86,7 @@
         rpi5 = prop: {
           system = "aarch64-linux";
           specialArgs = {
+            inherit inputs;
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
@@ -97,6 +100,7 @@
         };
         droid = prop: {
           extraSpecialArgs = {
+            inherit inputs;
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };

@@ -1,12 +1,9 @@
 {
+  inputs,
   stateVersion,
-  modulesPath,
   lib,
   ...
 }:
-let
-  customConfigs = (import ./configs.nix { inherit modulesPath lib; });
-in
 {
   system = {
     stateVersion = stateVersion;
@@ -21,7 +18,17 @@ in
 
   environment = {
     etc = {
-      "inputrc".text = customConfigs.INPUTRC_CONFIG;
+      "inputrc".text = lib.mkForce (
+        builtins.readFile "${inputs.nixpkgs.modules}/programs/bash/inputrc"
+        + ''
+          set completion-ignore-case on
+          set colored-completion-prefix on
+          set skip-completed-text on
+          set visible-stats on
+          set colored-stats on
+          set mark-symlinked-directories on
+        ''
+      );
     };
   };
 }
