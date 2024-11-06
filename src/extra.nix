@@ -11,18 +11,7 @@
         consoleMode = "max";
       };
     };
-    initrd.systemd = {
-      enable = true;
-      extraConfig = ''
-        [Manager]
-        LogLevel=err
-        DefaultTimeoutStartSec=30s
-        DefaultTimeoutStopSec=30s
-        DefaultDeviceTimeoutSec=30s
-        DefaultMemoryAccounting=yes
-        DefaultTasksAccounting=yes
-      '';
-    };
+    initrd.systemd.enable = true;
     binfmt.emulatedSystems = [
       "x86_64-windows"
       "aarch64-linux"
