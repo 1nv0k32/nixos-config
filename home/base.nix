@@ -33,6 +33,18 @@ in
     bashrcExtra = customConfigs.DOT_BASHRC;
   };
 
+  programs.readline = {
+    enable = true;
+    extraConfig = ''
+      set completion-ignore-case on
+      set colored-completion-prefix on
+      set skip-completed-text on
+      set visible-stats on
+      set colored-stats on
+      set mark-symlinked-directories on
+    '';
+  };
+
   programs.ssh = {
     enable = true;
     includes = [ "~/.ssh/config.d/*.config" ];

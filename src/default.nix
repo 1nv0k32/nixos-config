@@ -6,22 +6,24 @@
   ...
 }:
 let
+  customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
 in
-# customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
 {
   system = {
     stateVersion = stateVersion;
   };
 
-  home-manager.sharedModules = [ (import ../home/base.nix) ];
-  home-manager.extraSpecialArgs = {
-    inherit stateVersion;
+  home-manager = {
+    sharedModules = [ (import ../home/base.nix) ];
+    extraSpecialArgs = {
+      inherit stateVersion;
+    };
   };
 
-  # environment = {
-  #   etc = {
-  #     "inputrc".text = customConfigs.INPUTRC_CONFIG;
-  #     "bashrc.local".text = customConfigs.BASHRC_CONFIG;
-  #   };
-  # };
+  environment = {
+    etc = {
+      "inputrc".text = customConfigs.INPUTRC_CONFIG;
+      "bashrc.local".text = customConfigs.BASHRC_CONFIG;
+    };
+  };
 }

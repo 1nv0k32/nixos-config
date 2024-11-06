@@ -12,6 +12,7 @@ in
   imports = [
     (import ./users.nix)
     (import ./libs/logind.nix { inherit customConfigs; })
+    (import ./libs/resolved.nix { inherit customConfigs; })
     (import ./libs/nix.nix)
   ];
 
@@ -66,20 +67,6 @@ in
       "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = ''
         bluetooth_policy.policy["media-role.use-headset-profile"] = false
       '';
-    };
-  };
-
-  services = {
-    resolved = {
-      enable = true;
-      dnsovertls = "opportunistic";
-      dnssec = "false";
-      fallbackDns = [
-        "1.1.1.1"
-        "8.8.8.8"
-      ];
-      llmnr = "true";
-      extraConfig = customConfigs.RESOLVED_CONFIG;
     };
   };
 
