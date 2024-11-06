@@ -1,12 +1,11 @@
 {
   stateVersion,
   modulesPath,
-  pkgs,
   lib,
   ...
 }:
 let
-  customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
+  customConfigs = (import ./configs.nix { inherit modulesPath lib; });
 in
 {
   system = {
@@ -23,7 +22,6 @@ in
   environment = {
     etc = {
       "inputrc".text = customConfigs.INPUTRC_CONFIG;
-      "bashrc.local".text = customConfigs.BASHRC_CONFIG;
     };
   };
 }

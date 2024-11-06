@@ -26,10 +26,6 @@ in
 
   programs.bash = {
     enable = true;
-    shellAliases = {
-      cat = "${pkgs.bat}/bin/bat -p";
-      nixup = "sudo bash -c 'nix flake update /etc/nixos && nixos-rebuild switch'";
-    };
     bashrcExtra = customConfigs.DOT_BASHRC;
   };
 

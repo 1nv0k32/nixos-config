@@ -1,12 +1,4 @@
-{
-  modulesPath,
-  pkgs,
-  lib,
-  ...
-}:
-let
-  customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
-in
+{ pkgs, lib, ... }:
 {
   imports = [ (import ./libs/xdg.nix) ];
 
@@ -21,7 +13,15 @@ in
     };
     initrd.systemd = {
       enable = true;
-      extraConfig = customConfigs.SYSTEMD_CONFIG;
+      extraConfig = ''
+        [Manager]
+        LogLevel=err
+        DefaultTimeoutStartSec=30s
+        DefaultTimeoutStopSec=30s
+        DefaultDeviceTimeoutSec=30s
+        DefaultMemoryAccounting=yes
+        DefaultTasksAccounting=yes
+      '';
     };
     binfmt.emulatedSystems = [
       "x86_64-windows"

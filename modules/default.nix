@@ -1,16 +1,14 @@
 { lib, ... }:
 {
-  imports =
-    [ ]
-    ++ lib.optional (builtins.pathExists ./dev.nix) (import ./dev.nix)
-    ++ [
-      ./sysconf.nix
-      ./nvim.nix
-      ./tmux.nix
-      ./gpg.nix
-      ./git.nix
-      ./ssh.nix
-      ./fzf.nix
-      ./firefox.nix
-    ];
+  imports = [
+    ./sysconf.nix
+    ./bash.nix
+    ./git.nix
+    ./ssh.nix
+    ./gpg.nix
+    ./nvim.nix
+    ./tmux.nix
+    ./fzf.nix
+    ./firefox.nix
+  ] ++ lib.optional (builtins.pathExists ./dev.nix) (import ./dev.nix);
 }

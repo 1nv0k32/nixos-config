@@ -1,18 +1,15 @@
 {
-  modulesPath,
   hostName,
   pkgs,
   lib,
   ...
 }:
-let
-  customConfigs = (import ./configs.nix { inherit modulesPath pkgs lib; });
-in
 {
   imports = [
     (import ./users.nix)
-    (import ./libs/logind.nix { inherit customConfigs; })
-    (import ./libs/resolved.nix { inherit customConfigs; })
+    (import ./libs/systemd.nix)
+    (import ./libs/logind.nix)
+    (import ./libs/resolved.nix)
     (import ./libs/nix.nix)
   ];
 
@@ -33,17 +30,6 @@ in
       powerOnBoot = true;
     };
     wirelessRegulatoryDatabase = true;
-  };
-
-  systemd = {
-    extraConfig = customConfigs.SYSTEMD_CONFIG;
-    enableUnifiedCgroupHierarchy = true;
-    watchdog = {
-      runtimeTime = "off";
-      rebootTime = "off";
-      kexecTime = "off";
-    };
-    user.extraConfig = customConfigs.SYSTEMD_USER_CONFIG;
   };
 
   console = {

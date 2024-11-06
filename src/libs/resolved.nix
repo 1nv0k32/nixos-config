@@ -1,4 +1,4 @@
-{ customConfigs, ... }:
+{ ... }:
 {
   services.resolved = {
     enable = true;
@@ -9,6 +9,14 @@
       "8.8.8.8"
     ];
     llmnr = "true";
-    extraConfig = customConfigs.RESOLVED_CONFIG;
+    extraConfig = ''
+      [Resolve]
+      #DNS=
+      #Domains=
+      MulticastDNS=yes
+      Cache=no
+      CacheFromLocalhost=no
+      DNSStubListener=yes
+    '';
   };
 }

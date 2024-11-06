@@ -1,4 +1,4 @@
-{ customConfigs, ... }:
+{ ... }:
 {
   services.logind =
     let
@@ -17,6 +17,9 @@
       hibernateKey = defaultAction;
       hibernateKeyLongPress = defaultAction;
       killUserProcesses = true;
-      extraConfig = customConfigs.LOGIND_CONFIG;
+      extraConfig = ''
+        IdleAction=ignore
+        IdleActionSec=3600
+      '';
     };
 }
