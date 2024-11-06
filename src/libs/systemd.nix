@@ -11,7 +11,7 @@ let
   '';
 in
 {
-  initrd.systemd.extraConfig = SYSTEMD_CONFIG;
+  boot.initrd.systemd.extraConfig = SYSTEMD_CONFIG;
   systemd = {
     enableUnifiedCgroupHierarchy = true;
     watchdog = {
