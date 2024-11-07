@@ -32,10 +32,10 @@
       rm = "rm -I";
       ls = "ls --color=auto";
       ll = "ls -alhFb --group-directories-first";
-      grep = "grep --color=auto";
-      diff = "diff --color=auto";
+      grep = "${pkgs.gnugrep}/bin/grep --color=auto";
+      diff = "${pkgs.diffutils}/bin/diff --color=auto";
       cat = "${pkgs.bat}/bin/bat -p";
-      nixup = "sudo bash -c 'nix flake update /etc/nixos && nixos-rebuild switch'";
+      nixup = "sudo ${pkgs.bash}/bin/bash -c 'nix flake update /etc/nixos && nixos-rebuild switch'";
     };
   };
 }

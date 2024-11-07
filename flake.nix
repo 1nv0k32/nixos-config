@@ -99,22 +99,6 @@
             ]
             ++ prop.modules;
         };
-        droid = prop: {
-          extraSpecialArgs = {
-            inherit inputs;
-            stateVersion = self.stateVersion;
-            hostName = prop.hostName;
-          };
-          modules = [
-            (import "${self}/src")
-            (import "${self}/modules")
-            (import "${self}/system/droid.nix")
-          ] ++ prop.modules;
-          pkgs = import inputs.nixpkgs {
-            system = "aarch64-linux";
-            overlays = [ inputs.nix-on-droid.overlays.default ];
-          };
-        };
       };
     };
 }

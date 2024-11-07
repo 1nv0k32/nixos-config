@@ -49,7 +49,6 @@
     qrencode
     usbutils
     pciutils
-    silver-searcher
     imagemagick
     ghostscript
     ffmpeg
@@ -64,31 +63,13 @@
     gparted
     rivalcfg
     cobang
-    rpi-imager
-    yt-dlp
-    media-downloader
     tor-browser-bundle-bin
     wineWowPackages.stable
     winetricks
-    pkgs-unstable.rquickshare
 
     otpclient
     yubikey-manager
     yubikey-manager-qt
-
-    gnome-network-displays
-    gnome.gnome-terminal
-    gnome.dconf-editor
-    gnome.gnome-tweaks
-    gnome.file-roller
-    gnome.gnome-calculator
-    gnome.geary
-    gnome.gnome-calendar
-
-    gns3-gui
-    gns3-server
-    dynamips
-    inetutils
 
     stm32cubemx
     stm32loader
@@ -102,8 +83,6 @@
     quickemu
     pavucontrol
     networkmanagerapplet
-    alsa-utils
-    pulseaudio
     android-tools
 
     nmap
