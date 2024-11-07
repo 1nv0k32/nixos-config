@@ -9,7 +9,7 @@
     (import ./users.nix)
     (import ./libs/systemd.nix)
     (import ./libs/logind.nix)
-    (import ./libs/resolved.nix)
+    (import ./libs/networking.nix)
     (import ./libs/nix.nix)
   ];
 
@@ -54,9 +54,5 @@
         bluetooth_policy.policy["media-role.use-headset-profile"] = false
       '';
     };
-  };
-
-  programs = {
-    dconf.enable = true;
   };
 }

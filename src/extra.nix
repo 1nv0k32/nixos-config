@@ -18,30 +18,7 @@
     ];
   };
 
-  networking = {
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-      settings = {
-        main = {
-          no-auto-default = "*";
-          systemd-resolved = true;
-        };
-      };
-    };
-    firewall = {
-      enable = true;
-      checkReversePath = false;
-      allowPing = false;
-      allowedTCPPorts = [ ];
-      allowedTCPPortRanges = [ ];
-      allowedUDPPorts = [
-        5353 # mDNS
-      ];
-      allowedUDPPortRanges = [ ];
-      trustedInterfaces = [ ];
-    };
-  };
+  networking.networkmanager.enable = true;
 
   sound.enable = true;
   services = {
@@ -117,6 +94,7 @@
   };
 
   programs = {
+    dconf.enable = true;
     kubeswitch.enable = true;
     mtr.enable = true;
     wireshark = {
