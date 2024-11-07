@@ -36,6 +36,7 @@
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
+        (import "${self}/modules/gui")
         (import "${self}/src")
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
@@ -106,6 +107,7 @@
           };
           modules = [
             (import "${self}/src")
+            (import "${self}/modules")
             (import "${self}/system/droid.nix")
           ] ++ prop.modules;
           pkgs = import inputs.nixpkgs {
