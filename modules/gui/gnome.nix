@@ -38,10 +38,6 @@
 
   networking.networkmanager.enable = true;
 
-  programs = {
-    dconf.enable = true;
-  };
-
   hardware.pulseaudio.enable = lib.mkForce false;
   sound.enable = true;
   security.rtkit.enable = true;

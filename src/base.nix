@@ -32,6 +32,10 @@
     wirelessRegulatoryDatabase = true;
   };
 
+  programs = {
+    dconf.enable = true;
+  };
+
   console = {
     earlySetup = true;
     packages = [ pkgs.terminus_font ];
