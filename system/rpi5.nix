@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   imports = [
     (import ../modules/media.nix)
@@ -28,7 +28,7 @@
   };
 
   networking = {
-    firewall.enable = false;
+    firewall.enable = lib.mkForce false;
     useDHCP = false;
     interfaces = {
       wlan0.useDHCP = true;

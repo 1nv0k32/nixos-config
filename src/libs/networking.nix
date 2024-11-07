@@ -14,13 +14,9 @@
       enable = true;
       checkReversePath = false;
       allowPing = false;
-      allowedTCPPorts = [ ];
-      allowedTCPPortRanges = [ ];
       allowedUDPPorts = [
         5353 # mDNS
       ];
-      allowedUDPPortRanges = [ ];
-      trustedInterfaces = [ ];
     };
   };
 
