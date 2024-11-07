@@ -16,13 +16,8 @@
     pass
     parted
     bridge-utils
-
-    transmission
-    transmission-gtk
-
     ntfs3g
     unrar-wrapper
-
     wireguard-tools
     conntrack-tools
     nftables
@@ -53,6 +48,8 @@
     ghostscript
     ffmpeg
 
+    transmission
+    transmission-gtk
     flameshot
     spotify
     obs-studio
@@ -71,13 +68,8 @@
     yubikey-manager
     yubikey-manager-qt
 
-    stm32cubemx
-    stm32loader
-    stm32flash
-
     win-virtio
     virt-manager
-    krew
     nixos-generators
     distrobox
     quickemu
@@ -86,7 +78,6 @@
     android-tools
 
     nmap
-    valgrind
     radare2
     pwntools
     pwndbg
