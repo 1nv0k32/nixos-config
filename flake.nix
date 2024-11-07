@@ -29,7 +29,6 @@
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
-        (import "${self}/modules/gui")
         (import "${self}/src")
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
@@ -57,6 +56,7 @@
               (import "${self}/overrides/initrd-luks.nix")
               (import "${self}/src/extra.nix")
               (import "${self}/pkgs/extra.nix")
+              (import "${self}/modules/gui")
             ]
             ++ prop.modules;
         };
