@@ -13,6 +13,7 @@
   };
 
   services = {
+    fprintd.enable = lib.mkForce false;
     power-profiles-daemon.enable = lib.mkForce false;
     tlp = {
       enable = true;

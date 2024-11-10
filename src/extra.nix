@@ -18,19 +18,8 @@
 
   services = {
     fstrim.enable = true;
-    fprintd.enable = true;
     fwupd.enable = true;
     pcscd.enable = true;
-  };
-
-  security = {
-    pam = {
-      services = {
-        login.fprintAuth = false;
-        gdm-fingerprint.fprintAuth = true;
-        gdm.enableGnomeKeyring = true;
-      };
-    };
   };
 
   virtualisation = {
