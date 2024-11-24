@@ -48,8 +48,8 @@
     ghostscript
     ffmpeg
 
-    transmission_3
-    transmission_3-gtk
+    transmission_4
+    transmission_4-gtk
     flameshot
     spotify
     obs-studio
