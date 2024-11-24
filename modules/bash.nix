@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.bash = {
-    enableCompletion = true;
+    completion.enable = true;
     shellInit = ''
       shopt -s histappend
       shopt -s globstar
