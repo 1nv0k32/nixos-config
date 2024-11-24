@@ -13,7 +13,6 @@
     "cgroup_enable=cpuset"
     "cgroup_memory=1"
   ];
-  sdImage.compressImage = false;
   raspberry-pi-nix.board = "bcm2712";
   hardware = {
     bluetooth.enable = true;
