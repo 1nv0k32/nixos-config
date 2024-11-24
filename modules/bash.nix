@@ -35,7 +35,7 @@
       grep = "${pkgs.gnugrep}/bin/grep --color=auto";
       diff = "${pkgs.diffutils}/bin/diff --color=auto";
       cat = "${pkgs.bat}/bin/bat -p";
-      nixup = "sudo ${pkgs.bash}/bin/bash -c 'nix flake update /etc/nixos && nixos-rebuild switch'";
+      nixup = "sudo ${pkgs.bash}/bin/bash -c 'nix flake update --flake path:/etc/nixos && nixos-rebuild switch'";
     };
   };
 }
