@@ -59,7 +59,6 @@
     pkgs-unstable.jetbrains.pycharm-community-bin
     gparted
     rivalcfg
-    cobang
     tor-browser-bundle-bin
     wineWowPackages.stable
     winetricks
