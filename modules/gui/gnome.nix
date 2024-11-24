@@ -39,7 +39,6 @@
   networking.networkmanager.enable = true;
 
   hardware.pulseaudio.enable = lib.mkForce false;
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
