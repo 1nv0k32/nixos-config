@@ -11,11 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.05";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/2405.5.4";
+      url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
