@@ -30,6 +30,7 @@
       providers.wl-copy.enable = true;
     };
     plugins = {
+      web-devicons.enable = true;
       lualine.enable = true;
       barbar.enable = true;
       gitblame.enable = true;
