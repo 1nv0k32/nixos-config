@@ -13,7 +13,6 @@ in
 {
   boot.initrd.systemd.extraConfig = SYSTEMD_CONFIG;
   systemd = {
-    enableUnifiedCgroupHierarchy = true;
     watchdog = {
       runtimeTime = "off";
       rebootTime = "off";
