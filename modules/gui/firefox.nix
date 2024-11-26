@@ -73,6 +73,7 @@ in
         };
         "extensions.pocket.enabled" = lock-false;
         "extensions.screenshots.disabled" = lock-true;
+        "browser.tabs.closeWindowWithLastTab" = lock-false;
         "browser.topsites.contile.enabled" = lock-false;
         "browser.formfill.enable" = lock-false;
         "browser.search.suggest.enabled" = lock-true;
