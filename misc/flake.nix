@@ -18,7 +18,7 @@
             ];
           }
         );
-        arminix = cfg.inputs.nixpkgs.lib.nixosSystem (
+        nyxwsl = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.wsl {
             hostName = "arminix";
             modules = cfg.optionalLocalModules [
