@@ -3,7 +3,7 @@
   DOT_BASHRC = lib.mkDefault ''
     nixconf() (
       [ -f flake.nix ] && [ -f flake.lock ] || exit 1
-      nixfmt .
+      find -regex ".*\.nix" -exec nixfmt {} \;
       while true; do
         git add -A
         git --no-pager diff --cached
