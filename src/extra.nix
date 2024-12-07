@@ -36,7 +36,6 @@
   };
 
   programs = {
-    kubeswitch.enable = true;
     mtr.enable = true;
     wireshark = {
       enable = true;

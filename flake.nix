@@ -75,8 +75,6 @@
             ++ [
               inputs.nixos-wsl.nixosModules.wsl
               (import "${self}/system/wsl.nix")
-              (import "${self}/src/extra.nix")
-              (import "${self}/pkgs/extra.nix")
             ]
             ++ prop.modules;
         };

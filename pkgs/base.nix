@@ -12,5 +12,12 @@
     dig
     unzip
     kubectl
+    jq
+    yq
+
+    nixfmt-rfc-style
+    nixd
+    uv
+    python312
   ];
 }

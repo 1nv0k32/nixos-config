@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nixfmt-rfc-style
-    nixd
     cryptsetup
     btop
     acpi
@@ -10,8 +8,6 @@
     nload
     ncdu
     tpm2-tss
-    jq
-    yq
     tldr
     pass
     parted
@@ -84,10 +80,7 @@
     binwalk
     burpsuite
     ghidra-bin
-    pkgs-unstable.proxmark3
-
-    pkgs-master.uv
-    python312
+    proxmark3
   ];
 
   services.udev.packages = with pkgs; [
