@@ -54,10 +54,5 @@
       VAGRANT_DEFAULT_PROVIDER = lib.mkForce "libvirt";
       LIBVIRT_DEFAULT_URI = lib.mkForce "qemu:///system";
     };
-    etc = {
-      "wireplumber/policy.lua.d/99-bluetooth-policy.lua".text = ''
-        bluetooth_policy.policy["media-role.use-headset-profile"] = false
-      '';
-    };
   };
 }
