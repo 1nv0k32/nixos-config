@@ -71,6 +71,7 @@ in
           Value = "strict";
           Status = "locked";
         };
+        "general.smoothScroll" = lock-false;
         "extensions.pocket.enabled" = lock-false;
         "extensions.screenshots.disabled" = lock-true;
         "browser.tabs.closeWindowWithLastTab" = lock-false;
