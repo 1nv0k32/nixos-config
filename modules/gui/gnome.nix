@@ -18,6 +18,7 @@
     };
     xserver = {
       enable = true;
+      xkbVariant = "altgr-intl";
       xkb.layout = "us";
       desktopManager = {
         gnome.enable = true;
