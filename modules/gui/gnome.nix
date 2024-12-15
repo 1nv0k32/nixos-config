@@ -18,8 +18,10 @@
     };
     xserver = {
       enable = true;
-      xkbVariant = "altgr-intl";
-      xkb.layout = "us";
+      xkb = {
+        layout = "us";
+        variant = "altgr-intl";
+      };
       desktopManager = {
         gnome.enable = true;
         wallpaper.mode = "center";
