@@ -71,7 +71,8 @@ in
           Value = "strict";
           Status = "locked";
         };
-        # "general.smoothScroll" = lock-false;
+        "general.smoothScroll" = lock-false;
+        "apz.gtk.kinetic_scroll.enabled" = lock-false;
         "extensions.pocket.enabled" = lock-false;
         "extensions.screenshots.disabled" = lock-true;
         "browser.tabs.closeWindowWithLastTab" = lock-false;
