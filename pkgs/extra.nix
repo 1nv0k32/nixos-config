@@ -34,6 +34,7 @@
     k3d
     istioctl
     talosctl
+    vagrant
 
     nvme-cli
     stress
