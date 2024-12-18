@@ -33,6 +33,7 @@
     kind
     k3d
     istioctl
+    cilium-cli
     talosctl
     vagrant
 
