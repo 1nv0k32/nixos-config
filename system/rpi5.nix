@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     (import ../modules/media.nix)
@@ -8,22 +8,16 @@
 
   users.users.root.initialPassword = "root";
 
-  boot.kernelParams = [
-    "cgroup_enable=memory"
-    "cgroup_enable=cpuset"
-    "cgroup_memory=1"
-  ];
-  raspberry-pi-nix.board = "bcm2712";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_rpi4;
+    kernelParams = [
+      "cgroup_enable=memory"
+      "cgroup_enable=cpuset"
+      "cgroup_memory=1"
+    ];
+  };
   hardware = {
     bluetooth.enable = true;
-    raspberry-pi = {
-      config.all.base-dt-params = {
-        krnbt = {
-          enable = true;
-          value = "on";
-        };
-      };
-    };
   };
 
   networking = {

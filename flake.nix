@@ -16,7 +16,6 @@
     };
     # hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -88,7 +87,6 @@
           modules =
             self.baseModules
             ++ [
-              inputs.raspberry-pi-nix.nixosModules.raspberry-pi
               (import "${self}/system/rpi5.nix")
             ]
             ++ prop.modules;
