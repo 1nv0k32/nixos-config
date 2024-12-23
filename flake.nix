@@ -14,6 +14,10 @@
       url = "github:nix-community/nixvim/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl = {
@@ -29,6 +33,7 @@
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
+        inputs.nixos-generators.nixosModules.all-formats
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
         (import "${self}/src")
