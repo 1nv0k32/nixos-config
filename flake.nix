@@ -31,6 +31,7 @@
     {
       stateVersion = "24.11";
       mainModules = [
+        inputs.nixos-generators.nixosModules.all-formats
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
@@ -93,7 +94,6 @@
           modules =
             [
               inputs.nixos-hardware.nixosModules.raspberry-pi-5
-              inputs.nixos-generators.nixosModules.all-formats
               (import "${self}/system/rpi5.nix")
             ]
             ++ self.mainModules
