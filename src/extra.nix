@@ -26,7 +26,6 @@
     libvirtd = {
       enable = true;
     };
-    vmware.host.enable = true;
     podman = {
       enable = true;
       dockerCompat = false;
