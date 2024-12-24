@@ -33,7 +33,6 @@
       baseModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
-        inputs.nixos-generators.nixosModules.all-formats
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
         (import "${self}/src")
@@ -90,6 +89,7 @@
             hostName = prop.hostName;
           };
           modules = [
+            inputs.nixos-generators.nixosModules.all-formats
             (import "${self}/system/rpi5.nix")
           ];
           # ++ self.baseModules
