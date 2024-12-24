@@ -56,8 +56,7 @@
             hostName = prop.hostName;
           };
           modules =
-            self.baseModules
-            ++ [
+            [
               inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
               (import "${self}/system/z13g2.nix")
               (import "${self}/overrides/initrd-luks.nix")
@@ -65,6 +64,7 @@
               (import "${self}/pkgs/extra.nix")
               (import "${self}/modules/gui")
             ]
+            ++ self.baseModules
             ++ prop.modules;
         };
         wsl = prop: {
@@ -75,11 +75,11 @@
             hostName = prop.hostName;
           };
           modules =
-            self.baseModules
-            ++ [
+            [
               inputs.nixos-wsl.nixosModules.wsl
               (import "${self}/system/wsl.nix")
             ]
+            ++ self.baseModules
             ++ prop.modules;
         };
         rpi5 = prop: {
@@ -89,12 +89,11 @@
             stateVersion = self.stateVersion;
             hostName = prop.hostName;
           };
-          modules =
-            self.baseModules
-            ++ [
-              (import "${self}/system/rpi5.nix")
-            ]
-            ++ prop.modules;
+          modules = [
+            (import "${self}/system/rpi5.nix")
+          ];
+          # ++ self.baseModules
+          # ++ prop.modules;
         };
       };
     };
