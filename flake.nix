@@ -33,11 +33,11 @@
       mainModules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
-      ];
-      baseModules = self.mainModules ++ [
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
         (import "${self}/modules")
         (import "${self}/src")
+      ];
+      baseModules = self.mainModules ++ [
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
