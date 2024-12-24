@@ -92,6 +92,7 @@
           };
           modules =
             [
+              inputs.nixos-hardware.nixosModules.raspberry-pi-5
               inputs.nixos-generators.nixosModules.all-formats
               (import "${self}/system/rpi5.nix")
             ]

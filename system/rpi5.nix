@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 {
   # imports = [
   #   (import ../modules/media.nix)
@@ -9,7 +9,6 @@
   users.users.root.initialPassword = "root";
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_rpi4;
     kernelParams = [
       "cgroup_enable=memory"
       "cgroup_enable=cpuset"
