@@ -93,7 +93,7 @@
           };
           modules =
             [
-              # inputs.nixos-hardware.nixosModules.raspberry-pi-5
+              inputs.nixos-hardware.nixosModules.raspberry-pi-5
               (import "${self}/system/rpi5.nix")
             ]
             ++ self.mainModules
