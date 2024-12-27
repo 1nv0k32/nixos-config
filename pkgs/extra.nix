@@ -90,6 +90,6 @@
     platformio-core
     openocd
     yubikey-personalization
-    pkgs-unstable.proxmark3
+    proxmark3
   ];
 }
