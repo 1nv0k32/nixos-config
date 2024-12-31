@@ -12,6 +12,7 @@
       flake-registry = "";
       auto-optimise-store = true;
       tarball-ttl = 0;
+      download-buffer-size = 268435456;
       experimental-features = [
         "nix-command"
         "flakes"
