@@ -15,6 +15,9 @@
     jq
     yq
 
+    gcc
+    gnumake
+
     nixfmt-rfc-style
     nixd
     uv
