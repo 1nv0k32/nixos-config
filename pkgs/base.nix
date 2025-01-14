@@ -15,8 +15,7 @@
     jq
     yq
 
-    gcc
-    gnumake
+    linuxPackages_latest.kernel.dev
 
     nixfmt-rfc-style
     nixd
