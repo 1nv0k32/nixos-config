@@ -15,8 +15,6 @@
     jq
     yq
 
-    linuxPackages_latest.kernel.dev
-
     nixfmt-rfc-style
     nixd
     uv
