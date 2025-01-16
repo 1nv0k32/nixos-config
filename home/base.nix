@@ -29,6 +29,12 @@ in
     bashrcExtra = customConfigs.DOT_BASHRC;
   };
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.readline = {
     enable = true;
     extraConfig = ''
