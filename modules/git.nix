@@ -13,6 +13,7 @@
       alias.acommit = "commit --amend --no-edit --all";
       alias.fpush = "push --force-with-lease";
       rerere.enabled = true;
+      format.signoff = true;
     };
   };
 }
