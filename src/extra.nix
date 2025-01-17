@@ -28,10 +28,9 @@
     };
     podman = {
       enable = true;
-      dockerCompat = false;
+      dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    docker.enable = true;
   };
 
   programs = {
