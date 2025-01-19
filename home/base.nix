@@ -66,7 +66,7 @@ in
       allowBold = true;
       audibleBell = false;
       showScrollbar = false;
-      cursorShape = "ibeam";
+      cursorShape = "block";
       cursorBlinkMode = "on";
       font = "NotoMono Nerd Font Mono 15";
       customCommand = "tmux";

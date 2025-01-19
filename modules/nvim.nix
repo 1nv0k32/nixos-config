@@ -8,7 +8,7 @@
     colorschemes.vscode.enable = true;
     opts = {
       number = true;
-      relativenumber = true;
+      relativenumber = false;
       guicursor = "";
       undofile = true;
       encoding = "utf-8";
