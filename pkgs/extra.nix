@@ -61,6 +61,7 @@
     tor-browser-bundle-bin
     wineWowPackages.stable
     winetricks
+    libreoffice
 
     otpclient
     yubikey-manager
