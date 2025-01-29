@@ -67,7 +67,7 @@ in
       audibleBell = false;
       showScrollbar = false;
       cursorShape = "block";
-      cursorBlinkMode = "on";
+      cursorBlinkMode = "off";
       font = "NotoMono Nerd Font Mono 15";
       customCommand = "tmux";
     };
