@@ -27,6 +27,8 @@
           set visible-stats on
           set colored-stats on
           set mark-symlinked-directories on
+          set show-all-if-ambiguous on
+          TAB:menu-complete
         ''
       );
     };
