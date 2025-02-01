@@ -6,7 +6,6 @@ let
     tiling-assistant
     caffeine
     unblank
-    sound-output-device-chooser
   ];
 in
 
