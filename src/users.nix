@@ -18,6 +18,7 @@ in
       "docker"
       "ubridge"
       "wireshark"
+      "input"
     ];
   };
 
