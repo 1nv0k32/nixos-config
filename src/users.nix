@@ -36,9 +36,9 @@ in
         programs.git = {
           userName = config.environment.sysConf.gitUserName;
           userEmail = config.environment.sysConf.gitEmail;
-          signing.key = lib.mkIf (
-            config.environment.sysConf.gitGpgKey != null
-          ) config.environment.sysConf.gitGpgKey;
+          signing = lib.mkIf (config.environment.sysConf.gitGpgKey != null) {
+            key = config.environment.sysConf.gitGpgKey;
+          };
         };
       };
 
