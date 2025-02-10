@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   mainUser = config.environment.sysConf.mainUser;
 in
@@ -36,6 +36,9 @@ in
         programs.git = {
           userName = config.environment.sysConf.gitUserName;
           userEmail = config.environment.sysConf.gitEmail;
+          signing.key = lib.mkIf (
+            config.environment.sysConf.gitGpgKey != null
+          ) config.environment.sysConf.gitGpgKey;
         };
       };
 

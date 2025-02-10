@@ -18,6 +18,10 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl = {
@@ -31,6 +35,7 @@
     {
       stateVersion = "24.11";
       mainModules = [
+        inputs.sops-nix.nixosModules.sops
         inputs.nixos-generators.nixosModules.all-formats
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
