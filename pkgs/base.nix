@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    openssl
     git
+    openssl
+    sops
     git-crypt
     tree
     file
