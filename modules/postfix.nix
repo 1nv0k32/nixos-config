@@ -1,5 +1,6 @@
 { config, ... }:
 {
+  sops.secrets."postfix/sasl_passwd" = { };
   services.postfix = {
     enable = true;
     relayHost = "smtp.gmail.com";
