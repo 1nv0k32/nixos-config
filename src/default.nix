@@ -10,7 +10,7 @@
   };
 
   sops = {
-    defaultSopsFile = ./secrets/passes.yaml;
+    defaultSopsFile = ../secrets/passes.yaml;
   };
 
   home-manager = {
