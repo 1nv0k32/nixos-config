@@ -9,6 +9,10 @@
     stateVersion = stateVersion;
   };
 
+  sops = {
+    defaultSopsFile = "${inputs}/secrets/passes.yaml";
+  };
+
   home-manager = {
     sharedModules = [ (import ../home/base.nix) ];
     extraSpecialArgs = {
