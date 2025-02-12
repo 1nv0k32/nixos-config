@@ -18,6 +18,7 @@
       default = "Rick.Sanchez@Wabalaba.dubdub";
       description = "The email to use for git commits";
     };
+
     gitGpgKey = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
