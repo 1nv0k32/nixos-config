@@ -10,6 +10,7 @@
   };
 
   sops = {
+    gnupg.home = "/root/.gnupg";
     defaultSopsFile = ../secrets/passes.yaml;
   };
 
