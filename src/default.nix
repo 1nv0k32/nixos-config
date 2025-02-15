@@ -9,11 +9,6 @@
     stateVersion = stateVersion;
   };
 
-  sops = {
-    gnupg.home = "/root/.gnupg";
-    defaultSopsFile = ../secrets/passes.yaml;
-  };
-
   home-manager = {
     sharedModules = [ (import ../home/base.nix) ];
     extraSpecialArgs = {
