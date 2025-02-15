@@ -5,6 +5,7 @@
     relayHost = "smtp.gmail.com";
     relayPort = 587;
     config = {
+      smtp_bind_address = "127.0.0.1";
       smtp_sasl_auth_enable = "yes";
       smtp_sasl_security_options = "noanonymous";
       smtp_tls_security_level = "encrypt";
