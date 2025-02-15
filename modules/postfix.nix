@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  services.postfix = lib.mkIf (config.environment.sysConf.postfixSaslPasswordPath) {
+  services.postfix = lib.mkIf (config.environment.sysConf.postfixSaslPasswordPath != null) {
     enable = true;
     relayHost = "smtp.gmail.com";
     relayPort = 587;
