@@ -1,15 +1,13 @@
 {
   inputs = {
-    cfg = {
-      url = "github:1nv0k32/nixos-config";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs =
-    { cfg, ... }:
+    { nixpkgs, ... }:
     let
       system = "x86_64-linux";
-      pkgs = cfg.inputs.nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.${system};
 
       buildJobs = "$([[ $(nproc) -gt 4 ]] && echo $(( $(nproc) - 4 )))";
       defaultDevShell = prop: {
