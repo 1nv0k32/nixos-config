@@ -42,11 +42,8 @@
       auth       required                    pam_env.so
       auth       [success=ok default=1]      ${pkgs.gdm}/lib/security/pam_gdm.so
       auth       optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so
-
       account    include                     login
-
       password   required                    pam_deny.so
-
       session    include                     login
       session    optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so auto_start
     '';
