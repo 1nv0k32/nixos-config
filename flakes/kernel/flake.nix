@@ -24,13 +24,19 @@
           linux
           busybox
         ];
-        shellHook = prop.shellHook;
+        shellHook =
+          ''
+            echo "Base make jobs: ${buildJobs}"
+          ''
+          + prop.shellHook;
       };
     in
     {
       devShells.${system} = {
         default = pkgs.mkShell (defaultDevShell {
-          shellHook = '''';
+          shellHook = ''
+            echo "Default shell"
+          '';
         });
         initramfs = pkgs.mkShell (defaultDevShell {
           shellHook = ''
