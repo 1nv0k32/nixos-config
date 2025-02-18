@@ -9,7 +9,11 @@ let
   customConfigs = (import ./configs.nix { inherit lib; });
 in
 {
-  imports = [ (import ./libs/dconf.nix { inherit lib pkgs; }) ];
+  imports = [
+    pkgs.callPackage
+    ./libs/dconf.nix
+    { }
+  ];
 
   home = {
     stateVersion = stateVersion;
