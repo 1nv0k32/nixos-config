@@ -26,7 +26,7 @@
       fi
       test $SSH_TTY && SSH="SSH: "
       PS_SH="$DoC$ $WH"
-      PS1="$DoC[$WH$SSH\u@\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n$PS_SH"
+      PS1="$DoC[$WH$SSH\u@\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n[$SHLVL]$PS_SH"
     '';
     shellAliases = {
       rm = "rm -I";
