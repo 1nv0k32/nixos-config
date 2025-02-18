@@ -27,6 +27,7 @@
         shellHook =
           ''
             echo "Base make jobs: ${buildJobs}"
+            export MAKEFLAGS="--jobs=${buildJobs}"
           ''
           + prop.shellHook;
       };
@@ -53,9 +54,7 @@
             chmod +x $INITRAMFS_DIR/init
             (
               cd $BUSYBOX_DIR
-              JOBS=${buildJobs}
-              echo "Building with $JOBS jobs"
-              make -j$JOBS
+              make
               make CONFIG_PREFIX=../$INITRAMFS_DIR install
             )
             (
