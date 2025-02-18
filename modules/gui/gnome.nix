@@ -7,7 +7,7 @@
     gnome-tweaks
     file-roller
     gnome-calculator
-    geary
+    evolution
     gnome-calendar
   ];
 
