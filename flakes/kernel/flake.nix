@@ -9,7 +9,6 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
-      buildJobs = "$([[ $(nproc) -gt 4 ]] && echo $(( $(nproc) - 4 )))";
       defaultDevShell = prop: {
         nativeBuildInputs = with pkgs; [
           stdenv.cc.libc
@@ -27,8 +26,9 @@
         ];
         shellHook =
           ''
-            echo "Base make jobs: ${buildJobs}"
-            export MAKEFLAGS="--jobs=${buildJobs}"
+            JOBS=$([[ $(nproc) -gt 4 ]] && echo $(( $(nproc) - 4 )))
+            echo "Base make jobs: $JOBS"
+            export MAKEFLAGS="--jobs=$JOBS"
           ''
           + prop.shellHook;
       };
