@@ -19,6 +19,7 @@
           ncurses
           git
           cpio
+          qemu
         ];
         inputsFrom = with pkgs; [
           linux
@@ -37,6 +38,14 @@
         default = pkgs.mkShell (defaultDevShell {
           shellHook = ''
             echo "Default shell"
+          '';
+        });
+        run = pkgs.mkShell (defaultDevShell {
+          shellHook = ''
+            qemu-system-x86_64 \
+              -kernel linux/arch/x86/boot/bzImage \
+              -initrd initramfs.img \
+              -nographic -serial mon:stdio -append 'console=ttyS0'
           '';
         });
         initramfs = pkgs.mkShell (defaultDevShell {
