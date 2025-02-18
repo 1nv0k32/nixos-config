@@ -37,7 +37,7 @@
             INITRAMFS_DIR=initramfs
             BUSYBOX_DIR=busybox
             mkdir -p $INITRAMFS_DIR/{etc,lib,dev,proc,sys}
-            cat <<- EOF > $INITRAMFS_DIR/init
+            cat <<-EOF > $INITRAMFS_DIR/init
             #!/bin/sh
             mount -t devtmpfs devtmpfs /dev
             mount -t proc none /proc
