@@ -6,14 +6,10 @@
   ...
 }:
 let
-  customConfigs = (import ./configs.nix { inherit lib; });
+  customConfigs = pkgs.callPackage ./configs.nix { };
 in
 {
-  imports = [
-    pkgs.callPackage
-    ./libs/dconf.nix
-    { }
-  ];
+  imports = [ (import ./libs/dconf.nix { inherit lib pkgs; }) ];
 
   home = {
     stateVersion = stateVersion;
