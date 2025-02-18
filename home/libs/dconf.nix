@@ -8,7 +8,6 @@ let
     unblank
   ];
 in
-
 {
   home.packages = gnomeExtensions;
   dconf.settings = {
