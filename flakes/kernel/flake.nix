@@ -46,6 +46,7 @@
               -kernel linux/arch/x86/boot/bzImage \
               -initrd initramfs.img \
               -nographic -serial mon:stdio -append 'console=ttyS0'
+            exit
           '';
         });
         initramfs = pkgs.mkShell (defaultDevShell {
