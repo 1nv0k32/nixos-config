@@ -19,6 +19,7 @@
           git
           cpio
           qemu
+          ctags
         ];
         inputsFrom = with pkgs; [
           linux
@@ -37,7 +38,7 @@
       devShells.${system} = {
         default = pkgs.mkShell (defaultDevShell {
           shellHook = ''
-            echo "Default shell"
+            echo "Default kernel shell"
           '';
         });
         run = pkgs.mkShell (defaultDevShell {
