@@ -44,7 +44,7 @@
         run = pkgs.mkShell (defaultDevShell {
           shellHook = ''
             qemu-system-x86_64 \
-              -kernel linux/arch/x86/boot/bzImage \
+              -kernel linux/vmlinux \
               -initrd initramfs.img \
               -nographic -serial mon:stdio -append 'console=ttyS0'
             exit
@@ -54,6 +54,7 @@
           shellHook = ''
             INITRAMFS_DIR=initramfs
             BUSYBOX_DIR=busybox
+            LINUX_DIR=linux
             mkdir -p $INITRAMFS_DIR/{etc,lib,dev,proc,sys}
             cat <<-EOF > $INITRAMFS_DIR/init
             #!/bin/sh
@@ -67,6 +68,10 @@
               cd $BUSYBOX_DIR
               make
               make CONFIG_PREFIX=../$INITRAMFS_DIR install
+            )
+            (
+              cd $LINUX_DIR
+              make INSTALL_MOD_PATH=../$INITRAMFS_DIR modules_install
             )
             (
               cd $INITRAMFS_DIR
