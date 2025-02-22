@@ -46,6 +46,7 @@
             qemu-system-x86_64 \
               -kernel linux/vmlinux \
               -initrd initramfs.img \
+              -machine type=pc-i440fx-3.1 \
               -nographic -serial mon:stdio -append 'console=ttyS0'
             exit
           '';
