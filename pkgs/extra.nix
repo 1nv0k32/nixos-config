@@ -66,7 +66,7 @@
 
     otpclient
     yubikey-manager
-    yubikey-manager-qt
+    yubioath-flutter
 
     win-virtio
     virt-manager
