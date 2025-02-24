@@ -65,8 +65,8 @@
     libreoffice
 
     otpclient
-    yubikey-manager
-    yubikey-manager-qt
+    pkgs-master.yubikey-manager
+    pkgs-master.yubikey-manager-qt
 
     win-virtio
     virt-manager
@@ -89,9 +89,9 @@
   ];
 
   services.udev.packages = with pkgs; [
+    pkgs-master.yubikey-personalization
     platformio-core
     openocd
-    yubikey-personalization
     proxmark3
   ];
 }
