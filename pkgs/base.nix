@@ -16,7 +16,6 @@
     jq
     yq
 
-    nixfmt-rfc-style
     nixd
     uv
     python312

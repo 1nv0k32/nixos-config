@@ -6,7 +6,7 @@
   ...
 }:
 let
-  customConfigs = pkgs.callPackage ./configs.nix { };
+  customConfigs = pkgs.callPackage ./configs.nix { inherit lib pkgs; };
 in
 {
   imports = [ (import ./libs/dconf.nix { inherit lib pkgs; }) ];
