@@ -1,8 +1,10 @@
 keys:
   - &users
-    - &armin 01BE96FB0000FC4AF5587CC5E452EB7AAB80DE7B
+    - &armin_yk_5 BFB132A41D5D4BCCCD8576CC91F56DA2C2714F39
+    - &armin_yk_5nfc 4019DF87DD5FE9921EF9CCF46B10483A04FD3F10
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
     - pgp:
-      - *armin
+      - *armin_yk_5
+      - *armin_yk_5nfc
