@@ -4,7 +4,7 @@
     nixconf() (
       [ -f flake.nix ] && [ -f flake.lock ] || exit 1
       ${pkgs.pre-commit}/bin/pre-commit run --all-files
-      find -regex ".*\.nix" -exec ${pkgs.nixfmt-rfc-style}/bin/nixfmt {} \;
+      ${pkgs.findutils}/bin/find -regex ".*\.nix" -exec ${pkgs.nixfmt-rfc-style}/bin/nixfmt {} \;
       while true; do
         ${pkgs.git}/bin/git add -A
         ${pkgs.git}/bin/git --no-pager diff --cached
