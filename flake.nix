@@ -32,7 +32,7 @@
 
   outputs =
     { self, ... }@inputs:
-    {
+    let
       stateVersion = "24.11";
       mainModules = [
         inputs.sops-nix.nixosModules.sops
@@ -47,6 +47,9 @@
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
+    in
+    {
+      # Definitions
       optionalLocalModules =
         nix_paths:
         builtins.concatLists (
@@ -54,12 +57,14 @@
             path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
           )
         );
+
       systemTypes = {
+        # Thinkpad Z13 Gen2
         z13g2 = prop: {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            stateVersion = self.stateVersion;
+            stateVersion = stateVersion;
             hostName = prop.hostName;
           };
           modules =
@@ -71,14 +76,15 @@
               (import "${self}/pkgs/extra.nix")
               (import "${self}/modules/gui")
             ]
-            ++ self.baseModules
+            ++ baseModules
             ++ prop.modules;
         };
+        # WSL-NixOS
         wsl = prop: {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            stateVersion = self.stateVersion;
+            stateVersion = stateVersion;
             hostName = prop.hostName;
           };
           modules =
@@ -86,14 +92,15 @@
               inputs.nixos-wsl.nixosModules.wsl
               (import "${self}/system/wsl.nix")
             ]
-            ++ self.baseModules
+            ++ baseModules
             ++ prop.modules;
         };
+        # Raspberry Pi 5
         rpi5 = prop: {
           system = "aarch64-linux";
           specialArgs = {
             inherit inputs;
-            stateVersion = self.stateVersion;
+            stateVersion = stateVersion;
             hostName = prop.hostName;
           };
           modules =
@@ -101,9 +108,19 @@
               inputs.nixos-hardware.nixosModules.raspberry-pi-5
               (import "${self}/system/rpi5.nix")
             ]
-            ++ self.mainModules
+            ++ mainModules
             ++ prop.modules;
         };
       };
+
+      # DevShells
+      devShells =
+        let
+          system = "x86_64-linux";
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        in
+        {
+          ${system}.kernel_env = (import "${self}/system/z13g2.nix" { inherit pkgs; }).kernel_env;
+        };
     };
 }
