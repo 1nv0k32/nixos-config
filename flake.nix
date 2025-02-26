@@ -120,9 +120,11 @@
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         in
         {
-          ${system}.kernelEnv = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelEnv;
-          ${system}.kernelRun = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelRun;
-          ${system}.kernelInitramfs = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelInitramfs;
+          ${system} = {
+            kernelEnv = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelEnv;
+            kernelRun = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelRun;
+            kernelInitramfs = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelInitramfs;
+          };
         };
     };
 }
