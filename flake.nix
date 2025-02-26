@@ -43,7 +43,7 @@
         (import "${self}/modules")
         (import "${self}/src")
       ];
-      baseModules = self.mainModules ++ [
+      baseModules = mainModules ++ [
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
