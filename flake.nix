@@ -120,7 +120,7 @@
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         in
         {
-          ${system}.kernel_env = (import "${self}/system/z13g2.nix" { inherit pkgs; }).kernel_env;
+          ${system}.kernel_env = (import "${self}/shell/kernel.nix" { inherit pkgs; }).kernel_env;
         };
     };
 }
