@@ -121,6 +121,8 @@
         in
         {
           ${system}.kernelEnv = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelEnv;
+          ${system}.kernelRun = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelRun;
+          ${system}.kernelInitramfs = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelInitramfs;
         };
     };
 }
