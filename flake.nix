@@ -118,12 +118,13 @@
         let
           system = "x86_64-linux";
           pkgs = inputs.nixpkgs.legacyPackages.${system};
+          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
         in
         {
           ${system} = {
-            kernelEnv = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelEnv;
-            kernelRun = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelRun;
-            kernelInitramfs = (import "${self}/shells/kernel.nix" { inherit pkgs; }).kernelInitramfs;
+            kernelEnv = kernelShells.kernelEnv;
+            kernelRun = kernelShells.kernelRun;
+            kernelInitramfs = kernelShells.kernelInitramfs;
           };
         };
     };
