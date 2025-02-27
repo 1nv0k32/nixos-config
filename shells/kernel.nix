@@ -36,6 +36,9 @@ in
       qemu-system-x86_64 \
         -kernel linux/arch/x86/boot/bzImage \
         -initrd initramfs.img \
+        -enable-kvm -machine pc-q35-7.1 \
+        -m 2G -smp 2,sockets=2,cores=1 \
+        -net nic,model=e1000 \
         -nographic -serial mon:stdio -append 'console=ttyS0'
       exit
     '';
