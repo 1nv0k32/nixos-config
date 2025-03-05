@@ -57,7 +57,7 @@ in
       mount -t devtmpfs devtmpfs /dev
       mount -t proc none /proc
       mount -t sysfs none /sys
-      exec /bin/sh
+      exec env HOME=/root /bin/sh
       EOF
       chmod +x $INITRAMFS_DIR/init
       (
