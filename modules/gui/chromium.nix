@@ -1,13 +1,14 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    (chromium.override {
-      commandLineArgs = [
-        "--enable-features=AcceleratedVideoEncoder"
-        "--ignore-gpu-blocklist"
-        "--enable-zero-copy"
-      ];
-    })
+    chromium
+    # (chromium.override {
+    #   commandLineArgs = [
+    #     "--enable-features=AcceleratedVideoEncoder"
+    #     "--ignore-gpu-blocklist"
+    #     "--enable-zero-copy"
+    #   ];
+    # })
   ];
 
   programs.chromium = {
