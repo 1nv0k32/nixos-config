@@ -43,7 +43,7 @@
 
   hardware = {
     pulseaudio.enable = lib.mkForce false;
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   security.rtkit.enable = true;
