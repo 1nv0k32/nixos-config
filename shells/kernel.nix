@@ -6,6 +6,7 @@ let
       stdenv.cc.libc.static
       gnumake
       pkg-config
+      clang_15
       ncurses
       git
       cpio
