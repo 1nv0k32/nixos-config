@@ -8,6 +8,7 @@ let
       pkg-config
       llvm_15
       clang_15
+      lld_15
       ncurses
       git
       cpio
