@@ -2,8 +2,8 @@
 let
   defaultDevShell = prop: {
     nativeBuildInputs = with pkgs; [
-      stdenv.cc.libc
-      stdenv.cc.libc.static
+      clangStdenv.cc.libc
+      clangStdenv.cc.libc.static
       gnumake
       pkg-config
       llvm_15
