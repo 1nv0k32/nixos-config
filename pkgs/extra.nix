@@ -47,27 +47,12 @@
     imagemagick
     ghostscript
     ffmpeg
-
-    transmission_4
-    transmission_4-gtk
-    flameshot
-    spotify
-    obs-studio
-    gimp
-    discord
-    pkgs-master.vscode
-    pkgs-unstable.jetbrains.pycharm-community-bin
-    gparted
     rivalcfg
-    tor-browser-bundle-bin
-    wineWowPackages.stable
-    winetricks
-    libreoffice
 
-    otpclient
     yubikey-manager
     yubioath-flutter
 
+    wineWowPackages.stable
     win-virtio
     virt-manager
     nixos-generators
