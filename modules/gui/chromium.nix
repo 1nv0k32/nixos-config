@@ -3,10 +3,10 @@
   environment.systemPackages = with pkgs; [
     (chromium.override {
       commandLineArgs = [
-        "--enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoEncoder,Vulkan,VulkanFromANGLE,DefaultANGLEVulkan,VaapiIgnoreDriverChecks"
-        "--enable-features=VaapiIgnoreDriverChecks,VaapiVideoDecoder,PlatformHEVCDecoderSupport,UseMultiPlaneFormatForHardwareVideo"
+        "--enable-features=AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoDecodeLinuxGL,VaapiIgnoreDriverChecks"
         "--ignore-gpu-blocklist"
         "--enable-zero-copy"
+        "--ozone-platform-hint=auto"
       ];
     })
   ];
