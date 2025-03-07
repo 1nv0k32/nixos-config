@@ -36,6 +36,15 @@
             ];
           }
         );
+        hub = cfg.inputs.nixpkgs.lib.nixosSystem (
+          cfg.systemTypes.hetzner {
+            hostName = "hub";
+            modules = cfg.optionalLocalModules [
+              ./hardware-configuration.nix
+              ./local.nix
+            ];
+          }
+        );
       };
     };
 }

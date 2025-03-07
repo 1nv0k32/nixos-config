@@ -22,6 +22,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl = {
@@ -109,6 +113,22 @@
               (import "${self}/system/rpi5.nix")
             ]
             ++ mainModules
+            ++ prop.modules;
+        };
+        # Hetzner
+        hetzner = prop: {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            stateVersion = stateVersion;
+            hostName = prop.hostName;
+          };
+          modules =
+            [
+              inputs.disko.nixosModules.disko
+              (import "${self}/system/hetzner.nix")
+            ]
+            ++ baseModules
             ++ prop.modules;
         };
       };
