@@ -30,12 +30,11 @@
 
   boot = {
     loader = {
-      grub.devices = [ "/dev/sda1" ];
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      grub = {
         enable = true;
-        editor = lib.mkForce false;
-        consoleMode = "max";
+        efiSupport = true;
+        devices = [ "nodev" ];
       };
     };
     initrd.systemd.enable = true;
