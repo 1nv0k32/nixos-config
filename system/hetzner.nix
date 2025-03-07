@@ -30,7 +30,7 @@
 
   boot = {
     loader = {
-      grub.devices = [ "nodev" ];
+      grub.devices = [ "/dev/sda1" ];
       efi.canTouchEfiVariables = true;
       systemd-boot = {
         enable = true;
