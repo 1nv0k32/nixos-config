@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   disko.devices.disk.sda = {
     type = "disk";
@@ -26,5 +26,17 @@
         };
       };
     };
+  };
+
+  boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        editor = lib.mkForce false;
+        consoleMode = "max";
+      };
+    };
+    initrd.systemd.enable = true;
   };
 }
