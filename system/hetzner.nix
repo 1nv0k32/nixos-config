@@ -31,11 +31,10 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      grub = {
+      systemd-boot = {
         enable = true;
-        efiSupport = true;
-        device = "nodev";
-        devices = [ "nodev" ];
+        editor = lib.mkForce false;
+        consoleMode = "max";
       };
     };
     initrd.systemd.enable = true;
