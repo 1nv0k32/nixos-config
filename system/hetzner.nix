@@ -31,6 +31,7 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
+      grub.device = "nodev";
       systemd-boot = {
         enable = true;
         editor = lib.mkForce false;
