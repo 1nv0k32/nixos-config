@@ -26,7 +26,7 @@ in
   ];
 
   networking.interfaces.enp1s0 = {
-    useDHCP = "false";
+    useDHCP = false;
     ipv4.addresses = [ ];
     ipv4.routes = [
       {
