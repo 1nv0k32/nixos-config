@@ -33,6 +33,7 @@ in
         address = "0.0.0.0";
         prefixLength = 0;
         via = "172.31.1.1";
+        options.onlink = "";
       }
     ];
     ipv6.addresses = [ ];
@@ -41,6 +42,7 @@ in
         address = "::";
         prefixLength = 0;
         via = "fe80::1";
+        options.onlink = "";
       }
     ];
   };
