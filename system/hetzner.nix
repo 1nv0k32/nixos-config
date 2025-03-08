@@ -31,7 +31,7 @@ in
     ipv4.routes = [
       {
         address = "0.0.0.0";
-        prefixLength = "0";
+        prefixLength = 0;
         via = "172.31.1.1";
       }
     ];
@@ -39,7 +39,7 @@ in
     ipv6.routes = [
       {
         address = "::";
-        prefixLength = "0";
+        prefixLength = 0;
         via = "fe80::1";
       }
     ];
