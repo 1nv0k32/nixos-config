@@ -21,6 +21,7 @@
     ubridge
     iw
     appimage-run
+    ventoy-full
 
     kubernetes-helm
     k9s
