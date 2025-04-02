@@ -46,22 +46,4 @@ in
       }
     ];
   };
-
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers.ui3x = {
-      autoStart = true;
-      image = "ghcr.io/mhsanaei/3x-ui:latest";
-      volumes = [
-        "ui3x_db:/etc/x-ui/"
-        "ui3x_cert:/root/cert/"
-      ];
-      environment = {
-        XRAY_VMESS_AEAD_FORCED = "false";
-        X_UI_ENABLE_FAIL2BAN = "true";
-      };
-      hostname = config.networking.hostName;
-      extraOptions = [ "--network=host" ];
-    };
-  };
 }
