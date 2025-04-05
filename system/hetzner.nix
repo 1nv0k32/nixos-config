@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    (import ../modules/wg_server.nix)
+    (import ../modules/wg_server.nix { inherit defaultInterface; })
   ];
 
   boot = {
