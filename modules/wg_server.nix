@@ -18,8 +18,6 @@ in
       postSetup = ''
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${wgIPRange} -o ${defaultInterface} -j MASQUERADE
       '';
-
-      # This undoes the above command
       postShutdown = ''
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${wgIPRange} -o ${defaultInterface} -j MASQUERADE
       '';
