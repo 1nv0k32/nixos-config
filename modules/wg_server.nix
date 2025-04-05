@@ -2,7 +2,7 @@
 let
   wgInterface = "wg0";
   wgIPRange = "10.100.0.1/24";
-  wgPort = 51820;
+  wgPort = 22531;
 in
 {
   networking.nat.internalInterfaces = [ wgInterface ];
@@ -23,13 +23,6 @@ in
       postShutdown = ''
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${wgIPRange} -o ${defaultInterface} -j MASQUERADE
       '';
-
-      # peers = [
-      #   {
-      #     publicKey = "{client public key}";
-      #     allowedIPs = [ "10.100.0.2/32" ];
-      #   }
-      # ];
     };
   };
 }
