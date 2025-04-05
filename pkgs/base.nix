@@ -15,6 +15,7 @@
     kubectl
     jq
     yq
+    wireguard-tools
 
     nixd
     uv
