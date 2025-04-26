@@ -7,8 +7,7 @@
     transmission_4
     transmission_4-gtk
 
-    pkgs-master.vscode
-    pkgs-unstable.jetbrains.pycharm-community-bin
+    vscode
 
     spotify
     discord
