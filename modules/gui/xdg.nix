@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     nautilus
-    evince
+    papers
     eog
     vlc
   ];
@@ -11,7 +11,7 @@
     let
       web = "chromium.desktop";
       inode = "org.gnome.Nautilus.desktop";
-      pdf = "org.gnome.Evince.desktop";
+      pdf = "org.gnome.Papers.desktop";
       image = "org.gnome.eog.desktop";
       video = "vlc.desktop";
     in
