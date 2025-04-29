@@ -33,6 +33,6 @@
     . ~/.bashrc.local
     fi
 
-    ${pkgs.neofetch}/bin/neofetch
+    ${pkgs.fastfetch}/bin/fastfetch
   '';
 }
