@@ -32,5 +32,7 @@
     if test -f ~/.bashrc.local; then
     . ~/.bashrc.local
     fi
+
+    ${pkgs.neofetch}/bin/neofetch
   '';
 }
