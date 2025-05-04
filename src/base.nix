@@ -28,7 +28,7 @@
     enableAllFirmware = true;
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
+      powerOnBoot = false;
     };
     wirelessRegulatoryDatabase = true;
   };
