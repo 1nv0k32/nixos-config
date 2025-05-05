@@ -82,7 +82,7 @@ in
     };
     settings = {
       cursor_shape = "block";
-      cursor_blink_interval = -1;
+      cursor_blink_interval = 0;
     };
   };
 }
