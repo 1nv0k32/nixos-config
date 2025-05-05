@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   fontFamily = "NotoMono Nerd Font Mono";
-  fontSize = "15";
+  fontSize = 15;
   shell = "${pkgs.tmux}/bin/tmux";
 in
 {
@@ -17,7 +17,7 @@ in
       showScrollbar = false;
       cursorShape = "block";
       cursorBlinkMode = "off";
-      font = "${fontFamily} ${fontSize}";
+      font = "${fontFamily} ${toString fontSize}";
       customCommand = shell;
     };
   };
