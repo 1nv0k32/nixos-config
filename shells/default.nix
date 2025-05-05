@@ -27,7 +27,7 @@
       )
 
       nixup() (
-        sudo ${pkgs.bash}/bin/bash -c 'nix flake update --flake path:/etc/nixos && nixos-rebuild switch'"
+        sudo ${pkgs.bash}/bin/bash -c 'nix flake update --flake path:/etc/nixos && nixos-rebuild switch'
       )
 
       # Export for direnv
