@@ -25,6 +25,8 @@
           esac
         done
       )
+
+      export_function nixconfff
     '';
   };
 }
