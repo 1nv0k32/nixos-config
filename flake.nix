@@ -145,8 +145,6 @@
           ${system} = {
             default = defaultShell.default;
             kernelEnv = kernelShells.kernelEnv;
-            kernelRun = kernelShells.kernelRun;
-            kernelInitramfs = kernelShells.kernelInitramfs;
           };
         };
     };
