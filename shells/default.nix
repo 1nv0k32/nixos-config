@@ -2,7 +2,7 @@
 {
   default = pkgs.mkShell {
     shellHook = ''
-      nixconfff() (
+      nixconf() (
         [ -f flake.nix ] && [ -f flake.lock ] || exit 1
         ${pkgs.pre-commit}/bin/pre-commit run --all-files
         ${pkgs.findutils}/bin/find -regex ".*\.nix" -exec ${pkgs.nixfmt-rfc-style}/bin/nixfmt {} \;
@@ -26,7 +26,12 @@
         done
       )
 
-      export_function nixconfff
+      nixup() (
+        sudo ${pkgs.bash}/bin/bash -c 'nix flake update --flake path:/etc/nixos && nixos-rebuild switch'"
+      )
+
+      export_function nixconf
+      export_function nixup
     '';
   };
 }
