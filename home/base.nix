@@ -9,7 +9,10 @@ let
   customConfigs = pkgs.callPackage ./configs.nix { inherit lib pkgs; };
 in
 {
-  imports = [ (import ./libs/dconf.nix { inherit lib pkgs; }) ];
+  imports = [
+    (import ./libs/dconf.nix { inherit lib pkgs; })
+    (import ./libs/terminal.nix { inherit pkgs; })
+  ];
 
   home = {
     stateVersion = stateVersion;
@@ -55,34 +58,5 @@ in
 
   programs.git = {
     enable = true;
-  };
-
-  programs.gnome-terminal = {
-    enable = true;
-    themeVariant = "dark";
-    showMenubar = false;
-    profile."352f48f0-7279-422e-9e0a-95228e86bd1d" = {
-      visibleName = "default";
-      default = true;
-      allowBold = true;
-      audibleBell = false;
-      showScrollbar = false;
-      cursorShape = "block";
-      cursorBlinkMode = "off";
-      font = "NotoMono Nerd Font Mono 15";
-      customCommand = "tmux";
-    };
-  };
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "NotoMono Nerd Font Mono";
-      size = 15;
-    };
-    settings = {
-      cursor_shape = "block";
-      cursor_blink_interval = 0;
-    };
   };
 }
