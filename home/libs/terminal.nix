@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   fontFamily = "NotoMono Nerd Font Mono";
-  fontSize = 15;
+  fontSize = "15";
   shell = "${pkgs.tmux}/bin/tmux";
 in
 {
