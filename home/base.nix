@@ -80,5 +80,9 @@ in
       name = "NotoMono Nerd Font Mono";
       size = 15;
     };
+    settings = {
+      cursor_shape = "block";
+      cursor_blink_interval = -1;
+    };
   };
 }
