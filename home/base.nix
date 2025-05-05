@@ -73,4 +73,12 @@ in
       customCommand = "tmux";
     };
   };
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "NotoMono Nerd Font Mono";
+      size = 15;
+    };
+  };
 }
