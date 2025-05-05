@@ -139,9 +139,11 @@
           system = "x86_64-linux";
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
+          defaultShell = (import "${self}/shells/default.nix" { inherit pkgs; });
         in
         {
           ${system} = {
+            default = defaultShell.default;
             kernelEnv = kernelShells.kernelEnv;
             kernelRun = kernelShells.kernelRun;
             kernelInitramfs = kernelShells.kernelInitramfs;
