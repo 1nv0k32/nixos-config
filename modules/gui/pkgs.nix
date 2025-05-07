@@ -9,7 +9,6 @@
     transmission_4-gtk
 
     vscode
-    pkgs-master.jetbrains.clion
 
     spotify
     discord
