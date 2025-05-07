@@ -9,6 +9,7 @@
     transmission_4-gtk
 
     vscode
+    pkgs-unstable.jetbrains.clion
 
     spotify
     discord
