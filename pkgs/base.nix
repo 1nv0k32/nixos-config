@@ -11,6 +11,7 @@
     aria
     wget
     dig
+    screen
     unzip
     kubectl
     jq
