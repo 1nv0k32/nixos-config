@@ -38,15 +38,9 @@
   };
 
   programs = {
-    mtr.enable = true;
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
-    };
-    winbox = {
-      enable = true;
-      openFirewall = true;
-      package = pkgs.pkgs-unstable.winbox;
     };
   };
 }
