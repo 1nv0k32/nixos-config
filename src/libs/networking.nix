@@ -17,6 +17,13 @@
       allowedUDPPorts = [
         5353 # mDNS
       ];
+      allowedUDPPortRanges = [
+        {
+          # Winbox
+          from = 40000;
+          to = 50000;
+        }
+      ];
     };
   };
 
