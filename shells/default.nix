@@ -2,8 +2,10 @@
 {
   default = pkgs.mkShell {
     shellHook = ''
+      set +e
       nixconf() (
         [ -f flake.nix ] && [ -f flake.lock ] || exit 1
+        cd $(git rev-parse --show-toplevel 2> /dev/null)
         ${pkgs.pre-commit}/bin/pre-commit run --all-files
         ${pkgs.findutils}/bin/find -regex ".*\.nix" -exec ${pkgs.nixfmt-rfc-style}/bin/nixfmt {} \;
         while true; do

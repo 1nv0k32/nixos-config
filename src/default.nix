@@ -9,6 +9,10 @@
     stateVersion = stateVersion;
   };
 
+  fileSystems."/" = {
+    device = "none";
+  };
+
   home-manager = {
     sharedModules = [ (import ../home/base.nix) ];
     extraSpecialArgs = {

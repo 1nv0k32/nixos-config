@@ -14,5 +14,4 @@ jobs:
     - name: Flake build
       run: |
         cd flakes
-        nix flake lock
         nix build .#nixosConfigurations."nyxpi".config.system.build.toplevel
