@@ -9,7 +9,7 @@
     stateVersion = stateVersion;
   };
 
-  fileSystems."/" = {
+  fileSystems."/" = lib.mkDefault {
     device = "none";
   };
 
