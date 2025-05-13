@@ -9,13 +9,6 @@
     stateVersion = stateVersion;
   };
 
-  fileSystems = {
-    "/" = {
-      device = "none";
-      fsType = "ext4";
-    };
-  };
-
   home-manager = {
     sharedModules = [ (import ../home/base.nix) ];
     extraSpecialArgs = {
