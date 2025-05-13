@@ -112,7 +112,7 @@
               inputs.nixos-hardware.nixosModules.raspberry-pi-5
               (import "${self}/system/rpi5.nix")
             ]
-            ++ baseModules
+            ++ mainModules
             ++ prop.modules;
         };
         # Hetzner

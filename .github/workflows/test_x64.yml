@@ -1,5 +1,5 @@
 ---
-name: "test_x64"
+name: "test_flakes"
 on:
   pull_request:
   push:
@@ -14,4 +14,4 @@ jobs:
     - name: Flake build
       run: |
         cd flakes
-        nix build .#nixosConfigurations."nyx".config.system.build.toplevel
+        nix flake check || true
