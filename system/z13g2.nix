@@ -3,7 +3,9 @@
   ...
 }:
 {
-  fileSystems."/" = { };
+  fileSystems."/" = {
+    device = "none";
+  };
 
   boot = {
     extraModprobeConfig = ''
