@@ -1,5 +1,5 @@
 ---
-name: "test_flakes"
+name: "check_flake"
 on:
   pull_request:
   push:
@@ -11,7 +11,7 @@ jobs:
     - uses: cachix/install-nix-action@v31
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Flake build
+    - name: Check Flake
       run: |
         cd flakes
         nix flake check || true
