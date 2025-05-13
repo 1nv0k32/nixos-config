@@ -5,13 +5,15 @@ on:
   push:
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v31
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
-    - run: |
+    - name: Flake build
+      run: |
         cd flakes
         nix flake lock
-        nix build .#nixosConfigurations."nyx".config.system.build.toplevel
+        nix build .#nixosConfigurations."nyxpi".config.system.build.toplevel
