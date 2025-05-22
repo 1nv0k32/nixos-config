@@ -25,8 +25,6 @@
     kubernetes-helm
     k9s
     argocd
-    awscli2
-    terraform
     opentofu
     ansible
     ansible-lint
