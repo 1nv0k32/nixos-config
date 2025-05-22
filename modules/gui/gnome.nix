@@ -42,7 +42,7 @@
   networking.networkmanager.enable = true;
 
   hardware = {
-    pulseaudio.enable = lib.mkForce false;
+    # pulseaudio.enable = lib.mkForce false;
     graphics.enable = true;
   };
 
