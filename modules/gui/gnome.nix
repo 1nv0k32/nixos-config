@@ -67,8 +67,7 @@
     packages = with pkgs; [
       ubuntu_font_family
       vazir-fonts
-      nerdfonts
-      (nerdfonts.override { fonts = [ "Noto" ]; })
+      nerd-fonts.noto
     ];
     enableDefaultPackages = true;
     fontconfig.defaultFonts = {
