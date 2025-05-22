@@ -66,7 +66,6 @@
     nmap
     radare2
     pwntools
-    pwndbg
     aircrack-ng
     binwalk
     burpsuite

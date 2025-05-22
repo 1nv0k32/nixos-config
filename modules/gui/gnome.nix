@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     gnome-network-displays
@@ -13,7 +13,7 @@
 
   services = {
     gnome = {
-      core-utilities.enable = true;
+      core-apps.enable = true;
       gnome-keyring.enable = true;
     };
     xserver = {
@@ -42,7 +42,6 @@
   networking.networkmanager.enable = true;
 
   hardware = {
-    # pulseaudio.enable = lib.mkForce false;
     graphics.enable = true;
   };
 
