@@ -97,7 +97,7 @@
             [
               (import "${self}/system/vm.nix")
             ]
-            ++ extraModules
+            ++ mainModules
             ++ prop.modules;
         };
         # WSL-NixOS
