@@ -95,6 +95,7 @@
           };
           modules = [
             (import "${self}/system/vm.nix")
+            inputs.nixos-generators.nixosModules.all-formats
           ];
           # ++ mainModules
           # ++ prop.modules;
