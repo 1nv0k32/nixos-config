@@ -7,8 +7,8 @@
   services.qemuGuest.enable = true;
 
   virtualisation = {
-    cores = 4;
-    memorySize = 8 * 1024;
+    # cores = 4;
+    # memorySize = 8 * 1024;
     diskSize = 200 * 1024;
   };
 }
