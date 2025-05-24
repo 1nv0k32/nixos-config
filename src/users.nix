@@ -8,6 +8,7 @@ in
   };
 
   users.users."${mainUser}" = {
+    initialPassword = "${mainUser}";
     uid = 1000;
     isNormalUser = true;
     linger = true;

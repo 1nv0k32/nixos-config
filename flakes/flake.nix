@@ -18,6 +18,15 @@
             ];
           }
         );
+        nyxvm = cfg.inputs.nixpkgs.lib.nixosSystem (
+          cfg.systemTypes.vm {
+            hostName = "nyxvm";
+            modules = cfg.optionalLocalModules [
+              ./hardware-configuration.nix
+              ./local.nix
+            ];
+          }
+        );
         nyxwsl = cfg.inputs.nixpkgs.lib.nixosSystem (
           cfg.systemTypes.wsl {
             hostName = "arminix";
