@@ -9,6 +9,6 @@
   virtualisation = {
     cores = 4;
     memorySize = 4 * 1024;
-    diskSize = 50 * 1024;
+    diskSize = 200 * 1024;
   };
 }
