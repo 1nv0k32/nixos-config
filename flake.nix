@@ -94,6 +94,7 @@
             hostName = prop.hostName;
           };
           modules = [
+            inputs.home-manager.nixosModules.home-manager
             inputs.nixos-generators.nixosModules.all-formats
             (import "${self}/src")
             (import "${self}/system/vm.nix")
