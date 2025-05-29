@@ -15,7 +15,7 @@ in
     extraGroups = [
       "wheel"
       "networkmanager"
-      "docker"
+      "podman"
       "libvirtd"
       "ubridge"
       "wireshark"
