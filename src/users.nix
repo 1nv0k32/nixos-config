@@ -16,7 +16,6 @@ in
       "wheel"
       "networkmanager"
       "libvirtd"
-      "docker"
       "ubridge"
       "wireshark"
     ];

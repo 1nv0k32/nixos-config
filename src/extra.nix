@@ -31,10 +31,10 @@
     };
     podman = {
       enable = true;
-      dockerCompat = false;
+      dockerCompat = true;
+      dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    docker.enable = true;
   };
 
   programs = {
