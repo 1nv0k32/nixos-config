@@ -71,13 +71,13 @@
       systemTypes = {
         # Thinkpad Z13 Gen2
         z13g2 =
-          prop:
+          attrs:
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
               stateVersion = stateVersion;
-              hostName = prop.hostName;
+              hostName = attrs.hostName;
             };
             modules =
               [
@@ -85,34 +85,34 @@
                 (import "${self}/system/z13g2.nix")
               ]
               ++ extraModules
-              ++ prop.modules;
+              ++ attrs.modules;
           };
         # VM
         vm =
-          prop:
+          attrs:
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
               stateVersion = stateVersion;
-              hostName = prop.hostName;
+              hostName = attrs.hostName;
             };
             modules =
               [
                 (import "${self}/system/vm.nix")
               ]
               ++ extraModules
-              ++ prop.modules;
+              ++ attrs.modules;
           };
         # WSL-NixOS
         wsl =
-          prop:
+          attrs:
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
               stateVersion = stateVersion;
-              hostName = prop.hostName;
+              hostName = attrs.hostName;
             };
             modules =
               [
@@ -120,17 +120,17 @@
                 (import "${self}/system/wsl.nix")
               ]
               ++ baseModules
-              ++ prop.modules;
+              ++ attrs.modules;
           };
         # Raspberry Pi 5
         rpi5 =
-          prop:
+          attrs:
           inputs.nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             specialArgs = {
               inherit inputs;
               stateVersion = stateVersion;
-              hostName = prop.hostName;
+              hostName = attrs.hostName;
             };
             modules =
               [
@@ -138,17 +138,17 @@
                 (import "${self}/system/rpi5.nix")
               ]
               ++ mainModules
-              ++ prop.modules;
+              ++ attrs.modules;
           };
         # Hetzner
         hetzner =
-          prop:
+          attrs:
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
               stateVersion = stateVersion;
-              hostName = prop.hostName;
+              hostName = attrs.hostName;
             };
             modules =
               [
@@ -156,7 +156,7 @@
                 (import "${self}/system/hetzner.nix")
               ]
               ++ baseModules
-              ++ prop.modules;
+              ++ attrs.modules;
           };
       };
 
