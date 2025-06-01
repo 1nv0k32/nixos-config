@@ -93,12 +93,13 @@
             stateVersion = stateVersion;
             hostName = prop.hostName;
           };
-          modules =
-            [
-              (import "${self}/system/vm.nix")
-            ]
-            ++ mainModules
-            ++ prop.modules;
+          modules = [
+            inputs.nixos-generators.nixosModules.all-formats
+            (import "${self}/src")
+            (import "${self}/system/vm.nix")
+          ];
+          # ++ extraModules
+          # ++ prop.modules;
         };
         # WSL-NixOS
         wsl = prop: {
