@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./sysconf.nix
     ./bash.nix
     ./git.nix
     ./ssh.nix
