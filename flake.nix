@@ -52,8 +52,7 @@
         (import "${self}/pkgs/extra.nix")
         (import "${self}/modules/gui")
       ];
-    in
-    {
+
       # Definitions
       optionalLocalModules =
         nix_paths:
@@ -62,6 +61,8 @@
             path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
           )
         );
+    in
+    {
 
       systemTypes = {
         # Thinkpad Z13 Gen2
@@ -80,7 +81,7 @@
                 (import "${self}/system/z13g2.nix")
               ]
               ++ extraModules
-              ++ attrs.modules;
+              ++ optionalLocalModules attrs.modules;
           };
         # VM
         vm =
@@ -97,7 +98,7 @@
                 (import "${self}/system/vm.nix")
               ]
               ++ extraModules
-              ++ attrs.modules;
+              ++ optionalLocalModules attrs.modules;
           };
         # WSL-NixOS
         wsl =
@@ -115,7 +116,7 @@
                 (import "${self}/system/wsl.nix")
               ]
               ++ baseModules
-              ++ attrs.modules;
+              ++ optionalLocalModules attrs.modules;
           };
         # Raspberry Pi 5
         rpi5 =
@@ -133,7 +134,7 @@
                 (import "${self}/system/rpi5.nix")
               ]
               ++ mainModules
-              ++ attrs.modules;
+              ++ optionalLocalModules attrs.modules;
           };
         # Hetzner
         hetzner =
@@ -151,7 +152,7 @@
                 (import "${self}/system/hetzner.nix")
               ]
               ++ baseModules
-              ++ attrs.modules;
+              ++ optionalLocalModules attrs.modules;
           };
       };
 

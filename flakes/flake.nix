@@ -12,7 +12,7 @@
         host: systemType:
         systemType {
           hostName = host;
-          modules = cfg.optionalLocalModules [
+          modules = [
             ./hardware-configuration.nix
             ./local.nix
           ];
