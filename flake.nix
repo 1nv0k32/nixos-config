@@ -14,10 +14,6 @@
       url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,7 +36,6 @@
       stateVersion = "25.05";
       mainModules = [
         inputs.sops-nix.nixosModules.sops
-        inputs.nixos-generators.nixosModules.all-formats
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" { inherit inputs; })
@@ -165,8 +160,8 @@
         let
           system = "x86_64-linux";
           pkgs = inputs.nixpkgs.legacyPackages.${system};
-          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
           defaultShell = (import "${self}/shells/default.nix" { inherit pkgs; });
+          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
         in
         {
           ${system} = {
