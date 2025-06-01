@@ -8,21 +8,19 @@
   outputs =
     { cfg, ... }:
     {
-      packages.x86_64-linux = {
-        nyxvm = cfg.inputs.nixos-generators.nixosGenerate (
-          cfg.systemTypes.vm {
-            hostName = "nyxvm";
+      nixosConfigurations = {
+        nyx = cfg.inputs.nixpkgs.lib.nixosSystem (
+          cfg.systemTypes.z13g2 {
+            hostName = "nyx";
             modules = cfg.optionalLocalModules [
               ./hardware-configuration.nix
               ./local.nix
             ];
           }
         );
-      };
-      nixosConfigurations = {
-        nyx = cfg.inputs.nixpkgs.lib.nixosSystem (
-          cfg.systemTypes.z13g2 {
-            hostName = "nyx";
+        nyxvm = cfg.inputs.nixpkgs.lib.nixosSystem (
+          cfg.systemTypes.vm {
+            hostName = "nyxvm";
             modules = cfg.optionalLocalModules [
               ./hardware-configuration.nix
               ./local.nix
