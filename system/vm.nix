@@ -1,10 +1,26 @@
-{ modulesPath, ... }:
 {
-  imports = [ (modulesPath + "/virtualisation/qemu-vm.nix") ];
+  modulesPath,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
-  virtualisation = {
-    cores = 8;
-    memorySize = 16 * 1024;
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    autoResize = true;
+    fsType = "ext4";
+  };
+
+  boot.kernelParams = [ "console=ttyS0" ];
+  boot.loader.grub.device = lib.mkDefault "/dev/vda";
+
+  system.build.qcow2 = import "${modulesPath}/../lib/make-disk-image.nix" {
+    inherit lib config pkgs;
     diskSize = 200 * 1024;
+    format = "qcow2";
+    partitionTableType = "hybrid";
   };
 }
