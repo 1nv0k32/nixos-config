@@ -1,5 +1,6 @@
 { lib, pkgs, ... }:
 let
+  int32 = lib.hm.gvariant.mkInt32;
   gnomeExtensions = with pkgs.gnomeExtensions; [
     appindicator
     just-perfection
@@ -116,24 +117,31 @@ in
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
-      animation = lib.hm.gvariant.mkInt32 4;
+      animation = int32 4;
       panel = true;
       panel-in-overview = true;
       double-super-to-appgrid = false;
       window-demands-attention-focus = true;
-      startup-status = lib.hm.gvariant.mkInt32 0;
-      osd-position = lib.hm.gvariant.mkInt32 2;
+      startup-status = int32 0;
+      osd-position = int32 2;
     };
 
     "org/gnome/shell/extensions/unblank" = {
       power = false;
-      time = lib.hm.gvariant.mkInt32 0;
+      time = int32 0;
     };
 
     "org/gnome/shell/extensions/vitals" = {
       fixed-widths = false;
       hide-icons = false;
       hide-zeros = false;
+      include-public-ip = false;
+      menu-centered = true;
+      show-battery = true;
+      use-higher-precision = false;
+      icon-style = int32 1;
+      position-in-panel = int32 0;
+      update-time = int32 1;
       hot-sensors = [
         "_battery_rate_"
         "_battery_time_left_"
@@ -144,13 +152,6 @@ in
         "_memory_usage_"
         "_system_uptime_"
       ];
-      icon-style = lib.hm.gvariant.mkInt32 1;
-      include-public-ip = false;
-      menu-centered = true;
-      position-in-panel = lib.hm.gvariant.mkInt32 0;
-      show-battery = true;
-      update-time = lib.hm.gvariant.mkInt32 1;
-      use-higher-precision = false;
     };
   };
 }
