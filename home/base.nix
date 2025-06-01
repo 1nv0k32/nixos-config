@@ -4,14 +4,14 @@
   config,
   pkgs,
   ...
-}:
+}@attrs:
 let
-  customConfigs = pkgs.callPackage ./configs.nix { inherit lib pkgs; };
+  customConfigs = pkgs.callPackage ./configs.nix attrs;
 in
 {
   imports = [
-    (import ./libs/dconf.nix { inherit lib pkgs; })
-    (import ./libs/terminal.nix { inherit pkgs; })
+    (import ./libs/dconf.nix attrs)
+    (import ./libs/terminal.nix attrs)
   ];
 
   home = {
