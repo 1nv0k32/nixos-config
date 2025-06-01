@@ -87,6 +87,7 @@
         };
         # VM
         vm = prop: {
+          format = "qcow-efi";
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
