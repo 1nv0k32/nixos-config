@@ -129,5 +129,28 @@ in
       power = false;
       time = lib.hm.gvariant.mkInt32 0;
     };
+
+    "org/gnome/shell/extensions/vitals" = {
+      fixed-widths = false;
+      hide-icons = false;
+      hide-zeros = false;
+      hot-sensors = [
+        "_battery_rate_"
+        "_battery_time_left_"
+        "_processor_usage_"
+        "_processor_frequency_"
+        "_system_load_1m_"
+        "__fan_avg__"
+        "_memory_usage_"
+        "_system_uptime_"
+      ];
+      icon-style = lib.hm.gvariant.mkInt32 1;
+      include-public-ip = false;
+      menu-centered = true;
+      position-in-panel = lib.hm.gvariant.mkInt32 0;
+      show-battery = true;
+      update-time = lib.hm.gvariant.mkInt32 1;
+      use-higher-precision = false;
+    };
   };
 }
