@@ -70,21 +70,23 @@
 
       systemTypes = {
         # Thinkpad Z13 Gen2
-        z13g2 = prop: {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            stateVersion = stateVersion;
-            hostName = prop.hostName;
+        z13g2 =
+          prop:
+          inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs;
+              stateVersion = stateVersion;
+              hostName = prop.hostName;
+            };
+            modules =
+              [
+                inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+                (import "${self}/system/z13g2.nix")
+              ]
+              ++ extraModules
+              ++ prop.modules;
           };
-          modules =
-            [
-              inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-              (import "${self}/system/z13g2.nix")
-            ]
-            ++ extraModules
-            ++ prop.modules;
-        };
         # VM
         vm = prop: {
           system = "x86_64-linux";
