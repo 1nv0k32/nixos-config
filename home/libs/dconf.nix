@@ -117,7 +117,7 @@ in
 
     "org/gnome/shell/extensions/just-perfection" = {
       animation = lib.hm.gvariant.mkInt32 4;
-      panel = false;
+      panel = true;
       panel-in-overview = true;
       double-super-to-appgrid = false;
       window-demands-attention-focus = true;
