@@ -88,68 +88,76 @@
               ++ prop.modules;
           };
         # VM
-        vm = prop: {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            stateVersion = stateVersion;
-            hostName = prop.hostName;
+        vm =
+          prop:
+          inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs;
+              stateVersion = stateVersion;
+              hostName = prop.hostName;
+            };
+            modules =
+              [
+                (import "${self}/system/vm.nix")
+              ]
+              ++ extraModules
+              ++ prop.modules;
           };
-          modules =
-            [
-              (import "${self}/system/vm.nix")
-            ]
-            ++ extraModules
-            ++ prop.modules;
-        };
         # WSL-NixOS
-        wsl = prop: {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            stateVersion = stateVersion;
-            hostName = prop.hostName;
+        wsl =
+          prop:
+          inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs;
+              stateVersion = stateVersion;
+              hostName = prop.hostName;
+            };
+            modules =
+              [
+                inputs.nixos-wsl.nixosModules.wsl
+                (import "${self}/system/wsl.nix")
+              ]
+              ++ baseModules
+              ++ prop.modules;
           };
-          modules =
-            [
-              inputs.nixos-wsl.nixosModules.wsl
-              (import "${self}/system/wsl.nix")
-            ]
-            ++ baseModules
-            ++ prop.modules;
-        };
         # Raspberry Pi 5
-        rpi5 = prop: {
-          system = "aarch64-linux";
-          specialArgs = {
-            inherit inputs;
-            stateVersion = stateVersion;
-            hostName = prop.hostName;
+        rpi5 =
+          prop:
+          inputs.nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            specialArgs = {
+              inherit inputs;
+              stateVersion = stateVersion;
+              hostName = prop.hostName;
+            };
+            modules =
+              [
+                inputs.nixos-hardware.nixosModules.raspberry-pi-5
+                (import "${self}/system/rpi5.nix")
+              ]
+              ++ mainModules
+              ++ prop.modules;
           };
-          modules =
-            [
-              inputs.nixos-hardware.nixosModules.raspberry-pi-5
-              (import "${self}/system/rpi5.nix")
-            ]
-            ++ mainModules
-            ++ prop.modules;
-        };
         # Hetzner
-        hetzner = prop: {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            stateVersion = stateVersion;
-            hostName = prop.hostName;
+        hetzner =
+          prop:
+          inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs;
+              stateVersion = stateVersion;
+              hostName = prop.hostName;
+            };
+            modules =
+              [
+                inputs.disko.nixosModules.disko
+                (import "${self}/system/hetzner.nix")
+              ]
+              ++ baseModules
+              ++ prop.modules;
           };
-          modules =
-            [
-              inputs.disko.nixosModules.disko
-              (import "${self}/system/hetzner.nix")
-            ]
-            ++ baseModules
-            ++ prop.modules;
-        };
       };
 
       # DevShells
