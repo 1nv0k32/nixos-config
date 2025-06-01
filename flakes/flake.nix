@@ -7,14 +7,19 @@
 
   outputs =
     { cfg, ... }:
+    let
+      mkHost = host: systemType: systemType {
+        hostName = host;
+        modules = cfg.optionalLocalModules [
+          ./hardware-configuration.nix
+          ./local.nix
+        ];
+      };
+    in
     {
       nixosConfigurations = {
-        nyx = cfg.systemTypes.z13g2 {
-          hostName = "nyx";
-          modules = cfg.optionalLocalModules [
-            ./hardware-configuration.nix
-            ./local.nix
-          ];
+        mapAttrs mkHost {
+          nyx = cfg.systemTypes.z13g2;
         };
         nyxvm = cfg.systemTypes.vm {
           hostName = "nyxvm";
