@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  stateVersion,
+  config,
+  lib,
+  ...
+}:
 let
   mainUser = config.environment.sysConf.mainUser;
 in
@@ -61,6 +66,13 @@ in
       uid = 1001;
       isNormalUser = true;
       password = "guest";
+    };
+
+    home-manager = {
+      sharedModules = [ (import ../home/base.nix) ];
+      extraSpecialArgs = {
+        inherit stateVersion;
+      };
     };
 
     home-manager.users = {

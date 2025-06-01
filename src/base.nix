@@ -1,12 +1,13 @@
 {
   hostName,
+  stateVersion,
   pkgs,
   lib,
   ...
 }:
 {
   imports = [
-    (import ./users.nix)
+    (import ./users.nix { inherit stateVersion; })
     (import ./libs/systemd.nix)
     (import ./libs/logind.nix)
     (import ./libs/networking.nix)

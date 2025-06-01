@@ -13,13 +13,6 @@
     device = "none";
   };
 
-  home-manager = {
-    sharedModules = [ (import ../home/base.nix) ];
-    extraSpecialArgs = {
-      inherit stateVersion;
-    };
-  };
-
   environment = {
     etc = {
       "inputrc".text = lib.mkForce (
