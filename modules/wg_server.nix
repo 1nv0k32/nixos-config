@@ -36,6 +36,7 @@ in
     networking.firewall.allowedUDPPorts = [ cfg.port ];
     systemd.network = {
       enable = true;
+
       netdevs."50-${cfg.interface}" = {
         netdevConfig = {
           Name = cfg.interface;
@@ -49,6 +50,7 @@ in
         };
         wireguardPeers = cfg.peers;
       };
+
       networks.${cfg.interface} = {
         matchConfig.Name = cfg.interface;
         address = [ cfg.ip ];
