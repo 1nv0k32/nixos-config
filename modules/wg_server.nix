@@ -1,4 +1,9 @@
-{ defaultInterface, pkgs, ... }:
+{
+  defaultInterface,
+  pkgs,
+  lib,
+  ...
+}:
 let
   wgInterface = "wg0";
   wgIPRange = "10.100.0.1/24";
@@ -12,6 +17,7 @@ in
 
   networking.wireguard.interfaces = {
     ${wgInterface} = {
+      privateKeyFile = lib.mkDefault "/var/lib/wg0_key";
       ips = [ wgIPRange ];
       listenPort = wgPort;
 
