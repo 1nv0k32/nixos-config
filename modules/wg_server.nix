@@ -22,10 +22,12 @@ in
 
       privateKeyFile = lib.mkOption {
         type = lib.types.str;
+        default = "";
       };
 
       peers = lib.mkOption {
         type = lib.types.listOf lib.types.attrs;
+        default = [ ];
       };
     };
   };
