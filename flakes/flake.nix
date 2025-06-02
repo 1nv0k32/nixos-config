@@ -21,10 +21,10 @@
     {
       nixosConfigurations = builtins.mapAttrs mkHost {
         nyx = cfg.systemTypes.z13g2;
-        nyxvm = cfg.systemTypes.vm;
-        nyxwsl = cfg.systemTypes.wsl;
-        nyxpi = cfg.systemTypes.rpi5;
         nyxhub = cfg.systemTypes.hetzner;
+        nyxwsl = cfg.systemTypes.wsl;
+        # nyxvm = cfg.systemTypes.vm;
+        # nyxpi = cfg.systemTypes.rpi5;
       };
     };
 }
