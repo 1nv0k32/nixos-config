@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    (import ./disk.nix)
+    (import ./disko.nix)
     (import ../../modules/wg_server.nix)
   ];
 
