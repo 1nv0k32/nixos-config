@@ -17,6 +17,7 @@
 
   services = {
     power-profiles-daemon.enable = lib.mkForce false;
+    fprintd.enable = true;
     tlp = {
       enable = true;
       settings = {
