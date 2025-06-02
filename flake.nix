@@ -34,15 +34,15 @@
     { self, ... }@inputs:
     let
       stateVersion = "25.05";
-      mainModules = [
+      defaultModules = [
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
-        (import "${self}/pkgs/overlays.nix" { inherit inputs; })
+        (import "${self}/pkgs/overlays.nix" inputs)
         (import "${self}/modules")
         (import "${self}/src")
       ];
-      baseModules = mainModules ++ [
+      baseModules = defaultModules ++ [
         (import "${self}/src/base.nix")
         (import "${self}/pkgs/base.nix")
       ];
@@ -133,7 +133,7 @@
                 inputs.nixos-hardware.nixosModules.raspberry-pi-5
                 (import "${self}/system/rpi5.nix")
               ]
-              ++ mainModules
+              ++ defaultModules
               ++ optionalLocalModules attrs.modules;
           };
         # Hetzner
