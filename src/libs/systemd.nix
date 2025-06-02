@@ -11,7 +11,10 @@ let
   '';
 in
 {
-  boot.initrd.systemd.extraConfig = SYSTEMD_CONFIG;
+  boot.initrd.systemd = {
+    enable = true;
+    extraConfig = SYSTEMD_CONFIG;
+  };
   systemd = {
     watchdog = {
       runtimeTime = "off";
