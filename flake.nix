@@ -77,8 +77,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit stateVersion;
-              hostName = attrs.hostName;
+              inherit (attrs) stateVersion hostName;
             };
             modules =
               [
