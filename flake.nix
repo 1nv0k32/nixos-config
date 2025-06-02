@@ -62,8 +62,6 @@
             path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
           )
         );
-
-      specialArgs =
     in
     {
 
