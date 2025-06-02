@@ -9,10 +9,6 @@
     stateVersion = stateVersion;
   };
 
-  fileSystems."/" = lib.mkDefault {
-    device = "none";
-  };
-
   environment = {
     etc = {
       "inputrc".text = lib.mkForce (
