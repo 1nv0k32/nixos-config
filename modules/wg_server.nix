@@ -1,32 +1,55 @@
-{
-  defaultInterface,
-  pkgs,
-  lib,
-  ...
-}:
+{ lib, config, ... }:
 let
-  wgInterface = "wg0";
-  wgIPRange = "10.100.0.1/24";
-  wgPort = 22531;
+  cfg = config.environment.sysConf.wg;
 in
 {
-  networking.nat.internalInterfaces = [ wgInterface ];
-  networking.firewall = {
-    allowedUDPPorts = [ wgPort ];
+  options.environment.sysConf.wg = {
+    interface = lib.mkOption {
+      type = lib.types.str;
+      default = "wg0";
+    };
+
+    ip = lib.mkOption {
+      type = lib.types.str;
+      default = 51820;
+    };
+
+    port = lib.mkOption {
+      type = lib.types.str;
+      default = 51820;
+    };
   };
 
-  networking.wireguard.interfaces = {
-    ${wgInterface} = {
-      privateKeyFile = lib.mkDefault "/var/lib/wg0_key";
-      ips = [ wgIPRange ];
-      listenPort = wgPort;
-
-      postSetup = ''
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${wgIPRange} -o ${defaultInterface} -j MASQUERADE
-      '';
-      postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s ${wgIPRange} -o ${defaultInterface} -j MASQUERADE
-      '';
+  config = {
+    networking.firewall.allowedUDPPorts = [ cfg.port ];
+    systemd.network = {
+      enable = true;
+      netdevs."50-${cfg.interface}" = {
+        netdevConfig = {
+          Kind = "wireguard";
+          Name = cfg.interface;
+          MTUBytes = "1300";
+        };
+        wireguardConfig = {
+          PrivateKeyFile = "/run/keys/wireguard-privkey";
+          ListenPort = cfg.port;
+          RouteTable = "main";
+        };
+        wireguardPeers = [
+          {
+            PublicKey = "L4msD0mEG2ctKDtaMJW2y3cs1fT2LBRVV7iVlWZ2nZc=";
+            AllowedIPs = [ "10.100.0.2" ];
+          }
+        ];
+      };
+      networks.${cfg.interface} = {
+        matchConfig.Name = cfg.interface;
+        address = [ "10.100.0.1/24" ];
+        networkConfig = {
+          IPMasquerade = "ipv4";
+          IPForward = true;
+        };
+      };
     };
   };
 }

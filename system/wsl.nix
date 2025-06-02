@@ -3,11 +3,14 @@
   config,
   ...
 }:
+let
+  cfg = config.environment.sysConf;
+in
 {
   wsl = {
     enable = true;
     startMenuLaunchers = true;
-    defaultUser = config.environment.sysConf.mainUser;
+    defaultUser = cfg.user.name;
   };
 
   programs.nix-ld = {
