@@ -95,7 +95,7 @@
             system = "x86_64-linux";
             specialArgs = {
               inherit stateVersion;
-              hostName = attrs.hostName;
+              inherit (attrs) hostName;
             };
             modules =
               [
@@ -113,7 +113,7 @@
             system = "x86_64-linux";
             specialArgs = {
               inherit stateVersion;
-              hostName = attrs.hostName;
+              inherit (attrs) hostName;
             };
             modules =
               [
@@ -130,7 +130,7 @@
             system = "x86_64-linux";
             specialArgs = {
               inherit stateVersion;
-              hostName = attrs.hostName;
+              inherit (attrs) hostName;
             };
             modules =
               [
@@ -146,7 +146,7 @@
             system = "aarch64-linux";
             specialArgs = {
               inherit stateVersion;
-              hostName = attrs.hostName;
+              inherit (attrs) hostName;
             };
             modules =
               [
