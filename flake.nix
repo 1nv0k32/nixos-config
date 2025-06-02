@@ -34,6 +34,8 @@
     { self, ... }@inputs:
     let
       stateVersion = "25.05";
+
+      # Modules
       defaultModules = [
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
@@ -82,8 +84,8 @@
               ++ extraModules
               ++ optionalLocalModules attrs.modules;
           };
-        # VM
-        vm =
+        # Hetzner
+        hetzner =
           attrs:
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
@@ -93,9 +95,9 @@
             };
             modules =
               [
-                (import "${self}/system/vm.nix")
+                (import "${self}/system/hetzner.nix")
               ]
-              ++ extraModules
+              ++ baseModules
               ++ optionalLocalModules attrs.modules;
           };
         # WSL-NixOS
@@ -115,6 +117,22 @@
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
           };
+        # VM
+        vm =
+          attrs:
+          inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs stateVersion;
+              hostName = attrs.hostName;
+            };
+            modules =
+              [
+                (import "${self}/system/vm.nix")
+              ]
+              ++ extraModules
+              ++ optionalLocalModules attrs.modules;
+          };
         # Raspberry Pi 5
         rpi5 =
           attrs:
@@ -130,22 +148,6 @@
                 (import "${self}/system/rpi5.nix")
               ]
               ++ defaultModules
-              ++ optionalLocalModules attrs.modules;
-          };
-        # Hetzner
-        hetzner =
-          attrs:
-          inputs.nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = {
-              inherit inputs stateVersion;
-              hostName = attrs.hostName;
-            };
-            modules =
-              [
-                (import "${self}/system/hetzner.nix")
-              ]
-              ++ baseModules
               ++ optionalLocalModules attrs.modules;
           };
       };
