@@ -77,7 +77,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs stateVersion;
+              inherit stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -94,7 +94,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs stateVersion;
+              inherit stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -112,7 +112,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs stateVersion;
+              inherit stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -129,7 +129,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs stateVersion;
+              inherit stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -145,7 +145,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             specialArgs = {
-              inherit inputs stateVersion;
+              inherit stateVersion;
               hostName = attrs.hostName;
             };
             modules =
