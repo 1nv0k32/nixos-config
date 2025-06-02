@@ -62,6 +62,8 @@
             path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
           )
         );
+
+      specialArgs =
     in
     {
 
@@ -72,7 +74,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              stateVersion = stateVersion;
+              inherit inputs stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -89,7 +91,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              stateVersion = stateVersion;
+              inherit inputs stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -105,7 +107,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              stateVersion = stateVersion;
+              inherit inputs stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -122,7 +124,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             specialArgs = {
-              stateVersion = stateVersion;
+              inherit inputs stateVersion;
               hostName = attrs.hostName;
             };
             modules =
@@ -139,7 +141,7 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              stateVersion = stateVersion;
+              inherit inputs stateVersion;
               hostName = attrs.hostName;
             };
             modules =
