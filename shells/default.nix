@@ -2,6 +2,7 @@
 {
   default = pkgs.mkShell {
     shellHook = ''
+      echo $SHELL
       nixconf() (
         [ -f flake.nix ] && [ -f flake.lock ] || exit 1
         cd $(${pkgs.git}/bin/git rev-parse --show-toplevel 2> /dev/null)

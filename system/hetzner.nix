@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   mainUser = config.environment.sysConf.mainUser;
   mainUserSSHKey = config.environment.sysConf.mainUserSSHKey;
@@ -6,7 +11,7 @@ let
 in
 {
   imports = [
-    (import ../modules/wg_server.nix { inherit pkgs defaultInterface; })
+    (import ../modules/wg_server.nix { inherit lib pkgs defaultInterface; })
   ];
 
   boot = {
