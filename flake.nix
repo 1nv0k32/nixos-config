@@ -41,7 +41,7 @@
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" inputs)
         (import "${self}/modules")
-        (import "${self}/src" { nixpkgs = inputs.nixpkgs; })
+        (import "${self}/src")
       ];
       baseModules = defaultModules ++ [
         (import "${self}/src/base.nix")
