@@ -28,7 +28,7 @@
           esac
         done
       '';
-      nixup = pkgs.writeShellScriptBin "nixconf" ''
+      nixup = pkgs.writeShellScriptBin "nixup" ''
         #! ${pkgs.stdenv.shell}
         set -euo pipefail
         sudo nix flake update --flake path:/etc/nixos
