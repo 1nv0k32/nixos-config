@@ -22,6 +22,10 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hardware
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -44,6 +48,7 @@
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
         inputs.disko.nixosModules.disko
+        inputs.nixos-generators.nixosModules.all-formats
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" inputs)
         (import "${self}/modules")
