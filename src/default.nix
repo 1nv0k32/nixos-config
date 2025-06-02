@@ -1,5 +1,5 @@
 {
-  inputs,
+  nixpkgs,
   stateVersion,
   lib,
   ...
@@ -16,7 +16,7 @@
   environment = {
     etc = {
       "inputrc".text = lib.mkForce (
-        builtins.readFile "${inputs.nixpkgs}/nixos/modules/programs/bash/inputrc"
+        builtins.readFile "${nixpkgs}/nixos/modules/programs/bash/inputrc"
         + ''
           set completion-ignore-case on
           set colored-completion-prefix on

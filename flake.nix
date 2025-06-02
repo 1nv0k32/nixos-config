@@ -37,10 +37,11 @@
       defaultModules = [
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
+        inputs.disko.nixosModules.disko
         inputs.nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" inputs)
         (import "${self}/modules")
-        (import "${self}/src")
+        (import "${self}/src" { nixpkgs = inputs.nixpkgs; })
       ];
       baseModules = defaultModules ++ [
         (import "${self}/src/base.nix")
@@ -71,7 +72,6 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs;
               stateVersion = stateVersion;
               hostName = attrs.hostName;
             };
@@ -89,7 +89,6 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs;
               stateVersion = stateVersion;
               hostName = attrs.hostName;
             };
@@ -106,7 +105,6 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs;
               stateVersion = stateVersion;
               hostName = attrs.hostName;
             };
@@ -124,7 +122,6 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             specialArgs = {
-              inherit inputs;
               stateVersion = stateVersion;
               hostName = attrs.hostName;
             };
@@ -142,13 +139,11 @@
           inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
-              inherit inputs;
               stateVersion = stateVersion;
               hostName = attrs.hostName;
             };
             modules =
               [
-                inputs.disko.nixosModules.disko
                 (import "${self}/system/hetzner.nix")
               ]
               ++ baseModules
