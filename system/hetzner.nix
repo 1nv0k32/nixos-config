@@ -15,10 +15,6 @@ in
   ];
 
   boot = {
-    loader.grub = {
-      enable = true;
-      device = "/dev/sda";
-    };
     initrd.systemd.enable = true;
   };
 
@@ -35,30 +31,32 @@ in
   users.users."${mainUser}".openssh.authorizedKeys.keys = [ mainUserSSHKey ];
 
   networking = {
+    useNetworkd = true;
+    useDHCP = false;
     nat = {
       enable = true;
       externalInterface = defaultInterface;
     };
-    interfaces.${defaultInterface} = {
-      useDHCP = false;
-      ipv4.addresses = [ ];
-      ipv4.routes = [
-        {
-          address = "0.0.0.0";
-          prefixLength = 0;
-          via = "172.31.1.1";
-          options.onlink = "";
-        }
-      ];
-      ipv6.addresses = [ ];
-      ipv6.routes = [
-        {
-          address = "::";
-          prefixLength = 0;
-          via = "fe80::1";
-          options.onlink = "";
-        }
-      ];
-    };
+    # interfaces.${defaultInterface} = {
+    #   useDHCP = false;
+    #   ipv4.addresses = [ ];
+    #   ipv4.routes = [
+    #     {
+    #       address = "0.0.0.0";
+    #       prefixLength = 0;
+    #       via = "172.31.1.1";
+    #       options.onlink = "";
+    #     }
+    #   ];
+    #   ipv6.addresses = [ ];
+    #   ipv6.routes = [
+    #     {
+    #       address = "::";
+    #       prefixLength = 0;
+    #       via = "fe80::1";
+    #       options.onlink = "";
+    #     }
+    #   ];
+    # };
   };
 }

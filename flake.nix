@@ -99,6 +99,7 @@
             };
             modules =
               [
+                inputs.srvos.nixosModules.hardware-hetzner-cloud
                 (import "${self}/system/hetzner.nix")
               ]
               ++ baseModules
