@@ -64,7 +64,6 @@
         );
     in
     {
-
       systemTypes = {
         # Thinkpad Z13 Gen2
         z13g2 =
