@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    (import ../modules/wg_server.nix)
+    (import ./disk.nix)
+    (import ../../modules/wg_server.nix)
   ];
 
   networking = {

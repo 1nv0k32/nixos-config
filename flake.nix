@@ -106,7 +106,7 @@
               [
                 inputs.srvos.nixosModules.hardware-hetzner-cloud
                 (import "${self}/system/server.nix")
-                (import "${self}/system/hetzner.nix")
+                (import "${self}/system/hetzner")
               ]
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
