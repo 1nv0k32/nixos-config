@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  fileSystems."/" = lib.mkDefault {
+  fileSystems."/" = lib.mkForce {
     device = "none";
   };
 }
