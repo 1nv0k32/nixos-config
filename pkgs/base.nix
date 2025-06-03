@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    (import ./scripts.nix)
+  ];
+
   environment.systemPackages = with pkgs; [
     git
     openssl
