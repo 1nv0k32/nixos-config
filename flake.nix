@@ -40,16 +40,17 @@
 
   outputs =
     { self, ... }@inputs:
+    with inputs;
     let
       stateVersion = "25.05";
 
       # Modules
       defaultModules = [
-        inputs.sops-nix.nixosModules.sops
-        inputs.home-manager.nixosModules.home-manager
-        inputs.disko.nixosModules.disko
-        inputs.nixos-generators.nixosModules.all-formats
-        inputs.nixvim.nixosModules.nixvim
+        sops-nix.nixosModules.sops
+        home-manager.nixosModules.home-manager
+        disko.nixosModules.disko
+        nixos-generators.nixosModules.all-formats
+        nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" inputs)
         (import "${self}/modules")
         (import "${self}/src")
@@ -69,8 +70,8 @@
       optionalLocalModules =
         nix_paths:
         builtins.concatLists (
-          inputs.nixpkgs.lib.lists.forEach nix_paths (
-            path: inputs.nixpkgs.lib.optional (builtins.pathExists path) (import path)
+          nixpkgs.lib.lists.forEach nix_paths (
+            path: nixpkgs.lib.optional (builtins.pathExists path) (import path)
           )
         );
     in
@@ -79,7 +80,7 @@
         # Thinkpad Z13 Gen2
         z13g2 =
           attrs:
-          inputs.nixpkgs.lib.nixosSystem {
+          nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit stateVersion;
@@ -87,7 +88,7 @@
             };
             modules =
               [
-                inputs.nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+                nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
                 (import "${self}/system/z13g2.nix")
               ]
               ++ extraModules
@@ -96,7 +97,7 @@
         # Hetzner
         hetzner =
           attrs:
-          inputs.nixpkgs.lib.nixosSystem {
+          nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit stateVersion;
@@ -104,7 +105,7 @@
             };
             modules =
               [
-                # inputs.srvos.nixosModules.hardware-hetzner-cloud
+                # srvos.nixosModules.hardware-hetzner-cloud
                 (import "${self}/system/server.nix")
                 (import "${self}/system/hetzner")
               ]
@@ -114,7 +115,7 @@
         # WSL-NixOS
         wsl =
           attrs:
-          inputs.nixpkgs.lib.nixosSystem {
+          nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit stateVersion;
@@ -122,7 +123,7 @@
             };
             modules =
               [
-                inputs.nixos-wsl.nixosModules.wsl
+                nixos-wsl.nixosModules.wsl
                 (import "${self}/system/wsl.nix")
               ]
               ++ baseModules
@@ -131,7 +132,7 @@
         # VM
         vm =
           attrs:
-          inputs.nixpkgs.lib.nixosSystem {
+          nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit stateVersion;
@@ -147,7 +148,7 @@
         # Raspberry Pi 5
         rpi5 =
           attrs:
-          inputs.nixpkgs.lib.nixosSystem {
+          nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             specialArgs = {
               inherit stateVersion;
@@ -155,7 +156,7 @@
             };
             modules =
               [
-                inputs.nixos-hardware.nixosModules.raspberry-pi-5
+                nixos-hardware.nixosModules.raspberry-pi-5
                 (import "${self}/system/rpi5.nix")
               ]
               ++ defaultModules
@@ -167,7 +168,7 @@
       devShells =
         let
           system = "x86_64-linux";
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
+          pkgs = nixpkgs.legacyPackages.${system};
           defaultShell = (import "${self}/shells/default.nix" { inherit pkgs; });
           kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
         in
