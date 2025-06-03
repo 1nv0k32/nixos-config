@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     git
     openssl
+    nixos-anywhere
     sops
     git-crypt
     tree
