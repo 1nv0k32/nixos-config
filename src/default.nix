@@ -11,6 +11,10 @@
 
   environment = {
     etc = {
+      "nixos/flake.nix" = {
+        source = ../flakes/flake.nix;
+        mode = "hardlink";
+      };
       "inputrc".text = lib.mkForce (
         builtins.readFile "${modulesPath}/programs/bash/inputrc"
         + ''
