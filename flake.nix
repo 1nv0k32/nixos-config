@@ -105,7 +105,7 @@
             };
             modules =
               [
-                # srvos.nixosModules.hardware-hetzner-cloud
+                srvos.nixosModules.hardware-hetzner-cloud
                 (import "${self}/system/server.nix")
                 (import "${self}/system/hetzner")
               ]
