@@ -5,7 +5,7 @@
     (import ../../modules/wg_server.nix)
   ];
 
-  boot.initrd.systemd.enable = lib.mkForce true;
+  boot.initrd.systemd.enable = lib.mkForce false;
   networking = {
     useNetworkd = true;
     useDHCP = false;
