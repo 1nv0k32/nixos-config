@@ -7,7 +7,7 @@
 
   environment.etc."nixos/flake.nix" = {
     source = ../../flakes/flake.nix;
-    mode = "direct-symlink";
+    mode = "hardlink";
   };
 
   networking = {
