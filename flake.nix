@@ -109,8 +109,6 @@
             };
             modules =
               [
-                mkIf
-                system
                 srvos.nixosModules.hardware-hetzner-cloud
                 (import "${self}/system/server.nix")
                 (import "${self}/system/hetzner")
@@ -128,8 +126,6 @@
             };
             modules =
               [
-                mkIf
-                system
                 srvos.nixosModules.hardware-hetzner-cloud-arm
                 (import "${self}/system/server.nix")
                 (import "${self}/system/hetzner")
