@@ -99,17 +99,38 @@
               ++ optionalLocalModules attrs.modules;
           };
         # Hetzner
-        hetzner =
-          system: attrs:
+        hetzner.amd =
+          attrs:
           nixpkgs.lib.nixosSystem {
-            inherit system;
+            system = self.systemArch.amd;
             specialArgs = {
               inherit stateVersion;
               inherit (attrs) hostName;
             };
             modules =
               [
+                mkIf
+                system
                 srvos.nixosModules.hardware-hetzner-cloud
+                (import "${self}/system/server.nix")
+                (import "${self}/system/hetzner")
+              ]
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
+          };
+        hetzner.arm =
+          attrs:
+          nixpkgs.lib.nixosSystem {
+            system = self.systemArch.arm;
+            specialArgs = {
+              inherit stateVersion;
+              inherit (attrs) hostName;
+            };
+            modules =
+              [
+                mkIf
+                system
+                srvos.nixosModules.hardware-hetzner-cloud-arm
                 (import "${self}/system/server.nix")
                 (import "${self}/system/hetzner")
               ]

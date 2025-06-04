@@ -21,8 +21,8 @@
     {
       nixosConfigurations = builtins.mapAttrs mkHost {
         nyx = cfg.systemTypes.z13g2;
-        nyxhub = cfg.systemTypes.hetzner cfg.systemArch.amd;
-        nyxarm = cfg.systemTypes.hetzner cfg.systemArch.arm;
+        nyxhub = cfg.systemTypes.hetzner.amd;
+        nyxarm = cfg.systemTypes.hetzner.arm;
         nyxwsl = cfg.systemTypes.wsl;
         # nyxvm = cfg.systemTypes.vm;
         # nyxpi = cfg.systemTypes.rpi5;
