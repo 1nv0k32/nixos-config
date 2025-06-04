@@ -76,12 +76,16 @@
         );
     in
     {
+      systemArch = {
+        amd = "x86_64-linux";
+        arm = "aarch64-linux";
+      };
       systemTypes = {
         # Thinkpad Z13 Gen2
         z13g2 =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            system = self.systemArch.amd;
             specialArgs = {
               inherit stateVersion;
               inherit (attrs) hostName;
@@ -116,7 +120,7 @@
         wsl =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            system = self.systemArch.amd;
             specialArgs = {
               inherit stateVersion;
               inherit (attrs) hostName;
@@ -133,7 +137,7 @@
         vm =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            system = self.systemArch.amd;
             specialArgs = {
               inherit stateVersion;
               inherit (attrs) hostName;
@@ -149,7 +153,7 @@
         rpi5 =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = "aarch64-linux";
+            system = self.systemArch.arm;
             specialArgs = {
               inherit stateVersion;
               inherit (attrs) hostName;
