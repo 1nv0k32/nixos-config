@@ -1,19 +1,11 @@
-{ ... }:
+{ lib, ... }:
 {
   imports = [
     (import ./disko.nix)
     (import ../../modules/wg_server.nix)
   ];
 
-  boot.initrd.availableKernelModules = [
-    "ahci"
-    "xhci_pci"
-    "virtio_pci"
-    "virtio_scsi"
-    "sd_mod"
-    "sr_mod"
-  ];
-
+  boot.initrd.systemd.enable = lib.mkForce true;
   networking = {
     useNetworkd = true;
     useDHCP = false;
