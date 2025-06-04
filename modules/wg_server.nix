@@ -5,6 +5,8 @@ in
 {
   options.environment.sysConf = {
     server.wg = {
+      enable = lib.mkEnableOption "wg server";
+
       interface = lib.mkOption {
         type = lib.types.str;
         default = "wg0";
@@ -27,12 +29,17 @@ in
 
       peers = lib.mkOption {
         type = lib.types.listOf lib.types.attrs;
-        default = [ ];
+        default = [
+          {
+            PublicKey = "";
+            AllowedIPs = [ "10.100.0.2/32" ];
+          }
+        ];
       };
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     networking.firewall.allowedUDPPorts = [ cfg.port ];
     systemd.network = {
       enable = true;
