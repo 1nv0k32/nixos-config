@@ -21,7 +21,8 @@
     {
       nixosConfigurations = builtins.mapAttrs mkHost {
         nyx = cfg.systemTypes.z13g2;
-        nyxhub = cfg.systemTypes.hetzner;
+        nyxhub = cfg.systemTypes.hetzner "x86_64-linux";
+        nyxarm = cfg.systemTypes.hetzner "aarch64-linux";
         nyxwsl = cfg.systemTypes.wsl;
         # nyxvm = cfg.systemTypes.vm;
         # nyxpi = cfg.systemTypes.rpi5;

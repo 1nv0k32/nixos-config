@@ -96,9 +96,9 @@
           };
         # Hetzner
         hetzner =
-          attrs:
+          system: attrs:
           nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            inherit system;
             specialArgs = {
               inherit stateVersion;
               inherit (attrs) hostName;
