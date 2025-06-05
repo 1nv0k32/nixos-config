@@ -1,10 +1,11 @@
 { lib, ... }:
 {
-  # imports = [
-  #   (import ../modules/media.nix)
-  #   (import ../modules/k3s.nix)
-  #   (import ../modules/gitea.nix)
-  # ];
+  imports = [
+    (import ./server.nix)
+    (import ../modules/media.nix)
+    (import ../modules/k3s.nix)
+    (import ../modules/gitea.nix)
+  ];
 
   users.users.root.initialPassword = "root";
 
@@ -26,9 +27,5 @@
       wlan0.useDHCP = true;
       eth0.useDHCP = true;
     };
-  };
-
-  services = {
-    openssh.enable = true;
   };
 }
