@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 {
   imports = [
-    # (import ./disko.nix)
+    (import ./disko.nix)
     # (import ../../modules/media.nix)
     # (import ../../modules/k3s.nix)
     # (import ../../modules/gitea.nix)
