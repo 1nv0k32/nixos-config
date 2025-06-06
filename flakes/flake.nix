@@ -24,8 +24,8 @@
         nyxhub = cfg.systemTypes.hetzner.amd;
         nyxarm = cfg.systemTypes.hetzner.arm;
         nyxwsl = cfg.systemTypes.wsl;
+        nyxpi = cfg.systemTypes.rpi5;
         # nyxvm = cfg.systemTypes.vm;
-        # nyxpi = cfg.systemTypes.rpi5;
       };
     };
 }
