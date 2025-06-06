@@ -180,7 +180,7 @@
                 (import "${self}/system/server.nix")
                 (import "${self}/system/rpi5")
               ]
-              ++ baseModules
+              ++ defaultModules
               ++ optionalLocalModules attrs.modules;
           };
       };
