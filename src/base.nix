@@ -1,17 +1,14 @@
 {
   hostName,
-  stateVersion,
   pkgs,
   lib,
   ...
-}@attrs:
+}:
 {
   imports = [
-    (import ./users.nix attrs)
     (import ./libs/systemd.nix)
     (import ./libs/logind.nix)
     (import ./libs/networking.nix)
-    (import ./libs/nix.nix)
   ];
 
   boot = {

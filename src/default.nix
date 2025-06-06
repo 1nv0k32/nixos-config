@@ -3,8 +3,13 @@
   stateVersion,
   lib,
   ...
-}:
+}@attrs:
 {
+  imports = [
+    (import ./libs/nix.nix)
+    (import ./users.nix attrs)
+  ];
+
   system = {
     stateVersion = stateVersion;
   };
