@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     # (import ./disko.nix)
@@ -10,6 +10,7 @@
   users.users.root.initialPassword = "root";
 
   boot = {
+    kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_rpi4;
     kernelParams = [
       "cgroup_enable=memory"
       "cgroup_enable=cpuset"
