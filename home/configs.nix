@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 {
   DOT_BASHRC = lib.mkDefault ''
     alias k='kubectl'
