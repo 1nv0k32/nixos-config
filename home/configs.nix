@@ -8,7 +8,5 @@
     if test -f ~/.bashrc.local; then
     . ~/.bashrc.local
     fi
-
-    ${pkgs.fastfetch}/bin/fastfetch
   '';
 }
