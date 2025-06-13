@@ -7,7 +7,7 @@ let
     tiling-assistant
     caffeine
     unblank
-    vitals
+    # vitals
   ];
 in
 {
