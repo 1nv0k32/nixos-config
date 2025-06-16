@@ -1,8 +1,7 @@
 { pkgs, ... }:
 let
   bashOpts = ''
-    #! ${pkgs.stdenv.shell}
-    set -euo pipefai
+    set -euo pipefail
   '';
   nixconf = pkgs.writeShellScriptBin "nixconf" ''
     ${bashOpts}
