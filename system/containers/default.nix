@@ -1,4 +1,4 @@
-{ ... }:
+{ self, ... }:
 {
   containers = {
     server01 = {
@@ -6,7 +6,7 @@
         { ... }:
         {
           imports = [
-            (import ../../modules/k3s.nix)
+            (import "${self}/modules/k3s.nix")
           ];
         };
     };
