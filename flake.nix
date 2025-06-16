@@ -64,6 +64,7 @@
         (import "${self}/src/extra.nix")
         (import "${self}/pkgs/extra.nix")
         (import "${self}/modules/gui")
+        (import "${self}/system/containers")
       ];
 
       # Definitions
