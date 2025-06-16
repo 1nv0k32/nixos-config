@@ -9,7 +9,7 @@ let
     cd $(git rev-parse --show-toplevel 2> /dev/null)
     while true; do
       git add -A
-      pre-commit run --all-files
+      pre-commit run --all-files || continue
       git --no-pager diff --cached
       WORK_BRANCH=$(git branch --show-current)
       read -p "Do you wish to commit these changes on $WORK_BRANCH? [Yn] " yn
