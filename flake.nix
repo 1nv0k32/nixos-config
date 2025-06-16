@@ -88,7 +88,7 @@
           nixpkgs.lib.nixosSystem {
             system = self.systemArch.amd;
             specialArgs = {
-              inherit stateVersion;
+              inherit self stateVersion;
               inherit (attrs) hostName;
             };
             modules =
@@ -105,7 +105,7 @@
           nixpkgs.lib.nixosSystem {
             system = self.systemArch.amd;
             specialArgs = {
-              inherit stateVersion;
+              inherit self stateVersion;
               inherit (attrs) hostName;
             };
             modules =
@@ -122,7 +122,7 @@
           nixpkgs.lib.nixosSystem {
             system = self.systemArch.arm;
             specialArgs = {
-              inherit stateVersion;
+              inherit self stateVersion;
               inherit (attrs) hostName;
             };
             modules =
@@ -140,7 +140,7 @@
           nixpkgs.lib.nixosSystem {
             system = self.systemArch.amd;
             specialArgs = {
-              inherit stateVersion;
+              inherit self stateVersion;
               inherit (attrs) hostName;
             };
             modules =
@@ -157,7 +157,7 @@
           nixpkgs.lib.nixosSystem {
             system = self.systemArch.amd;
             specialArgs = {
-              inherit stateVersion;
+              inherit self stateVersion;
               inherit (attrs) hostName;
             };
             modules =
@@ -173,7 +173,7 @@
           nixpkgs.lib.nixosSystem {
             system = self.systemArch.arm;
             specialArgs = {
-              inherit stateVersion;
+              inherit self stateVersion;
               inherit (attrs) hostName;
             };
             modules =
