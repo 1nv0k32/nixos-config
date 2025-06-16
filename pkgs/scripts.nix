@@ -29,8 +29,11 @@ let
   '';
   nixup = pkgs.writeShellScriptBin "nixup" ''
     ${bashOpts}
-    sudo nix flake update --flake path:/etc/nixos
-    sudo nixos-rebuild switch
+    nixupFunction() {
+      nix flake update --flake path:/etc/nixos
+      nixos-rebuild switch
+    }
+    sudo nixupFunction
   '';
 in
 {
