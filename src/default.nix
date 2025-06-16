@@ -1,6 +1,6 @@
 {
+  self,
   modulesPath,
-  stateVersion,
   lib,
   ...
 }@attrs:
@@ -11,7 +11,7 @@
   ];
 
   system = {
-    stateVersion = stateVersion;
+    stateVersion = self.stateVersion;
   };
 
   environment = {

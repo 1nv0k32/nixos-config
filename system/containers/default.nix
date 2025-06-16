@@ -8,6 +8,7 @@
           imports = [
             (import "${self}/modules/k3s.nix")
           ];
+          stateVersion = self.stateVersion;
         };
     };
   };

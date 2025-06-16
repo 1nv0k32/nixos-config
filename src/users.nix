@@ -1,5 +1,5 @@
 {
-  stateVersion,
+  self,
   config,
   lib,
   ...
@@ -67,7 +67,7 @@ in
     home-manager = {
       sharedModules = [ (import ../home/base.nix) ];
       extraSpecialArgs = {
-        inherit stateVersion;
+        inherit (self) stateVersion;
       };
     };
 
