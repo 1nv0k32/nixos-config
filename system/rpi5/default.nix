@@ -1,10 +1,15 @@
-{ lib, pkgs, ... }:
+{
+  self,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
-    # (import ./disko.nix)
-    # (import ../../modules/media.nix)
-    # (import ../../modules/k3s.nix)
-    # (import ../../modules/gitea.nix)
+    (import ./disko.nix)
+    (import "${self}/modules/media.nix")
+    (import "${self}/modules/k3s.nix")
+    (import "${self}/modules/gitea.nix")
   ];
 
   users.users.root.initialPassword = "root";

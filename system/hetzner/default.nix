@@ -1,8 +1,8 @@
-{ ... }:
+{ self, ... }:
 {
   imports = [
     (import ./disko.nix)
-    (import ../../modules/wg_server.nix)
+    (import "${self}/modules/wg_server.nix")
   ];
 
   networking = {

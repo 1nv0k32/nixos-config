@@ -17,7 +17,7 @@
   environment = {
     etc = {
       "nixos/flake.nix" = {
-        source = ../flakes/flake.nix;
+        source = "${self}/flakes/flake.nix";
         mode = "0444";
       };
       "inputrc".text = lib.mkForce (

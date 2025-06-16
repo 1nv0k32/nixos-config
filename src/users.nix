@@ -65,7 +65,7 @@ in
     };
 
     home-manager = {
-      sharedModules = [ (import ../home/base.nix) ];
+      sharedModules = [ (import "${self}/home/base.nix") ];
       extraSpecialArgs = {
         inherit (self) stateVersion;
       };
