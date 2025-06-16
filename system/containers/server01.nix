@@ -2,6 +2,7 @@
 {
   containers = {
     server01 = {
+      autoStart = true;
       config =
         { ... }:
         {
