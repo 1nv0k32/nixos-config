@@ -1,13 +1,16 @@
 { pkgs, ... }:
 let
-  nixconf = pkgs.writeShellScriptBin "nixconf" ''
+  bashOpts = ''
     #! ${pkgs.stdenv.shell}
-    set -euo pipefail
+    set -euo pipefai
+  '';
+  nixconf = pkgs.writeShellScriptBin "nixconf" ''
+    ${bashOpts}
     [ -f flake.nix ] && [ -f flake.lock ] || false
     cd $(git rev-parse --show-toplevel 2> /dev/null)
     while true; do
-      git add -A
-      pre-commit run --all-files || git add -A
+      git add -A || pre-commit run --all-files
+      git add -A && pre-commit run --all-files
       git --no-pager diff --cached
       WORK_BRANCH=$(git branch --show-current)
       read -p "Do you wish to commit these changes on $WORK_BRANCH? [Yn] " yn
@@ -26,8 +29,7 @@ let
     done
   '';
   nixup = pkgs.writeShellScriptBin "nixup" ''
-    #! ${pkgs.stdenv.shell}
-    set -euo pipefail
+    ${bashOpts}
     sudo nix flake update --flake path:/etc/nixos
     sudo nixos-rebuild switch
   '';
