@@ -1,5 +1,5 @@
 {
-  self,
+  stateVersion,
   config,
   pkgs,
   ...
@@ -14,7 +14,7 @@ in
   ];
 
   home = {
-    stateVersion = self.stateVersion;
+    stateVersion = stateVersion;
     homeDirectory = "/home/${config.home.username}";
     file."${config.home.homeDirectory}/.background-image" = {
       source = ./bin/backgroud-image.jpg;
