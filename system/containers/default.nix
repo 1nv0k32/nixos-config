@@ -5,10 +5,10 @@
       config =
         { ... }:
         {
+          # stateVersion = self.stateVersion;
           imports = [
             (import "${self}/modules/k3s.nix")
           ];
-          stateVersion = self.stateVersion;
         };
     };
   };
