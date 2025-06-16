@@ -1,8 +1,16 @@
 ---
 repos:
+  - repo: local
+    hooks:
+      - id: nixfmt
+        name: nixfmt
+        language: system
+        types:
+          - nix
+        entry: nixfmt
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
+    - id: check-yaml
+    - id: end-of-file-fixer
+    - id: trailing-whitespace

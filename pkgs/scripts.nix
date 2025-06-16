@@ -4,23 +4,22 @@ let
     #! ${pkgs.stdenv.shell}
     set -euo pipefail
     [ -f flake.nix ] && [ -f flake.lock ] || false
-    cd $(${pkgs.git}/bin/git rev-parse --show-toplevel 2> /dev/null)
-    ${pkgs.pre-commit}/bin/pre-commit run --all-files
-    ${pkgs.findutils}/bin/find -regex ".*\.nix" -exec ${pkgs.nixfmt-rfc-style}/bin/nixfmt {} \;
+    cd $(git rev-parse --show-toplevel 2> /dev/null)
     while true; do
-      ${pkgs.git}/bin/git add -A
-      ${pkgs.git}/bin/git --no-pager diff --cached
-      WORK_BRANCH=$(${pkgs.git}/bin/git branch --show-current)
+      git add -A
+      pre-commit run --all-files || git add -A
+      git --no-pager diff --cached
+      WORK_BRANCH=$(git branch --show-current)
       read -p "Do you wish to commit these changes on $WORK_BRANCH? [Yn] " yn
       case $yn in
         [Nn]* )
           break
           ;;
         * )
-          ${pkgs.git}/bin/git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
-          ${pkgs.git}/bin/git fetch
-          ${pkgs.git}/bin/git rebase origin/$WORK_BRANCH  || (${pkgs.git}/bin/git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
-          ${pkgs.git}/bin/git push
+          git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
+          git fetch
+          git rebase origin/$WORK_BRANCH  || git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
+          git push
           break
           ;;
       esac
@@ -34,8 +33,11 @@ let
   '';
 in
 {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     nixconf
     nixup
+    git
+    pre-commit
+    nixfmt-rfc-style
   ];
 }

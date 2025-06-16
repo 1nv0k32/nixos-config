@@ -188,7 +188,7 @@
       # DevShells
       devShells =
         let
-          system = "x86_64-linux";
+          system = self.systemArch.amd;
           pkgs = nixpkgs.legacyPackages.${system};
           defaultShell = (import "${self}/shells/default.nix" { inherit pkgs; });
           kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
