@@ -7,8 +7,6 @@
 {
   imports = [
     (import ./disko.nix)
-    (import "${self}/modules/media.nix")
-    (import "${self}/modules/k3s.nix")
     (import "${self}/modules/gitea.nix")
   ];
 
