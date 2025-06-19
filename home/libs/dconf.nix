@@ -7,6 +7,7 @@ let
     tiling-assistant
     caffeine
     unblank
+    display-configuration-switcher
     # vitals
   ];
 in
