@@ -154,5 +154,14 @@ in
         "_system_uptime_"
       ];
     };
+
+    "org/gnome/shell/extensions/display-configuration-switcher/configs" = [
+      "('dual', uint32 3009710084, [(0, 0, 1.0, uint32 0, true, [('DP-10', '3440x1440@59.973', {'underscanning': <false>})]), (3440, 0, 1.0, 0, false, [('DP-2', '1920x1080@59.934', {'underscanning': <false>})])], @a{sv} {}, [('DP-10', 'PHL', 'PHL 346P1C', 'UK02208021981'), ('DP-2', 'LEN', 'LEN T24i-10', 'VNA2MMCV'), ('eDP-1', 'AUO', '0x53ad', '0x00000000')])"
+      "('single', 3900297547, [(0, 0, 1.0, 0, true, [('DP-10', '3440x1440@59.973', {'underscanning': <false>})])], {}, [('DP-10', 'PHL', 'PHL 346P1C', 'UK02208021981'), ('DP-2', 'LEN', 'LEN T24i-10', 'VNA2MMCV'), ('eDP-1', 'AUO', '0x53ad', '0x00000000')])"
+    ];
+    "org/gnome/shell/extensions/display-configuration-switcher/display-configuration-switcher-shortcut-next" =
+      [ "<Super>semicolon" ];
+    "org/gnome/shell/extensions/display-configuration-switcher/display-configuration-switcher-shortcut-previous" =
+      [ "<Shift><Super>colon" ];
   };
 }
