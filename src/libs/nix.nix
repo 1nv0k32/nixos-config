@@ -2,12 +2,16 @@
 {
   nix = {
     channel.enable = false;
+    gc = {
+      automatic = true;
+      dates = "daily";
+      persistent = true;
+      options = "--delete-older-than 3d";
+    };
     optimise = {
       automatic = true;
-      dates = [
-        "00:00"
-        "12:00"
-      ];
+      dates = [ "daily" ];
+      persistent = true;
     };
     settings = {
       min-free = 512 * 1024 * 1024;
