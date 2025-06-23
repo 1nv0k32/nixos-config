@@ -49,7 +49,7 @@ in
         netdevConfig = {
           Name = cfg.interface;
           Kind = "wireguard";
-          MTUBytes = "1300";
+          MTUBytes = "1440";
         };
         wireguardConfig = {
           ListenPort = cfg.port;
