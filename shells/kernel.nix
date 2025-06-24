@@ -21,14 +21,14 @@ let
     LINUX_DIR=linux
 
     cat <<-EOF > $INITRAMFS_DIR/init
-      #!/bin/sh
-      mkdir -p /dev
-      mkdir -p /proc
-      mkdir -p /sys
-      mount -t devtmpfs devtmpfs /dev
-      mount -t proc none /proc
-      mount -t sysfs none /sys
-      exec env HOME=/root /bin/sh
+    #!/bin/sh
+    mkdir -p /dev
+    mkdir -p /proc
+    mkdir -p /sys
+    mount -t devtmpfs devtmpfs /dev
+    mount -t proc none /proc
+    mount -t sysfs none /sys
+    exec env HOME=/root /bin/sh
     EOF
     chmod +x $INITRAMFS_DIR/init
     (
