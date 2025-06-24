@@ -45,7 +45,9 @@ let
       find . -print | cpio -H newc -o > ../initramfs.img
     )
   '';
-  defaultDevShell = prop: {
+in
+{
+  kernelEnv = pkgs.mkShell {
     nativeBuildInputs =
       with pkgs;
       [
@@ -79,17 +81,10 @@ let
         lld
       ]);
     NIX_HARDENING_ENABLE = "";
-    shellHook =
-      ''
-        JOBS=$([[ $(nproc) -gt 4 ]] && echo $(( $(nproc) - 4 )))
-        echo "Base make jobs: $JOBS"
-        export MAKEFLAGS="--jobs=$JOBS"
-      ''
-      + prop.shellHook;
+    shellHook = ''
+      JOBS=$([[ $(nproc) -gt 4 ]] && echo $(( $(nproc) - 4 )))
+      echo "Base make jobs: $JOBS"
+      export MAKEFLAGS="--jobs=$JOBS"
+    '';
   };
-in
-{
-  kernelEnv = pkgs.mkShell (defaultDevShell {
-    shellHook = '''';
-  });
 }
