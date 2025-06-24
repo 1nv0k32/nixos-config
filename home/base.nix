@@ -4,9 +4,6 @@
   pkgs,
   ...
 }@attrs:
-let
-  customConfigs = pkgs.callPackage ./configs.nix attrs;
-in
 {
   imports = [
     (import ./libs/dconf.nix attrs)
@@ -27,19 +24,14 @@ in
   programs = {
     bash = {
       enable = true;
-      bashrcExtra = customConfigs.DOT_BASHRC;
-    };
+      bashrcExtra = ''
+        alias k='kubectl'
+        source <(kubectl completion bash)
+        complete -o default -o nospace -F __start_kubectl k
 
-    readline = {
-      enable = true;
-      extraConfig = ''
-        set completion-ignore-case on
-        set colored-completion-prefix on
-        set skip-completed-text on
-        set visible-stats on
-        set colored-stats on
-        set mark-symlinked-directories on
-        set show-all-if-ambiguous on
+        if test -f ~/.bashrc.local; then
+        . ~/.bashrc.local
+        fi
       '';
     };
 
