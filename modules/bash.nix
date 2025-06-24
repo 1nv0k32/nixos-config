@@ -3,11 +3,14 @@
   programs.bash = {
     completion.enable = true;
     promptInit = ''
+      bind 'set completion-ignore-case on'
+      set -o notify
       shopt -s autocd cdspell dirspell no_empty_cmd_completion
       shopt -s checkwinsize checkhash
       shopt -s histverify histappend histreedit cmdhist
       shopt -s globstar extglob
-      export HISTCONTROL=ignoreboth
+      export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd*"
+      export HISTCONTROL="ignoreboth:erasedups"
       export HISTSIZE=-1
       export HISTFILESIZE=-1
       source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
