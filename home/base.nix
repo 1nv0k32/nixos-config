@@ -24,32 +24,32 @@ in
     };
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    bash = {
+      enable = true;
+      bashrcExtra = customConfigs.DOT_BASHRC;
+    };
 
-  programs.bash = {
-    enable = true;
-    bashrcExtra = customConfigs.DOT_BASHRC;
-  };
+    readline = {
+      enable = true;
+      extraConfig = ''
+        set completion-ignore-case on
+        set colored-completion-prefix on
+        set skip-completed-text on
+        set visible-stats on
+        set colored-stats on
+        set mark-symlinked-directories on
+        set show-all-if-ambiguous on
+      '';
+    };
 
-  programs.readline = {
-    enable = true;
-    extraConfig = ''
-      set completion-ignore-case on
-      set colored-completion-prefix on
-      set skip-completed-text on
-      set visible-stats on
-      set colored-stats on
-      set mark-symlinked-directories on
-      set show-all-if-ambiguous on
-    '';
-  };
+    ssh = {
+      enable = true;
+      includes = [ "~/.ssh/config.d/*.config" ];
+    };
 
-  programs.ssh = {
-    enable = true;
-    includes = [ "~/.ssh/config.d/*.config" ];
-  };
-
-  programs.git = {
-    enable = true;
+    git = {
+      enable = true;
+    };
   };
 }
