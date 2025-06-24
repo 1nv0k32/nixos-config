@@ -8,7 +8,7 @@ let
     [ -f flake.nix ] && [ -f flake.lock ] || false
     cd $(git rev-parse --show-toplevel 2> /dev/null)
     while true; do
-      read -p "Do you wish to update flake? [Yn] " yn
+      read -p "Do you wish to update flake? [Ny] " yn
       case $yn in
         [Yy]* )
           nix flake update
