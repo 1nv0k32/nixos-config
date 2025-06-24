@@ -8,6 +8,12 @@ let
     [ -f flake.nix ] && [ -f flake.lock ] || false
     cd $(git rev-parse --show-toplevel 2> /dev/null)
     while true; do
+      read -p "Do you wish to update flake? [Yn] " yn
+      case $yn in
+        [Yy]* )
+          nix flake update
+          ;;
+      esac
       git add -A
       pre-commit run --all-files || continue
       git --no-pager diff --cached
