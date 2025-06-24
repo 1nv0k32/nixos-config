@@ -17,7 +17,6 @@
       "nngceckbapebfimnlniiiahkandclblb" # bitwarden
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # ublock origin lite
       "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # privacy badger
-      "ponfpcnoihfmfllpaingbgckeeldkhle" # enhancer for youtube
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
     ];
     extraOpts = {
