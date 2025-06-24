@@ -28,9 +28,14 @@ let
     mount -t devtmpfs devtmpfs /dev
     mount -t proc none /proc
     mount -t sysfs none /sys
-    exec env HOME=/root /bin/sh
+    exec env HOME=/root /bin/sh -l
     EOF
     chmod +x $INITRAMFS_DIR/init
+    mkdir $INITRAMFS_DIR/root
+    cat <<-EOF > $INITRAMFS_DIR/root/.profile
+    alias ll='ls -alh --group-directories-first'
+    EOF
+
     (
       cd $BUSYBOX_DIR
       make
