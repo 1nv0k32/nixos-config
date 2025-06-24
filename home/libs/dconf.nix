@@ -7,8 +7,6 @@ let
     tiling-assistant
     caffeine
     unblank
-    display-configuration-switcher
-    # vitals
   ];
 in
 {
@@ -130,34 +128,6 @@ in
     "org/gnome/shell/extensions/unblank" = {
       power = false;
       time = int32 0;
-    };
-
-    "org/gnome/shell/extensions/vitals" = {
-      fixed-widths = false;
-      hide-icons = false;
-      hide-zeros = false;
-      include-public-ip = false;
-      menu-centered = true;
-      show-battery = true;
-      use-higher-precision = false;
-      icon-style = int32 1;
-      position-in-panel = int32 0;
-      update-time = int32 1;
-      hot-sensors = [
-        "_battery_rate_"
-        "_battery_time_left_"
-        "_processor_usage_"
-        "_processor_frequency_"
-        "_system_load_1m_"
-        "__fan_avg__"
-        "_memory_usage_"
-        "_system_uptime_"
-      ];
-    };
-
-    "org/gnome/shell/extensions/display-configuration-switcher" = {
-      display-configuration-switcher-shortcut-next = [ "<Super>semicolon" ];
-      display-configuration-switcher-shortcut-previous = [ "<Shift><Super>colon" ];
     };
   };
 }
