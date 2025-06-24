@@ -13,7 +13,7 @@
       export HISTCONTROL="ignoreboth:erasedups"
       export HISTSIZE=-1
       export HISTFILESIZE=-1
-      source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
+
       WH="\[\e[0;00m\]"
       RE="\[\e[0;31m\]"
       GR="\[\e[0;32m\]"

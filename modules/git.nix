@@ -2,6 +2,7 @@
 {
   programs.git = {
     enable = true;
+    prompt.enable = true;
     config = {
       init.defaultBranch = "main";
       color.ui = "auto";
