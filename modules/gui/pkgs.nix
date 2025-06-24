@@ -9,6 +9,8 @@
     transmission_4-gtk
 
     vscode
+    jetbrains.clion
+    jetbrains.pycharm-community-bin
 
     spotify
     discord
