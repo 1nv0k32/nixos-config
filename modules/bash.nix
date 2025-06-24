@@ -3,8 +3,10 @@
   programs.bash = {
     completion.enable = true;
     shellInit = ''
-      shopt -s histappend
-      shopt -s globstar
+      shopt -s autocd cdspell dirspell no_empty_cmd_completion
+      shopt -s checkwinsize checkhash
+      shopt -s histverify histappend histreedit cmdhist
+      shopt -s globstar extglob
       export HISTCONTROL=ignoreboth
       export HISTSIZE=-1
       export HISTFILESIZE=-1
