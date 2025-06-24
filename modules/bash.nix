@@ -2,7 +2,7 @@
 {
   programs.bash = {
     completion.enable = true;
-    shellInit = ''
+    promptInit = ''
       shopt -s autocd cdspell dirspell no_empty_cmd_completion
       shopt -s checkwinsize checkhash
       shopt -s histverify histappend histreedit cmdhist
@@ -10,8 +10,6 @@
       export HISTCONTROL=ignoreboth
       export HISTSIZE=-1
       export HISTFILESIZE=-1
-    '';
-    promptInit = ''
       source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
       WH="\[\e[0;00m\]"
       RE="\[\e[0;31m\]"
