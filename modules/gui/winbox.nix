@@ -1,14 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 {
-  # networking.firewall.allowedUDPPortRanges = [
-  #   {
-  #     from = 40000;
-  #     to = 50000;
-  #   }
-  # ];
+  disabledModules = [ "programs/winbox.nix" ];
+  imports = [
+    (import "${self.inputs.nixpkgs-master}/nixos/modules/programs/winbox.nix")
+  ];
   programs.winbox = {
     enable = true;
     openFirewall = true;
-    package = pkgs.pkgs-unstable.winbox;
+    package = pkgs.winbox;
   };
 }
