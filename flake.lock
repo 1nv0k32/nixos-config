@@ -246,6 +246,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-test": {
+      "locked": {
+        "lastModified": 1750838914,
+        "narHash": "sha256-RI423TFtNrA1J4roeK4dOxF66Ok6gze+Joe3qsBv8oI=",
+        "owner": "1nv0k32",
+        "repo": "nixpkgs",
+        "rev": "b04a9cf2376dcd05fff0399a7a658f2167a836c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "1nv0k32",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1750506804,
@@ -319,6 +334,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-old": "nixpkgs-old",
+        "nixpkgs-test": "nixpkgs-test",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "sops-nix": "sops-nix",

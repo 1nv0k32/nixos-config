@@ -1,7 +1,7 @@
 { pkgs, self, ... }:
 {
   imports = [
-    (import "${self.inputs.nixpkgs-unstable}/nixos/modules/programs/winbox.nix")
+    (import "${self.inputs.nixpkgs-test}/nixos/modules/programs/winbox.nix")
   ];
   # networking.firewall.allowedUDPPortRanges = [
   #   {
@@ -9,7 +9,7 @@
   #     to = 50000;
   #   }
   # ];
-  programs.winbox = {
+  programs.winboxx = {
     enable = true;
     openFirewall = true;
     package = pkgs.pkgs-unstable.winbox;
