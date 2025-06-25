@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 {
+  imports = [
+    (import "${self.inputs.nixpkgs-unstable}/nixos/modules/programs/winbox.nix")
+  ];
   # networking.firewall.allowedUDPPortRanges = [
   #   {
   #     from = 40000;
