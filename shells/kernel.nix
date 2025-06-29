@@ -87,9 +87,10 @@ in
       ]);
     NIX_HARDENING_ENABLE = "";
     shellHook = ''
+      echo "Kernel development shell"
       JOBS=$([[ $(nproc) -gt 4 ]] && echo $(( $(nproc) - 4 )))
-      echo "Base make jobs: $JOBS"
       export MAKEFLAGS="--jobs=$JOBS"
+      echo "Base make jobs: $JOBS"
     '';
   };
 }
