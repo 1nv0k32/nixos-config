@@ -55,6 +55,7 @@ in
         "libvirtd"
         "ubridge"
         "wireshark"
+        "dialout"
       ];
     };
 
