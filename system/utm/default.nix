@@ -5,6 +5,7 @@
   ];
 
   boot = {
+    binfmt.emulatedSystems = lib.mkForce [ ];
     growPartition = true;
     initrd.kernelModules = [
       "virtio_gpu"
