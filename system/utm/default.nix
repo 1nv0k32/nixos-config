@@ -1,4 +1,4 @@
-{ modulesPath, lib, ... }:
+{ modulesPath, ... }:
 {
   imports = [
     "${modulesPath}/profiles/qemu-guest.nix"
@@ -14,15 +14,10 @@
       "usb_storage"
       "usbhid"
     ];
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot = {
-        enable = true;
-        editor = lib.mkForce false;
-        consoleMode = "max";
-      };
-    };
   };
 
-  services.qemuGuest.enable = lib.mkDefault true;
+  services = {
+    qemuGuest.enable = true;
+    spice-vdagentd.enable = true;
+  };
 }
