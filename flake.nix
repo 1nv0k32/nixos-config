@@ -184,6 +184,22 @@
               ++ defaultModules
               ++ optionalLocalModules attrs.modules;
           };
+        # UTM
+        utm =
+          attrs:
+          nixpkgs.lib.nixosSystem {
+            system = self.systemArch.arm;
+            specialArgs = {
+              inherit self;
+              inherit (attrs) hostName;
+            };
+            modules =
+              [
+                (import "${self}/system/utm")
+              ]
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
+          };
       };
 
       # DevShells

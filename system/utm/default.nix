@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    (import ./disko.nix)
+  ];
+}
