@@ -10,11 +10,9 @@
     gparted
 
     spotify
-    # discord
-    zoom-us
-    # obs-studio
-
-    # tor-browser-bundle-bin
+    discord
+    # zoom-us
+    obs-studio
 
     vscode
     jetbrains.clion
