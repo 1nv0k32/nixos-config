@@ -9,7 +9,7 @@
     transmission_4-gtk
     gparted
 
-    spotify
+    # spotify
     discord
     # zoom-us
     obs-studio
