@@ -10,7 +10,7 @@
     gparted
 
     # spotify
-    discord
+    # discord
     # zoom-us
     obs-studio
 
