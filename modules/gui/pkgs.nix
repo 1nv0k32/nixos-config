@@ -7,13 +7,13 @@
     gimp
     transmission_4
     transmission_4-gtk
+    gparted
 
-    # spotify
-    # discord
-    # zoom-us
-    # obs-studio
+    spotify
+    discord
+    zoom-us
+    obs-studio
 
-    # gparted
     # tor-browser-bundle-bin
 
     vscode
