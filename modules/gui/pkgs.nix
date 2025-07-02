@@ -8,10 +8,6 @@
     transmission_4
     transmission_4-gtk
 
-    vscode
-    jetbrains.clion
-    jetbrains.pycharm-community-bin
-
     spotify
     discord
     zoom-us
@@ -19,5 +15,9 @@
 
     gparted
     tor-browser-bundle-bin
+
+    vscode
+    # jetbrains.clion
+    # jetbrains.pycharm-community-bin
   ];
 }
