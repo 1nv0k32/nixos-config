@@ -7,7 +7,10 @@
 }:
 let
   overlayConfig = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      allowUnsupportedSystem = true;
+    };
   };
   pkgs-master = _: prev: {
     pkgs-master = import nixpkgs-master {
