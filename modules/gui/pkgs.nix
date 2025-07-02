@@ -8,16 +8,16 @@
     transmission_4
     transmission_4-gtk
 
-    spotify
-    discord
-    zoom-us
-    obs-studio
+    # spotify
+    # discord
+    # zoom-us
+    # obs-studio
 
-    gparted
-    tor-browser-bundle-bin
+    # gparted
+    # tor-browser-bundle-bin
 
     vscode
-    # jetbrains.clion
-    # jetbrains.pycharm-community-bin
+    jetbrains.clion
+    jetbrains.pycharm-community-bin
   ];
 }
