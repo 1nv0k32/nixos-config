@@ -62,8 +62,10 @@
         (import "${self}/overrides/initrd-luks.nix")
         (import "${self}/src/extra.nix")
         (import "${self}/pkgs/extra.nix")
-        (import "${self}/modules/gui")
         (import "${self}/system/containers")
+      ];
+      guiModules = extraModules ++ [
+        (import "${self}/modules/gui")
       ];
 
       # Definitions
@@ -96,7 +98,7 @@
                 nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
                 (import "${self}/system/z13g2.nix")
               ]
-              ++ extraModules
+              ++ guiModules
               ++ optionalLocalModules attrs.modules;
           };
         # Hetzner
@@ -197,7 +199,7 @@
               [
                 (import "${self}/system/utm")
               ]
-              ++ baseModules
+              ++ extraModules
               ++ optionalLocalModules attrs.modules;
           };
       };

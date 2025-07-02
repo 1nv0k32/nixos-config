@@ -8,6 +8,10 @@
       options kvm_amd nested=1
       options hid_apple fnmode=0
     '';
+    binfmt.emulatedSystems = [
+      "x86_64-windows"
+      "aarch64-linux"
+    ];
   };
 
   environment.variables = {
