@@ -20,6 +20,4 @@
     qemuGuest.enable = true;
     spice-vdagentd.enable = true;
   };
-
-  environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
 }
