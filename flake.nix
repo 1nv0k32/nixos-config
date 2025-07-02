@@ -197,7 +197,7 @@
               [
                 (import "${self}/system/utm")
               ]
-              ++ baseModules
+              ++ extraModules
               ++ optionalLocalModules attrs.modules;
           };
       };

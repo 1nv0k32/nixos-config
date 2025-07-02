@@ -5,8 +5,7 @@
   ];
 
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    growPartition = true;
     initrd.kernelModules = [
       "virtio_gpu"
       "virtio_pci"
@@ -14,11 +13,7 @@
       "usb_storage"
       "usbhid"
     ];
-    growPartition = true;
   };
-
-  networking.useNetworkd = true;
-  networking.useDHCP = false;
 
   services.qemuGuest.enable = lib.mkDefault true;
 }
