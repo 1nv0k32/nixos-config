@@ -9,12 +9,12 @@
     transmission_4-gtk
     gparted
 
-    # spotify
+    spotify
     # discord
-    # zoom-us
+    zoom-us
     # obs-studio
 
-    tor-browser-bundle-bin
+    # tor-browser-bundle-bin
 
     vscode
     jetbrains.clion
