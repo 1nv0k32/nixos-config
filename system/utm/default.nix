@@ -7,7 +7,13 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    initrd.kernelModules = [ "virtio_gpu" ];
+    initrd.kernelModules = [
+      "virtio_gpu"
+      "virtio_pci"
+      "xhci_pci"
+      "usb_storage"
+      "usbhid"
+    ];
     growPartition = true;
   };
 
