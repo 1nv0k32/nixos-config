@@ -50,7 +50,6 @@
     yubikey-manager
     yubioath-flutter
 
-    wineWowPackages.stable
     win-virtio
     virt-manager
     nixos-generators
