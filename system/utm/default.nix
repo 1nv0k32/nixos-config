@@ -5,7 +5,6 @@
   ];
 
   boot = {
-    binfmt.emulatedSystems = lib.mkForce [ ];
     growPartition = true;
     initrd.kernelModules = [
       "virtio_gpu"
@@ -14,6 +13,14 @@
       "usb_storage"
       "usbhid"
     ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        editor = lib.mkForce false;
+        consoleMode = "max";
+      };
+    };
   };
 
   services.qemuGuest.enable = lib.mkDefault true;
