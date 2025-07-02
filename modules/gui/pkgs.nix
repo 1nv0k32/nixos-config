@@ -3,8 +3,6 @@
   environment.systemPackages = with pkgs; [
     kitty
     libreoffice
-    flameshot
-    gimp
     transmission_4
     transmission_4-gtk
     gparted
@@ -13,6 +11,8 @@
     # discord
     # zoom-us
     obs-studio
+    flameshot
+    gimp
 
     vscode
     jetbrains.clion
