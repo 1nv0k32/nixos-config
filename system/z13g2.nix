@@ -3,6 +3,8 @@
   ...
 }:
 {
+  environment.sysConf.x86 = true;
+
   boot = {
     extraModprobeConfig = ''
       options kvm_amd nested=1

@@ -216,7 +216,6 @@
                 (import "${self}/system/parallels")
               ]
               ++ guiModules
-              # ++ extraModules
               ++ optionalLocalModules attrs.modules;
           };
       };
