@@ -221,18 +221,25 @@
       };
 
       # DevShells
-      devShells =
-        let
-          system = self.systemArch.amd;
-          pkgs = nixpkgs.legacyPackages.${system};
-          defaultShell = (import "${self}/shells/default.nix" { inherit pkgs; });
-          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
-        in
-        {
-          ${system} = {
+      devShells = {
+        ${self.systemArch.amd} =
+          let
+            pkgs = nixpkgs.legacyPackages.${self.systemArch.amd};
+            defaultShell = (import "${self}/shells/default.nix" { inherit pkgs; });
+            kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
+          in
+          {
             default = defaultShell.default;
             kernelEnv = kernelShells.kernelEnv;
           };
-        };
+        ${self.systemArch.arm} =
+          let
+            pkgs = nixpkgs.legacyPackages.${self.systemArch.arm};
+            defaultShell = (import "${self}/shells/default.nix" { inherit pkgs; });
+          in
+          {
+            default = defaultShell.default;
+          };
+      };
     };
 }
