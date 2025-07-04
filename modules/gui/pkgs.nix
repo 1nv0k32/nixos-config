@@ -7,9 +7,9 @@
     transmission_4-gtk
     gparted
 
-    spotify
-    discord
-    zoom-us
+    # spotify
+    # discord
+    # zoom-us
     obs-studio
     flameshot
     gimp

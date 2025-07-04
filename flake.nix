@@ -202,7 +202,7 @@
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
           };
-        # UTM
+        # Parallels
         parallels =
           attrs:
           nixpkgs.lib.nixosSystem {
