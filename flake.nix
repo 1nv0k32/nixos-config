@@ -202,6 +202,22 @@
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
           };
+        # UTM
+        parallels =
+          attrs:
+          nixpkgs.lib.nixosSystem {
+            system = self.systemArch.arm;
+            specialArgs = {
+              inherit self;
+              inherit (attrs) hostName;
+            };
+            modules =
+              [
+                (import "${self}/system/parallels")
+              ]
+              ++ guiModules
+              ++ optionalLocalModules attrs.modules;
+          };
       };
 
       # DevShells

@@ -26,7 +26,8 @@
         nyxwsl = cfg.systemTypes.wsl;
         nyxpi = cfg.systemTypes.rpi5;
         nyxvm = cfg.systemTypes.vm;
-        nyxmac = cfg.systemTypes.utm;
+        nyxutm = cfg.systemTypes.utm;
+        nyxprl = cfg.systemTypes.parallels;
       };
     };
 }
