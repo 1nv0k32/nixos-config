@@ -129,5 +129,12 @@ in
       power = false;
       time = int32 0;
     };
+
+    "org/gnome/shell/extensions/caffeine" = {
+      toggle-shortcut = [ "<Super>apostrophe" ];
+      restore-state = true;
+      enable-fullscreen = false;
+      enable-mpris = true;
+    };
   };
 }
