@@ -34,7 +34,6 @@
     istioctl
     cilium-cli
     talosctl
-    vagrant
 
     nvme-cli
     stress
