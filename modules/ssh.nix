@@ -1,5 +1,6 @@
 { ... }:
 {
+  services.yubikey-agent.enable = true;
   programs.ssh = {
     extraConfig = ''
       Host *
