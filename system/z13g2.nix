@@ -8,7 +8,7 @@
   boot = {
     extraModprobeConfig = ''
       options kvm_amd nested=1
-      options hid_apple fnmode=0
+      options hid_apple fnmode=2 swap_opt_cmd=1
     '';
     binfmt.emulatedSystems = [
       "x86_64-windows"
