@@ -15,7 +15,8 @@
         sudo.u2fAuth = true;
       };
       u2f.settings = {
-        userpresence = 0;
+        cue = true;
+        userpresence = 1;
       };
     };
   };
