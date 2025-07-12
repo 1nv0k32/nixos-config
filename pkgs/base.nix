@@ -22,6 +22,8 @@
     jq
     yq
     wireguard-tools
+    pam_u2f
+    yubico-piv-tool
 
     nixd
     uv
