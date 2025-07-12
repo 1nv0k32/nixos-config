@@ -6,15 +6,16 @@
     config = {
       init.defaultBranch = "main";
       color.ui = "auto";
-      push.autoSetupRemote = true;
-      push.default = "current";
-      pull.rebase = true;
       fetch.prune = true;
       fetch.pruneTags = true;
-      alias.acommit = "commit --amend --no-edit --all";
-      alias.fpush = "push --force-with-lease";
+      pull.rebase = true;
+      commit.gpgsign = true;
+      push.autoSetupRemote = true;
+      push.default = "current";
       rerere.enabled = true;
       format.signoff = true;
+      alias.fpush = "push --force-with-lease";
+      alias.acommit = "commit --amend --no-edit --all";
     };
   };
 }

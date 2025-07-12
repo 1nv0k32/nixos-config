@@ -30,10 +30,10 @@
         default = "Armin.Mahdilou@gmail.com";
         description = "The email to use for git commits";
       };
-      gpgPubKey = lib.mkOption {
+      signKey = lib.mkOption {
         type = lib.types.nullOr lib.types.str;
-        default = "01BE96FB0000FC4AF5587CC5E452EB7AAB80DE7B";
-        description = "The default gpg to use for git signing";
+        default = "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEdOT/3cLn7LwLp+xYZ9oI4kFKuizy7rND9TirowjWuCAAAABHNzaDo=";
+        description = "The default signKey to use for git signing";
       };
     };
 

@@ -50,8 +50,8 @@ in
         programs.git = {
           userName = cfg.git.username;
           userEmail = cfg.git.email;
-          signing = lib.mkIf (cfg.git.gpgPubKey != null) {
-            key = cfg.git.gpgPubKey;
+          signing = lib.mkIf (cfg.git.signKey != null) {
+            key = cfg.git.signKey;
           };
         };
       };
