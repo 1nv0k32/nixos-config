@@ -30,11 +30,6 @@
         default = "Armin.Mahdilou@gmail.com";
         description = "The email to use for git commits";
       };
-      signKey = lib.mkOption {
-        type = lib.types.nullOr lib.types.str;
-        default = "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEdOT/3cLn7LwLp+xYZ9oI4kFKuizy7rND9TirowjWuCAAAABHNzaDo=";
-        description = "The default signKey to use for git signing";
-      };
     };
 
     server = {
