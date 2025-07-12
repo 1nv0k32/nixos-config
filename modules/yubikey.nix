@@ -7,7 +7,11 @@
     yubioath-flutter
   ];
 
-  services.pcscd.enable = true;
+  services = {
+    pcscd.enable = true;
+    yubikey-agent.enable = true;
+  };
+
   security = {
     pam = {
       services = {
