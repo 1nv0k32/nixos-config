@@ -3,7 +3,7 @@ let
   cfg = config.environment.sysConf;
 in
 {
-  users.users."${cfg.user.name}".openssh.authorizedKeys.keys = [ cfg.user.sshPubKey ];
+  users.users."${cfg.user.name}".openssh.authorizedKeys.keys = cfg.user.sshPubKeys;
 
   services.openssh = {
     enable = true;
