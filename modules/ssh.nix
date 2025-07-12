@@ -2,7 +2,7 @@
 {
   services.yubikey-agent.enable = true;
   programs.ssh = {
-    startAgent = false;
+    startAgent = true;
     extraConfig = ''
       Host *
         IdentitiesOnly yes
