@@ -46,9 +46,6 @@
     ffmpeg
     rivalcfg
 
-    yubikey-manager
-    yubioath-flutter
-
     virt-manager
     nixos-generators
     distrobox

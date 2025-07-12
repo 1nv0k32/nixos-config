@@ -36,18 +36,6 @@
     kubeswitch.enable = true;
   };
 
-  security = {
-    pam = {
-      services = {
-        login.u2fAuth = true;
-        sudo.u2fAuth = true;
-      };
-      u2f.settings = {
-        userpresence = 0;
-      };
-    };
-  };
-
   console = {
     earlySetup = true;
     packages = [ pkgs.terminus_font ];

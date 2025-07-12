@@ -6,6 +6,7 @@
     ./git.nix
     ./ssh.nix
     ./gpg.nix
+    ./yubikey.nix
     ./nvim.nix
     ./tmux.nix
     ./fzf.nix
