@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   shell = pkgs.mkShell {
     buildInputs = with pkgs; [
