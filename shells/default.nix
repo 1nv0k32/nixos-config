@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  default = pkgs.mkShell {
+  shell = pkgs.mkShell {
     buildInputs = [ ];
   };
 }

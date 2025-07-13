@@ -52,7 +52,7 @@ let
   '';
 in
 {
-  kernelEnv = pkgs.mkShell {
+  shell = pkgs.mkShell {
     nativeBuildInputs =
       with pkgs;
       [
