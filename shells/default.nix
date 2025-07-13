@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
   shell = pkgs.mkShell {
-    buildInputs = [ ];
+    nativeBuildInputs = [ ];
   };
 }

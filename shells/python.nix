@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   shell = pkgs.mkShell {
-    buildInputs = with pkgs; [
+    nativeBuildInputs = with pkgs; [
       uv
       python312
     ];

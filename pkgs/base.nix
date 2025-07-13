@@ -22,9 +22,6 @@
     jq
     yq
     wireguard-tools
-
     nixd
-    uv
-    python312
   ];
 }
