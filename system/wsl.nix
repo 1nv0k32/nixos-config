@@ -22,6 +22,17 @@ in
     };
   };
 
+  programs = {
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        libgcc
+        zlib
+        pcre2
+      ];
+    };
+  };
+
   services.resolved.enable = lib.mkForce false;
   boot = {
     loader.systemd-boot.enable = lib.mkForce false;
