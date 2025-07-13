@@ -231,8 +231,8 @@
           in
           {
             default = defaultShells.shell;
-            kernelEnv = kernelShells.shell;
-            pythonEnv = pythonShells.shell;
+            kernel = kernelShells.shell;
+            python = pythonShells.shell;
           };
         ${self.systemArch.arm} =
           let
