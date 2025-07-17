@@ -24,10 +24,11 @@
         type = lib.types.str;
         default =
           let
-            key01 = "Uuvn7svQcdXRQqQ2wCc8RRMAYt5p8huHUTlbEgBzYOVjPnxVxL8JwZaD9GVT0kYWo0k74nYlKIIFyILs4KKOuA==,9vvs3rm0NVl6xq5Ql9Y6TSuYGG69QAHeJCURHLh6fmnEg6aKkZLTNzrBdMwvNMVQF6ij5hjXJGepebMda+/q2Q==,es256,";
+            key01 = "WE4Y7oGkwsG3MsWOfEA9fRsokjRpHZnPkP046Fx4HJA1UVZgWGGbEUgBu3elHZB78oSLtW+MYbNzJ4OOQw74RQ==,ymae5yWDDe5H0tI5IRi2R7cjnPaBGad+cwe7LXvQbj9VKJdF9f5+Cno4yYiRomBVDxurkN9b/Lc/KZ6oJt9Y5A==,es256,";
+            key02 = "Uuvn7svQcdXRQqQ2wCc8RRMAYt5p8huHUTlbEgBzYOVjPnxVxL8JwZaD9GVT0kYWo0k74nYlKIIFyILs4KKOuA==,9vvs3rm0NVl6xq5Ql9Y6TSuYGG69QAHeJCURHLh6fmnEg6aKkZLTNzrBdMwvNMVQF6ij5hjXJGepebMda+/q2Q==,es256,";
           in
           ''
-            ${key01}
+            ${key01}:${key02}
           '';
       };
     };

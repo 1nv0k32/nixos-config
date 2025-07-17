@@ -5,8 +5,8 @@
 }:
 {
   imports = [
-    (import ./libs/options.nix)
     (import ./libs/nix.nix)
+    (import ./options.nix)
     (import ./users.nix)
   ];
 
