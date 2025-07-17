@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.systemPackages = with pkgs; [
     pam_u2f
@@ -6,6 +6,8 @@
     yubikey-manager
     yubioath-flutter
   ];
+
+  environment.etc.u2f_mappings.text = lib.mkDefault '''';
 
   services = {
     pcscd.enable = true;
@@ -20,7 +22,8 @@
       };
       u2f.settings = {
         cue = true;
-        userpresence = 1;
+        userpresence = 0;
+        authfile = /etc/u2f_mappings;
       };
     };
   };

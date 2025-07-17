@@ -1,6 +1,7 @@
 {
   self,
   config,
+  options,
   ...
 }:
 let
@@ -26,6 +27,10 @@ in
       "dialout"
     ];
   };
+
+  environment.etc.u2f_mappings.text = options.environment.etc.u2f_mappings.text ++ ''
+    ${cfg.user.name}:${cfg.user.yubikeyU2F}
+  '';
 
   users.users."guest" = {
     uid = 1001;

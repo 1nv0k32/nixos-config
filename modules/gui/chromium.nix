@@ -20,6 +20,7 @@
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
     ];
     extraOpts = {
+      "RestoreOnStartup" = 1;
       "BrowserSignin" = 0;
       "SyncDisabled" = true;
       "PasswordManagerEnabled" = false;
