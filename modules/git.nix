@@ -9,7 +9,6 @@
       fetch.prune = true;
       fetch.pruneTags = true;
       pull.rebase = true;
-      commit.gpgsign = true;
       push.autoSetupRemote = true;
       push.default = "current";
       rerere.enabled = true;
