@@ -22,9 +22,13 @@
       };
       yubikeyU2F = lib.mkOption {
         type = lib.types.str;
-        default = ''
-          Uuvn7svQcdXRQqQ2wCc8RRMAYt5p8huHUTlbEgBzYOVjPnxVxL8JwZaD9GVT0kYWo0k74nYlKIIFyILs4KKOuA==,9vvs3rm0NVl6xq5Ql9Y6TSuYGG69QAHeJCURHLh6fmnEg6aKkZLTNzrBdMwvNMVQF6ij5hjXJGepebMda+/q2Q==,es256,
-        '';
+        default =
+          let
+            key01 = "Uuvn7svQcdXRQqQ2wCc8RRMAYt5p8huHUTlbEgBzYOVjPnxVxL8JwZaD9GVT0kYWo0k74nYlKIIFyILs4KKOuA==,9vvs3rm0NVl6xq5Ql9Y6TSuYGG69QAHeJCURHLh6fmnEg6aKkZLTNzrBdMwvNMVQF6ij5hjXJGepebMda+/q2Q==,es256,";
+          in
+          ''
+            ${key01}
+          '';
       };
     };
 
