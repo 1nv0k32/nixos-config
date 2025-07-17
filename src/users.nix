@@ -28,7 +28,7 @@ in
     ];
   };
 
-  environment.etc.u2f_mappings.text = options.environment.etc.u2f_mappings.text ++ ''
+  environment.etc.u2f_mappings.text = options.environment.etc.u2f_mappings.text.default ++ ''
     ${cfg.user.name}:${cfg.user.yubikeyU2F}
   '';
 
