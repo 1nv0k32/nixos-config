@@ -1,7 +1,7 @@
 {
   self,
   config,
-  options,
+  lib,
   ...
 }:
 let
@@ -28,7 +28,7 @@ in
     ];
   };
 
-  environment.etc.u2f_mappings.text = options.environment.etc.u2f_mappings.text.default ++ ''
+  environment.etc.u2f_mappings.text = lib.mkAfter ''
     ${cfg.user.name}:${cfg.user.yubikeyU2F}
   '';
 
