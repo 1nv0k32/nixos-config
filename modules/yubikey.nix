@@ -23,7 +23,7 @@
       u2f.settings = {
         cue = true;
         userpresence = 0;
-        authfile = /etc/u2f_mappings;
+        authfile = "/etc/u2f_mappings";
       };
     };
   };
