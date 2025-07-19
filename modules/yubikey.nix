@@ -2,12 +2,11 @@
 let
   yk-ssh-keygen = pkgs.writeShellScriptBin "yk-ssh-keygen" ''
     set -euo pipefail
-    ID=$1
-    if [ -z "$ID" ]; then
+    if [ -z "$1" ]; then
       echo "Usage: $0 <user-id>"
       exit 1
     fi
-    ${pkgs.openssh}/bin/ssh-keygen -t ed25519-sk -O resident -O application=ssh:$ID
+    ${pkgs.openssh}/bin/ssh-keygen -t ed25519-sk -O resident -O application=ssh:$1
   '';
 in
 {
