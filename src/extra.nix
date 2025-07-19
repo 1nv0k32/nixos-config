@@ -14,6 +14,7 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
+    printing.enable = true;
     udev.extraRules = ''
       KERNEL=="hidraw*", SUBSYSTEM=="hidraw", TAG+="uaccess"
     '';
