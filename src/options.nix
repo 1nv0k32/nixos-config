@@ -15,8 +15,8 @@
       sshPubKeys = lib.mkOption {
         type = lib.types.listOf lib.types.singleLineStr;
         default = [
-          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILGqq4qABf8hNbaIr2eiKl5GAaLQ0WSVmNlDG+4iW3zRAAAABHNzaDo= rick@nyx" # 5c
-          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIFxZAf+KK+2G9v+YnhQpex15Xd2dKDkFF4rNpKyIz63NAAAABHNzaDo= rick@nyx" # bio
+          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINmmAvTaZ5rRNhY0mnX2UzUCX5pRX0DX+VCEBxCXbX9sAAAABnNzaDo1Yw== rick@nyx" # 5c
+          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICjS+ZPa4qUA+Vm0C7Br8PJ/U1Z9dh6bXcXZdko3ZFz9AAAAB3NzaDpiaW8= rick@nyx" # bio
         ];
         description = "The main user's trusted SSH key";
       };
