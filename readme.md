@@ -12,5 +12,5 @@ nixos-rebuild boot --upgrade-all
 
 ```sh
 nix-shell -p nixos-anywhere
-nixos-anywhere --flake github:1nv0k32/nixos-config?dir=flakes#TARGET root@HOST
+nixos-anywhere --no-disko-deps --flake github:1nv0k32/nixos-config?dir=flakes#TARGET root@HOST
 ```
