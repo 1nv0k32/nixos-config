@@ -47,7 +47,6 @@
     rivalcfg
 
     virt-manager
-    nixos-generators
     distrobox
     quickemu
     pavucontrol
@@ -56,11 +55,8 @@
 
     nmap
     radare2
-    pwntools
-    aircrack-ng
     binwalk
     burpsuite
-    ghidra-bin
     proxmark3
   ];
 
