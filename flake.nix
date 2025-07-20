@@ -51,7 +51,7 @@
         nixos-generators.nixosModules.all-formats
         nixvim.nixosModules.nixvim
         (import "${self}/pkgs/overlays.nix" inputs)
-        (import "${self}/modules")
+        (import "${self}/modules/defaults")
         (import "${self}/src")
       ];
       baseModules = defaultModules ++ [

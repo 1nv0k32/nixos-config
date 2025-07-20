@@ -9,6 +9,5 @@
     ./nvim.nix
     ./tmux.nix
     ./fzf.nix
-    ./postfix.nix
   ];
 }
