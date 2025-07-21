@@ -7,5 +7,6 @@
       gcc
       delve
     ];
+    NIX_HARDENING_ENABLE = "";
   };
 }
