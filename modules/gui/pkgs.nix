@@ -13,6 +13,9 @@
       transmission_4
       transmission_4-gtk
       gparted
+      pavucontrol
+      virt-manager
+      networkmanagerapplet
 
       obs-studio
       flameshot
@@ -21,6 +24,10 @@
       vscode
       jetbrains.clion
       jetbrains.pycharm-community-bin
+
+      telegram-desktop
+
+      burpsuite
     ]
     ++ lib.optionals config.environment.sysConf.x86 [
       spotify

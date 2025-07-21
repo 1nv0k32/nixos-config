@@ -46,17 +46,13 @@
     ffmpeg
     rivalcfg
 
-    virt-manager
     distrobox
     quickemu
-    pavucontrol
-    networkmanagerapplet
     android-tools
 
     nmap
     radare2
     binwalk
-    burpsuite
     proxmark3
   ];
 
