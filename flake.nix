@@ -243,6 +243,8 @@
           in
           {
             default = defaultShells.shell;
+            python = pythonShells.shell;
+            go = goShells.shell;
           };
       };
     };
