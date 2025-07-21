@@ -228,11 +228,13 @@
             defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
             kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
             pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
+            goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
           in
           {
             default = defaultShells.shell;
             kernel = kernelShells.shell;
             python = pythonShells.shell;
+            go = goShells.shell;
           };
         ${self.systemArch.arm} =
           let
