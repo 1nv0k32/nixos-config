@@ -25,9 +25,8 @@ in
     yubikey-agent.enable = true;
     udev.extraRules = ''
       ACTION=="remove",\
-      ENV{ID_BUS}=="usb",\
-      ENV{ID_VENDOR_ID}=="1050",\
-      ENV{ID_VENDOR}=="Yubico",\
+      SUBSYSTEM=="hidraw",\
+      ENV{ID_FIDO_TOKEN}=="1",\
       RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
     '';
   };
