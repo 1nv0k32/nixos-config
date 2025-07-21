@@ -5,6 +5,7 @@
       libcap
       go
       gcc
+      delve
     ];
   };
 }
