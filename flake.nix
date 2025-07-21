@@ -240,6 +240,8 @@
           let
             pkgs = nixpkgs.legacyPackages.${self.systemArch.arm};
             defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
+            pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
+            goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
           in
           {
             default = defaultShells.shell;
