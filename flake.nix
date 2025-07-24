@@ -213,22 +213,22 @@
           };
       };
 
-      # # DevShells
-      # devShells = flake-utils.lib.eachDefaultSystem (
-      #   system:
-      #   let
-      #     pkgs = (import nixpkgs { inherit system; });
-      #     defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
-      #     kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
-      #     pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
-      #     goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
-      #   in
-      #   {
-      #     system.default = defaultShells.shell;
-      #     system.kernel = kernelShells.shell;
-      #     system.python = pythonShells.shell;
-      #     system.go = goShells.shell;
-      #   }
-      # );
+      # DevShells
+      devShells = flake-utils.lib.eachDefaultSystem (
+        system:
+        let
+          pkgs = (import nixpkgs { inherit system; });
+          defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
+          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
+          pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
+          goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
+        in
+        {
+          ${system}.default = defaultShells.shell;
+          ${system}.kernel = kernelShells.shell;
+          ${system}.python = pythonShells.shell;
+          ${system}.go = goShells.shell;
+        }
+      );
     };
 }
