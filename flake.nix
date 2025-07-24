@@ -94,13 +94,12 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-                (import "${self}/system/z13g2.nix")
-              ]
-              ++ guiModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+              (import "${self}/system/z13g2.nix")
+            ]
+            ++ guiModules
+            ++ optionalLocalModules attrs.modules;
           };
         # Hetzner
         hetzner.amd =
@@ -111,14 +110,13 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                srvos.nixosModules.hardware-hetzner-cloud
-                (import "${self}/system/server.nix")
-                (import "${self}/system/hetzner")
-              ]
-              ++ baseModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              srvos.nixosModules.hardware-hetzner-cloud
+              (import "${self}/system/server.nix")
+              (import "${self}/system/hetzner")
+            ]
+            ++ baseModules
+            ++ optionalLocalModules attrs.modules;
           };
         hetzner.arm =
           attrs:
@@ -128,14 +126,13 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                srvos.nixosModules.hardware-hetzner-cloud-arm
-                (import "${self}/system/server.nix")
-                (import "${self}/system/hetzner")
-              ]
-              ++ baseModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              srvos.nixosModules.hardware-hetzner-cloud-arm
+              (import "${self}/system/server.nix")
+              (import "${self}/system/hetzner")
+            ]
+            ++ baseModules
+            ++ optionalLocalModules attrs.modules;
           };
         # WSL-NixOS
         wsl =
@@ -146,13 +143,12 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                nixos-wsl.nixosModules.wsl
-                (import "${self}/system/wsl.nix")
-              ]
-              ++ baseModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              nixos-wsl.nixosModules.wsl
+              (import "${self}/system/wsl.nix")
+            ]
+            ++ baseModules
+            ++ optionalLocalModules attrs.modules;
           };
         # VM
         vm =
@@ -163,12 +159,11 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                (import "${self}/system/vm.nix")
-              ]
-              ++ extraModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              (import "${self}/system/vm.nix")
+            ]
+            ++ extraModules
+            ++ optionalLocalModules attrs.modules;
           };
         # Raspberry Pi 5
         rpi5 =
@@ -179,13 +174,12 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                (import "${self}/system/server.nix")
-                (import "${self}/system/rpi5")
-              ]
-              ++ defaultModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              (import "${self}/system/server.nix")
+              (import "${self}/system/rpi5")
+            ]
+            ++ defaultModules
+            ++ optionalLocalModules attrs.modules;
           };
         # UTM
         utm =
@@ -196,12 +190,11 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                (import "${self}/system/utm")
-              ]
-              ++ guiModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              (import "${self}/system/utm")
+            ]
+            ++ guiModules
+            ++ optionalLocalModules attrs.modules;
           };
         # Parallels
         parallels =
@@ -212,12 +205,11 @@
               inherit self;
               inherit (attrs) hostName;
             };
-            modules =
-              [
-                (import "${self}/system/parallels")
-              ]
-              ++ guiModules
-              ++ optionalLocalModules attrs.modules;
+            modules = [
+              (import "${self}/system/parallels")
+            ]
+            ++ guiModules
+            ++ optionalLocalModules attrs.modules;
           };
       };
 
@@ -232,10 +224,10 @@
           goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
         in
         {
-          default = defaultShells.shell;
-          kernel = kernelShells.shell;
-          python = pythonShells.shell;
-          go = goShells.shell;
+          system.default = defaultShells.shell;
+          system.kernel = kernelShells.shell;
+          system.python = pythonShells.shell;
+          system.go = goShells.shell;
         }
       );
     };
