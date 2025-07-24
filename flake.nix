@@ -80,16 +80,12 @@
     in
     {
       stateVersion = "25.05";
-      systemArch = {
-        amd = "x86_64-linux";
-        arm = "aarch64-linux";
-      };
       systemTypes = {
         # Thinkpad Z13 Gen2
         z13g2 =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = flake-utils.systems.x86_64-linux;
+            system = flake-utils.lib.system.x86_64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
@@ -105,7 +101,7 @@
         hetzner.amd =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.amd;
+            system = flake-utils.lib.system.x86_64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
@@ -121,7 +117,7 @@
         hetzner.arm =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.arm;
+            system = flake-utils.lib.system.aarch64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
@@ -138,7 +134,7 @@
         wsl =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.amd;
+            system = flake-utils.lib.system.x86_64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
@@ -154,7 +150,7 @@
         vm =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.amd;
+            system = flake-utils.lib.system.x86_64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
@@ -169,7 +165,7 @@
         rpi5 =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.arm;
+            system = flake-utils.lib.system.aarch64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
@@ -185,7 +181,7 @@
         utm =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.arm;
+            system = flake-utils.lib.system.aarch64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
@@ -200,7 +196,7 @@
         parallels =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.arm;
+            system = flake-utils.lib.system.aarch64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
