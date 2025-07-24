@@ -224,10 +224,10 @@
           goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
         in
         {
-          ${system}.default = defaultShells.shell;
-          ${system}.kernel = kernelShells.shell;
-          ${system}.python = pythonShells.shell;
-          ${system}.go = goShells.shell;
+          "${system}".default = defaultShells.shell;
+          "${system}".kernel = kernelShells.shell;
+          "${system}".python = pythonShells.shell;
+          "${system}".go = goShells.shell;
         }
       );
     };
