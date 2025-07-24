@@ -89,7 +89,7 @@
         z13g2 =
           attrs:
           nixpkgs.lib.nixosSystem {
-            system = self.systemArch.amd;
+            system = flake-utils.systems.x86_64-linux;
             specialArgs = {
               inherit self;
               inherit (attrs) hostName;
