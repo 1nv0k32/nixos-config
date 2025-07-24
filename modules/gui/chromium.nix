@@ -18,6 +18,7 @@
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # ublock origin lite
       "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # privacy badger
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
+      "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
     ];
     extraOpts = {
       "RestoreOnStartup" = 1;
