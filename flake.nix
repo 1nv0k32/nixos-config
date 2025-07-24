@@ -7,6 +7,7 @@
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-test.url = "github:1nv0k32/nixpkgs";
     # tools
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -221,33 +222,21 @@
       };
 
       # DevShells
-      devShells = {
-        ${self.systemArch.amd} =
-          let
-            pkgs = nixpkgs.legacyPackages.${self.systemArch.amd};
-            defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
-            kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
-            pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
-            goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
-          in
-          {
-            default = defaultShells.shell;
-            kernel = kernelShells.shell;
-            python = pythonShells.shell;
-            go = goShells.shell;
-          };
-        ${self.systemArch.arm} =
-          let
-            pkgs = nixpkgs.legacyPackages.${self.systemArch.arm};
-            defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
-            pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
-            goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
-          in
-          {
-            default = defaultShells.shell;
-            python = pythonShells.shell;
-            go = goShells.shell;
-          };
-      };
+      devShells = flake-utils.lib.eachDefaultSystem (
+        system:
+        let
+          pkgs = (import nixpkgs { inherit system; });
+          defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
+          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
+          pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
+          goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
+        in
+        {
+          default = defaultShells.shell;
+          kernel = kernelShells.shell;
+          python = pythonShells.shell;
+          go = goShells.shell;
+        }
+      );
     };
 }
