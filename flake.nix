@@ -208,8 +208,9 @@
             ++ optionalLocalModules attrs.modules;
           };
       };
-      devShells = flake-utils.lib.eachDefaultSystemPassThrough (
-        system:
+    }
+    // flake-utils.lib.eachDefaultSystemPassThrough (system: {
+      devShells =
         let
           pkgs = (import nixpkgs { inherit system; });
           defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
@@ -218,11 +219,10 @@
           goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
         in
         {
-          ${system}.default = defaultShells.shell;
-          ${system}.kernel = kernelShells.shell;
-          ${system}.python = pythonShells.shell;
-          ${system}.go = goShells.shell;
-        }
-      );
-    };
+          default = defaultShells.shell;
+          kernel = kernelShells.shell;
+          python = pythonShells.shell;
+          go = goShells.shell;
+        };
+    });
 }
