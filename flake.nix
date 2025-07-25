@@ -189,7 +189,7 @@
             modules = [
               (import "${self}/system/utm")
             ]
-            ++ guiModules
+            # ++ guiModules
             ++ baseModules
             ++ optionalLocalModules attrs.modules;
           };
