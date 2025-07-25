@@ -87,127 +87,135 @@
           z13g2 =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-                (import "${self}/system/z13g2.nix")
-              ]
-              ++ guiModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+                  (import "${self}/system/z13g2.nix")
+                ]
+                ++ guiModules
+                ++ optionalLocalModules attrs.modules;
             };
           # Hetzner
           hetzner.amd =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                srvos.nixosModules.hardware-hetzner-cloud
-                (import "${self}/system/server.nix")
-                (import "${self}/system/hetzner")
-              ]
-              ++ baseModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  srvos.nixosModules.hardware-hetzner-cloud
+                  (import "${self}/system/server.nix")
+                  (import "${self}/system/hetzner")
+                ]
+                ++ baseModules
+                ++ optionalLocalModules attrs.modules;
             };
           hetzner.arm =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                srvos.nixosModules.hardware-hetzner-cloud-arm
-                (import "${self}/system/server.nix")
-                (import "${self}/system/hetzner")
-              ]
-              ++ baseModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  srvos.nixosModules.hardware-hetzner-cloud-arm
+                  (import "${self}/system/server.nix")
+                  (import "${self}/system/hetzner")
+                ]
+                ++ baseModules
+                ++ optionalLocalModules attrs.modules;
             };
           # WSL-NixOS
           wsl =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                nixos-wsl.nixosModules.wsl
-                (import "${self}/system/wsl.nix")
-              ]
-              ++ baseModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  nixos-wsl.nixosModules.wsl
+                  (import "${self}/system/wsl.nix")
+                ]
+                ++ baseModules
+                ++ optionalLocalModules attrs.modules;
             };
           # VM
           vm =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                (import "${self}/system/vm.nix")
-              ]
-              ++ extraModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  (import "${self}/system/vm.nix")
+                ]
+                ++ extraModules
+                ++ optionalLocalModules attrs.modules;
             };
           # Raspberry Pi 5
           rpi5 =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                (import "${self}/system/server.nix")
-                (import "${self}/system/rpi5")
-              ]
-              ++ defaultModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  (import "${self}/system/server.nix")
+                  (import "${self}/system/rpi5")
+                ]
+                ++ defaultModules
+                ++ optionalLocalModules attrs.modules;
             };
           # UTM
           utm =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                (import "${self}/system/utm")
-              ]
-              ++ guiModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  (import "${self}/system/utm")
+                ]
+                ++ guiModules
+                ++ optionalLocalModules attrs.modules;
             };
           # Parallels
           parallels =
             attrs:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = flake-utils.lib.system.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                (import "${self}/system/parallels")
-              ]
-              ++ guiModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                [
+                  (import "${self}/system/parallels")
+                ]
+                ++ guiModules
+                ++ optionalLocalModules attrs.modules;
             };
         };
         devShells.${system} =
