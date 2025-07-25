@@ -189,8 +189,8 @@
             modules = [
               (import "${self}/system/utm")
             ]
-            # ++ guiModules
-            ++ extraModules
+            ++ guiModules
+            # ++ extraModules
             ++ optionalLocalModules attrs.modules;
           };
         # Parallels
