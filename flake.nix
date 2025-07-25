@@ -190,6 +190,7 @@
               (import "${self}/system/utm")
             ]
             ++ guiModules
+            ++ baseModules
             ++ optionalLocalModules attrs.modules;
           };
         # Parallels
