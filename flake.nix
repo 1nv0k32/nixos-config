@@ -209,7 +209,7 @@
           };
       };
     }
-    // flake-utils.lib.eachDefaultSystemPassThrough (system: {
+    // flake-utils.lib.eachDefaultSystem (system: {
       devShells =
         let
           pkgs = (import nixpkgs { inherit system; });
