@@ -174,7 +174,7 @@
               (import "${self}/system/server.nix")
               (import "${self}/system/rpi5")
             ]
-            ++ extraModules
+            ++ defaultModules
             ++ optionalLocalModules attrs.modules;
           };
         # UTM
@@ -190,7 +190,7 @@
               (import "${self}/system/utm")
             ]
             # ++ guiModules
-            ++ baseModules
+            ++ extraModules
             ++ optionalLocalModules attrs.modules;
           };
         # Parallels
