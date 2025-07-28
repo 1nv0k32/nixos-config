@@ -25,8 +25,6 @@ let
           ;;
         * )
           git commit -m "$(date +%Y/%m/%d-%H:%M:%S)"
-          git fetch
-          git rebase origin/$WORK_BRANCH  || (git rebase --abort && echo "Rebase conflict...aborting!" && exit 1)
           git push
           break
           ;;
