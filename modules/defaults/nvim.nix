@@ -48,8 +48,27 @@
         servers = {
           nixd.enable = true;
           clangd.enable = true;
+          gopls.enable = true;
         };
       };
     };
+    keymaps = [
+      {
+        key = "<Up>";
+        action = "<Nop>";
+      }
+      {
+        key = "<Down>";
+        action = "<Nop>";
+      }
+      {
+        key = "<Left>";
+        action = "<Nop>";
+      }
+      {
+        key = "<Right>";
+        action = "<Nop>";
+      }
+    ];
   };
 }
