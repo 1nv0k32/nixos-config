@@ -50,13 +50,7 @@
           gopls.enable = true;
         };
       };
-      cmp = {
-        enable = true;
-        autoEnableSources = false;
-      };
-      cmp-nvim-lsp.enable = true;
-      cmp-path.enable = true;
-      cmp-buffer.enable = true;
+      blink-cmp.enable = true;
     };
     keymaps = [
       {
