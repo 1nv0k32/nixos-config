@@ -51,6 +51,9 @@
           gopls.enable = true;
         };
       };
+      cmp = {
+        autoEnableSources = true;
+      };
     };
     keymaps = [
       {
