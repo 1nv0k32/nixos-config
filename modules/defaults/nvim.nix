@@ -42,7 +42,6 @@
       neo-tree.enable = true;
       nvim-autopairs.enable = true;
       helm.enable = true;
-      cmp.enable = true;
       lsp = {
         enable = true;
         servers = {
@@ -52,8 +51,11 @@
         };
       };
       cmp = {
-        autoEnableSources = true;
+        enable = true;
       };
+      cmp-nvim-lsp.enable = true;
+      cmp-path.enable = true;
+      cmp-buffer.enable = true;
     };
     keymaps = [
       {
