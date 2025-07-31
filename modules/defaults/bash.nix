@@ -4,6 +4,8 @@
     completion.enable = true;
     promptInit = ''
       bind 'set completion-ignore-case on'
+      bind 'set show-mode-in-prompt on'
+      set -o vi
       set -o notify
       shopt -s autocd cdspell dirspell no_empty_cmd_completion
       shopt -s checkwinsize checkhash
