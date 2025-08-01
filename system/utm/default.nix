@@ -8,13 +8,14 @@
   boot = {
     growPartition = true;
     initrd.kernelModules = [
-      "virtio_gpu"
       "virtio_pci"
       "xhci_pci"
       "usb_storage"
       "usbhid"
     ];
   };
+
+  virtualisation.rosetta.enable = true;
 
   services = {
     spice-vdagentd.enable = true;
