@@ -7,7 +7,6 @@
 {
   imports = [
     (import ./disko.nix)
-    (import "${self}/modules/gitea.nix")
   ];
 
   users.users.root.initialPassword = "root";

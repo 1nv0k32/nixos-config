@@ -174,7 +174,7 @@
               (import "${self}/system/server.nix")
               (import "${self}/system/rpi5")
             ]
-            ++ defaultModules
+            ++ extraModules
             ++ optionalLocalModules attrs.modules;
           };
         # UTM
@@ -202,6 +202,7 @@
               inherit (attrs) hostName;
             };
             modules = [
+              (import "${self}/system/server.nix")
               (import "${self}/system/parallels")
             ]
             ++ guiModules
