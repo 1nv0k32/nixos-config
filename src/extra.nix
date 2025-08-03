@@ -3,7 +3,7 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 0;
+      timeout = lib.mkDefault 0;
       systemd-boot = {
         enable = lib.mkDefault true;
         editor = lib.mkForce false;
