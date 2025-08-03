@@ -33,7 +33,10 @@
 
     ssh = {
       enable = true;
-      includes = [ "~/.ssh/config.d/*.config" ];
+      includes = [
+        "~/.ssh/*.config"
+        "~/.ssh/config.d/*.config"
+      ];
     };
 
     git = {
