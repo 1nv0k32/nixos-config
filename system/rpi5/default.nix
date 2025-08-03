@@ -1,13 +1,12 @@
 {
-  self,
   lib,
   pkgs,
   ...
 }:
 {
-  imports = [
-    (import ./disko.nix)
-  ];
+  # imports = [
+  # (import ./disko.nix)
+  # ];
 
   users.users.root.initialPassword = "root";
 
