@@ -171,6 +171,7 @@
               inherit (attrs) hostName;
             };
             modules = [
+              nixos-hardware.nixosModules.raspberry-pi-5
               (import "${self}/system/server.nix")
               (import "${self}/system/rpi5")
             ]

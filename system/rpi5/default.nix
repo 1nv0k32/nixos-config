@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   ...
 }:
 {
@@ -11,7 +10,6 @@
   users.users.root.initialPassword = "root";
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_rpi4;
     kernelParams = [
       "cgroup_enable=memory"
       "cgroup_enable=cpuset"
@@ -22,6 +20,7 @@
       generic-extlinux-compatible.enable = true;
     };
   };
+
   hardware = {
     bluetooth.enable = true;
   };
