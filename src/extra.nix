@@ -4,7 +4,7 @@
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
-        enable = true;
+        enable = lib.mkDefault true;
         editor = lib.mkForce false;
         consoleMode = "max";
       };
