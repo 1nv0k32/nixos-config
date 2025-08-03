@@ -17,6 +17,9 @@
       "cgroup_enable=cpuset"
       "cgroup_memory=1"
     ];
+    loader = {
+      generic-extlinux-compatible.enable = true;
+    };
   };
   hardware = {
     bluetooth.enable = true;
