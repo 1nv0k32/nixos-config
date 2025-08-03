@@ -23,6 +23,7 @@
   };
 
   hardware = {
+    enableAllHardware = lib.mkForce false;
     bluetooth.enable = true;
   };
 
