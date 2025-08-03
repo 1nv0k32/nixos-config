@@ -10,6 +10,7 @@
   users.users.root.initialPassword = "root";
 
   boot = {
+    initrd.systemd.enableTpm2 = false;
     kernelParams = [
       "cgroup_enable=memory"
       "cgroup_enable=cpuset"
