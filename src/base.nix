@@ -13,9 +13,6 @@
   boot = {
     tmp.cleanOnBoot = true;
     blacklistedKernelModules = [ "snd_pcsp" ];
-    loader = {
-      timeout = 0;
-    };
   };
 
   networking = {
