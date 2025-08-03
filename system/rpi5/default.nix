@@ -18,6 +18,7 @@
       "cgroup_memory=1"
     ];
     loader = {
+      systemd-boot.enable = false;
       generic-extlinux-compatible.enable = true;
     };
   };
