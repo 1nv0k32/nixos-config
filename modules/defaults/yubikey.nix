@@ -23,12 +23,12 @@ in
   services = {
     pcscd.enable = true;
     yubikey-agent.enable = true;
-    udev.extraRules = ''
-      ACTION=="remove",\
-      SUBSYSTEM=="hidraw",\
-      ENV{ID_FIDO_TOKEN}=="1",\
-      RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
-    '';
+    # udev.extraRules = ''
+    #   ACTION=="remove",\
+    #   SUBSYSTEM=="hidraw",\
+    #   ENV{ID_FIDO_TOKEN}=="1",\
+    #   RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+    # '';
   };
 
   security = {
