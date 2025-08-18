@@ -92,13 +92,13 @@
           nixpkgs.lib.nixosSystem {
             system = flake-utils.lib.system.x86_64-linux;
             specialArgs = {
-              inherit self openstack-nix-dev;
+              inherit self;
               inherit (attrs) hostName;
             };
             modules = [
               nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
               (import "${self}/system/z13g2.nix")
-              (import "${self}/system/containers")
+              (import "${self}/system/containers" { openstack-nix = openstack-nix-dev; })
             ]
             ++ guiModules
             ++ optionalLocalModules attrs.modules;
