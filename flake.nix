@@ -28,6 +28,10 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    openstack-nix = {
+      url = "github:cobaltcore-dev/openstack-nix";
+      inputs.nixpkgs.follows = "nixpkgs-old";
+    };
     # hardware
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -63,7 +67,6 @@
         (import "${self}/overrides/initrd-luks.nix")
         (import "${self}/src/extra.nix")
         (import "${self}/pkgs/extra.nix")
-        (import "${self}/system/containers")
       ];
       guiModules = extraModules ++ [
         (import "${self}/modules/gui")
@@ -93,6 +96,7 @@
             modules = [
               nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
               (import "${self}/system/z13g2.nix")
+              (import "${self}/system/containers" { inherit openstack-nix; })
             ]
             ++ guiModules
             ++ optionalLocalModules attrs.modules;
