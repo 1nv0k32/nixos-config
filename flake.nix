@@ -32,7 +32,7 @@
       url = "github:cobaltcore-dev/openstack-nix";
     };
     openstack-nix-dev = {
-      url = "github:cobaltcore-dev/openstack-nix";
+      url = "github:1nv0k32/openstack-nix";
     };
     # hardware
     nixos-wsl = {
