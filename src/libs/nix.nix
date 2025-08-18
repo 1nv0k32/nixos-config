@@ -26,8 +26,5 @@
         "flakes"
       ];
     };
-    extraOptions = ''
-      enable-core-dumps = true
-    '';
   };
 }
