@@ -96,7 +96,7 @@
             modules = [
               nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
               (import "${self}/system/z13g2.nix")
-              (import "${self}/system/containers" { inherit openstack-nix; })
+              (import "${self}/system/containers" { inherit openstack-nix system; })
             ]
             ++ guiModules
             ++ optionalLocalModules attrs.modules;
