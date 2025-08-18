@@ -1,7 +1,7 @@
 { self, openstack-nix, ... }:
 {
   imports = [
-    openstack-nix.nixosModules.controllerModule
+    openstack-nix.nixosModules.computeModule
   ];
   system = {
     stateVersion = self.stateVersion;
