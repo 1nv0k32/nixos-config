@@ -14,6 +14,7 @@
       persistent = true;
     };
     settings = {
+      enable-core-dumps = true;
       min-free = 512 * 1024 * 1024;
       max-free = 3000 * 1024 * 1024;
       download-buffer-size = 268435456;
