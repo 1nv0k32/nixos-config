@@ -30,7 +30,6 @@
     };
     openstack-nix = {
       url = "github:cobaltcore-dev/openstack-nix";
-      inputs.nixpkgs.follows = "nixpkgs-old";
     };
     # hardware
     nixos-wsl = {
