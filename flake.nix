@@ -31,6 +31,9 @@
     openstack-nix = {
       url = "github:cobaltcore-dev/openstack-nix";
     };
+    openstack-nix-dev = {
+      url = "github:cobaltcore-dev/openstack-nix";
+    };
     # hardware
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -89,7 +92,7 @@
           nixpkgs.lib.nixosSystem {
             system = flake-utils.lib.system.x86_64-linux;
             specialArgs = {
-              inherit self openstack-nix;
+              inherit self openstack-nix-dev;
               inherit (attrs) hostName;
             };
             modules = [
