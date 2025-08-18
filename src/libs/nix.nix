@@ -27,7 +27,7 @@
       ];
     };
     extraOptions = ''
-      enable-core-dumps = true;
+      enable-core-dumps = true
     '';
   };
 }
