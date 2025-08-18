@@ -90,7 +90,7 @@
           nixpkgs.lib.nixosSystem {
             system = flake-utils.lib.system.x86_64-linux;
             specialArgs = {
-              inherit self system openstack-nix;
+              inherit self openstack-nix;
               inherit (attrs) hostName;
             };
             modules = [

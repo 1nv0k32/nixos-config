@@ -1,7 +1,7 @@
-{ openstack-nix, system, ... }:
+{ openstack-nix, ... }:
 {
   imports = [
-    openstack-nix.nixosModules.${system}.computeModule
+    openstack-nix.nixosModules."x86_64-linux".computeModule
   ];
   system = {
     stateVersion = "24.11";
