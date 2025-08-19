@@ -511,11 +511,11 @@
         "pre-commit-hooks-nix": "pre-commit-hooks-nix_2"
       },
       "locked": {
-        "lastModified": 1755561348,
-        "narHash": "sha256-Y4uwTHJT2E5M359Mz9yuVXxEM/+AVC3LXZ09fs7qpNw=",
+        "lastModified": 1755561588,
+        "narHash": "sha256-JhPIODPsZ2qddarZrNrdMy2P7hJ+zPaCwMVptDl9yAo=",
         "owner": "1nv0k32",
         "repo": "openstack-nix",
-        "rev": "733bc704540a4f84227ce3c6d5277153051a519f",
+        "rev": "95c5622641b4abfbc13ef16423c2c8f41331e9f3",
         "type": "github"
       },
       "original": {
