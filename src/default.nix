@@ -11,7 +11,7 @@
   ];
 
   system = {
-    stateVersion = self.stateVersion;
+    stateVersion = self.nixosModules.stateVersion;
   };
 
   environment = {
