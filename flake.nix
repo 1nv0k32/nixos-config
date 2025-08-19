@@ -152,21 +152,6 @@
             ++ baseModules
             ++ optionalLocalModules attrs.modules;
           };
-        # VM
-        vm =
-          attrs:
-          nixpkgs.lib.nixosSystem {
-            system = flake-utils.lib.system.x86_64-linux;
-            specialArgs = {
-              inherit self;
-              inherit (attrs) hostName;
-            };
-            modules = [
-              (import "${self}/system/vm.nix")
-            ]
-            ++ extraModules
-            ++ optionalLocalModules attrs.modules;
-          };
         # Raspberry Pi 5
         rpi5 =
           attrs:
@@ -184,6 +169,21 @@
             ++ extraModules
             ++ optionalLocalModules attrs.modules;
           };
+        # QEMU
+        qemu =
+          attrs:
+          nixpkgs.lib.nixosSystem {
+            system = flake-utils.lib.system.x86_64-linux;
+            specialArgs = {
+              inherit self;
+              inherit (attrs) hostName;
+            };
+            modules = [
+              (import "${self}/system/qemu.nix")
+            ]
+            ++ extraModules
+            ++ optionalLocalModules attrs.modules;
+          };
         # UTM
         utm =
           attrs:
@@ -194,6 +194,7 @@
               inherit (attrs) hostName;
             };
             modules = [
+              (import "${self}/system/qemu.nix")
               (import "${self}/system/utm")
             ]
             ++ guiModules
@@ -209,7 +210,6 @@
               inherit (attrs) hostName;
             };
             modules = [
-              (import "${self}/system/server.nix")
               (import "${self}/system/parallels")
             ]
             ++ guiModules

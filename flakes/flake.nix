@@ -25,7 +25,7 @@
         nyxarm = cfg.systemTypes.hetzner.arm;
         nyxwsl = cfg.systemTypes.wsl;
         nyxpi = cfg.systemTypes.rpi5;
-        nyxvm = cfg.systemTypes.vm;
+        nyxvm = cfg.systemTypes.qemu;
         nyxutm = cfg.systemTypes.utm;
         nyxprl = cfg.systemTypes.parallels;
       };
