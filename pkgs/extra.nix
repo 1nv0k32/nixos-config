@@ -34,6 +34,7 @@
     istioctl
     cilium-cli
     talosctl
+    openstackclient-full
 
     nvme-cli
     stress
