@@ -1,7 +1,7 @@
 { self, openstack-nix, ... }:
 {
   imports = [
-    openstack-nix.nixosModules.computeModule
+    openstack-nix.nixosModules."x86_64-linux".computeModule
   ];
 
   system = {
