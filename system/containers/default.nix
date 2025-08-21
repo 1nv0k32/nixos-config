@@ -4,13 +4,13 @@
     os-master = {
       autoStart = true;
       privateNetwork = true;
-      config = (import ./os-master.nix attrs);
+      config = (import ./controller.nix attrs);
     };
 
     os-slave = {
       autoStart = true;
       privateNetwork = true;
-      config = (import ./os-slave.nix attrs);
+      config = (import ./compute.nix attrs);
     };
   };
 }
