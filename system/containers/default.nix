@@ -1,13 +1,13 @@
-{ ... }@attrs:
+{ pkgs, ... }@attrs:
 {
   containers = {
-    os-master = {
+    controller = {
       autoStart = true;
       privateNetwork = true;
       config = (import ./controller.nix attrs);
     };
 
-    os-slave = {
+    compute = {
       autoStart = true;
       privateNetwork = true;
       config = (import ./compute.nix attrs);
