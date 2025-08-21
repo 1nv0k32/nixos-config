@@ -1,10 +1,16 @@
 { ... }@attrs:
 {
   containers = {
-    pod01 = {
+    os-master = {
       autoStart = true;
       privateNetwork = false;
-      config = (import ./pod01.nix attrs);
+      config = (import ./os-master.nix attrs);
+    };
+
+    os-slave = {
+      autoStart = true;
+      privateNetwork = false;
+      config = (import ./os-slave.nix attrs);
     };
   };
 }
