@@ -1,7 +1,10 @@
-{ self, openstack-nix, ... }:
+{
+  openstack-nix,
+  ...
+}@attrs:
 {
   imports = [
-    (import ./base.nix { inherit self; })
+    (import ./base.nix attrs)
     openstack-nix.nixosModules."x86_64-linux".computeModule
   ];
 }
