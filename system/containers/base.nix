@@ -1,4 +1,9 @@
-{ self, pkgs, ... }:
+{
+  self,
+  pkgs,
+  lib,
+  ...
+}:
 {
   system = {
     stateVersion = self.nixosModules.stateVersion;
@@ -8,4 +13,12 @@
     vim
     openstackclient-full
   ];
+
+  networking = {
+    useHostResolvConf = lib.mkForce false;
+  };
+
+  services = {
+    resolved.enable = true;
+  };
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }@attrs:
+{ pkgs, lib, ... }@attrs:
 {
   containers = {
     controller = {
