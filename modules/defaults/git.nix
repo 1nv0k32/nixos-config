@@ -6,6 +6,7 @@
     config = {
       init.defaultBranch = "main";
       color.ui = "auto";
+      fetch.all = true;
       fetch.prune = true;
       fetch.pruneTags = true;
       pull.rebase = true;
