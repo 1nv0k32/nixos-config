@@ -7,7 +7,7 @@ in
     enable = true;
     netdevs."20-${brName}" = {
       netdevConfig = {
-        Kind = "Bridge";
+        Kind = "bridge";
         Name = brName;
       };
     };
