@@ -2,6 +2,7 @@
   self,
   pkgs,
   lib,
+  address,
   ...
 }:
 {
@@ -21,6 +22,13 @@
   networking = {
     useHostResolvConf = lib.mkForce false;
     firewall.enable = false;
+  };
+
+  systemd.network = {
+    networks."10-eth0" = {
+      matchConfig.Name = "eth0";
+      address = [ address ];
+    };
   };
 
   services = {

@@ -4,11 +4,4 @@
     (import ./base.nix attrs)
     attrs.openstack-nix.nixosModules."x86_64-linux".controllerModule
   ];
-
-  systemd.network = {
-    networks."10-eth0" = {
-      matchConfig.Name = "eth0";
-      address = [ attrs.address ];
-    };
-  };
 }
