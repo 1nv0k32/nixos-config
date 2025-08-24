@@ -2,7 +2,8 @@
   self,
   pkgs,
   lib,
-  address,
+  ipAddr,
+  ipGateway,
   ...
 }:
 {
@@ -27,7 +28,10 @@
   systemd.network = {
     networks."10-eth0" = {
       matchConfig.Name = "eth0";
-      address = [ address ];
+      address = [ ipAddr ];
+      routes = [
+        { Gateway = ipGateway; }
+      ];
     };
   };
 

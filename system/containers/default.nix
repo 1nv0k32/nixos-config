@@ -25,14 +25,30 @@ in
       autoStart = true;
       privateNetwork = true;
       hostBridge = brName;
-      config = (import ./controller.nix (attrs // { ipAddr = controllerAddr; }));
+      config = (
+        import ./controller.nix (
+          attrs
+          // {
+            ipAddr = controllerAddr;
+            ipGateway = hostAddr;
+          }
+        )
+      );
     };
 
     compute = {
       autoStart = true;
       privateNetwork = true;
       hostBridge = brName;
-      config = (import ./compute.nix (attrs // { ipAddr = computeAddr; }));
+      config = (
+        import ./compute.nix (
+          attrs
+          // {
+            ipAddr = computeAddr;
+            ipGateway = hostAddr;
+          }
+        )
+      );
     };
   };
 }
