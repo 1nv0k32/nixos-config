@@ -17,6 +17,11 @@
     };
   };
 
+  systemd.network = {
+    enable = true;
+    wait-online.enable = false;
+  };
+
   services = {
     avahi = {
       enable = true;
