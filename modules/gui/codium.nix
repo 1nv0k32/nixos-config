@@ -9,10 +9,6 @@
         donjayamanne.githistory
         donjayamanne.python-extension-pack
         editorconfig.editorconfig
-        github.copilot
-        github.copilot-chat
-        github.remotehub
-        github.vscode-pull-request-github
         golang.go
         hashicorp.terraform
         jnoortheen.nix-ide
@@ -21,8 +17,6 @@
         mgesbert.python-path
         mhutchie.git-graph
         mkhl.direnv
-        ms-azuretools.vscode-containers
-        ms-kubernetes-tools.vscode-kubernetes-tools
         ms-python.debugpy
         ms-python.python
         ms-python.vscode-pylance
@@ -42,7 +36,6 @@
         oderwat.indent-rainbow
         pkief.material-icon-theme
         platformio.platformio-ide
-        redhat.ansible
         redhat.vscode-yaml
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
@@ -51,7 +44,6 @@
         visualstudioexptteam.vscodeintellicode
         vscodevim.vim
         waderyan.gitblame
-        webfreak.debug
         wholroyd.jinja
       ];
     })
