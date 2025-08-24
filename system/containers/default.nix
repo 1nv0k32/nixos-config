@@ -22,14 +22,26 @@ in
       autoStart = true;
       privateNetwork = true;
       hostBridge = brName;
-      config = (import ./controller.nix attrs);
+      config = (
+        import ./controller.nix attrs
+        // {
+          inherit pkgs lib;
+          address = "10.0.1.100/24";
+        }
+      );
     };
 
     compute = {
       autoStart = true;
       privateNetwork = true;
       hostBridge = brName;
-      config = (import ./compute.nix attrs);
+      config = (
+        import ./compute.nix attrs
+        // {
+          inherit pkgs lib;
+          address = "10.0.1.101/24";
+        }
+      );
     };
   };
 }
