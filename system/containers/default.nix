@@ -1,14 +1,14 @@
 { pkgs, lib, ... }@attrs:
+let
+  brName = "os1";
+in
 {
-  networking = {
-    bridges.os1.interfaces = [ ];
-    interfaces.os1 = {
-      ipv4.addresses = [
-        {
-          address = "10.0.1.1";
-          prefixLength = 24;
-        }
-      ];
+  systemd.network = {
+    netdevs."20-${brName}" = {
+      netdevConfig = {
+        Kind = "Bridge";
+        Name = brName;
+      };
     };
   };
 
@@ -16,7 +16,7 @@
     controller = {
       autoStart = true;
       privateNetwork = true;
-      hostBridge = "os1";
+      hostBridge = brName;
       localAddress = "10.0.1.100/24";
       config = (import ./controller.nix attrs);
     };
@@ -24,6 +24,7 @@
     compute = {
       autoStart = true;
       privateNetwork = true;
+      hostBridge = brName;
       localAddress = "10.0.1.101/24";
       config = (import ./compute.nix attrs);
     };
