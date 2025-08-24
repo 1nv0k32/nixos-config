@@ -17,15 +17,6 @@ in
     };
   };
 
-  networking.nat = {
-    enable = true;
-    internalInterfaces = [
-      "vb-controller"
-      "vb-compute"
-    ];
-    externalInterface = "wlp1s0";
-  };
-
   containers = {
     controller = {
       autoStart = true;

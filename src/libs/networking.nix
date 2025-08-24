@@ -11,7 +11,7 @@
       };
     };
     firewall = {
-      enable = false;
+      enable = true;
       checkReversePath = false;
       allowPing = false;
     };
