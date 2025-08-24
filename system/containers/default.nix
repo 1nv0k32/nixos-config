@@ -10,6 +10,10 @@ in
         Name = brName;
       };
     };
+    networks."30-${brName}" = {
+      matchConfig.Name = brName;
+      bridgeConfig = { };
+    };
   };
 
   containers = {
