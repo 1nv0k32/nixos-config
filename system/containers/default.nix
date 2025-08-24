@@ -23,10 +23,12 @@ in
       privateNetwork = true;
       hostBridge = brName;
       config = (
-        import ./controller.nix attrs
-        // {
-          address = "10.0.1.100/24";
-        }
+        import ./controller.nix (
+          attrs
+          // {
+            address = "10.0.1.100/24";
+          }
+        )
       );
     };
 
@@ -35,10 +37,12 @@ in
       privateNetwork = true;
       hostBridge = brName;
       config = (
-        import ./compute.nix attrs
-        // {
-          address = "10.0.1.101/24";
-        }
+        import ./compute.nix (
+          attrs
+          // {
+            address = "10.0.1.101/24";
+          }
+        )
       );
     };
   };
