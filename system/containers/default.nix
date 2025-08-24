@@ -13,6 +13,7 @@ in
     networks."30-${brName}" = {
       matchConfig.Name = brName;
       bridgeConfig = { };
+      address = [ "10.0.1.1/24" ];
     };
   };
 
