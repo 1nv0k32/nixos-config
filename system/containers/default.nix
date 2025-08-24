@@ -4,6 +4,7 @@ let
 in
 {
   systemd.network = {
+    enable = true;
     netdevs."20-${brName}" = {
       netdevConfig = {
         Kind = "Bridge";
