@@ -17,6 +17,14 @@ in
     };
   };
 
+  networking.nat = {
+    enable = true;
+    internalInterfaces = [
+      "ve-+"
+      "vb-+"
+    ];
+  };
+
   containers = {
     controller = {
       autoStart = true;
