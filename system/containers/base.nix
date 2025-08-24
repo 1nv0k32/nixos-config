@@ -7,8 +7,8 @@
 {
   imports = [
     (import "${self}/src/lib/networkd.nix")
-    (import "${self}/src/lib/dns.nix")
   ];
+
   system = {
     stateVersion = self.nixosModules.stateVersion;
   };
@@ -20,5 +20,13 @@
 
   networking = {
     useHostResolvConf = lib.mkForce false;
+    firewall.enable = false;
+  };
+
+  services = {
+    resolved = {
+      enable = true;
+      llmnr = "true";
+    };
   };
 }
