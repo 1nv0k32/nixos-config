@@ -5,9 +5,11 @@
 }:
 {
   imports = [
-    (import ./libs/systemd.nix)
-    (import ./libs/logind.nix)
-    (import ./libs/networking.nix)
+    (import ./lib/systemd.nix)
+    (import ./lib/logind.nix)
+    (import ./lib/networking.nix)
+    (import ./lib/networkd.nix)
+    (import ./lib/dns.nix)
   ];
 
   boot = {
