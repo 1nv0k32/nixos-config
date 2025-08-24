@@ -20,7 +20,7 @@
 
   systemd.network = {
     enable = true;
-    wait-online = false;
+    wait-online.enable = false;
     networks."10-eth0" = {
       matchConfig.Name = "eth0";
       routes = [ { Gateway = "10.0.1.1"; } ];
