@@ -5,7 +5,6 @@
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         batisteo.vscode-django
-        darkriszty.markdown-table-prettify
         davidanson.vscode-markdownlint
         docker.docker
         donjayamanne.githistory
