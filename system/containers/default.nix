@@ -25,7 +25,6 @@ in
       config = (
         import ./controller.nix attrs
         // {
-          inherit pkgs lib;
           address = "10.0.1.100/24";
         }
       );
@@ -38,7 +37,6 @@ in
       config = (
         import ./compute.nix attrs
         // {
-          inherit pkgs lib;
           address = "10.0.1.101/24";
         }
       );

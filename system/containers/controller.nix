@@ -8,7 +8,7 @@
   systemd.network = {
     networks."10-eth0" = {
       matchConfig.Name = "eth0";
-      address = [ address ];
+      address = [ attrs.address ];
     };
   };
 }
