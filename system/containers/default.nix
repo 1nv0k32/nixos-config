@@ -23,7 +23,7 @@ in
 
   containers = {
     controller = {
-      autoStart = true;
+      autoStart = false;
       privateNetwork = true;
       hostBridge = brName;
       config = (
@@ -38,7 +38,7 @@ in
     };
 
     compute = {
-      autoStart = true;
+      autoStart = false;
       privateNetwork = true;
       hostBridge = brName;
       config = (
