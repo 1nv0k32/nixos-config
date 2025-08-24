@@ -1,4 +1,4 @@
-{ address, ... }@attrs:
+{ ... }@attrs:
 {
   imports = [
     (import ./base.nix attrs)
