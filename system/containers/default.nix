@@ -30,7 +30,6 @@ in
       autoStart = true;
       privateNetwork = true;
       hostBridge = brName;
-      localAddress = "10.0.1.100/24";
       config = (import ./controller.nix attrs);
     };
 
@@ -38,7 +37,6 @@ in
       autoStart = true;
       privateNetwork = true;
       hostBridge = brName;
-      localAddress = "10.0.1.101/24";
       config = (import ./compute.nix attrs);
     };
   };
