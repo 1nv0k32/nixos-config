@@ -6,7 +6,6 @@
       vscodeExtensions = with vscode-extensions; [
         batisteo.vscode-django
         davidanson.vscode-markdownlint
-        docker.docker
         donjayamanne.githistory
         donjayamanne.python-extension-pack
         editorconfig.editorconfig
