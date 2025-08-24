@@ -1,9 +1,10 @@
 { pkgs, lib, ... }@attrs:
 let
   brName = "os1";
-  hostAddr = "10.0.1.1/24";
-  controllerAddr = "10.0.1.100/24";
-  computeAddr = "10.0.1.101/24";
+  netmask = "24";
+  hostAddr = "10.0.1.1";
+  controllerAddr = "10.0.1.100";
+  computeAddr = "10.0.1.101";
 in
 {
   systemd.network = {
@@ -16,7 +17,7 @@ in
     networks."30-${brName}" = {
       matchConfig.Name = brName;
       bridgeConfig = { };
-      address = [ hostAddr ];
+      address = [ "${hostAddr}/${netmask}" ];
     };
   };
 
@@ -29,7 +30,7 @@ in
         import ./controller.nix (
           attrs
           // {
-            ipAddr = controllerAddr;
+            ipAddr = "${controllerAddr}/${netmask}";
             ipGateway = hostAddr;
           }
         )
@@ -44,7 +45,7 @@ in
         import ./compute.nix (
           attrs
           // {
-            ipAddr = computeAddr;
+            ipAddr = "${computeAddr}/${netmask}";
             ipGateway = hostAddr;
           }
         )
