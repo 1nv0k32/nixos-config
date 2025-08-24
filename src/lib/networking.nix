@@ -1,5 +1,10 @@
 { ... }:
 {
+  imports = [
+    (import ./networkd.nix)
+    (import ./dns.nix)
+  ];
+
   networking = {
     networkmanager = {
       dns = "systemd-resolved";
@@ -11,7 +16,7 @@
       };
     };
     firewall = {
-      enable = true;
+      enable = false;
       checkReversePath = false;
       allowPing = false;
     };

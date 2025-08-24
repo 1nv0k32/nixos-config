@@ -8,8 +8,6 @@
     (import ./lib/systemd.nix)
     (import ./lib/logind.nix)
     (import ./lib/networking.nix)
-    (import ./lib/networkd.nix)
-    (import ./lib/dns.nix)
   ];
 
   boot = {
