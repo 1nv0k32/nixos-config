@@ -23,6 +23,7 @@ in
       "ve-+"
       "vb-+"
     ];
+    externalInterface = "wlp1s0";
   };
 
   containers = {
