@@ -20,8 +20,8 @@ in
   networking.nat = {
     enable = true;
     internalInterfaces = [
-      "ve-+"
-      "vb-+"
+      "vb-controller"
+      "vb-compute"
     ];
     externalInterface = "wlp1s0";
   };
