@@ -7,7 +7,7 @@
 
   systemd.network = {
     networks."10-eth0" = {
-      address = [ "10.0.1.100" ];
+      address = [ "10.0.1.100/24" ];
     };
   };
 }
