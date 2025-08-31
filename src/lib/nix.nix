@@ -27,4 +27,14 @@
       ];
     };
   };
+
+  virtualisation = {
+    vmVariantWithBootLoader = true;
+    vmVariant = {
+      virtualisation = {
+        memorySize = 4096;
+        cores = 6;
+      };
+    };
+  };
 }
