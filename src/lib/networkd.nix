@@ -1,7 +1,7 @@
-{ ... }:
+{ lib, ... }:
 {
   systemd.network = {
-    enable = true;
+    enable = lib.mkDefault true;
     wait-online.enable = false;
   };
 }
