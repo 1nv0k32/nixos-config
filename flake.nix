@@ -99,7 +99,6 @@
               modules = [
                 nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
                 (import "${self}/system/z13g2.nix")
-                # (import "${self}/system/containers")
               ]
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
@@ -181,6 +180,7 @@
               };
               modules = [
                 (import "${self}/system/qemu.nix")
+                (import "${self}/system/containers")
               ]
               ++ extraModules
               ++ optionalLocalModules attrs.modules;
