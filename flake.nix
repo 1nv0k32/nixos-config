@@ -180,7 +180,7 @@
               };
               modules = [
                 (import "${self}/system/qemu.nix")
-                (import "${self}/system/containers")
+                # (import "${self}/system/containers")
               ]
               ++ extraModules
               ++ optionalLocalModules attrs.modules;
