@@ -29,9 +29,9 @@
   };
 
   virtualisation = {
-    vmVariantWithBootLoader = true;
     vmVariant = {
       virtualisation = {
+        vmVariantWithBootLoader = true;
         memorySize = 4096;
         cores = 6;
       };
