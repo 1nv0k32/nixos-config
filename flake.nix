@@ -100,7 +100,7 @@
               };
               modules = [
                 nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-                (import "${self}/system/z13g2.nix")
+                (import "${self}/system/z13g2")
               ]
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
@@ -117,6 +117,7 @@
               modules = [
                 nixos-avf-dev.nixosModules.avf
                 (import "${self}/system/server.nix")
+                (import "${self}/system/avf")
               ]
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
@@ -165,7 +166,7 @@
               };
               modules = [
                 nixos-wsl.nixosModules.wsl
-                (import "${self}/system/wsl.nix")
+                (import "${self}/system/wsl")
               ]
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
