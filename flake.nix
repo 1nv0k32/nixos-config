@@ -35,6 +35,7 @@
       url = "github:1nv0k32/openstack-nix";
     };
     # hardware
+    nixos-avf.url = "github:nix-community/nixos-avf";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -101,6 +102,23 @@
                 (import "${self}/system/z13g2.nix")
               ]
               ++ guiModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # AVF
+          avf =
+            attrs:
+            nixpkgs.lib.nixosSystem {
+              system = flake-utils.lib.system.aarch64-linux;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName;
+              };
+              modules = [
+                nixos-avf.nixosModules.avf
+                (import "${self}/system/server.nix")
+                (import "${self}/system/z13g2.nix")
+              ]
+              ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
           # Hetzner
