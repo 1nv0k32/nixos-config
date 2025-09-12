@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-nixos-rebuild boot --flake github:1nv0k32/nixos-config?dir=flakes#HOST
+nixos-rebuild boot --no-write-lock-file --flake github:1nv0k32/nixos-config?dir=flakes#HOST
 ```
 
 ## nixos-anywhere
