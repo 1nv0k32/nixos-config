@@ -283,6 +283,21 @@
         "type": "github"
       }
     },
+    "nixos-avf-dev": {
+      "locked": {
+        "lastModified": 1757711293,
+        "narHash": "sha256-IiPsVPVmWnRA3K+w7ldwFPduYAHmu+sgUhn4mu5K5vc=",
+        "owner": "1nv0k32",
+        "repo": "nixos-avf",
+        "rev": "b1a74a2ff78dd2f0597a0da1ba0bfde7fcdfbbb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "1nv0k32",
+        "repo": "nixos-avf",
+        "type": "github"
+      }
+    },
     "nixos-generators": {
       "inputs": {
         "nixlib": "nixlib",
@@ -591,6 +606,7 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixos-avf": "nixos-avf",
+        "nixos-avf-dev": "nixos-avf-dev",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",

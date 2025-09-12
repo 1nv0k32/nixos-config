@@ -36,6 +36,7 @@
     };
     # hardware
     nixos-avf.url = "github:nix-community/nixos-avf";
+    nixos-avf-dev.url = "github:1nv0k32/nixos-avf";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -114,7 +115,7 @@
                 inherit (attrs) hostName;
               };
               modules = [
-                nixos-avf.nixosModules.avf
+                nixos-avf-dev.nixosModules.avf
                 (import "${self}/system/server.nix")
               ]
               ++ baseModules
