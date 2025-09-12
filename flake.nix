@@ -116,7 +116,6 @@
               modules = [
                 nixos-avf.nixosModules.avf
                 (import "${self}/system/server.nix")
-                (import "${self}/system/z13g2.nix")
               ]
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
