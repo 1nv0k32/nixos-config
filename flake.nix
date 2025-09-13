@@ -87,7 +87,7 @@
         );
     in
     {
-      nixosModules = forAllSystems (system: {
+      nixosModules = {
         stateVersion = "25.05";
         systemTypes = {
           # Thinkpad Z13 Gen2
@@ -237,7 +237,7 @@
               ++ optionalLocalModules attrs.modules;
             };
         };
-      });
+      };
 
       devShells = forAllSystems (
         system:
