@@ -1,10 +1,10 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   cfg = config.environment.sysConf;
 in
 {
   users.users."${cfg.user.name}" = {
-    initialPassword = null;
+    initialPassword = lib.mkForce null;
   };
 
   avf = {
