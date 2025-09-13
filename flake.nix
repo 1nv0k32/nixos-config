@@ -77,6 +77,7 @@
       ];
 
       # Definitions
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
       optionalLocalModules =
         nix_paths:
         builtins.concatLists (
@@ -237,9 +238,9 @@
             };
         };
       };
-    }
-    // flake-utils.lib.eachDefaultSystem (system: {
-      devShells =
+
+      devShells = forAllSystems (
+        system:
         let
           pkgs = (import nixpkgs { inherit system; });
           defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
@@ -252,6 +253,7 @@
           kernel = kernelShells.shell;
           python = pythonShells.shell;
           go = goShells.shell;
-        };
-    });
+        }
+      );
+    };
 }
