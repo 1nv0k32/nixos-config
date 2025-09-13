@@ -239,7 +239,7 @@
         };
       };
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+      formatter = forAllSystems (system: (import nixpkgs { inherit system; }).nixfmt-tree);
 
       devShells = forAllSystems (
         system:
