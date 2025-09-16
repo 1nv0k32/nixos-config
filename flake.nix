@@ -116,7 +116,7 @@
                 inherit (attrs) hostName;
               };
               modules = [
-                nixos-avf-dev.nixosModules.avf
+                nixos-avf.nixosModules.avf
                 (import "${self}/system/server.nix")
                 (import "${self}/system/avf")
               ]
