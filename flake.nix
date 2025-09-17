@@ -7,7 +7,6 @@
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-test.url = "github:1nv0k32/nixpkgs";
     # tools
-    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,6 +76,10 @@
       ];
 
       # Definitions
+      systems = {
+        x86_64-linux = "x86_64-linux";
+        aarch64-linux = "aarch64-linux";
+      };
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
       optionalLocalModules =
         nix_paths:
@@ -94,7 +97,7 @@
           z13g2 =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.x86_64-linux;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self openstack-nix;
                 inherit (attrs) hostName;
@@ -110,7 +113,7 @@
           avf =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.aarch64-linux;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
@@ -127,7 +130,7 @@
           hetzner.amd =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.x86_64-linux;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
@@ -143,7 +146,7 @@
           hetzner.arm =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.aarch64-linux;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
@@ -160,7 +163,7 @@
           wsl =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.x86_64-linux;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
@@ -176,7 +179,7 @@
           rpi5 =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.aarch64-linux;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
@@ -193,7 +196,7 @@
           qemu =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.x86_64-linux;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
@@ -209,7 +212,7 @@
           utm =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.aarch64-linux;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
@@ -225,7 +228,7 @@
           parallels =
             attrs:
             nixpkgs.lib.nixosSystem {
-              system = flake-utils.lib.system.aarch64-linux;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
