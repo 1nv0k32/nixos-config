@@ -42,7 +42,9 @@
       neo-tree = {
         enable = true;
         extraOptions = {
-          position = "right";
+          window = {
+            position = "right";
+          };
         };
       };
       nvim-autopairs.enable = true;
