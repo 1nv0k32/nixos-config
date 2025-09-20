@@ -39,7 +39,12 @@
       indent-blankline.enable = true;
       lastplace.enable = true;
       treesitter.enable = true;
-      neo-tree.enable = true;
+      neo-tree = {
+        enable = true;
+        extraOptions = {
+          position = "right";
+        };
+      };
       nvim-autopairs.enable = true;
       helm.enable = true;
       lsp = {
