@@ -18,17 +18,15 @@ in
     yubioath-flutter
   ];
 
+  services.udev.packages = with pkgs; [
+    yubikey-personalization
+  ];
+
   environment.etc.u2f_mappings.text = lib.mkDefault '''';
 
   services = {
     pcscd.enable = true;
     yubikey-agent.enable = true;
-    # udev.extraRules = ''
-    #   ACTION=="remove",\
-    #   SUBSYSTEM=="hidraw",\
-    #   ENV{ID_FIDO_TOKEN}=="1",\
-    #   RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
-    # '';
   };
 
   security = {
