@@ -16,11 +16,6 @@ in
     extraConfig = SYSTEMD_CONFIG;
   };
   systemd = {
-    watchdog = {
-      runtimeTime = "off";
-      rebootTime = "off";
-      kexecTime = "off";
-    };
     extraConfig = SYSTEMD_CONFIG;
     user.extraConfig = ''
       [Manager]
