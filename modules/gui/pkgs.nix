@@ -26,6 +26,7 @@
       jetbrains.pycharm-community-bin
 
       telegram-desktop
+      slack
 
       burpsuite
     ]
