@@ -1,13 +1,19 @@
+let
+  device = "/dev/vda";
+  main = "main";
+  ESP = "ESP";
+  root = "root";
+in
 {
   disko.devices = {
     disk = {
-      main = {
+      "${main}" = {
+        inherit device;
         type = "disk";
-        device = "/dev/vda";
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
+            "${ESP}" = {
               size = "512M";
               type = "EF00";
               content = {
@@ -17,14 +23,14 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            root = {
+            "${root}" = {
               size = "100%";
               content = {
                 type = "luks";
                 name = "crypted";
-                passwordFile = "/tmp/disk.key";
+                askPassword = true;
                 postCreateHook = ''
-                  systemd-cryptenroll --fido2-device auto --fido2-with-user-verification no --fido2-with-user-presence no /dev/vda2
+                  systemd-cryptenroll --fido2-device auto --fido2-with-user-verification no /dev/disk/by-partlabel/disk-${main}-${root}
                 '';
                 content = {
                   type = "filesystem";
