@@ -30,7 +30,11 @@ in
                 name = "crypted";
                 askPassword = true;
                 postCreateHook = ''
-                  systemd-cryptenroll --fido2-device auto --fido2-with-user-verification no /dev/disk/by-partlabel/disk-${main}-${root}
+                  systemd-cryptenroll \
+                    --fido2-device auto \
+                    --fido2-with-user-verification no \
+                    --fido2-with-user-presence no \
+                    /dev/disk/by-partlabel/disk-${main}-${root}
                 '';
                 content = {
                   type = "filesystem";
