@@ -5,7 +5,6 @@
   ];
 
   boot = {
-    growPartition = true;
     initrd.kernelModules = [
       "virtio_pci"
       "xhci_pci"
