@@ -22,7 +22,10 @@
               content = {
                 type = "luks";
                 name = "crypted";
-                askPassword = true;
+                passwordFile = "/tmp/disk.key";
+                postCreateHook = ''
+                  systemd-cryptenroll --fido2-device auto --fido2-with-user-verification no --fido2-with-user-presence no /dev/vda2
+                '';
                 content = {
                   type = "filesystem";
                   format = "ext4";

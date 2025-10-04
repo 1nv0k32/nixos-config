@@ -221,7 +221,7 @@
                 (import "${self}/system/qemu.nix")
                 (import "${self}/system/utm")
               ]
-              ++ guiModules
+              ++ extraModules
               ++ optionalLocalModules attrs.modules;
             };
           # Parallels
