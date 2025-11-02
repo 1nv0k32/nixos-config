@@ -7,7 +7,7 @@
   environment.sysConf.x86 = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_6;
+    #kernelPackages = pkgs.linuxPackages_6_6;
     extraModprobeConfig = ''
       options kvm_amd nested=1
       options hid_apple fnmode=0
