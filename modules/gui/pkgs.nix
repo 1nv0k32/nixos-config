@@ -8,6 +8,7 @@
   environment.systemPackages =
     with pkgs;
     [
+      bitwarden-desktop
       kitty
       libreoffice
       transmission_4
