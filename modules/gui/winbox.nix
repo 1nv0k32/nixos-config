@@ -1,6 +1,5 @@
 {
   lib,
-  config,
   pkgs,
   self,
   ...
@@ -11,7 +10,7 @@
     (import "${self.inputs.nixpkgs-master}/nixos/modules/programs/winbox.nix")
   ];
 
-  config = lib.mkIf config.environment.sysConf.x86 {
+  config = lib.mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
     programs.winbox = {
       enable = true;
       openFirewall = true;
