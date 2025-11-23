@@ -30,7 +30,7 @@
 
       burpsuite
     ]
-    ++ lib.optionals config.environment.sysConf.x86 [
+    ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
       spotify
       discord
       zoom-us
