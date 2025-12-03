@@ -33,13 +33,15 @@
 
     ssh = {
       enable = true;
-      controlMaster = "auto";
-      controlPersist = "yes";
-      controlPath = "~/.ssh/master-%C";
-      includes = [
-        "~/.ssh/*.config"
-        "~/.ssh/config.d/*.config"
-      ];
+      matchBlocks."*" = {
+        controlMaster = "auto";
+        controlPersist = "yes";
+        controlPath = "~/.ssh/master-%C";
+        includes = [
+          "~/.ssh/*.config"
+          "~/.ssh/config.d/*.config"
+        ];
+      };
     };
 
     git = {

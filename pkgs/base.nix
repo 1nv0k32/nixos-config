@@ -13,7 +13,7 @@
     tree
     file
     htop
-    aria
+    aria2
     wget
     dig
     screen

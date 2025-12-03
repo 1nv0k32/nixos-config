@@ -41,7 +41,7 @@
       treesitter.enable = true;
       neo-tree = {
         enable = true;
-        extraOptions = {
+        settings = {
           window = {
             position = "right";
           };

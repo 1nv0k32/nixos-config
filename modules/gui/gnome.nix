@@ -16,22 +16,19 @@
       core-apps.enable = true;
       gnome-keyring.enable = true;
     };
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "altgr-intl";
-      };
-      desktopManager = {
-        gnome.enable = true;
-        wallpaper.mode = "center";
-      };
-      displayManager = {
-        gdm = {
-          enable = true;
-          autoSuspend = false;
-          wayland = true;
-        };
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
+    desktopManager = {
+      gnome.enable = true;
+      wallpaper.mode = "center";
+    };
+    displayManager = {
+      gdm = {
+        enable = true;
+        autoSuspend = false;
+        wayland = true;
       };
     };
     displayManager = {
