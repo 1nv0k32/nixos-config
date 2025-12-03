@@ -22,7 +22,6 @@
     };
     desktopManager = {
       gnome.enable = true;
-      wallpaper.mode = "center";
     };
     displayManager = {
       gdm = {
