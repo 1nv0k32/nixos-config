@@ -33,6 +33,7 @@
 
     ssh = {
       enable = true;
+      enableDefaultConfig = false;
       includes = [
         "~/.ssh/*.config"
         "~/.ssh/config.d/*.config"
