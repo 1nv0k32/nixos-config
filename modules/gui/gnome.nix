@@ -16,10 +16,6 @@
       core-apps.enable = true;
       gnome-keyring.enable = true;
     };
-    xkb = {
-      layout = "us";
-      variant = "altgr-intl";
-    };
     desktopManager = {
       gnome.enable = true;
     };
