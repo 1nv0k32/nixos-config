@@ -57,7 +57,7 @@
 
   fonts = {
     packages = with pkgs; [
-      ubuntu_font_family
+      ubuntu-classic
       vazir-fonts
       nerd-fonts.noto
     ];

@@ -51,9 +51,9 @@ in
       {
         home.username = cfg.user.name;
 
-        programs.git = {
-          userName = cfg.git.username;
-          userEmail = cfg.git.email;
+        programs.git.settings.user = {
+          name = cfg.git.username;
+          email = cfg.git.email;
         };
       };
 
