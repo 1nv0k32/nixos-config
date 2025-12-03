@@ -9,7 +9,7 @@
 
   xdg.mime =
     let
-      web = "chromium.desktop";
+      web = "chromium-browser.desktop";
       inode = "org.gnome.Nautilus.desktop";
       pdf = "org.gnome.Evince.desktop";
       image = "org.gnome.eog.desktop";
