@@ -5,19 +5,20 @@
       defaultAction = "lock";
     in
     {
-      killUserProcesses = true;
-      lidSwitch = defaultAction;
-      lidSwitchDocked = defaultAction;
-      lidSwitchExternalPower = defaultAction;
-      suspendKey = defaultAction;
-      suspendKeyLongPress = defaultAction;
-      rebootKey = defaultAction;
-      rebootKeyLongPress = defaultAction;
-      powerKey = defaultAction;
-      powerKeyLongPress = defaultAction;
-      hibernateKey = defaultAction;
-      hibernateKeyLongPress = defaultAction;
+      KillUserProcesses = true;
       IdleAction = "ignore";
       IdleActionSec = 3600;
+      HandlePowerKey = defaultAction;
+      HandlePowerKeyLongPress = defaultAction;
+      HandleRebootKey = defaultAction;
+      HandleRebootKeyLongPress = defaultAction;
+      HandleSuspendKey = defaultAction;
+      HandleSuspendKeyLongPress = defaultAction;
+      HandleHibernateKey = defaultAction;
+      HandleHibernateKeyLongPress = defaultAction;
+      HandleLidSwitch = defaultAction;
+      HandleLidSwitchExternalPower = defaultAction;
+      HandleLidSwitchDocked = defaultAction;
+      HandleSecureAttentionKey = defaultAction;
     };
 }
