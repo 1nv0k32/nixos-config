@@ -12,6 +12,7 @@
         default = [
           "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINmmAvTaZ5rRNhY0mnX2UzUCX5pRX0DX+VCEBxCXbX9sAAAABnNzaDo1Yw== rick@nyx" # 5c
           "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICjS+ZPa4qUA+Vm0C7Br8PJ/U1Z9dh6bXcXZdko3ZFz9AAAAB3NzaDpiaW8= rick@nyx" # bio
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHn0AqWzb6VBqaJX7miDeuvxwlzfG3+UbKOyMlQQTz3r rick@nyx" # local
         ];
         description = "The main user's trusted SSH key";
       };
