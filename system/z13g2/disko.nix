@@ -18,6 +18,7 @@
               };
             };
             root = {
+              label = "root";
               size = "500G";
               content = {
                 type = "luks";
@@ -31,6 +32,7 @@
               };
             };
             home = {
+              label = "home";
               size = "250G";
               content = {
                 type = "luks";
