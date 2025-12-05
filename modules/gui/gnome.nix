@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
     gnome-network-displays
@@ -52,6 +52,12 @@
       };
     };
   };
+
+  environment.variables.ALSA_CONFIG_UCM2 = "${pkgs.alsa-ucm-conf}/share/alsa/ucm2";
+  systemd.user.services.pipewire.environment.ALSA_CONFIG_UCM2 =
+    config.environment.variables.ALSA_CONFIG_UCM2;
+  systemd.user.services.wireplumber.environment.ALSA_CONFIG_UCM2 =
+    config.environment.variables.ALSA_CONFIG_UCM2;
 
   i18n.defaultLocale = "en_GB.UTF-8";
 

@@ -15,7 +15,6 @@
       gparted
       pavucontrol
       alsa-utils
-      alsa-ucm-conf
       virt-manager
       networkmanagerapplet
 
