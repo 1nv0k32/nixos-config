@@ -7,7 +7,8 @@
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
+            esp = {
+              label = "esp";
               size = "5G";
               type = "EF00";
               content = {
