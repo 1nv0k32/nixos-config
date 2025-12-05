@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 {
   boot = {
+    consoleLogLevel = 0;
+    initrd.verbose = false;
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = lib.mkDefault 0;
@@ -10,6 +12,10 @@
         consoleMode = "max";
       };
     };
+    kernelParams = lib.mkAfter [
+      "quiet"
+      "udev.log_level=3"
+    ];
   };
 
   services = {
