@@ -1,15 +1,10 @@
 {
   lib,
-  pkgs,
   ...
 }:
 {
   imports = [
     (import ./disko.nix)
-  ];
-
-  hardware.firmware = lib.mkAfter [
-    pkgs.sof-firmware
   ];
 
   boot = {
