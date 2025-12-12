@@ -4,7 +4,7 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
     loader = {
-      efi.canTouchEfiVariables = true;
+      efi.canTouchEfiVariables = lib.mkDefault true;
       timeout = lib.mkDefault 0;
       systemd-boot = {
         enable = lib.mkDefault true;

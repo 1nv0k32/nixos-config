@@ -36,6 +36,10 @@
     # hardware
     nixos-avf.url = "github:nix-community/nixos-avf";
     nixos-avf-dev.url = "github:1nv0k32/nixos-avf";
+    nixos-mac = {
+      url = "github:nix-community/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,6 +109,22 @@
               modules = [
                 nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
                 (import "${self}/system/z13g2")
+              ]
+              ++ guiModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # Mac
+          mac =
+            attrs:
+            nixpkgs.lib.nixosSystem {
+              system = systems.aarch64-linux;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName;
+              };
+              modules = [
+                nixos-mac.nixosModules.apple-silicon-support
+                (import "${self}/system/mac")
               ]
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
