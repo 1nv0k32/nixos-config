@@ -9,7 +9,7 @@
       systemd-boot = {
         enable = lib.mkDefault true;
         editor = lib.mkForce false;
-        consoleMode = "max";
+        consoleMode = lib.mkDefault "max";
       };
     };
     kernelParams = lib.mkAfter [
