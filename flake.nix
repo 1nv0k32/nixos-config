@@ -44,6 +44,10 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     srvos = {
       url = "github:nix-community/srvos";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -83,6 +87,7 @@
       systems = {
         x86_64-linux = "x86_64-linux";
         aarch64-linux = "aarch64-linux";
+        aarch64-darwin = "aarch64-darwin";
       };
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
       optionalLocalModules =
@@ -95,7 +100,7 @@
     in
     {
       nixosModules = {
-        stateVersion = "25.05";
+        stateVersion = "25.11";
         systemTypes = {
           # Thinkpad Z13 Gen2
           z13g2 =
@@ -191,6 +196,21 @@
               modules = [
                 nixos-wsl.nixosModules.wsl
                 (import "${self}/system/wsl")
+              ]
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # Darwin
+          darwin =
+            attrs:
+            nix-darwin.lib.darwinSystem {
+              system = systems.aarch64-darwin;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName;
+              };
+              modules = [
+                (import "${self}/system/darwin")
               ]
               ++ baseModules
               ++ optionalLocalModules attrs.modules;

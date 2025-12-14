@@ -31,5 +31,8 @@
         nyxutm = systemTypes.utm;
         nyxprl = systemTypes.parallels;
       };
+      darwinConfigurations = builtins.mapAttrs mkHost {
+        nyxdarwin = systemTypes.darwin;
+      };
     };
 }

@@ -1,7 +1,6 @@
 {
   stateVersion,
   config,
-  pkgs,
   ...
 }@attrs:
 {
