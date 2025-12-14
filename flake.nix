@@ -13,7 +13,6 @@
     };
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -69,6 +68,7 @@
       ];
       darwinMods = [
         home-manager.darwinModules.home-manager
+        nixvim.nixDarwinModules.nixvim
       ];
       defaultModules = [
         (import "${self}/pkgs/overlays.nix" inputs)
@@ -224,7 +224,7 @@
                 (import "${self}/system/darwin")
               ]
               ++ darwinMods
-              # ++ baseModules
+              ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
           # Raspberry Pi 5
