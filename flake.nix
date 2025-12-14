@@ -224,7 +224,7 @@
                 (import "${self}/system/darwin")
               ]
               ++ darwinMods
-              ++ baseModules
+              ++ defaultModules
               ++ optionalLocalModules attrs.modules;
             };
           # Raspberry Pi 5
