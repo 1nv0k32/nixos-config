@@ -60,12 +60,18 @@
     with inputs;
     let
       # Modules
-      defaultModules = [
+      nixosMods = [
         sops-nix.nixosModules.sops
         home-manager.nixosModules.home-manager
+        nixvim.nixosModules.nixvim
         disko.nixosModules.disko
         nixos-generators.nixosModules.all-formats
-        nixvim.nixosModules.nixvim
+      ];
+      darwinMods = [
+        home-manager.darwinModules.home-manager
+        nixvim.darwinModules.nixvim
+      ];
+      defaultModules = [
         (import "${self}/pkgs/overlays.nix" inputs)
         (import "${self}/modules")
         (import "${self}/src")
@@ -115,6 +121,7 @@
                 nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
                 (import "${self}/system/z13g2")
               ]
+              ++ nixosMods
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -131,6 +138,7 @@
                 nixos-mac.nixosModules.apple-silicon-support
                 (import "${self}/system/mac")
               ]
+              ++ nixosMods
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -148,6 +156,7 @@
                 (import "${self}/system/server.nix")
                 (import "${self}/system/avf")
               ]
+              ++ nixosMods
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -165,6 +174,7 @@
                 (import "${self}/system/server.nix")
                 (import "${self}/system/hetzner")
               ]
+              ++ nixosMods
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -181,6 +191,7 @@
                 (import "${self}/system/server.nix")
                 (import "${self}/system/hetzner")
               ]
+              ++ nixosMods
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -197,6 +208,7 @@
                 nixos-wsl.nixosModules.wsl
                 (import "${self}/system/wsl")
               ]
+              ++ nixosMods
               ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -210,9 +222,9 @@
                 inherit (attrs) hostName;
               };
               modules = [
-                home-manager.nixosModules.home-manager
                 (import "${self}/system/darwin")
               ]
+              ++ darwinMods
               # ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -230,6 +242,7 @@
                 (import "${self}/system/server.nix")
                 (import "${self}/system/rpi5")
               ]
+              ++ nixosMods
               ++ extraModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -246,6 +259,7 @@
                 (import "${self}/system/qemu.nix")
                 # (import "${self}/system/containers")
               ]
+              ++ nixosMods
               ++ extraModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -262,6 +276,7 @@
                 (import "${self}/system/qemu.nix")
                 (import "${self}/system/utm")
               ]
+              ++ nixosMods
               ++ guiModules
               ++ optionalLocalModules attrs.modules;
             };
@@ -277,6 +292,7 @@
               modules = [
                 (import "${self}/system/parallels")
               ]
+              ++ nixosMods
               ++ extraModules
               ++ optionalLocalModules attrs.modules;
             };
