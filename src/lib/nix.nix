@@ -11,7 +11,7 @@
     optimise = {
       automatic = true;
       dates = [ "daily" ];
-      persistent = true;
+      # persistent = true;
     };
     settings = {
       min-free = 512 * 1024 * 1024;
