@@ -212,7 +212,7 @@
               modules = [
                 (import "${self}/system/darwin")
               ]
-              ++ baseModules
+              # ++ baseModules
               ++ optionalLocalModules attrs.modules;
             };
           # Raspberry Pi 5
