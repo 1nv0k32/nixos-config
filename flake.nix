@@ -69,7 +69,6 @@
       ];
       darwinMods = [
         home-manager.darwinModules.home-manager
-        nixvim.darwinModules.nixvim
       ];
       defaultModules = [
         (import "${self}/pkgs/overlays.nix" inputs)
