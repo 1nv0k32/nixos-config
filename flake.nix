@@ -210,6 +210,7 @@
                 inherit (attrs) hostName;
               };
               modules = [
+                home-manager.nixosModules.home-manager
                 (import "${self}/system/darwin")
               ]
               # ++ baseModules
