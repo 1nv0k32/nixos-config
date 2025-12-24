@@ -2,6 +2,7 @@
 {
   imports = [
     ./bash.nix
+    ./zsh.nix
     ./direnv.nix
     ./git.nix
     ./ssh.nix

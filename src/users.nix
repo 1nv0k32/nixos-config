@@ -2,14 +2,18 @@
   self,
   config,
   lib,
+  pkgs,
   ...
 }:
 let
   cfg = config.environment.sysConf;
 in
 {
-  users.groups."ubridge" = {
-    name = "ubridge";
+  users = {
+    defaultUserShell = pkgs.zsh;
+    groups."ubridge" = {
+      name = "ubridge";
+    };
   };
 
   users.users."${cfg.user.name}" = {
