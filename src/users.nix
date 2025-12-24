@@ -46,6 +46,7 @@ in
     sharedModules = [ (import "${self}/home/base.nix") ];
     extraSpecialArgs = {
       inherit (self.nixosModules) stateVersion;
+      inherit pkgs;
     };
   };
 
