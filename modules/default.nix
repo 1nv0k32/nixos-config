@@ -7,7 +7,7 @@
     ./ssh.nix
     ./yubikey.nix
     ./nvim.nix
-    ./tmux.nix
+    # ./tmux.nix
     # ./fzf.nix
   ];
 }
