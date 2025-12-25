@@ -24,7 +24,7 @@
 
       vscode
       jetbrains.clion
-      jetbrains.pycharm-community-bin
+      jetbrains.pycharm-oss
 
       telegram-desktop
 
