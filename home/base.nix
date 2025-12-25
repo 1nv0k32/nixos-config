@@ -25,7 +25,16 @@
       enable = true;
       bashrcExtra = ''
         if test -f ~/.bashrc.local; then
-        . ~/.bashrc.local
+          . ~/.bashrc.local
+        fi
+      '';
+    };
+
+    zsh = {
+      enable = true;
+      initContent = ''
+        if test -f ~/.zshrc.local; then
+          . ~/.zshrc.local
         fi
       '';
     };

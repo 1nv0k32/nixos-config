@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.bash = {
     completion.enable = true;
-    promptInit = ''
+    interactiveShellInit = ''
       bind 'set completion-ignore-case on'
       bind 'set show-mode-in-prompt on'
       set -o vi
@@ -33,13 +33,5 @@
       PS_SH="$DoC$ $WH"
       export PS1="$DoC[$WH$SHLVL:$SSH\u@\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n$PS_SH"
     '';
-    shellAliases = {
-      rm = "rm -I";
-      ls = "ls --color=auto";
-      ll = "ls -alhFb --group-directories-first";
-      grep = "${pkgs.gnugrep}/bin/grep --color=auto";
-      diff = "${pkgs.diffutils}/bin/diff --color=auto";
-      cat = "${pkgs.bat}/bin/bat -p";
-    };
   };
 }

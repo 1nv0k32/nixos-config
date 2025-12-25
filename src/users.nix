@@ -2,7 +2,6 @@
   self,
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -10,7 +9,6 @@ let
 in
 {
   users = {
-    defaultUserShell = pkgs.zsh;
     groups."ubridge" = {
       name = "ubridge";
     };
@@ -46,7 +44,6 @@ in
     sharedModules = [ (import "${self}/home/base.nix") ];
     extraSpecialArgs = {
       inherit (self.nixosModules) stateVersion;
-      inherit pkgs;
     };
   };
 

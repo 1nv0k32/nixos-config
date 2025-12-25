@@ -1,8 +1,7 @@
 { ... }:
 {
   imports = [
-    ./bash.nix
-    ./zsh.nix
+    ./shells
     ./direnv.nix
     ./git.nix
     ./ssh.nix
