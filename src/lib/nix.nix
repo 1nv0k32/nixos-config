@@ -12,7 +12,7 @@
     optimise = {
       automatic = true;
       dates = [ "daily" ];
-      # persistent = true;
+      persistent = true;
     };
 
     settings = {
