@@ -139,7 +139,7 @@
                 (import "${self}/system/server.nix")
               ]
               ++ nixosMods
-              ++ guiModules
+              ++ extraModules
               ++ optionalLocalModules attrs.modules;
             };
           # AVF
