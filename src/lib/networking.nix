@@ -6,7 +6,9 @@
   ];
 
   networking = {
+    wireless.iwd.enable = true;
     networkmanager = {
+      wifi.backend = "iwd";
       dns = "systemd-resolved";
       settings = {
         main = {
