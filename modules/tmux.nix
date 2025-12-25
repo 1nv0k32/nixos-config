@@ -7,7 +7,7 @@
     terminal = "screen-256color";
     # baseIndex = 1;
     escapeTime = 0;
-    clock24 = true;
+    # clock24 = true;
     historyLimit = 100000;
     extraConfig = ''
       bind r source-file /etc/tmux.conf
