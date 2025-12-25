@@ -3,7 +3,7 @@
   imports = [
     ./shells
     ./direnv.nix
-    ./git.nix
+    # ./git.nix
     ./ssh.nix
     ./yubikey.nix
     ./nvim.nix
