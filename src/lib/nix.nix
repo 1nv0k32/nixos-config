@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   nix = {
     channel.enable = false;
@@ -12,9 +12,7 @@
     optimise = {
       automatic = true;
       dates = [ "daily" ];
-    }
-    // lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") {
-      persistent = true;
+      # persistent = true;
     };
 
     settings = {
