@@ -8,10 +8,8 @@ let
   cfg = config.environment.sysConf;
 in
 {
-  users = {
-    groups."ubridge" = {
-      name = "ubridge";
-    };
+  users.groups."ubridge" = {
+    name = "ubridge";
   };
 
   users.users."${cfg.user.name}" = {
