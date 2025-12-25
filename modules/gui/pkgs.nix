@@ -23,8 +23,6 @@
       gimp
 
       vscode
-      jetbrains.clion
-      jetbrains.pycharm-oss
 
       telegram-desktop
 
