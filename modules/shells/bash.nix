@@ -15,23 +15,6 @@
       export HISTCONTROL="ignoreboth:erasedups"
       export HISTSIZE=-1
       export HISTFILESIZE=-1
-
-      WH="\[\e[0;00m\]"
-      RE="\[\e[0;31m\]"
-      GR="\[\e[0;32m\]"
-      PR="\[\e[0;35m\]"
-      CY="\[\e[0;36m\]"
-
-      PS_STAT="[ \$? = "0" ] && printf '$GR*$WH' || printf '$RE*$WH'"
-      PS_GIT="[ -z \"\$(__git_ps1 %s)\" ] && printf ' ' || __git_ps1 '$CY{%s}$WH'"
-      if [ "`id -u`" -eq 0 ]; then
-        DoC=$RE
-      else
-        DoC=$GR
-      fi
-      test $SSH_TTY && SSH="SSH: "
-      PS_SH="$DoC$ $WH"
-      export PS1="$DoC[$WH$SHLVL:$SSH\u@\H$DoC]\`$PS_STAT\`$DoC[$PR\w$DoC]$WH \`$PS_GIT\` \n$PS_SH"
     '';
   };
 }

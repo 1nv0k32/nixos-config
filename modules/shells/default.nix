@@ -1,14 +1,4 @@
 { pkgs, ... }:
-let
-  shellAliases = {
-    rm = "rm -I";
-    ls = "ls --color=auto";
-    ll = "ls -alhFb --group-directories-first";
-    grep = "${pkgs.gnugrep}/bin/grep --color=auto";
-    diff = "${pkgs.diffutils}/bin/diff --color=auto";
-    cat = "${pkgs.bat}/bin/bat -p";
-  };
-in
 {
   imports = [
     ./bash.nix
@@ -17,8 +7,13 @@ in
 
   users.defaultUserShell = pkgs.zsh;
 
-  programs = {
-    bash.shellAliases = shellAliases;
-    zsh.shellAliases = shellAliases;
+  environment.shellAliases = {
+    rm = "rm -I";
+    ls = "ls --color=auto";
+    ll = "ls -alhFb --group-directories-first";
+    grep = "${pkgs.gnugrep}/bin/grep --color=auto";
+    diff = "${pkgs.diffutils}/bin/diff --color=auto";
+    cat = "${pkgs.bat}/bin/bat -p";
+    k = "${pkgs.kubectl}/bin/kubectl";
   };
 }
