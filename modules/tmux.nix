@@ -6,7 +6,7 @@
     keyMode = "vi";
     terminal = "screen-256color";
     # baseIndex = 1;
-    escapeTime = 0;
+    # escapeTime = 0;
     # clock24 = true;
     historyLimit = 100000;
     extraConfig = ''
