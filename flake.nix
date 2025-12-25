@@ -136,6 +136,7 @@
               modules = [
                 nixos-mac.nixosModules.apple-silicon-support
                 (import "${self}/system/mac")
+                (import "${self}/system/server.nix")
               ]
               ++ nixosMods
               ++ guiModules
