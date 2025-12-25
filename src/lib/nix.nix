@@ -8,11 +8,15 @@
       persistent = true;
       options = "--delete-older-than 3d";
     };
+
     optimise = {
       automatic = true;
       dates = [ "daily" ];
-      persistent = lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") true;
+    }
+    // lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") {
+      persistent = true;
     };
+
     settings = {
       min-free = 512 * 1024 * 1024;
       max-free = 3000 * 1024 * 1024;
