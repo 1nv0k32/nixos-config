@@ -1,11 +1,11 @@
 { pkgs, ... }:
 let
-  pythonWithPIO = pkgs.python3.withPackages (ps: with ps; [ platformio ]);
+  pythonWithPIO = pkgs.python3.withPackages (ps: [ pkgs.platformio ]);
 in
 {
   shell = pkgs.buildFHSEnv {
     name = "platformio-fhs";
-    runScript = "env LD_LIBRARY_PATH= bash";
+    runScript = "env LD_LIBRARY_PATH= ${pkgs.zsh}/bin/zsh";
     targetPkgs =
       pkgs:
       (with pkgs; [
