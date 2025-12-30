@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  pythonWithPIO = pkgs.python3.withPackages (ps: with ps; [ platformio ]);
+in
 {
   shell = pkgs.buildFHSEnv {
     name = "platformio-fhs";
@@ -8,8 +11,7 @@
       (with pkgs; [
         platformio-core
         openocd
-        python3.withPackages
-        (ps: with ps; [ platformio ])
+        pythonWithPIO
       ]);
   };
 }
