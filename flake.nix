@@ -309,12 +309,14 @@
           kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
           pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
           goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
+          fhsShells = (import "${self}/shells/fhs.nix" { inherit pkgs; });
         in
         {
           default = defaultShells.shell;
           kernel = kernelShells.shell;
           python = pythonShells.shell;
           go = goShells.shell;
+          fhs = fhsShells.shell.env;
         }
       );
     };
