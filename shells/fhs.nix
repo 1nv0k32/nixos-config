@@ -5,7 +5,7 @@ in
 {
   shell = pkgs.buildFHSEnv {
     name = "platformio-fhs";
-    runScript = "env LD_LIBRARY_PATH= bash";
+    runScript = "env LD_LIBRARY_PATH= ${pkgs.zsh}/bin/zsh";
     targetPkgs =
       pkgs:
       (with pkgs; [
