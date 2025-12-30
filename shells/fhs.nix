@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  shell = pkgs.buildFHSUserEnv {
+  shell = pkgs.buildFHSEnv {
     name = "platformio-fhs";
     runScript = "env LD_LIBRARY_PATH= bash";
     targetPkgs =
