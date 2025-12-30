@@ -1,17 +1,31 @@
 { pkgs, ... }:
 let
-  pythonWithPIO = pkgs.python3.withPackages (ps: [ pkgs.platformio ]);
+  pythonWithPIO =
+    pks:
+    pks.python3.withPackages (
+      ps: with ps; [
+        platformio
+        pylibftdi
+        pyusb
+      ]
+    );
 in
 {
   shell = pkgs.buildFHSEnv {
     name = "platformio-fhs";
-    runScript = "env LD_LIBRARY_PATH= ${pkgs.zsh}/bin/zsh";
+    runScript = "${pkgs.zsh}/bin/zsh";
     targetPkgs =
       pkgs:
       (with pkgs; [
+        zsh
         platformio-core
         openocd
-        pythonWithPIO
+        arduino-cli
+        avrdude
+        libftdi
+        libftdi1
+        libusb1
+        (pythonWithPIO pkgs)
       ]);
   };
 }
