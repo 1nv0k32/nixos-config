@@ -2,7 +2,7 @@
 let
   pythonWithPIO =
     pks:
-    pks.python312.withPackages (
+    pks.python3.withPackages (
       ps: with ps; [
         pks.platformio-core
         pylibftdi
