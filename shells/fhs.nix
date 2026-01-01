@@ -2,9 +2,8 @@
 let
   pythonWithPIO =
     pks:
-    pks.python3.withPackages (
+    pks.python312.withPackages (
       ps: with ps; [
-        ps.platformio
         pylibftdi
         pyusb
       ]
