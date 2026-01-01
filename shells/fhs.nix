@@ -4,7 +4,7 @@ let
     pks:
     pks.python3.withPackages (
       ps: with ps; [
-        platformio
+        ps.platformio
         pylibftdi
         pyusb
       ]
