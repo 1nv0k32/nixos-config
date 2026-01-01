@@ -13,7 +13,6 @@
 # {
 #   shell = pkgs.buildFHSEnv {
 #     name = "platformio-fhs";
-#     runScript = "${pkgs.zsh}/bin/zsh";
 #     targetPkgs =
 #       pkgs:
 #       (with pkgs; [
@@ -29,5 +28,7 @@
 #       ]);
 #   };
 {
-  shell = pkgs.platformio;
+  shell = pkgs.platformio // {
+    runScript = "${pkgs.zsh}/bin/zsh";
+  };
 }
