@@ -21,13 +21,13 @@
       libusb1
     ];
 
-    NIX_HARDENING_ENABLE = "";
-    LD_LIBRARY_PATH =
-      with pkgs;
-      lib.makeLibraryPath [
-        stdenv.cc.cc
-        zlib
-      ];
+    # NIX_HARDENING_ENABLE = "";
+    # LD_LIBRARY_PATH =
+    #   with pkgs;
+    #   lib.makeLibraryPath [
+    #     stdenv.cc.cc
+    #     zlib
+    #   ];
 
     runScript = ''
       ${pkgs.zsh}/bin/zsh
