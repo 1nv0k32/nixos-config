@@ -15,9 +15,6 @@
         libftdi1
         libusb1
       ]);
-    profile = ''
-      export PYTHONPATH=${pkgs.platformio-core}/lib/python3.12/site-packages:$PYTHONPATH
-    '';
     runScript = ''
       ${pkgs.zsh}/bin/zsh
     '';
