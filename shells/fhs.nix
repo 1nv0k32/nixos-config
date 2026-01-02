@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
-  shell = pkgs.mkShell {
-    nativeBuildInputs = with pkgs; [
+  shell = pkgs.buildFHSUserEnv {
+    name = "fhs";
+    targetPkgs = with pkgs; [
       # python
       uv
       python312
@@ -27,5 +28,9 @@
         stdenv.cc.cc
         zlib
       ];
+
+    shellHook = ''
+      ${pkgs.zsh}/bin/zsh
+    '';
   };
 }
