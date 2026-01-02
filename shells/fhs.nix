@@ -3,14 +3,14 @@
   shell = pkgs.buildFHSEnv {
     name = "fhs";
     targetPkgs = with pkgs; [
-      # python
-      uv
-      python312
+      # # python
+      # uv
+      # python312
+      # # go
+      # libcap
       # go
-      libcap
-      go
-      gcc
-      delve
+      # gcc
+      # delve
       # platformio
       platformio-core
       openocd
