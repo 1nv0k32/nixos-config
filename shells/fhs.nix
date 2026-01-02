@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  shell = pkgs.buildFHSUserEnv {
+  shell = pkgs.buildFHSEnv {
     name = "fhs";
     targetPkgs = with pkgs; [
       # python
