@@ -29,7 +29,7 @@
         zlib
       ];
 
-    shellHook = ''
+    runScript = ''
       ${pkgs.zsh}/bin/zsh
     '';
   };
