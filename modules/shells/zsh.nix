@@ -8,7 +8,7 @@
     enableBashCompletion = true;
     ohMyZsh = {
       enable = true;
-      theme = "gnzh";
+      theme = "dst";
       plugins = [
         "git"
         "vi-mode"
