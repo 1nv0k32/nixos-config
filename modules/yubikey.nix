@@ -22,7 +22,7 @@ in
     yubikey-personalization
   ];
 
-  environment.etc.u2f_mappings.text = lib.mkDefault '''';
+  environment.etc.u2f_mappings.text = lib.mkDefault "";
 
   services = {
     pcscd.enable = true;
