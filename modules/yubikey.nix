@@ -36,7 +36,7 @@ in
       };
       u2f.settings = {
         cue = true;
-        userpresence = 0;
+        userpresence = 1;
         authfile = "/etc/u2f_mappings";
       };
     };
