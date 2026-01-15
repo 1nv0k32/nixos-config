@@ -12,7 +12,7 @@ in
     enableConfigReplace = true;
     defaultUser = cfg.user.name;
     vmConfig = {
-      memory_mib = 8192;
+      memory_mib = lib.mkForce 8192;
     };
   };
 }
