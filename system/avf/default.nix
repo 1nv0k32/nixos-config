@@ -8,6 +8,8 @@ in
   };
 
   avf = {
+    enableGraphics = true;
+    enableConfigReplace = true;
     defaultUser = cfg.user.name;
     vmConfig = {
       memory_mib = 8192;
