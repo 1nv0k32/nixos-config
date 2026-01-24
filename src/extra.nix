@@ -2,6 +2,7 @@
 {
   boot = {
     consoleLogLevel = 0;
+    plymouth.enable = true;
     initrd.verbose = false;
     loader = {
       efi.canTouchEfiVariables = lib.mkDefault true;
@@ -14,6 +15,7 @@
     };
     kernelParams = lib.mkAfter [
       "quiet"
+      "splash"
       "udev.log_level=3"
     ];
   };

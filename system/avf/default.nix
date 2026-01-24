@@ -9,8 +9,8 @@ in
 
   avf = {
     enableGraphics = true;
-    enableConfigReplace = true;
     defaultUser = cfg.user.name;
+    enableConfigReplace = true;
     vmConfig = {
       memory_mib = lib.mkForce 8192;
     };
