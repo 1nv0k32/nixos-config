@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   ...
 }:
 {
@@ -21,11 +20,6 @@
 
   hardware = {
     alsa.enablePersistence = true;
-    graphics = {
-      enable32Bit = true;
-      extraPackages = [ pkgs.amdvlk ];
-      extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
-    };
   };
 
   environment.variables = {
