@@ -15,6 +15,7 @@
     htop
     aria2
     wget
+    iperf3
     dig
     screen
     unzip
