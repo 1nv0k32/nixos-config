@@ -23,7 +23,7 @@ in
       enable-hot-corners = false;
     };
     "org/gnome/desktop/session" = {
-      idle-delay = lib.hm.gvariant.mkUint32 300;
+      idle-delay = lib.hm.gvariant.mkUint32 600;
     };
     "org/gnome/desktop/background" = {
       picture-options = "none";
@@ -127,7 +127,7 @@ in
 
     "org/gnome/shell/extensions/unblank" = {
       power = false;
-      time = int32 0;
+      time = int32 600;
     };
 
     "org/gnome/shell/extensions/caffeine" = {
