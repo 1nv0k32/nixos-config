@@ -8,6 +8,6 @@
     ./yubikey.nix
     ./nvim.nix
     ./tmux.nix
-    ./fzf.nix
+    # ./fzf.nix
   ];
 }
