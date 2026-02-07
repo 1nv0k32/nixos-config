@@ -7,7 +7,6 @@
 {
   imports = [
     (import ./users.nix)
-    (import ./options.nix)
   ];
 
   boot = {

@@ -1,18 +1,22 @@
-{ ... }:
+{ lib, pkgs, ... }:
 {
   nix = {
     channel.enable = false;
     gc = {
       automatic = true;
-      # dates = "daily";
-      # persistent = true;
       options = "--delete-older-than 3d";
+    }
+    // lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") {
+      dates = "daily";
+      persistent = true;
     };
 
     optimise = {
       automatic = true;
-      # dates = [ "daily" ];
-      # persistent = true;
+    }
+    // lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") {
+      dates = [ "daily" ];
+      persistent = true;
     };
 
     settings = {
@@ -21,22 +25,26 @@
       download-buffer-size = 268435456;
       tarball-ttl = 0;
       flake-registry = "";
-      # auto-optimise-store = true;
       trusted-users = [ "@wheel" ];
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+    }
+    // lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") {
+      auto-optimise-store = true;
     };
   };
 
-  # virtualisation = {
-  #   vmVariant = {
-  #     virtualisation = {
-  #       vmVariantWithBootLoader = true;
-  #       memorySize = 4096;
-  #       cores = 6;
-  #     };
-  #   };
-  # };
+}
+// lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") {
+  virtualisation = {
+    vmVariant = {
+      virtualisation = {
+        vmVariantWithBootLoader = true;
+        memorySize = 4095;
+        cores = 5;
+      };
+    };
+  };
 }
