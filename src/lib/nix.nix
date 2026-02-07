@@ -4,14 +4,14 @@
     channel.enable = false;
     gc = {
       automatic = true;
-      dates = "daily";
-      persistent = true;
+      # dates = "daily";
+      # persistent = true;
       options = "--delete-older-than 3d";
     };
 
     optimise = {
       automatic = true;
-      dates = [ "daily" ];
+      # dates = [ "daily" ];
       # persistent = true;
     };
 
