@@ -5,14 +5,14 @@
     gc = {
       automatic = true;
       options = "--delete-older-than 3d";
-      dates = "daily";
-      persistent = true;
+      # dates = "daily";
+      # persistent = true;
     };
 
     optimise = {
       automatic = true;
-      dates = [ "daily" ];
-      persistent = true;
+      # dates = [ "daily" ];
+      # persistent = true;
     };
 
     settings = {
