@@ -5,18 +5,18 @@
     gc = {
       automatic = true;
       options = "--delete-older-than 3d";
-      # dates = "daily";
-      # persistent = true;
+      dates = "daily";
+      persistent = true;
     };
 
     optimise = {
       automatic = true;
-      # dates = [ "daily" ];
-      # persistent = true;
+      dates = [ "daily" ];
+      persistent = true;
     };
 
     settings = {
-      # auto-optimise-store = true;
+      auto-optimise-store = true;
       min-free = 512 * 1024 * 1024;
       max-free = 3000 * 1024 * 1024;
       download-buffer-size = 268435456;

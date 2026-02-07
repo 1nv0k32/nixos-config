@@ -70,8 +70,10 @@
         home-manager.darwinModules.home-manager
         nixvim.nixDarwinModules.nixvim
       ];
-      defaultModules = [
+      pkgsOverlays = [
         (import "${self}/pkgs/overlays.nix" inputs)
+      ];
+      defaultModules = pkgsOverlays ++ [
         (import "${self}/modules")
         (import "${self}/src")
       ];
@@ -225,7 +227,7 @@
                 (import "${self}/system/darwin")
               ]
               ++ darwinMods
-              ++ defaultModules
+              ++ pkgsOverlays
               ++ optionalLocalModules attrs.modules;
             };
           # Raspberry Pi 5
