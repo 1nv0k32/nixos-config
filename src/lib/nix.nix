@@ -21,7 +21,7 @@
       download-buffer-size = 268435456;
       tarball-ttl = 0;
       flake-registry = "";
-      auto-optimise-store = true;
+      # auto-optimise-store = true;
       trusted-users = [ "@wheel" ];
       experimental-features = [
         "nix-command"
