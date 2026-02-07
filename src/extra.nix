@@ -48,6 +48,13 @@
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    vmVariant = {
+      virtualisation = {
+        vmVariantWithBootLoader = true;
+        memorySize = 4094;
+        cores = 4;
+      };
+    };
   };
 
   programs = {

@@ -35,16 +35,4 @@
       auto-optimise-store = true;
     };
   };
-
-}
-// lib.mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-darwin") {
-  # virtualisation = {
-  #   vmVariant = {
-  #     virtualisation = {
-  #       vmVariantWithBootLoader = true;
-  #       memorySize = 4095;
-  #       cores = 5;
-  #     };
-  #   };
-  # };
 }

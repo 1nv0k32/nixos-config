@@ -72,7 +72,7 @@
       ];
       defaultModules = [
         (import "${self}/pkgs/overlays.nix" inputs)
-        # (import "${self}/modules")
+        (import "${self}/modules")
         (import "${self}/src")
       ];
       baseModules = defaultModules ++ [
