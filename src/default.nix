@@ -22,7 +22,6 @@
       };
     };
     variables = {
-      NIXPKGS_ALLOW_UNFREE = 1;
       LIBVIRT_DEFAULT_URI = lib.mkForce "qemu:///system";
     };
   };

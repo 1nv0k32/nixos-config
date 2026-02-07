@@ -32,6 +32,10 @@ let
   };
 in
 {
+  environment.variables = {
+    NIXPKGS_ALLOW_UNFREE = 1;
+  };
+
   nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
   nixpkgs = {
     inherit (overlayConfig) config;
