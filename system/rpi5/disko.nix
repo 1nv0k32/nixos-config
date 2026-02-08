@@ -1,24 +1,44 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      nvme0 = {
         type = "disk";
         device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
-            boot = {
-              size = "1M";
+            FIRMWARE = {
+              label = "FIRMWARE";
+              size = "1024M";
               type = "EF02";
               priority = 1;
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot/firmware";
+                mountOptions = [
+                  "noatime"
+                  "noauto"
+                  "x-systemd.automount"
+                  "x-systemd.idle-timeout=1min"
+                ];
+              };
             };
             ESP = {
-              size = "512M";
+              label = "ESP";
+              size = "1024M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [
+                  "noatime"
+                  "noauto"
+                  "x-systemd.automount"
+                  "x-systemd.idle-timeout=1min"
+                  "umask=0077"
+                ];
               };
             };
             root = {

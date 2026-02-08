@@ -1,10 +1,13 @@
 {
+  self,
   hostName,
   pkgs,
+  lib,
   ...
 }:
 {
   imports = [
+    (import ./users.nix)
     (import ./lib/systemd.nix)
     (import ./lib/logind.nix)
     (import ./lib/networking.nix)
@@ -43,5 +46,17 @@
   time = {
     timeZone = "CET";
     hardwareClockInLocalTime = false;
+  };
+
+  environment = {
+    etc = {
+      "nixos/flake.nix" = {
+        source = "${self}/flakes/flake.nix";
+        mode = "0444";
+      };
+    };
+    variables = {
+      LIBVIRT_DEFAULT_URI = lib.mkForce "qemu:///system";
+    };
   };
 }

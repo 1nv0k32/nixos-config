@@ -34,7 +34,6 @@
     };
     # hardware
     nixos-avf.url = "github:nix-community/nixos-avf";
-    nixos-avf-dev.url = "github:1nv0k32/nixos-avf";
     nixos-mac = {
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +50,8 @@
       url = "github:nix-community/srvos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi";
   };
 
   outputs =
@@ -233,20 +233,27 @@
           # Raspberry Pi 5
           rpi5 =
             attrs:
-            nixpkgs.lib.nixosSystem {
+            nixos-raspberrypi.lib.nixosSystem {
               system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
               };
-              modules = [
-                nixos-hardware.nixosModules.raspberry-pi-5
-                (import "${self}/system/server.nix")
-                (import "${self}/system/rpi5")
-              ]
-              ++ nixosMods
-              ++ extraModules
-              ++ optionalLocalModules attrs.modules;
+              modules =
+                with nixos-raspberrypi.nixosModules;
+                [
+                  (import "${self}/system/server.nix")
+                  (import "${self}/system/rpi5")
+                ]
+                ++ [
+                  raspberry-pi-5.base
+                  raspberry-pi-5.page-size-16k
+                  raspberry-pi-5.display-vc4
+                  raspberry-pi-5.bluetooth
+                ]
+                ++ nixosMods
+                ++ extraModules
+                ++ optionalLocalModules attrs.modules;
             };
           # QEMU
           qemu =

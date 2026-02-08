@@ -1,13 +1,9 @@
 {
-  self,
   pkgs,
   lib,
   ...
 }:
 {
-  imports = [
-    (import ./users.nix)
-  ];
 
   boot = {
     consoleLogLevel = 0;
@@ -61,18 +57,6 @@
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
-    };
-  };
-
-  environment = {
-    etc = {
-      "nixos/flake.nix" = {
-        source = "${self}/flakes/flake.nix";
-        mode = "0444";
-      };
-    };
-    variables = {
-      LIBVIRT_DEFAULT_URI = lib.mkForce "qemu:///system";
     };
   };
 }
