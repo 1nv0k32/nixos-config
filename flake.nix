@@ -238,6 +238,7 @@
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName;
+                inherit nixos-raspberrypi;
               };
               modules =
                 with nixos-raspberrypi.nixosModules;
