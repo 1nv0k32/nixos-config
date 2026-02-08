@@ -25,6 +25,7 @@ in
     transmission = {
       enable = true;
       group = group;
+      openRPCPort = true;
       settings = {
         download-dir = media_dir;
         rpc-bind-address = "0.0.0.0";
