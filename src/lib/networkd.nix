@@ -9,7 +9,8 @@
     enable = lib.mkDefault true;
     wait-online.enable = false;
     networks = {
-      "*" = {
+      "99-all" = {
+        matchConfig.Name = "*";
         DHCP = "yes";
       };
     };
