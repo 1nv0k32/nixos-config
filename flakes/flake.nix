@@ -22,6 +22,7 @@
     {
       nixosConfigurations = builtins.mapAttrs mkHost {
         nyx = systemTypes.z13g2;
+        nyxpi = systemType.rpi5;
         nyxmac = systemTypes.mac;
         nyxdroid = systemTypes.avf;
         nyxhub = systemTypes.hetzner.amd;
