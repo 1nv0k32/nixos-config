@@ -10,8 +10,9 @@
             FIRMWARE = {
               label = "FIRMWARE";
               size = "1024M";
-              type = "EF02";
+              type = "0700";
               priority = 1;
+              attributes = [ 0 ];
               content = {
                 type = "filesystem";
                 format = "vfat";
