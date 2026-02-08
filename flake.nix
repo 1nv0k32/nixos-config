@@ -253,7 +253,7 @@
                   raspberry-pi-5.bluetooth
                 ]
                 ++ nixosMods
-                ++ extraModules
+                ++ baseModules
                 ++ optionalLocalModules attrs.modules;
             };
           # QEMU
