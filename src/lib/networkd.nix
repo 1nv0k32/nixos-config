@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   networking = {
-    useNetworkd = lib.mkDefault true;
+    useNetworkd = lib.mkDefault false;
     useDHCP = lib.mkForce false;
   };
   systemd.network = {
