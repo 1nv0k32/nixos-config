@@ -32,7 +32,6 @@
   };
 
   programs = {
-    dconf.enable = true;
     kubeswitch.enable = true;
   };
 

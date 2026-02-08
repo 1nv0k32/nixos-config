@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   ...
 }:
@@ -50,13 +49,6 @@
         memorySize = 4094;
         cores = 4;
       };
-    };
-  };
-
-  programs = {
-    wireshark = {
-      enable = true;
-      package = pkgs.wireshark;
     };
   };
 }

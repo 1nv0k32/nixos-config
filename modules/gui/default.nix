@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./pkgs.nix
@@ -10,4 +10,12 @@
     ./winbox.nix
     ./steam.nix
   ];
+
+  programs = {
+    dconf.enable = true;
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
+  };
 }
