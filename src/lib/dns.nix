@@ -9,8 +9,8 @@
     resolved = {
       enable = true;
       dnsovertls = "opportunistic";
-      dnssec = "no";
-      llmnr = "no";
+      dnssec = "allow-downgrade";
+      llmnr = "false";
       fallbackDns = [
         "1.1.1.1"
         "8.8.8.8"
