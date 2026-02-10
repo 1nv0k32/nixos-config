@@ -10,18 +10,17 @@
       enable = true;
       dnsovertls = "opportunistic";
       dnssec = "false";
+      llmnr = "false";
       fallbackDns = [
         "1.1.1.1"
         "8.8.8.8"
       ];
-      llmnr = "true";
       extraConfig = ''
         [Resolve]
-        #DNS=
-        #Domains=
-        Cache=no
-        CacheFromLocalhost=no
-        DNSStubListener=yes
+        MulticastDNS=true
+        Cache=false
+        CacheFromLocalhost=false
+        DNSStubListener=true
       '';
     };
   };
