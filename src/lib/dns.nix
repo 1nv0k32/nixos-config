@@ -1,11 +1,11 @@
 { ... }:
 {
   services = {
-    # avahi = {
-    #   enable = true;
-    #   nssmdns4 = true;
-    #   openFirewall = true;
-    # };
+    avahi = {
+      enable = false;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     resolved = {
       enable = true;
       dnsovertls = "opportunistic";
