@@ -11,6 +11,8 @@
     gnome-calendar
   ];
 
+  qt.platformTheme = "gnome";
+
   services = {
     gnome = {
       core-apps.enable = true;
