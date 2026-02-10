@@ -6,7 +6,7 @@
   };
 
   systemd.network = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
     wait-online.enable = false;
     networks = {
       "99-all" = {

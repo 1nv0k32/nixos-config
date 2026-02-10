@@ -2,7 +2,7 @@
 {
   services = {
     avahi = {
-      enable = false;
+      enable = true;
       nssmdns4 = true;
       openFirewall = true;
     };
@@ -17,10 +17,10 @@
       ];
       extraConfig = ''
         [Resolve]
-        MulticastDNS=yes
-        Cache=no
-        CacheFromLocalhost=no
-        DNSStubListener=yes
+        MulticastDNS=false
+        Cache=false
+        CacheFromLocalhost=false
+        DNSStubListener=true
       '';
     };
   };
