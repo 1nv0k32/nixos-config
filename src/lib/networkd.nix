@@ -13,10 +13,11 @@
         matchConfig = {
           Name = "*";
         };
-        networkConfig = {
-          MulticastDNS = "true";
-        };
         DHCP = "yes";
+        extraConfig = ''
+          [Network]
+          MulticastDNS=true;
+        '';
       };
     };
   };
