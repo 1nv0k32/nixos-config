@@ -12,7 +12,7 @@
     ls = "ls --color=auto";
     ll = "ls -alhFb --group-directories-first";
     grep = "${lib.getExe pkgs.gnugrep} --color=auto";
-    diff = "${lib.getExec pkgs.diffutils} --color=auto";
+    diff = "${lib.getExe pkgs.diffutils} --color=auto";
     cat = "${lib.getExe pkgs.bat} -p";
     k = "${lib.getExe pkgs.kubectl}";
   };
