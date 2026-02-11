@@ -1,7 +1,6 @@
 {
   self,
   hostName,
-  pkgs,
   lib,
   ...
 }:
@@ -11,6 +10,7 @@
     (import ./lib/systemd.nix)
     (import ./lib/logind.nix)
     (import ./lib/networking.nix)
+    (import ./lib/console.nix)
   ];
 
   boot = {
@@ -29,17 +29,6 @@
       powerOnBoot = true;
     };
     wirelessRegulatoryDatabase = true;
-  };
-
-  programs = {
-    kubeswitch.enable = true;
-  };
-
-  console = {
-    earlySetup = true;
-    packages = [ pkgs.terminus_font ];
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
-    keyMap = "us";
   };
 
   time = {

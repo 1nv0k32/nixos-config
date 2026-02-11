@@ -9,8 +9,6 @@
     ./nvim.nix
     ./tmux.nix
     ./fzf.nix
+    ./kube.nix
   ];
-
-  environment.sysConf.gui.enable = true;
-  programs.dconf.enable = true;
 }

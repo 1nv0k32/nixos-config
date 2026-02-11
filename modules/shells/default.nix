@@ -14,6 +14,5 @@
     grep = "${lib.getExe pkgs.gnugrep} --color=auto";
     diff = "${pkgs.diffutils}/bin/diff --color=auto";
     cat = "${lib.getExe pkgs.bat} -p";
-    k = "${lib.getExe pkgs.kubectl}";
   };
 }

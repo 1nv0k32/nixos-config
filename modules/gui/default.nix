@@ -11,4 +11,7 @@
     ./wireshark.nix
     ./steam.nix
   ];
+
+  environment.sysConf.gui.enable = true;
+  programs.dconf.enable = true;
 }
