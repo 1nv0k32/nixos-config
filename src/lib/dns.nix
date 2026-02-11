@@ -8,9 +8,9 @@
     avahi.enable = lib.mkForce false;
     resolved = {
       enable = true;
-      dnsovertls = "opportunistic";
-      dnssec = "allow-downgrade";
-      llmnr = "false";
+      dnsovertls = "false";
+      dnssec = "false";
+      llmnr = "true";
       fallbackDns = [
         "1.1.1.1"
         "8.8.8.8"
