@@ -1,5 +1,6 @@
 { ... }:
 {
+  networking.firewall.allowedUDPPorts = [ 5353 ];
   services = {
     avahi = {
       enable = false;
