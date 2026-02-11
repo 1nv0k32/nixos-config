@@ -10,6 +10,11 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [
+    8080
+    4433
+  ];
+
   services.nginx = {
     enable = true;
     defaultHTTPListenPort = 8080;
