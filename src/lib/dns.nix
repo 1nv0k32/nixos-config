@@ -20,7 +20,7 @@
         MulticastDNS=true
         Cache=false
         CacheFromLocalhost=false
-        DNSStubListener=true
+        DNSStubListener=false
       '';
     };
   };
