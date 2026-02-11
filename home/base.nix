@@ -1,10 +1,12 @@
 {
+  lib,
   stateVersion,
+  gui,
   config,
   ...
 }@attrs:
 {
-  imports = [
+  imports = lib.mkIf (gui.enable) [
     (import ./libs/dconf.nix attrs)
     (import ./libs/terminal.nix attrs)
   ];
@@ -12,11 +14,13 @@
   home = {
     stateVersion = stateVersion;
     homeDirectory = "/home/${config.home.username}";
-    file."${config.home.homeDirectory}/.background-image" = {
-      source = ./bin/backgroud-image.jpg;
-    };
-    file."${config.home.homeDirectory}/.face" = {
-      source = ./bin/backgroud-image.jpg;
+    file = lib.mkIf (gui.enable) {
+      "${config.home.homeDirectory}/.background-image" = {
+        source = ./bin/backgroud-image.jpg;
+      };
+      "${config.home.homeDirectory}/.face" = {
+        source = ./bin/backgroud-image.jpg;
+      };
     };
   };
 

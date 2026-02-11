@@ -42,6 +42,13 @@
       };
     };
 
+    gui = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+    };
+
     server = {
       sshPort = lib.mkOption {
         type = lib.types.int;

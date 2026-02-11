@@ -47,10 +47,6 @@
     hardwareClockInLocalTime = false;
   };
 
-  programs = {
-    dconf.enable = true;
-  };
-
   environment = {
     etc = {
       "nixos/flake.nix" = {
