@@ -1,9 +1,8 @@
 { ... }:
 {
-  networking.firewall.allowedUDPPorts = [ 5353 ];
   services = {
     avahi = {
-      enable = false;
+      enable = true;
       nssmdns4 = true;
       openFirewall = true;
     };
@@ -18,7 +17,7 @@
       ];
       extraConfig = ''
         [Resolve]
-        MulticastDNS=true
+        MulticastDNS=resolve
         Cache=false
         CacheFromLocalhost=false
         DNSStubListener=true
