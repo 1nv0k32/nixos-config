@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     ./bash.nix
@@ -14,6 +14,6 @@
     grep = "${pkgs.gnugrep}/bin/grep --color=auto";
     diff = "${pkgs.diffutils}/bin/diff --color=auto";
     cat = "${pkgs.bat}/bin/bat -p";
-    k = "${pkgs.kubectl}/bin/kubectl";
+    k = "${lib.getExe pkgs.kubectl}";
   };
 }
