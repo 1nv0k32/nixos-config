@@ -12,6 +12,7 @@
       "99-all" = {
         matchConfig.Name = "*";
         DHCP = "yes";
+        MulticastDNS = "true";
       };
     };
   };
