@@ -17,7 +17,6 @@
       ];
       extraConfig = ''
         [Resolve]
-        MulticastDNS=true
         Cache=false
         CacheFromLocalhost=false
         DNSStubListener=false

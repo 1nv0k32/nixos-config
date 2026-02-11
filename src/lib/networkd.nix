@@ -14,10 +14,10 @@
           Name = "*";
         };
         DHCP = "yes";
-        extraConfig = ''
-          [Network]
-          MulticastDNS=true
-        '';
+        # extraConfig = ''
+        #   [Network]
+        #   MulticastDNS=true
+        # '';
       };
     };
   };
