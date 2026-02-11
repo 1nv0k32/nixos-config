@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     gns3-gui
@@ -8,7 +8,7 @@
   ];
 
   security.wrappers.ubridge = {
-    source = "${pkgs.ubridge}/bin/ubridge";
+    source = "${lib.getExe pkgs.ubridge}";
     capabilities = "cap_net_admin,cap_net_raw=ep";
     owner = "root";
     group = "ubridge";

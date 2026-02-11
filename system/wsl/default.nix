@@ -13,8 +13,8 @@ in
     startMenuLaunchers = true;
     defaultUser = cfg.user.name;
     extraBin = with pkgs; [
-      { src = "${wget}/bin/wget"; }
-      { src = "${curl}/bin/curl"; }
+      { src = "${lib.getExe wget}"; }
+      { src = "${lib.getExe curl}"; }
     ];
     wslConf = {
       user.default = cfg.user.name;

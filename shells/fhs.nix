@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   shell = pkgs.buildFHSEnv {
     name = "fhs";
@@ -32,7 +32,7 @@
       ];
 
     runScript = ''
-      ${pkgs.zsh}/bin/zsh
+      ${lib.getExe pkgs.zsh}
     '';
   };
 }

@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   fontFamily = "NotoMono Nerd Font Mono";
   fontSize = 15;
-  shell = "${pkgs.tmux}/bin/tmux";
+  shell = "${lib.getExe pkgs.tmux}";
 in
 {
   programs.gnome-terminal = {

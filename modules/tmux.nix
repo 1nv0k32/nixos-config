@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -33,7 +33,7 @@
       set -g monitor-activity on
       set -g default-command "''${SHELL}"
       set -s set-clipboard external
-      set -g copy-command "${pkgs.wl-clipboard}/bin/wl-copy"
+      set -g copy-command "${lib.getExe pkgs.wl-clipboard}"
       set -ga terminal-overrides ",*256col*:Tc"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set -g status-interval 60

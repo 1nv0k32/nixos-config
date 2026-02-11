@@ -96,7 +96,7 @@ in
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "gnome-terminal";
       binding = "<Super>Return";
-      command = "${pkgs.kitty}/bin/kitty --start-as=maximized";
+      command = "${lib.getExe pkgs.kitty} --start-as=maximized";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       name = "suspend";
