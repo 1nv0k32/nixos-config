@@ -1,15 +1,11 @@
-{ ... }:
+{ lib, ... }:
 {
   networking.firewall.allowedUDPPorts = [
-    5353
     53
+    5353
   ];
   services = {
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
+    avahi.enable = lib.mkForce false;
     resolved = {
       enable = true;
       dnsovertls = "opportunistic";
@@ -21,7 +17,7 @@
       ];
       extraConfig = ''
         [Resolve]
-        MulticastDNS=resolve
+        MulticastDNS=true
         Cache=false
         CacheFromLocalhost=false
         DNSStubListener=true
