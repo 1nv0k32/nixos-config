@@ -11,8 +11,8 @@
     networks = {
       "99-all" = {
         matchConfig.Name = "*";
+        networkConfig.MulticastDNS = "true";
         DHCP = "yes";
-        MulticastDNS = "true";
       };
     };
   };
