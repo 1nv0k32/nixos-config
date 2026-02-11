@@ -116,7 +116,7 @@
               system = systems.x86_64-linux;
               specialArgs = {
                 inherit self openstack-nix;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
@@ -133,7 +133,7 @@
               system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 nixos-mac.nixosModules.apple-silicon-support
@@ -151,7 +151,7 @@
               system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 nixos-avf.nixosModules.avf
@@ -169,7 +169,7 @@
               system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 srvos.nixosModules.hardware-hetzner-cloud
@@ -186,7 +186,7 @@
               system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 srvos.nixosModules.hardware-hetzner-cloud-arm
@@ -204,7 +204,7 @@
               system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 nixos-wsl.nixosModules.wsl
@@ -221,7 +221,7 @@
               system = systems.aarch64-darwin;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 (import "${self}/system/darwin")
@@ -237,7 +237,7 @@
               system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
                 inherit nixos-raspberrypi;
               };
               modules =
@@ -263,7 +263,7 @@
               system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 (import "${self}/system/qemu.nix")
@@ -280,7 +280,7 @@
               system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 (import "${self}/system/qemu.nix")
@@ -297,7 +297,7 @@
               system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
-                inherit (attrs) hostName;
+                inherit (attrs) hostName domain;
               };
               modules = [
                 (import "${self}/system/parallels")

@@ -10,9 +10,10 @@
     with cfg.nixosModules;
     let
       mkHost =
-        host: systemType:
-        systemType {
+        host: attrib:
+        attrib.systemType {
           hostName = host;
+          domain = attrib.domain;
           modules = [
             ./hardware-configuration.nix
             ./local.nix
@@ -21,19 +22,52 @@
     in
     {
       nixosConfigurations = builtins.mapAttrs mkHost {
-        nyx = systemTypes.z13g2;
-        nyxpi = systemTypes.rpi5;
-        nyxmac = systemTypes.mac;
-        nyxdroid = systemTypes.avf;
-        nyxhub = systemTypes.hetzner.amd;
-        nyxarm = systemTypes.hetzner.arm;
-        nyxwsl = systemTypes.wsl;
-        nyxvm = systemTypes.qemu;
-        nyxutm = systemTypes.utm;
-        nyxprl = systemTypes.parallels;
+        nyx = {
+          domain = "nyxlan";
+          systemType = systemTypes.z13g2;
+        };
+        nyxpi = {
+          domain = "nyxlan";
+          systemType = systemTypes.rpi5;
+        };
+        nyxmac = {
+          domain = null;
+          systemType = systemTypes.mac;
+        };
+        nyxdroid = {
+          domain = null;
+          systemType = systemTypes.avf;
+        };
+        nyxhub = {
+          domain = null;
+          systemType = systemTypes.hetzner.amd;
+        };
+        nyxarm = {
+          domain = null;
+          systemType = systemTypes.hetzner.arm;
+        };
+        nyxwsl = {
+          domain = null;
+          systemType = systemTypes.wsl;
+        };
+        nyxvm = {
+          domain = null;
+          systemType = systemTypes.qemu;
+        };
+        nyxutm = {
+          domain = null;
+          systemType = systemTypes.utm;
+        };
+        nyxprl = {
+          domain = null;
+          systemType = systemTypes.parallels;
+        };
       };
       darwinConfigurations = builtins.mapAttrs mkHost {
-        nyxdarwin = systemTypes.darwin;
+        nyxdarwin = {
+          domain = null;
+          systemType = systemTypes.darwin;
+        };
       };
     };
 }
