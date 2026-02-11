@@ -7,6 +7,7 @@
     (import ./disko.nix)
     (import "${self}/modules/etc/media.nix")
     (import "${self}/modules/etc/k3s.nix")
+    (import "${self}/modules/etc/gitea.nix")
   ];
 
   users.users.root.initialPassword = "root";
