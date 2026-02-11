@@ -10,14 +10,8 @@
     wait-online.enable = false;
     networks = {
       "99-all" = {
-        matchConfig = {
-          Name = "*";
-        };
+        matchConfig.Name = "*";
         DHCP = "yes";
-        # extraConfig = ''
-        #   [Network]
-        #   MulticastDNS=true
-        # '';
       };
     };
   };
