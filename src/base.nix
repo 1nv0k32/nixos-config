@@ -1,6 +1,7 @@
 {
   self,
   hostName,
+  domain,
   lib,
   ...
 }:
@@ -20,6 +21,7 @@
 
   networking = {
     hostName = hostName;
+    domain = domain;
   };
 
   hardware = {
