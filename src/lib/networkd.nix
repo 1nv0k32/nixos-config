@@ -16,7 +16,7 @@
         DHCP = "yes";
         extraConfig = ''
           [Network]
-          MulticastDNS=true;
+          MulticastDNS=true
         '';
       };
     };
