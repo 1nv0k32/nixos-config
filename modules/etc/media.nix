@@ -11,8 +11,6 @@ in
 
   systemd.tmpfiles.rules = [ "d ${media_dir} 0775 ${user} ${group}" ];
 
-  # networking.firewall.allowedUDPPorts = [ 5353 ];
-
   services = {
     minidlna = {
       enable = true;
