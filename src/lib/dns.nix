@@ -1,11 +1,6 @@
 { ... }:
 {
   services = {
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
     resolved = {
       enable = true;
       fallbackDns = [
