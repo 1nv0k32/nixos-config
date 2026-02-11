@@ -6,7 +6,7 @@
   ...
 }@attrs:
 {
-  imports = lib.mkIf (gui.enable) [
+  imports = [
     (import ./libs/dconf.nix attrs)
     (import ./libs/terminal.nix attrs)
   ];
