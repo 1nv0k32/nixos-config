@@ -12,13 +12,14 @@
 
   users.users.root.initialPassword = "root";
 
-  boot.loader.raspberry-pi.bootloader = "kernel";
-
   systemd.network.enable = true;
 
-  boot.kernelParams = [
-    "cgroup_enable=cpuset"
-    "cgroup_memory=1"
-    "cgroup_enable=memory"
-  ];
+  boot = {
+    loader.raspberry-pi.bootloader = "kernel";
+    kernelParams = [
+      "cgroup_enable=cpuset"
+      "cgroup_memory=1"
+      "cgroup_enable=memory"
+    ];
+  };
 }
