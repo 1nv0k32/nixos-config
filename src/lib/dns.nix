@@ -5,7 +5,7 @@
     5353
   ];
   services = {
-    avahi.enable = lib.mkForce false;
+    avahi.enable = lib.mkForce true;
     resolved = {
       enable = true;
       dnsovertls = "false";
