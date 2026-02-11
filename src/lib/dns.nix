@@ -1,16 +1,16 @@
-{ lib, ... }:
+{ ... }:
 {
-  networking.firewall.allowedUDPPorts = [
-    53
-    5353
-  ];
   services = {
-    avahi.enable = lib.mkForce true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     resolved = {
       enable = true;
-      dnsovertls = "false";
-      dnssec = "false";
-      llmnr = "true";
+      dnsovertls = "opportunistic";
+      dnssec = "allow-downgrade";
+      llmnr = "false";
       fallbackDns = [
         "1.1.1.1"
         "8.8.8.8"
