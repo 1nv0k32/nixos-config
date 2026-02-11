@@ -12,6 +12,8 @@
 
   services.nginx = {
     enable = true;
+    defaultHTTPListenPort = 8080;
+    defaultSSLListenPort = 4433;
     virtualHosts = {
       "git.${config.networking.fqdn}" = {
         locations."/" = {
