@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   imports = [
     (import ./dns.nix)
@@ -17,7 +17,7 @@
       };
     };
     firewall = {
-      enable = true;
+      enable = lib.mkDefault true;
       checkReversePath = false;
       allowPing = false;
     };
