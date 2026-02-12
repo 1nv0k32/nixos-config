@@ -6,6 +6,5 @@
     role = "server";
     clusterInit = true;
     nodeName = config.networking.fqdn;
-    extraFlags = "--disable traefik";
   };
 }
