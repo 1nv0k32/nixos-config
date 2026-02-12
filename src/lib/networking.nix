@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    (import ./networkd.nix)
     (import ./dns.nix)
   ];
 
