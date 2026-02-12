@@ -18,7 +18,7 @@
     };
     firewall = {
       enable = lib.mkDefault true;
-      checkReversePath = false;
+      checkReversePath = true;
       allowPing = false;
     };
   };
