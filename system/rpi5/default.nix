@@ -12,7 +12,9 @@
 
   users.users.root.initialPassword = "root";
 
-  systemd.network.enable = true;
+  networking = {
+    useDHCP = true;
+  };
 
   boot = {
     loader.raspberry-pi.bootloader = "kernel";

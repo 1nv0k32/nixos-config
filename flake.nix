@@ -267,7 +267,6 @@
               };
               modules = [
                 (import "${self}/system/qemu.nix")
-                # (import "${self}/system/containers")
               ]
               ++ nixosMods
               ++ extraModules
