@@ -13,7 +13,7 @@
   users.users.root.initialPassword = "root";
 
   networking = {
-    firewall.enable = true;
+    firewall.enable = false;
     useDHCP = true;
   };
 
