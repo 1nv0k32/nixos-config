@@ -17,6 +17,7 @@
       alsa-utils
       virt-manager
       networkmanagerapplet
+      tor-browser
 
       obs-studio
       flameshot
