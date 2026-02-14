@@ -6,7 +6,7 @@
       server.HTTP_ADDR = "127.0.0.1";
       server.HTTP_PORT = 3000;
       server.SSH_PORT = config.environment.sysConf.server.sshPort;
-      server.DOMAIN = "git.${config.networking.fqdn}";
+      server.DOMAIN = "git.${config.networking.domain}";
       webhook.ALLOWED_HOST_LIST = "*";
     };
   };
@@ -21,7 +21,7 @@
     defaultHTTPListenPort = 8080;
     defaultSSLListenPort = 4433;
     virtualHosts = {
-      "git.${config.networking.fqdn}" = {
+      "git.${config.networking.domain}" = {
         locations."/" = {
           proxyPass = "http://127.0.0.1:3000";
           extraConfig = ''
