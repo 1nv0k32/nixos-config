@@ -38,18 +38,11 @@
           domain = null;
           systemType = systemTypes.avf;
         };
-        nyxhub = {
-          domain = null;
-          systemType = systemTypes.hetzner.amd;
-        };
-        nyxarm = {
-          domain = null;
-          systemType = systemTypes.hetzner.arm;
-        };
         nyxwsl = {
           domain = null;
           systemType = systemTypes.wsl;
         };
+        # VMs
         nyxvm = {
           domain = null;
           systemType = systemTypes.qemu;

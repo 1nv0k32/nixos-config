@@ -1,5 +1,6 @@
 {
   self,
+  lib,
   ...
 }:
 {
@@ -13,6 +14,7 @@
   users.users.root.initialPassword = "root";
 
   systemd.network.enable = true;
+  networking.useDHCP = lib.mkForce false;
 
   boot = {
     loader.raspberry-pi.bootloader = "kernel";
