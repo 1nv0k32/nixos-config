@@ -19,8 +19,6 @@
                 mountpoint = "/boot/firmware";
                 mountOptions = [
                   "noatime"
-                  "x-systemd.automount"
-                  "x-systemd.idle-timeout=1min"
                 ];
               };
             };
@@ -34,8 +32,6 @@
                 mountpoint = "/boot";
                 mountOptions = [
                   "noatime"
-                  "x-systemd.automount"
-                  "x-systemd.idle-timeout=1min"
                   "umask=0077"
                 ];
               };
