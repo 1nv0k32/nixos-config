@@ -8,15 +8,12 @@
     (import ./disko.nix)
     (import "${self}/modules/etc/media.nix")
     (import "${self}/modules/etc/gitea.nix")
+    (import "${self}/modules/etc/k3s.nix")
   ];
 
   users.users.root.initialPassword = "root";
-
   systemd.network.enable = true;
-  networking = {
-    useDHCP = lib.mkForce false;
-    firewall.enable = lib.mkForce false;
-  };
+  networking.useDHCP = lib.mkForce false;
 
   boot = {
     loader.raspberry-pi.bootloader = "kernel";
