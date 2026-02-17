@@ -18,7 +18,6 @@ in
       settings = {
         friendly_name = "${config.networking.hostName} DLNA";
         inotify = "yes";
-        notify_interval = 30;
         media_dir = [ "V,${media_dir}" ];
       };
     };
