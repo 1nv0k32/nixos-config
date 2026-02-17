@@ -13,7 +13,10 @@
   users.users.root.initialPassword = "root";
 
   systemd.network.enable = true;
-  networking.useDHCP = lib.mkForce false;
+  networking = {
+    useDHCP = lib.mkForce false;
+    firewall.enable = lib.mkForce false;
+  };
 
   boot = {
     loader.raspberry-pi.bootloader = "kernel";
