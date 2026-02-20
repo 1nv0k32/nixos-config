@@ -13,7 +13,7 @@
       transmission_4
       transmission_4-gtk
       gparted
-      pavucontrol
+      pwvucontrol
       alsa-utils
       virt-manager
       networkmanagerapplet
