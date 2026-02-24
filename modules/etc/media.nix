@@ -16,7 +16,6 @@ in
       enable = true;
       openFirewall = true;
       settings = {
-        # port = 9500;
         friendly_name = "${config.networking.hostName} DLNA";
         inotify = "yes";
         notify_interval = 30;
