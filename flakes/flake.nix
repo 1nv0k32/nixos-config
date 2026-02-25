@@ -23,11 +23,11 @@
     {
       nixosConfigurations = builtins.mapAttrs mkHost {
         nyx = {
-          domain = "nyxlan.net";
+          domain = "nyxlan.internal";
           systemType = systemTypes.z13g2;
         };
         nyxpi = {
-          domain = "nyxlan.net";
+          domain = "nyxlan.internal";
           systemType = systemTypes.rpi5;
         };
         nyxmac = {
