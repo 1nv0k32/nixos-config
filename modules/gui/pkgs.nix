@@ -22,6 +22,8 @@
       obs-studio
       flameshot
       gimp
+      bambu-studio
+      blender
 
       vscode
 
