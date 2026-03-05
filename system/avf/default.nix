@@ -8,7 +8,7 @@ in
   };
 
   avf = {
-    enableGraphics = true;
+    enableGraphics = false;
     defaultUser = cfg.user.name;
     enableConfigReplace = true;
     vmConfig = {
