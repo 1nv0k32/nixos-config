@@ -24,7 +24,7 @@
     ];
   };
 
-  hardware.raspberry-pi.config.cm5 = {
+  hardware.raspberry-pi.config.all = {
     base-dt-params = {
       pciex1 = {
         enable = true;
