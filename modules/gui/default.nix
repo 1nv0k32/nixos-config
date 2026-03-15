@@ -14,5 +14,4 @@
 
   environment.sysConf.gui.enable = true;
   programs.dconf.enable = true;
-  hardware.keyboard.qmk.enable = true;
 }
