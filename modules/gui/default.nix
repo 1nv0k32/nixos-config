@@ -10,6 +10,7 @@
     ./winbox.nix
     ./wireshark.nix
     ./steam.nix
+    ./appimage.nix
   ];
 
   environment.sysConf.gui.enable = true;

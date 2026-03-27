@@ -20,7 +20,6 @@
     openvpn
     ubridge
     iw
-    appimage-run
 
     kubernetes-helm
     k9s
