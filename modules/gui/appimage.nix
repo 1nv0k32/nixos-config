@@ -5,7 +5,7 @@
     binfmt = true;
     package = pkgs.appimage-run.override {
       extraPkgs = pkgs: [
-        pkgs.libsoup
+        pkgs.libsoup_2_4
       ];
     };
   };
