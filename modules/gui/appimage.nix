@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
   programs.appimage = {
     enable = true;
     binfmt = true;
