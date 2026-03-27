@@ -9,6 +9,7 @@
     package = pkgs.appimage-run.override {
       extraPkgs = pkgs: [
         pkgs.libsoup_2_4
+        pkgs.webkitgtk
       ];
     };
   };
