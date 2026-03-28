@@ -22,7 +22,7 @@
       obs-studio
       flameshot
       gimp
-      pkgs-master.bambu-studio
+      bambu-studio
       orca-slicer
       blender
       freecad
