@@ -25,6 +25,7 @@
       pkgs-master.bambu-studio
       orca-slicer
       blender
+      freecad
 
       vscode
 
