@@ -22,10 +22,6 @@
       obs-studio
       flameshot
       gimp
-      bambu-studio
-      orca-slicer
-      blender
-      freecad
 
       vscode
 
