@@ -22,6 +22,7 @@
       obs-studio
       flameshot
       gimp
+      freecad
 
       vscode
 
