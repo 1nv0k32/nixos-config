@@ -1,10 +1,12 @@
 {
+  self,
   lib,
   ...
 }:
 {
   imports = [
     (import ./disko.nix)
+    (import "${self}/modules/etc/stirling-pdf.nix")
   ];
 
   boot = {
