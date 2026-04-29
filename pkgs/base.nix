@@ -5,8 +5,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    git
-    git-review
     openssl
     nixos-anywhere
     sops

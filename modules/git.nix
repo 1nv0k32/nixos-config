@@ -1,5 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    git
+    git-review
+  ];
+
   programs.git = {
     enable = true;
     prompt.enable = true;
