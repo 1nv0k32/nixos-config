@@ -314,11 +314,12 @@
         system:
         let
           pkgs = (import nixpkgs { inherit system; });
-          defaultShells = (import "${self}/shells/default.nix" { inherit pkgs; });
-          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs; });
-          pythonShells = (import "${self}/shells/python.nix" { inherit pkgs; });
-          goShells = (import "${self}/shells/go.nix" { inherit pkgs; });
-          fhsShells = (import "${self}/shells/fhs.nix" { inherit pkgs; });
+          lib = nixpkgs.lib;
+          defaultShells = (import "${self}/shells/default.nix" { inherit pkgs lib; });
+          kernelShells = (import "${self}/shells/kernel.nix" { inherit pkgs lib; });
+          pythonShells = (import "${self}/shells/python.nix" { inherit pkgs lib; });
+          goShells = (import "${self}/shells/go.nix" { inherit pkgs lib; });
+          fhsShells = (import "${self}/shells/fhs.nix" { inherit pkgs lib; });
         in
         {
           default = defaultShells.shell;
