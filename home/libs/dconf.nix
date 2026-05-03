@@ -56,6 +56,7 @@ in
       "org/gnome/mutter" = {
         dynamic-workspaces = true;
         edge-tiling = true;
+        check-alive-timeout = int32 0;
       };
       "org/gnome/desktop/input-sources" = {
         per-window = true;
