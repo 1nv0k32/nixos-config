@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.ssh = {
     startAgent = true;
@@ -10,4 +10,5 @@
         ServerAliveInterval 60
     '';
   };
+  services.gnome.gcr-ssh-agent.enable = lib.mkForce false;
 }
