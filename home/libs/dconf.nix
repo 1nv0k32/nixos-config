@@ -78,6 +78,9 @@ in
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Super>Print" ];
       };
+      "org/gnome/shell/window-switcher" = {
+        current-workspace-only = false;
+      };
       "org/gnome/desktop/wm/keybindings" = {
         close = [ "<Super>c" ];
         switch-windows = [ "<Alt>Tab" ];
