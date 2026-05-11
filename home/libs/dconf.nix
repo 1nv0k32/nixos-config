@@ -79,7 +79,7 @@ in
         show-screenshot-ui = [ "<Super>Print" ];
       };
       "org/gnome/shell/window-switcher" = {
-        current-workspace-only = false;
+        current-workspace-only = true;
       };
       "org/gnome/desktop/wm/keybindings" = {
         close = [ "<Super>c" ];
