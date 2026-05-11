@@ -18,14 +18,21 @@ in
     yubioath-flutter
   ];
 
-  services.udev.packages = with pkgs; [
-    yubikey-personalization
-  ];
-
   environment.etc.u2f_mappings.text = lib.mkDefault "";
 
   services = {
     pcscd.enable = true;
+    udev.packages = with pkgs; [
+      yubikey-personalization
+    ];
+    udev.extraRules = ''
+      ACTION=="remove",\
+       ENV{ID_BUS}=="usb",\
+       ENV{ID_MODEL_ID}=="0407",\
+       ENV{ID_VENDOR_ID}=="1050",\
+       ENV{ID_VENDOR}=="Yubico",\
+       RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+    '';
   };
 
   security = {
@@ -36,7 +43,7 @@ in
       };
       u2f.settings = {
         cue = true;
-        userpresence = 1;
+        userpresence = 0;
         authfile = "/etc/u2f_mappings";
       };
     };
