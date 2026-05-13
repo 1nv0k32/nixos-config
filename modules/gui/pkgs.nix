@@ -18,6 +18,7 @@
       virt-manager
       networkmanagerapplet
       tor-browser
+      solaar
 
       obs-studio
       flameshot
