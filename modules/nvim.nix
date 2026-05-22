@@ -39,16 +39,13 @@
       indent-blankline.enable = true;
       lastplace.enable = true;
       treesitter.enable = true;
-      neo-tree = {
-        enable = true;
-        settings = {
-          window = {
-            position = "right";
-          };
-        };
-      };
       nvim-autopairs.enable = true;
       helm.enable = true;
+      blink-cmp.enable = true;
+      neo-tree = {
+        enable = true;
+        settingswindow.position = "right";
+      };
       lsp = {
         enable = true;
         servers = {
@@ -57,25 +54,6 @@
           gopls.enable = true;
         };
       };
-      blink-cmp.enable = true;
     };
-    keymaps = [
-      {
-        key = "<Up>";
-        action = "<Nop>";
-      }
-      {
-        key = "<Down>";
-        action = "<Nop>";
-      }
-      {
-        key = "<Left>";
-        action = "<Nop>";
-      }
-      {
-        key = "<Right>";
-        action = "<Nop>";
-      }
-    ];
   };
 }
