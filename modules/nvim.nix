@@ -44,7 +44,7 @@
       blink-cmp.enable = true;
       neo-tree = {
         enable = true;
-        settingswindow.position = "right";
+        settings.position = "right";
       };
       lsp = {
         enable = true;

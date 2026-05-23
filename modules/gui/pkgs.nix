@@ -19,6 +19,7 @@
       networkmanagerapplet
       tor-browser
       solaar
+      piper
 
       obs-studio
       flameshot
