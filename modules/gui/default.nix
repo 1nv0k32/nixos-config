@@ -17,5 +17,4 @@
   programs.dconf.enable = true;
   services.flatpak.enable = true;
   hardware.logitech.wireless.enable = true;
-  services.ratbagd.enable = true;
 }
