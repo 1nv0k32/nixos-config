@@ -23,12 +23,11 @@
       obs-studio
       flameshot
       gimp
+      freecad
 
       vscode
 
       telegram-desktop
-
-      burpsuite
     ]
     ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
       spotify
