@@ -24,6 +24,7 @@
       flameshot
       gimp
       freecad
+      orca-slicer
 
       vscode
 
