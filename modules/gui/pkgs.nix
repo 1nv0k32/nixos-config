@@ -7,9 +7,9 @@
   environment.systemPackages =
     with pkgs;
     [
-      bitwarden-desktop
+      #bitwarden-desktop
       kitty
-      #libreoffice
+      libreoffice
       transmission_4
       transmission_4-gtk
       gparted
