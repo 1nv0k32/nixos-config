@@ -3,16 +3,16 @@
     # nixpkgs
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-test.url = "github:1nv0k32/nixpkgs";
     # tools
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
+      url = "github:nix-community/nixvim/nixos-26.05";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -43,7 +43,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     srvos = {
@@ -107,7 +107,7 @@
     in
     {
       nixosModules = {
-        stateVersion = "25.11";
+        stateVersion = "26.05";
         systemTypes = {
           # Thinkpad Z13 Gen2
           z13g2 =
