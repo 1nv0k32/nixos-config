@@ -50,10 +50,10 @@
         "~/.ssh/*.config"
         "~/.ssh/config.d/*.config"
       ];
-      matchBlocks."*" = {
-        controlMaster = "auto";
-        controlPersist = "yes";
-        controlPath = "~/.ssh/master-%C";
+      settings."*" = {
+        ControlMaster = "auto";
+        ControlPersist = "yes";
+        ControlPath = "~/.ssh/master-%C";
       };
     };
 
