@@ -12,13 +12,12 @@
         "1.1.1.1"
         "8.8.8.8"
       ];
-      extraConfig = ''
-        [Resolve]
-        MulticastDNS=false
-        Cache=false
-        CacheFromLocalhost=false
-        DNSStubListener=false
-      '';
+      settings.Resolve = {
+        MulticastDNS = false;
+        Cache = false;
+        CacheFromLocalhost = false;
+        DNSStubListener = false;
+      };
     };
   };
 }
