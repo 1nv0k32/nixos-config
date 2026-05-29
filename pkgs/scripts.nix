@@ -43,6 +43,6 @@ in
     nixup
     git
     pre-commit
-    nixfmt-rfc-style
+    nixfmt
   ];
 }
