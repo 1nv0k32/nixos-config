@@ -7,11 +7,11 @@
   environment.systemPackages =
     with pkgs;
     [
-      #bitwarden-desktop
-      #kitty
+      bitwarden-desktop
+      kitty
       #libreoffice
-      #transmission_4
-      #transmission_4-gtk
+      transmission_4
+      transmission_4-gtk
       gparted
       pwvucontrol
       alsa-utils
