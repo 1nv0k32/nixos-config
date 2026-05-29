@@ -26,14 +26,14 @@
       freecad
       orca-slicer
 
-      vscode
+      #vscode
 
       telegram-desktop
     ]
     ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
       #spotify
       #discord
-      zoom-us
-      slack
+      #zoom-us
+      #slack
     ];
 }
