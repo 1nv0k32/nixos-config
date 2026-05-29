@@ -7,24 +7,24 @@
   environment.systemPackages =
     with pkgs;
     [
-      bitwarden-desktop
-      kitty
-      libreoffice
-      transmission_4
-      transmission_4-gtk
-      gparted
-      pwvucontrol
-      alsa-utils
-      virt-manager
-      networkmanagerapplet
-      tor-browser
-      solaar
+      #bitwarden-desktop
+      #kitty
+      #libreoffice
+      #transmission_4
+      #transmission_4-gtk
+      #gparted
+      #pwvucontrol
+      #alsa-utils
+      #virt-manager
+      #networkmanagerapplet
+      #tor-browser
+      #solaar
 
-      obs-studio
-      flameshot
-      gimp
-      freecad
-      orca-slicer
+      #obs-studio
+      #flameshot
+      #gimp
+      #freecad
+      #orca-slicer
 
       vscode
 
