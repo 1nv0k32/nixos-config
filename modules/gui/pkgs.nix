@@ -20,11 +20,11 @@
       #tor-browser
       #solaar
 
-      #obs-studio
-      #flameshot
-      #gimp
-      #freecad
-      #orca-slicer
+      obs-studio
+      flameshot
+      gimp
+      freecad
+      orca-slicer
 
       vscode
 
