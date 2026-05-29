@@ -12,13 +12,13 @@
       #libreoffice
       #transmission_4
       #transmission_4-gtk
-      #gparted
-      #pwvucontrol
-      #alsa-utils
-      #virt-manager
-      #networkmanagerapplet
-      #tor-browser
-      #solaar
+      gparted
+      pwvucontrol
+      alsa-utils
+      virt-manager
+      networkmanagerapplet
+      tor-browser
+      solaar
 
       obs-studio
       flameshot
