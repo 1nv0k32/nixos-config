@@ -8,11 +8,11 @@
     };
     resolved = {
       enable = true;
-      fallbackDns = [
-        "1.1.1.1"
-        "8.8.8.8"
-      ];
       settings.Resolve = {
+        FallbackDNS = [
+          "1.1.1.1"
+          "8.8.8.8"
+        ];
         MulticastDNS = false;
         Cache = false;
         CacheFromLocalhost = false;
