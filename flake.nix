@@ -87,7 +87,7 @@
         (import "${self}/pkgs/extra.nix")
       ];
       guiModules = extraModules ++ [
-        (import "${self}/modules/gui")
+        #(import "${self}/modules/gui")
       ];
 
       # Definitions
