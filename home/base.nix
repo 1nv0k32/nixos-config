@@ -67,6 +67,7 @@
       enable = true;
       settings = {
         General = {
+          disabledTrayIcon = true;
           useGrimAdapter = true;
           disabledGrimWarning = true;
         };
