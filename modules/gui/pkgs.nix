@@ -8,6 +8,8 @@
     with pkgs;
     [
       kitty
+      flameshot
+      grim
       libreoffice
       transmission_4
       transmission_4-gtk
