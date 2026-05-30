@@ -7,7 +7,6 @@
   environment.systemPackages =
     with pkgs;
     [
-      #bitwarden-desktop
       kitty
       libreoffice
       transmission_4
@@ -21,7 +20,6 @@
       solaar
 
       obs-studio
-      flameshot
       gimp
       freecad
       orca-slicer
