@@ -5,7 +5,6 @@
     ./xdg.nix
     ./chromium.nix
     ./gnome.nix
-    ./flameshot.nix
     ./gns3.nix
     ./localsend.nix
     ./winbox.nix
