@@ -116,7 +116,7 @@ in
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         name = "flameshot";
         binding = "Print";
-        command = "script --command ' flameshot gui ' /dev/null";
+        command = "script --command ' flameshot gui --raw | wl-copy ' /dev/null";
       };
 
       # Extensions

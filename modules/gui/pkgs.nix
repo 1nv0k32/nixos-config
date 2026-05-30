@@ -9,6 +9,7 @@
     [
       kitty
       flameshot
+      wl-clipboard
       grim
       libreoffice
       transmission_4
