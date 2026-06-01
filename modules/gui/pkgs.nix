@@ -25,7 +25,6 @@
       obs-studio
       gimp
       freecad
-      orca-slicer
 
       vscode
 
