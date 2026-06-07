@@ -11,6 +11,7 @@
     ./wireshark.nix
     ./steam.nix
     ./appimage.nix
+    ./waydroid.nix
   ];
 
   environment.sysConf.gui.enable = true;
