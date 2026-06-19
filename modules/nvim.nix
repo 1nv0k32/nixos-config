@@ -46,14 +46,24 @@
       }
       {
         mode = "n";
-        key = "<leader>nr";
+        key = "<leader>fr";
         action = ":Neotree filesystem reveal <cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fw";
+        action = ":w <cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fq";
+        action = ":wqa <cr>";
       }
     ];
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
-      cokeline.enable = true;
+      bufferline.enable = true;
       lazygit.enable = true;
       gitblame.enable = true;
       gitsigns.enable = true;
@@ -70,10 +80,6 @@
             {
               __unkeyed-1 = "<leader>f";
               group = "+Find/Files";
-            }
-            {
-              __unkeyed-1 = "<leader>n";
-              group = "+NeoTree";
             }
           ];
         };
