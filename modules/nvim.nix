@@ -15,18 +15,6 @@
       mapleader = " ";
       maplocalleader = " ";
     };
-    keymaps = [
-      {
-        mode = "";
-        key = "<space>";
-        action = "<nop>";
-      }
-      {
-        mode = "";
-        key = "<leader>nr";
-        action = ":Neotree filesystem reveal";
-      }
-    ];
     opts = {
       number = true;
       relativenumber = false;
@@ -50,6 +38,18 @@
       register = "unnamedplus";
       providers.wl-copy.enable = true;
     };
+    keymaps = [
+      {
+        mode = "";
+        key = "<space>";
+        action = "<nop>";
+      }
+      {
+        mode = "";
+        key = "<leader>nr";
+        action = ":Neotree filesystem reveal<cr>";
+      }
+    ];
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
@@ -92,7 +92,7 @@
         enable = true;
         settings = {
           direction = "float";
-          open_mapping = "[[<leader>``]]";
+          open_mapping = "[[<c-`]]";
         };
       };
       neo-tree = {
