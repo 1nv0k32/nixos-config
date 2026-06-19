@@ -133,12 +133,7 @@
       };
       lsp = {
         enable = true;
-        keymaps = [
-          {
-            key = "<leader>ld";
-            lspBufAction = "definition";
-          }
-        ];
+        keymaps = [ ];
         servers = {
           nixd.enable = true;
           clangd.enable = true;
