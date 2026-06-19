@@ -13,7 +13,14 @@
     colorschemes.gruvbox.enable = true;
     globals = {
       mapleader = " ";
+      maplocalleader = " ";
     };
+    keymaps = [
+      {
+        key = "<space>";
+        action = "nop";
+      }
+    ];
     opts = {
       number = true;
       relativenumber = false;
@@ -73,6 +80,8 @@
           position = "right";
           mappings = {
             "<space>" = "none";
+            "h" = "close_node";
+            "l" = "open";
           };
         };
       };
