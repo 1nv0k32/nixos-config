@@ -75,12 +75,19 @@
           key = "<leader>ld";
           lspBufAction = "definition";
         }
+        {
+          key = "<leader>lh";
+          lspBufAction = "hover";
+        }
       ];
     };
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
-      bufferline.enable = true;
+      bufferline = {
+        enable = true;
+        settings.mode = "tabs";
+      };
       lazygit.enable = true;
       gitblame.enable = true;
       gitsigns.enable = true;
