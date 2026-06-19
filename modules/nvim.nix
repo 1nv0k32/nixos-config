@@ -53,6 +53,7 @@
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
+      barbar.enable = true;
       lazygit.enable = true;
       gitblame.enable = true;
       gitsigns.enable = true;
