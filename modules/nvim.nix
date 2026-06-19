@@ -56,6 +56,11 @@
       }
       {
         mode = "n";
+        key = "<leader>fv";
+        action = ":LazyGit <cr>";
+      }
+      {
+        mode = "n";
         key = "<leader>fw";
         action = ":w <cr>";
       }
@@ -84,15 +89,12 @@
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
-      mini-tabline.enable = true;
       lazygit.enable = true;
       gitblame.enable = true;
       gitsigns.enable = true;
       indent-blankline.enable = true;
-      lastplace.enable = true;
       treesitter.enable = true;
       nvim-autopairs.enable = true;
-      helm.enable = true;
       blink-cmp.enable = true;
       lsp.enable = true;
       which-key = {
