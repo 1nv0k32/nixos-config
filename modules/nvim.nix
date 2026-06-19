@@ -84,6 +84,7 @@
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
+      mini-tabline.enable = true;
       bufferline = {
         enable = true;
         settings = {
