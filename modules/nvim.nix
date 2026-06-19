@@ -90,6 +90,7 @@
       nvim-autopairs.enable = true;
       helm.enable = true;
       blink-cmp.enable = true;
+      lsp.enable = true;
       which-key = {
         enable = true;
         settings = {
