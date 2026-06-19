@@ -49,11 +49,6 @@
         key = "<leader>nr";
         action = ":Neotree filesystem reveal <cr>";
       }
-      {
-        mode = "n";
-        key = "<leader>``";
-        action = ":ToggleTerm <cr>";
-      }
     ];
     plugins = {
       web-devicons.enable = true;
@@ -79,25 +74,21 @@
               __unkeyed-1 = "<leader>n";
               group = "+NeoTree";
             }
-            {
-              __unkeyed-1 = "<leader>`";
-              group = "+Terminal";
-            }
           ];
         };
       };
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>fg" = "git_files";
-          "<leader>ff" = "live_grep";
+          "<leader>ff" = "git_files";
+          "<leader>fg" = "live_grep";
         };
       };
       toggleterm = {
         enable = true;
         settings = {
           direction = "float";
-          open_mapping = "[[<c-\\>]]";
+          open_mapping = "[[<c-\\]]";
         };
       };
       neo-tree = {
