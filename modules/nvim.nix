@@ -5,7 +5,11 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
-    colorschemes.vscode.enable = true;
+    waylandSupport = true;
+    colorschemes.gruvbox.enable = true;
+    globals = {
+      mapleader = " ";
+    };
     opts = {
       number = true;
       relativenumber = false;
@@ -30,6 +34,7 @@
       providers.wl-copy.enable = true;
     };
     plugins = {
+      telescope.enable = true;
       web-devicons.enable = true;
       lualine.enable = true;
       lazygit.enable = true;
