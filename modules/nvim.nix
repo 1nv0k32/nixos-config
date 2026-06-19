@@ -87,7 +87,7 @@
       toggleterm = {
         enable = true;
         settings = {
-          open_mapping = "<leader>tt";
+          open_mapping = "[[<leader>tt]]";
         };
       };
       neo-tree = {
