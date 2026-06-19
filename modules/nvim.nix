@@ -33,12 +33,6 @@
       providers.wl-copy.enable = true;
     };
     plugins = {
-      telescope = {
-        enable = true;
-        keymaps = {
-          "<leader>fg" = "live_grep";
-        };
-      };
       web-devicons.enable = true;
       lualine.enable = true;
       lazygit.enable = true;
@@ -49,6 +43,12 @@
       treesitter.enable = true;
       nvim-autopairs.enable = true;
       helm.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fg" = "live_grep";
+        };
+      };
       blink-cmp.enable = true;
       neo-tree = {
         enable = true;
