@@ -1,5 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 {
+
+  environment.systemPackages = with pkgs; [
+    ripgrep
+  ];
+
   programs.nixvim = {
     enable = true;
     viAlias = true;
@@ -43,6 +48,7 @@
       treesitter.enable = true;
       nvim-autopairs.enable = true;
       helm.enable = true;
+      blink-cmp.enable = true;
       which-key = {
         enable = true;
         settings = {
@@ -61,10 +67,14 @@
           "<leader>ff" = "live_grep";
         };
       };
-      blink-cmp.enable = true;
       neo-tree = {
         enable = true;
-        settings.window.position = "right";
+        settings.window = {
+          position = "right";
+          mappings = {
+            "<space>" = "none";
+          };
+        };
       };
       lsp = {
         enable = true;
