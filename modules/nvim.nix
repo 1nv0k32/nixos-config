@@ -33,7 +33,6 @@
       providers.wl-copy.enable = true;
     };
     plugins = {
-      which-key.enable = true;
       web-devicons.enable = true;
       lualine.enable = true;
       lazygit.enable = true;
@@ -44,6 +43,21 @@
       treesitter.enable = true;
       nvim-autopairs.enable = true;
       helm.enable = true;
+      which-key = {
+        enable = true;
+        settings = {
+          spec = [
+            {
+              __unkeyed-1 = "<leader>b";
+              group = "+Buffers";
+            }
+            {
+              __unkeyed-1 = "<leader>f";
+              group = "+Find/Files";
+            }
+          ];
+        };
+      };
       telescope = {
         enable = true;
         keymaps = {
