@@ -46,8 +46,13 @@
       }
       {
         mode = "n";
-        key = "<leader>fr";
+        key = "<leader>fnr";
         action = ":Neotree filesystem reveal <cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fnc";
+        action = ":Neotree filesystem close <cr>";
       }
       {
         mode = "n";
@@ -80,6 +85,10 @@
             {
               __unkeyed-1 = "<leader>f";
               group = "+Find/Files";
+            }
+            {
+              __unkeyed-1 = "<leader>fn";
+              group = "+Neotree";
             }
           ];
         };
