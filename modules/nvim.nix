@@ -32,36 +32,36 @@
       register = "unnamedplus";
       providers.wl-copy.enable = true;
     };
-    # plugins = {
-    #   web-devicons.enable = true;
-    #   lualine.enable = true;
-    #   lazygit.enable = true;
-    #   gitblame.enable = true;
-    #   gitsigns.enable = true;
-    #   indent-blankline.enable = true;
-    #   lastplace.enable = true;
-    #   treesitter.enable = true;
-    #   nvim-autopairs.enable = true;
-    #   helm.enable = true;
-    #   telescope = {
-    #     enable = true;
-    #     keymaps = {
-    #       "<leader>fg" = "live_grep";
-    #     };
-    #   };
-    #   blink-cmp.enable = true;
-    #   neo-tree = {
-    #     enable = true;
-    #     settings.window.position = "right";
-    #   };
-    #   lsp = {
-    #     enable = true;
-    #     servers = {
-    #       nixd.enable = true;
-    #       clangd.enable = true;
-    #       gopls.enable = true;
-    #     };
-    #   };
-    # };
+    plugins = {
+      #   web-devicons.enable = true;
+      #   lualine.enable = true;
+      #   lazygit.enable = true;
+      #   gitblame.enable = true;
+      #   gitsigns.enable = true;
+      #   indent-blankline.enable = true;
+      #   lastplace.enable = true;
+      #   treesitter.enable = true;
+      #   nvim-autopairs.enable = true;
+      #   helm.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fg" = "live_grep";
+        };
+      };
+      #   blink-cmp.enable = true;
+      #   neo-tree = {
+      #     enable = true;
+      #     settings.window.position = "right";
+      #   };
+      #   lsp = {
+      #     enable = true;
+      #     servers = {
+      #       nixd.enable = true;
+      #       clangd.enable = true;
+      #       gopls.enable = true;
+      #     };
+      #   };
+    };
   };
 }
