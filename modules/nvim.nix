@@ -5,7 +5,6 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
-    waylandSupport = true;
     colorschemes.gruvbox.enable = true;
     globals = {
       mapleader = " ";
@@ -34,7 +33,12 @@
       providers.wl-copy.enable = true;
     };
     plugins = {
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fg" = "live_grep";
+        };
+      };
       web-devicons.enable = true;
       lualine.enable = true;
       lazygit.enable = true;
