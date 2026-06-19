@@ -33,6 +33,7 @@
       providers.wl-copy.enable = true;
     };
     plugins = {
+      which-key.enable = true;
       web-devicons.enable = true;
       lualine.enable = true;
       lazygit.enable = true;
