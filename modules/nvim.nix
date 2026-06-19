@@ -17,8 +17,14 @@
     };
     keymaps = [
       {
+        mode = "";
         key = "<space>";
         action = "<nop>";
+      }
+      {
+        mode = "";
+        key = "<leader>n";
+        action = ":NeoTree filesystem reveal";
       }
     ];
     opts = {
@@ -63,6 +69,10 @@
             {
               __unkeyed-1 = "<leader>f";
               group = "+Find/Files";
+            }
+            {
+              __unkeyed-1 = "<leader>n";
+              group = "+NeoTree";
             }
           ];
         };
