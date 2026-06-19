@@ -47,12 +47,12 @@
       {
         mode = "n";
         key = "<leader>nr";
-        action = ":Neotree filesystem reveal<cr>";
+        action = ":Neotree filesystem reveal <cr>";
       }
       {
         mode = "n";
         key = "<leader>``";
-        action = ":toggleterm";
+        action = ":ToggleTerm <cr>";
       }
     ];
     plugins = {
