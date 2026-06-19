@@ -18,7 +18,7 @@
     keymaps = [
       {
         key = "<space>";
-        action = "nop";
+        action = "<nop>";
       }
     ];
     opts = {
