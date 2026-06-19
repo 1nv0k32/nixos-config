@@ -24,7 +24,7 @@
       {
         mode = "";
         key = "<leader>nr";
-        action = ":NeoTree filesystem reveal";
+        action = ":Neotree filesystem reveal";
       }
     ];
     opts = {
@@ -75,6 +75,13 @@
               group = "+NeoTree";
             }
           ];
+        };
+      };
+      toggleterm = {
+        enable = true;
+        settings = {
+          direction = "float";
+          open_mapping = "<leader>tt";
         };
       };
       telescope = {
