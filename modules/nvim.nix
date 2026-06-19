@@ -74,6 +74,10 @@
               __unkeyed-1 = "<leader>n";
               group = "+NeoTree";
             }
+            {
+              __unkeyed-1 = "<leader>`";
+              group = "+Terminal";
+            }
           ];
         };
       };
@@ -87,7 +91,8 @@
       toggleterm = {
         enable = true;
         settings = {
-          open_mapping = "[[<leader>tt]]";
+          direction = "float";
+          open_mapping = "[[<leader>``]]";
         };
       };
       neo-tree = {
