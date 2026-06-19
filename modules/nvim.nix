@@ -48,10 +48,6 @@
         settings = {
           spec = [
             {
-              __unkeyed-1 = "<leader>b";
-              group = "+Buffers";
-            }
-            {
               __unkeyed-1 = "<leader>f";
               group = "+Find/Files";
             }
@@ -61,7 +57,8 @@
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>fg" = "live_grep";
+          "<leader>fg" = "git_files";
+          "<leader>ff" = "live_grep";
         };
       };
       blink-cmp.enable = true;
