@@ -23,7 +23,7 @@
       }
       {
         mode = "";
-        key = "<leader>n";
+        key = "<leader>nr";
         action = ":NeoTree filesystem reveal";
       }
     ];
