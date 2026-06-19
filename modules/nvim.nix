@@ -87,7 +87,7 @@
       bufferline = {
         enable = true;
         settings = {
-          mode = "tabs";
+          options.mode = "tabs";
         };
       };
       lazygit.enable = true;
