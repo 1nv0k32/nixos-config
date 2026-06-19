@@ -7,7 +7,7 @@
     defaultEditor = true;
     colorschemes.gruvbox.enable = true;
     globals = {
-      mapleader = " ";
+      mapleader = ",";
     };
     opts = {
       number = true;
