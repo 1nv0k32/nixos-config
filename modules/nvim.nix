@@ -90,6 +90,10 @@
               __unkeyed-1 = "<leader>fn";
               group = "+Neotree";
             }
+            {
+              __unkeyed-1 = "<leader>l";
+              group = "+LSP";
+            }
           ];
         };
       };
@@ -129,6 +133,12 @@
       };
       lsp = {
         enable = true;
+        keymaps = [
+          {
+            key = "<leader>ld";
+            lspBufAction = "definition";
+          }
+        ];
         servers = {
           nixd.enable = true;
           clangd.enable = true;
