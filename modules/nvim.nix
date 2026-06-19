@@ -86,7 +86,9 @@
       lualine.enable = true;
       bufferline = {
         enable = true;
-        settings.mode = "tabs";
+        settings = {
+          mode = "tabs";
+        };
       };
       lazygit.enable = true;
       gitblame.enable = true;
