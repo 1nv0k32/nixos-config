@@ -85,12 +85,6 @@
       web-devicons.enable = true;
       lualine.enable = true;
       mini-tabline.enable = true;
-      bufferline = {
-        enable = true;
-        settings = {
-          options.mode = "tabs";
-        };
-      };
       lazygit.enable = true;
       gitblame.enable = true;
       gitsigns.enable = true;
