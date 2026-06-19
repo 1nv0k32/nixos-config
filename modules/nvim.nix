@@ -76,12 +76,21 @@
       };
       neo-tree = {
         enable = true;
-        settings.window = {
-          position = "right";
-          mappings = {
-            "<space>" = "none";
-            "h" = "close_node";
-            "l" = "open";
+        settings = {
+          close_if_last_window = true;
+          filesystem = {
+            follow_current_file = {
+              enabled = true;
+              leave_dirs_open = false;
+            };
+          };
+          window = {
+            position = "right";
+            mappings = {
+              "<space>" = "none";
+              "h" = "close_node";
+              "l" = "open";
+            };
           };
         };
       };
