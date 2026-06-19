@@ -45,9 +45,14 @@
         action = "<nop>";
       }
       {
-        mode = "";
+        mode = "n";
         key = "<leader>nr";
         action = ":Neotree filesystem reveal<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>``";
+        action = ":toggleterm";
       }
     ];
     plugins = {
@@ -92,7 +97,7 @@
         enable = true;
         settings = {
           direction = "float";
-          open_mapping = "[[<c-`]]";
+          open_mapping = "[[<c-\\>]]";
         };
       };
       neo-tree = {
