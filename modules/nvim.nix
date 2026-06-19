@@ -65,6 +65,18 @@
         action = ":wqa <cr>";
       }
     ];
+    lsp = {
+      servers = {
+        nixd.enable = true;
+        gopls.enable = true;
+      };
+      keymaps = [
+        {
+          key = "<leader>ld";
+          lspBufAction = "definition";
+        }
+      ];
+    };
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
@@ -129,15 +141,6 @@
               "l" = "open";
             };
           };
-        };
-      };
-      lsp = {
-        enable = true;
-        keymaps = [ ];
-        servers = {
-          nixd.enable = true;
-          clangd.enable = true;
-          gopls.enable = true;
         };
       };
     };
