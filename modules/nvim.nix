@@ -84,6 +84,9 @@
           "<leader>ff" = "live_grep";
         };
       };
+      toggleterm = {
+        enable = true;
+      };
       neo-tree = {
         enable = true;
         settings = {
