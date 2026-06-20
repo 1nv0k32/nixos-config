@@ -64,33 +64,59 @@
         mode = "n";
         key = "<leader>fnr";
         action = ":Neotree filesystem reveal <CR>";
+        options.desc = "Show Neotree";
       }
       {
         mode = "n";
         key = "<leader>fnc";
         action = ":Neotree filesystem close <CR>";
+        options.desc = "Hide Neotree";
       }
       {
         mode = "n";
         key = "<leader>fv";
         action = ":LazyGit <CR>";
+        options.desc = "Show LazyGit";
       }
       {
         mode = "n";
         key = "<leader>fw";
         action = ":w <CR>";
+        options.desc = "Write to file";
       }
       {
         mode = "n";
         key = "<leader>fq";
         action = ":wqa <CR>";
+        options.desc = "Write to file, Quit all";
+      }
+      # Telescope
+      {
+        mode = "n";
+        key = "<leader>ff";
+        action = "<cmd> Telescope git_files <CR>";
+        options.desc = "Open file in Git";
+      }
+      {
+        mode = "n";
+        key = "<leader>fa";
+        action = "<cmd> Telescope find_files <CR>";
+        options.desc = "Open file";
+      }
+      {
+        mode = "n";
+        key = "<leader>fg";
+        action = "<cmd> Telescope live_grep <CR>";
+        options.desc = "Find in files";
+      }
+      {
+        mode = "n";
+        key = "<leader>fb";
+        action = "<cmd> Telescope buffers <CR>";
+        options.desc = "Buffers";
       }
     ];
     lsp = {
-      servers = {
-        nixd.enable = true;
-        gopls.enable = true;
-      };
       keymaps = [
         {
           key = "<leader>ld";
@@ -112,7 +138,17 @@
       treesitter.enable = true;
       nvim-autopairs.enable = true;
       blink-cmp.enable = true;
-      lsp.enable = true;
+      telescope.enable = true;
+      lsp = {
+        enable = true;
+        servers = {
+          nixd.enable = true;
+          gopls.enable = true;
+        };
+        keymaps = {
+
+        };
+      };
       which-key = {
         enable = true;
         settings = {
@@ -130,15 +166,6 @@
               group = "+LSP";
             }
           ];
-        };
-      };
-      telescope = {
-        enable = true;
-        keymaps = {
-          "<leader>ff" = "git_files";
-          "<leader>fa" = "find_files";
-          "<leader>fg" = "live_grep";
-          "<leader>fb" = "buffers";
         };
       };
       toggleterm = {
