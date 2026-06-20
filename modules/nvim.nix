@@ -120,7 +120,9 @@
         enable = true;
         keymaps = {
           "<leader>ff" = "git_files";
+          "<leader>fa" = "find_files";
           "<leader>fg" = "live_grep";
+          "<leader>fb" = "buffers";
         };
       };
       toggleterm = {
