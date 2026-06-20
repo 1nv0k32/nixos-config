@@ -129,6 +129,12 @@
         action = "<CMD> lua vim.lsp.buf.hover() <CR>";
         options.desc = "Show hover";
       }
+      {
+        mode = "n";
+        key = "<leader>lf";
+        action = "<CMD> lua vim.lsp.buf.format() <CR>";
+        options.desc = "Format the file";
+      }
     ];
     plugins = {
       web-devicons.enable = true;
