@@ -140,10 +140,16 @@
       treesitter.enable = true;
       nvim-autopairs.enable = true;
       telescope.enable = true;
-      cmp = {
+      blink-cmp = {
         enable = true;
-        settings.mappings = {
-          "<C-Space>" = "cmp.mapping.complete()";
+        setupLspCapabilities = true;
+        settings = {
+          signature = {
+            enabled = true;
+            window = {
+              border = "rounded";
+            };
+          };
         };
       };
       lsp = {
