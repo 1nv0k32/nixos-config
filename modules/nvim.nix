@@ -38,7 +38,7 @@
       termguicolor = true;
       sCRolloff = 8;
       updatetime = 50;
-      colorcolumn = 80;
+      colorcolumn = "80";
     };
     clipboard = {
       register = "unnamedplus";
