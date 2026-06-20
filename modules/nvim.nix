@@ -150,13 +150,29 @@
         enable = true;
         setupLspCapabilities = true;
         settings = {
-          signature = {
-            enabled = true;
-            window = {
-              border = "rounded";
-            };
-          };
+          signature.enabled = true;
           completion.documentation.auto_show = true;
+          keymaps = {
+            "<C-space>" = [
+              "show"
+              "show_documentation"
+              "hide_documentation"
+            ];
+            "<CR>" = [
+              "accept"
+              "fallback"
+            ];
+            "<Tab>" = [
+              "select_next"
+              "snippet_forward"
+              "fallback"
+            ];
+            "<S-Tab>" = [
+              "select_prev"
+              "snippet_backward"
+              "fallback"
+            ];
+          };
         };
       };
       lsp = {
