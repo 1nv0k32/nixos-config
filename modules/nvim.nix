@@ -53,12 +53,12 @@
       {
         mode = "v";
         key = "J";
-        action = "<CMD> move '>+1<CR>gv=gv";
+        action = "<CMD> m '>+1<CR>gv=gv";
       }
       {
         mode = "v";
         key = "K";
-        action = "<CMD> move '<-2<CR>gv=gv";
+        action = "<CMD> m '<-2<CR>gv=gv";
       }
       {
         mode = "n";
