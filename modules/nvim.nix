@@ -141,6 +141,12 @@
         action = "<CMD> lua vim.lsp.buf.format() <CR>";
         options.desc = "Format the file";
       }
+      {
+        mode = "n";
+        key = "<leader>lt";
+        action = "<CMD> Trouble diagnostics toggle <CR>";
+        options.desc = "Trouble toggle";
+      }
     ];
     plugins = {
       web-devicons.enable = true;
@@ -152,6 +158,7 @@
       treesitter.enable = true;
       nvim-autopairs.enable = true;
       telescope.enable = true;
+      trouble.enable = true;
       blink-cmp = {
         enable = true;
         setupLspCapabilities = true;
