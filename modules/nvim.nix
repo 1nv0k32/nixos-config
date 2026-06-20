@@ -18,8 +18,7 @@
     opts = {
       number = true;
       relativenumber = false;
-      # guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20";
-      guicursor = "";
+      guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-CR-o:hor20";
       undofile = true;
       encoding = "utf-8";
       signcolumn = "yes";
@@ -34,12 +33,28 @@
       expandtab = true;
       smarttab = true;
       autoindent = true;
+      hlsearch = false;
+      incsearch = true;
+      termguicolor = true;
+      sCRolloff = 8;
+      updatetime = 50;
+      colorcolumn = 80;
     };
     clipboard = {
       register = "unnamedplus";
       providers.wl-copy.enable = true;
     };
     keymaps = [
+      {
+        mode = "v";
+        key = "J";
+        action = ":m '>+1<CR>gv=gv";
+      }
+      {
+        mode = "v";
+        key = "K";
+        action = ":m '<-2<CR>gv=gv";
+      }
       {
         mode = "";
         key = "<space>";
@@ -48,27 +63,27 @@
       {
         mode = "n";
         key = "<leader>fnr";
-        action = ":Neotree filesystem reveal <cr>";
+        action = ":Neotree filesystem reveal <CR>";
       }
       {
         mode = "n";
         key = "<leader>fnc";
-        action = ":Neotree filesystem close <cr>";
+        action = ":Neotree filesystem close <CR>";
       }
       {
         mode = "n";
         key = "<leader>fv";
-        action = ":LazyGit <cr>";
+        action = ":LazyGit <CR>";
       }
       {
         mode = "n";
         key = "<leader>fw";
-        action = ":w <cr>";
+        action = ":w <CR>";
       }
       {
         mode = "n";
         key = "<leader>fq";
-        action = ":wqa <cr>";
+        action = ":wqa <CR>";
       }
     ];
     lsp = {
