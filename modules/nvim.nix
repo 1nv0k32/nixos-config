@@ -125,7 +125,7 @@
       # LSP
       {
         mode = "n";
-        key = "<leader>ld";
+        key = "gd";
         action = "<CMD> lua vim.lsp.buf.definition() <CR>";
         options.desc = "Go to definition";
       }
