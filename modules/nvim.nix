@@ -18,7 +18,8 @@
     opts = {
       number = true;
       relativenumber = false;
-      guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20";
+      # guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20";
+      guicursor = "";
       undofile = true;
       encoding = "utf-8";
       signcolumn = "yes";
