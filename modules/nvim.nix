@@ -46,31 +46,19 @@
     };
     keymaps = [
       {
-        mode = "v";
-        key = "J";
-        action = ":m '>+1<CR>gv=gv";
-      }
-      {
-        mode = "v";
-        key = "K";
-        action = ":m '<-2<CR>gv=gv";
-      }
-      {
         mode = "";
         key = "<space>";
         action = "<nop>";
       }
       {
-        mode = "n";
-        key = "<leader>fnr";
-        action = ":Neotree filesystem reveal <CR>";
-        options.desc = "Show Neotree";
+        mode = "v";
+        key = "J";
+        action = "<CMD> move '>+1<CR>gv=gv";
       }
       {
-        mode = "n";
-        key = "<leader>fnc";
-        action = ":Neotree filesystem close <CR>";
-        options.desc = "Hide Neotree";
+        mode = "v";
+        key = "K";
+        action = "<CMD> move '<-2<CR>gv=gv";
       }
       {
         mode = "n";
@@ -81,53 +69,67 @@
       {
         mode = "n";
         key = "<leader>fw";
-        action = ":w <CR>";
+        action = "<CMD> w <CR>";
         options.desc = "Write to file";
       }
       {
         mode = "n";
         key = "<leader>fq";
-        action = ":wqa <CR>";
+        action = "<CMD> wqa <CR>";
         options.desc = "Write to file, Quit all";
+      }
+      # Neotree
+      {
+        mode = "n";
+        key = "<leader>fns";
+        action = "<CMD> Neotree filesystem reveal <CR>";
+        options.desc = "Show Neotree";
+      }
+      {
+        mode = "n";
+        key = "<leader>fnh";
+        action = "<CMD> Neotree filesystem close <CR>";
+        options.desc = "Hide Neotree";
       }
       # Telescope
       {
         mode = "n";
         key = "<leader>ff";
-        action = "<cmd> Telescope git_files <CR>";
+        action = "<CMD> Telescope git_files <CR>";
         options.desc = "Open file in Git";
       }
       {
         mode = "n";
         key = "<leader>fa";
-        action = "<cmd> Telescope find_files <CR>";
+        action = "<CMD> Telescope find_files <CR>";
         options.desc = "Open file";
       }
       {
         mode = "n";
         key = "<leader>fg";
-        action = "<cmd> Telescope live_grep <CR>";
+        action = "<CMD> Telescope live_grep <CR>";
         options.desc = "Find in files";
       }
       {
         mode = "n";
         key = "<leader>fb";
-        action = "<cmd> Telescope buffers <CR>";
+        action = "<CMD> Telescope buffers <CR>";
         options.desc = "Buffers";
       }
+      # LSP
+      {
+        mode = "n";
+        key = "<leader>ld";
+        action = "<CMD> lua vim.lsp.buf.definition() <CR>";
+        options.desc = "Go to definition";
+      }
+      {
+        mode = "n";
+        key = "<leader>lh";
+        action = "<CMD> lua vim.lsp.buf.hover() <CR>";
+        options.desc = "Show hover";
+      }
     ];
-    lsp = {
-      keymaps = [
-        {
-          key = "<leader>ld";
-          lspBufAction = "definition";
-        }
-        {
-          key = "<leader>lh";
-          lspBufAction = "hover";
-        }
-      ];
-    };
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
