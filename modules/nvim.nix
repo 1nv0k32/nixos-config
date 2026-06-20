@@ -36,7 +36,7 @@
       hlsearch = false;
       incsearch = true;
       termguicolor = true;
-      sCRolloff = 8;
+      scrolloff = 8;
       updatetime = 50;
       colorcolumn = "80";
     };
