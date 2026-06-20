@@ -76,7 +76,13 @@
         mode = "n";
         key = "<leader>fq";
         action = "<CMD> wqa <CR>";
-        options.desc = "Write to file, Quit all";
+        options.desc = "Write all buffers, Quit all";
+      }
+      {
+        mode = "n";
+        key = "<leader>fx";
+        action = "<CMD> qa! <CR>";
+        options.desc = "Discard all buffers, Quit all";
       }
       # Neotree
       {
@@ -152,7 +158,7 @@
         settings = {
           signature.enabled = true;
           completion.documentation.auto_show = true;
-          keymaps = {
+          keymap = {
             "<C-space>" = [
               "show"
               "show_documentation"
