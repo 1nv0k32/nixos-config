@@ -35,7 +35,7 @@
       autoindent = true;
       hlsearch = false;
       incsearch = true;
-      termguicolor = true;
+      termguicolors = true;
       scrolloff = 8;
       updatetime = 50;
       colorcolumn = "80";
