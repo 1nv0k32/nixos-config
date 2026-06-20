@@ -139,16 +139,18 @@
       indent-blankline.enable = true;
       treesitter.enable = true;
       nvim-autopairs.enable = true;
-      blink-cmp.enable = true;
       telescope.enable = true;
+      cmp = {
+        enable = true;
+        settings.mappings = {
+          "<C-Space>" = "cmp.mapping.complete()";
+        };
+      };
       lsp = {
         enable = true;
         servers = {
           nixd.enable = true;
           gopls.enable = true;
-        };
-        keymaps = {
-
         };
       };
       which-key = {
