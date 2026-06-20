@@ -156,6 +156,7 @@
               border = "rounded";
             };
           };
+          completion.menu.documentation.auto_show = true;
         };
       };
       lsp = {
