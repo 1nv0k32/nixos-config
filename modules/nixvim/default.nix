@@ -1,17 +1,20 @@
-{ ... }:
+{ pkgs, ... }:
 {
+
+  environment.systemPackages = with pkgs; [
+    ripgrep
+  ];
+
   programs.nixvim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
     colorschemes.gruvbox.enable = true;
-
     globals = {
       mapleader = " ";
       maplocalleader = " ";
     };
-
     opts = {
       number = true;
       relativenumber = false;
@@ -37,12 +40,10 @@
       updatetime = 50;
       colorcolumn = "80";
     };
-
     clipboard = {
       register = "unnamedplus";
       providers.wl-copy.enable = true;
     };
-
     keymaps = [
       {
         mode = "";
@@ -147,11 +148,6 @@
         options.desc = "Trouble toggle";
       }
     ];
-
-    dependencies = {
-      ripgrep.enable = true;
-    };
-
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
