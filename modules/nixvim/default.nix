@@ -1,6 +1,6 @@
-{ ... }:
-{
-  programs.nixvim = {
+{ system, lib, ... }:
+let
+  config = {
     enable = true;
     viAlias = true;
     vimAlias = true;
@@ -247,4 +247,12 @@
       };
     };
   };
+
+  nixvimPkg = lib.nixvim.modules.buildNixvim {
+    inherit system;
+    module = config;
+  };
+in
+{
+  environment.systemPackages = [ nixvimPkg ];
 }
