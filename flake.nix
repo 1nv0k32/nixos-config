@@ -58,6 +58,33 @@
     { self, ... }@inputs:
     with inputs;
     let
+      # Definitions
+      systems = {
+        x86_64-linux = "x86_64-linux";
+        aarch64-linux = "aarch64-linux";
+        aarch64-darwin = "aarch64-darwin";
+      };
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
+      optionalLocalModules =
+        nix_paths:
+        builtins.concatLists (
+          nixpkgs.lib.lists.forEach nix_paths (
+            path: nixpkgs.lib.optional (builtins.pathExists path) (import path)
+          )
+        );
+
+      # Packages
+      nvim = forAllSystems (
+        system:
+        let
+          pkgs = (import nixpkgs { inherit system; });
+        in
+        nixvim.legacyPackages.${system}.makeNixvimWithModule {
+          inherit pkgs;
+          module = import "${self}/modules/nixvim.nix";
+        }
+      );
+
       # Modules
       nixosMods = [
         sops-nix.nixosModules.sops
@@ -72,6 +99,7 @@
       ];
       pkgsOverlays = [
         (import "${self}/pkgs/overlays.nix" inputs)
+        { environment.systemPackages = [ nvim ]; }
       ];
       defaultModules = pkgsOverlays ++ [
         (import "${self}/modules")
@@ -89,21 +117,6 @@
       guiModules = extraModules ++ [
         (import "${self}/modules/gui")
       ];
-
-      # Definitions
-      systems = {
-        x86_64-linux = "x86_64-linux";
-        aarch64-linux = "aarch64-linux";
-        aarch64-darwin = "aarch64-darwin";
-      };
-      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
-      optionalLocalModules =
-        nix_paths:
-        builtins.concatLists (
-          nixpkgs.lib.lists.forEach nix_paths (
-            path: nixpkgs.lib.optional (builtins.pathExists path) (import path)
-          )
-        );
     in
     {
       nixosModules = {
@@ -309,6 +322,10 @@
       };
 
       formatter = forAllSystems (system: (import nixpkgs { inherit system; }).nixfmt-tree);
+
+      packages = forAllSystems (system: {
+        nvim = nvim;
+      });
 
       devShells = forAllSystems (
         system:

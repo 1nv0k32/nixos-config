@@ -6,7 +6,7 @@
 }:
 let
   fontFamily = "NotoMono Nerd Font Mono";
-  fontSize = 15;
+  fontSize = 13;
   shell = "${lib.getExe pkgs.tmux}";
 in
 {

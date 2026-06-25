@@ -2,7 +2,6 @@
 {
   imports = [
     ./shells
-    ./nixvim
     ./direnv.nix
     ./git.nix
     ./ssh.nix
