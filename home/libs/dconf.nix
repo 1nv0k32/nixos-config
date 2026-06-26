@@ -12,7 +12,6 @@ let
     tiling-assistant
     caffeine
     unblank
-    # displays-adjustments
     brightness-control-using-ddcutil
   ];
 in

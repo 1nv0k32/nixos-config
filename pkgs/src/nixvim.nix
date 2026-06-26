@@ -160,6 +160,13 @@
     nvim-autopairs.enable = true;
     telescope.enable = true;
     trouble.enable = true;
+    lsp = {
+      enable = true;
+      servers = {
+        nixd.enable = true;
+        gopls.enable = true;
+      };
+    };
     blink-cmp = {
       enable = true;
       setupLspCapabilities = true;
@@ -187,13 +194,6 @@
             "fallback"
           ];
         };
-      };
-    };
-    lsp = {
-      enable = true;
-      servers = {
-        nixd.enable = true;
-        gopls.enable = true;
       };
     };
     which-key = {
