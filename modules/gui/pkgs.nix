@@ -25,7 +25,7 @@
 
       obs-studio
       gimp
-      freecad
+      # freecad
 
       vscode
 
