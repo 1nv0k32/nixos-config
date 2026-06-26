@@ -1,9 +1,7 @@
 { ... }:
 {
-  enable = true;
   viAlias = true;
   vimAlias = true;
-  defaultEditor = true;
   colorschemes.gruvbox.enable = true;
 
   globals = {
@@ -229,6 +227,9 @@
       settings = {
         close_if_last_window = true;
         filesystem = {
+          filtered_items = {
+            visible = true;
+          };
           follow_current_file = {
             enabled = true;
             leave_dirs_open = false;
