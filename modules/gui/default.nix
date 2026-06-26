@@ -9,7 +9,7 @@
     ./localsend.nix
     ./winbox.nix
     ./wireshark.nix
-    ./steam.nix
+    # ./steam.nix
     ./appimage.nix
     ./waydroid.nix
   ];
