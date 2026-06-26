@@ -61,254 +61,249 @@
     { self, ... }@inputs:
     with inputs;
     let
+      # Definitions
       lib = nixpkgs.lib;
-    in
-    flake-utils.lib.eachDefaultSystemPassThrough (
-      system:
-      let
-        # Definitions
-        optionalLocalModules =
-          nix_paths:
-          builtins.concatLists (
-            lib.lists.forEach nix_paths (path: lib.optional (builtins.pathExists path) (import path))
-          );
+      optionalLocalModules =
+        nix_paths:
+        builtins.concatLists (
+          lib.lists.forEach nix_paths (path: lib.optional (builtins.pathExists path) (import path))
+        );
 
-        # Modules
-        nixosMods = [
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-          nixvim.nixosModules.nixvim
-          disko.nixosModules.disko
-          nixos-generators.nixosModules.all-formats
-        ];
-        darwinMods = [
-          home-manager.darwinModules.home-manager
-          nixvim.nixDarwinModules.nixvim
-        ];
-        pkgsOverlays = [
-          (import "${self}/pkgs/overlays.nix" inputs)
-        ];
-        defaultModules = pkgsOverlays ++ [
-          (import "${self}/modules")
-          (import "${self}/src")
-        ];
-        baseModules = defaultModules ++ [
-          (import "${self}/src/base.nix")
-          (import "${self}/pkgs/base.nix")
-        ];
-        extraModules = baseModules ++ [
-          (import "${self}/overrides/initrd-luks.nix")
-          (import "${self}/src/extra.nix")
-          (import "${self}/pkgs/extra.nix")
-        ];
-        guiModules = extraModules ++ [
-          (import "${self}/modules/gui")
-        ];
-      in
-      {
-        nixosModules = {
-          stateVersion = "26.05";
-          systemTypes = {
-            # Thinkpad Z13 Gen2
-            z13g2 =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self openstack-nix;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
-                  (import "${self}/system/z13g2")
-                ]
-                ++ nixosMods
-                ++ guiModules
-                ++ optionalLocalModules attrs.modules;
+      # Modules
+      nixosMods = [
+        sops-nix.nixosModules.sops
+        home-manager.nixosModules.home-manager
+        nixvim.nixosModules.nixvim
+        disko.nixosModules.disko
+        nixos-generators.nixosModules.all-formats
+      ];
+      darwinMods = [
+        home-manager.darwinModules.home-manager
+        nixvim.nixDarwinModules.nixvim
+      ];
+      pkgsOverlays = [
+        (import "${self}/pkgs/overlays.nix" inputs)
+      ];
+      defaultModules = pkgsOverlays ++ [
+        (import "${self}/modules")
+        (import "${self}/src")
+      ];
+      baseModules = defaultModules ++ [
+        (import "${self}/src/base.nix")
+        (import "${self}/pkgs/base.nix")
+      ];
+      extraModules = baseModules ++ [
+        (import "${self}/overrides/initrd-luks.nix")
+        (import "${self}/src/extra.nix")
+        (import "${self}/pkgs/extra.nix")
+      ];
+      guiModules = extraModules ++ [
+        (import "${self}/modules/gui")
+      ];
+    in
+    flake-utils.lib.eachDefaultSystemPassThrough (system: {
+      nixosModules = {
+        stateVersion = "26.05";
+        systemTypes = {
+          # Thinkpad Z13 Gen2
+          z13g2 =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self openstack-nix;
+                inherit (attrs) hostName domain;
               };
-            # Mac
-            mac =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  nixos-mac.nixosModules.apple-silicon-support
-                  (import "${self}/system/mac")
-                  (import "${self}/system/server.nix")
-                ]
-                ++ nixosMods
-                ++ guiModules
-                ++ optionalLocalModules attrs.modules;
+              modules = [
+                nixos-hardware.nixosModules.lenovo-thinkpad-z13-gen2
+                (import "${self}/system/z13g2")
+              ]
+              ++ nixosMods
+              ++ guiModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # Mac
+          mac =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
               };
-            # AVF
-            avf =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  nixos-avf.nixosModules.avf
+              modules = [
+                nixos-mac.nixosModules.apple-silicon-support
+                (import "${self}/system/mac")
+                (import "${self}/system/server.nix")
+              ]
+              ++ nixosMods
+              ++ guiModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # AVF
+          avf =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
+              };
+              modules = [
+                nixos-avf.nixosModules.avf
+                (import "${self}/system/server.nix")
+                (import "${self}/system/avf")
+              ]
+              ++ nixosMods
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # Hetzner
+          hetzner.amd =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
+              };
+              modules = [
+                srvos.nixosModules.hardware-hetzner-cloud
+                (import "${self}/system/server.nix")
+                (import "${self}/system/hetzner")
+              ]
+              ++ nixosMods
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          hetzner.arm =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
+              };
+              modules = [
+                srvos.nixosModules.hardware-hetzner-cloud-arm
+                (import "${self}/system/server.nix")
+                (import "${self}/system/hetzner")
+              ]
+              ++ nixosMods
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # WSL-NixOS
+          wsl =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
+              };
+              modules = [
+                nixos-wsl.nixosModules.wsl
+                (import "${self}/system/wsl")
+              ]
+              ++ nixosMods
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # Darwin
+          darwin =
+            attrs:
+            nix-darwin.lib.darwinSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
+              };
+              modules = [
+                (import "${self}/system/darwin")
+              ]
+              ++ darwinMods
+              ++ pkgsOverlays
+              ++ optionalLocalModules attrs.modules;
+            };
+          # Raspberry Pi 5
+          rpi5 =
+            attrs:
+            nixos-raspberrypi.lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
+                inherit nixos-raspberrypi;
+              };
+              modules =
+                with nixos-raspberrypi.nixosModules;
+                [
                   (import "${self}/system/server.nix")
-                  (import "${self}/system/avf")
+                  (import "${self}/system/rpi5")
+                ]
+                ++ [
+                  raspberry-pi-5.base
+                  raspberry-pi-5.page-size-16k
+                  raspberry-pi-5.display-vc4
+                  raspberry-pi-5.bluetooth
                 ]
                 ++ nixosMods
                 ++ baseModules
                 ++ optionalLocalModules attrs.modules;
+            };
+          # QEMU
+          qemu =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
               };
-            # Hetzner
-            hetzner.amd =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  srvos.nixosModules.hardware-hetzner-cloud
-                  (import "${self}/system/server.nix")
-                  (import "${self}/system/hetzner")
-                ]
-                ++ nixosMods
-                ++ baseModules
-                ++ optionalLocalModules attrs.modules;
+              modules = [
+                (import "${self}/system/qemu.nix")
+              ]
+              ++ nixosMods
+              ++ extraModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # UTM
+          utm =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
               };
-            hetzner.arm =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  srvos.nixosModules.hardware-hetzner-cloud-arm
-                  (import "${self}/system/server.nix")
-                  (import "${self}/system/hetzner")
-                ]
-                ++ nixosMods
-                ++ baseModules
-                ++ optionalLocalModules attrs.modules;
+              modules = [
+                (import "${self}/system/qemu.nix")
+                (import "${self}/system/utm")
+              ]
+              ++ nixosMods
+              ++ guiModules
+              ++ optionalLocalModules attrs.modules;
+            };
+          # Parallels
+          parallels =
+            attrs:
+            lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                inherit self;
+                inherit (attrs) hostName domain;
               };
-            # WSL-NixOS
-            wsl =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  nixos-wsl.nixosModules.wsl
-                  (import "${self}/system/wsl")
-                ]
-                ++ nixosMods
-                ++ baseModules
-                ++ optionalLocalModules attrs.modules;
-              };
-            # Darwin
-            darwin =
-              attrs:
-              nix-darwin.lib.darwinSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  (import "${self}/system/darwin")
-                ]
-                ++ darwinMods
-                ++ pkgsOverlays
-                ++ optionalLocalModules attrs.modules;
-              };
-            # Raspberry Pi 5
-            rpi5 =
-              attrs:
-              nixos-raspberrypi.lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                  inherit nixos-raspberrypi;
-                };
-                modules =
-                  with nixos-raspberrypi.nixosModules;
-                  [
-                    (import "${self}/system/server.nix")
-                    (import "${self}/system/rpi5")
-                  ]
-                  ++ [
-                    raspberry-pi-5.base
-                    raspberry-pi-5.page-size-16k
-                    raspberry-pi-5.display-vc4
-                    raspberry-pi-5.bluetooth
-                  ]
-                  ++ nixosMods
-                  ++ baseModules
-                  ++ optionalLocalModules attrs.modules;
-              };
-            # QEMU
-            qemu =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  (import "${self}/system/qemu.nix")
-                ]
-                ++ nixosMods
-                ++ extraModules
-                ++ optionalLocalModules attrs.modules;
-              };
-            # UTM
-            utm =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  (import "${self}/system/qemu.nix")
-                  (import "${self}/system/utm")
-                ]
-                ++ nixosMods
-                ++ guiModules
-                ++ optionalLocalModules attrs.modules;
-              };
-            # Parallels
-            parallels =
-              attrs:
-              lib.nixosSystem {
-                inherit system;
-                specialArgs = {
-                  inherit self;
-                  inherit (attrs) hostName domain;
-                };
-                modules = [
-                  (import "${self}/system/parallels")
-                ]
-                ++ nixosMods
-                ++ extraModules
-                ++ optionalLocalModules attrs.modules;
-              };
-          };
+              modules = [
+                (import "${self}/system/parallels")
+              ]
+              ++ nixosMods
+              ++ extraModules
+              ++ optionalLocalModules attrs.modules;
+            };
         };
-      }
-    )
+      };
+    })
     // flake-utils.lib.eachDefaultSystem (
       system:
       let
