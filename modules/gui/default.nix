@@ -3,6 +3,7 @@
   imports = [
     ./pkgs.nix
     ./xdg.nix
+    ./ddc.nix
     ./chromium.nix
     ./gnome.nix
     ./gns3.nix
@@ -18,7 +19,4 @@
   programs.dconf.enable = true;
   services.flatpak.enable = true;
   hardware.logitech.wireless.enable = true;
-
-  # ddcutils
-  boot.kernelModules = [ "i2c-dev" ];
 }

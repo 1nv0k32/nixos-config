@@ -26,6 +26,7 @@ in
       "ubridge"
       "wireshark"
       "dialout"
+      "i2c"
     ];
   };
 

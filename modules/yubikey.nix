@@ -25,7 +25,7 @@ in
     udev.packages = with pkgs; [
       yubikey-personalization
     ];
-    udev.extraRules = ''
+    udev.extraRules = lib.mkAfter ''
       ACTION=="remove",\
        ENV{ID_BUS}=="usb",\
        ENV{ID_MODEL_ID}=="0407",\
