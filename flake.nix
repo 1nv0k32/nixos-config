@@ -60,25 +60,18 @@
   outputs =
     { self, ... }@inputs:
     with inputs;
+    let
+      lib = nixpkgs.lib;
+    in
     flake-utils.lib.eachDefaultSystemPassThrough (
       system:
       let
         # Definitions
-        pkgs = import nixpkgs { inherit system; };
-        lib = nixpkgs.lib;
         optionalLocalModules =
           nix_paths:
           builtins.concatLists (
-            nixpkgs.lib.lists.forEach nix_paths (
-              path: nixpkgs.lib.optional (builtins.pathExists path) (import path)
-            )
+            lib.lists.forEach nix_paths (path: lib.optional (builtins.pathExists path) (import path))
           );
-
-        # Packages
-        nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
-          inherit pkgs;
-          module = import "${self}/pkgs/src/nixvim.nix";
-        };
 
         # Modules
         nixosMods = [
@@ -113,27 +106,13 @@
         ];
       in
       {
-        formatter."${system}" = pkgs.nixfmt-tree;
-
-        packages."${system}" = {
-          nvim = nvim;
-        };
-
-        devShells."${system}" = {
-          default = (import "${self}/shells/default.nix" { inherit pkgs lib; }).shell;
-          kernel = (import "${self}/shells/kernel.nix" { inherit pkgs lib; }).shell;
-          python = (import "${self}/shells/python.nix" { inherit pkgs lib; }).shell;
-          go = (import "${self}/shells/go.nix" { inherit pkgs lib; }).shell;
-          fhs = (import "${self}/shells/fhs.nix" { inherit pkgs lib; }).shell;
-        };
-
         nixosModules = {
           stateVersion = "26.05";
           systemTypes = {
             # Thinkpad Z13 Gen2
             z13g2 =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self openstack-nix;
@@ -150,7 +129,7 @@
             # Mac
             mac =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -168,7 +147,7 @@
             # AVF
             avf =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -186,7 +165,7 @@
             # Hetzner
             hetzner.amd =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -203,7 +182,7 @@
               };
             hetzner.arm =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -221,7 +200,7 @@
             # WSL-NixOS
             wsl =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -280,7 +259,7 @@
             # QEMU
             qemu =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -296,7 +275,7 @@
             # UTM
             utm =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -313,7 +292,7 @@
             # Parallels
             parallels =
               attrs:
-              nixpkgs.lib.nixosSystem {
+              lib.nixosSystem {
                 inherit system;
                 specialArgs = {
                   inherit self;
@@ -327,6 +306,34 @@
                 ++ optionalLocalModules attrs.modules;
               };
           };
+        };
+      }
+    )
+    // flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        # Definitions
+        pkgs = import nixpkgs { inherit system; };
+
+        # Packages
+        nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+          inherit pkgs;
+          module = import "${self}/pkgs/src/nixvim.nix";
+        };
+      in
+      {
+        formatter = pkgs.nixfmt-tree;
+
+        packages = {
+          nvim = nvim;
+        };
+
+        devShells = {
+          default = (import "${self}/shells/default.nix" { inherit pkgs lib; }).shell;
+          kernel = (import "${self}/shells/kernel.nix" { inherit pkgs lib; }).shell;
+          python = (import "${self}/shells/python.nix" { inherit pkgs lib; }).shell;
+          go = (import "${self}/shells/go.nix" { inherit pkgs lib; }).shell;
+          fhs = (import "${self}/shells/fhs.nix" { inherit pkgs lib; }).shell;
         };
       }
     );
