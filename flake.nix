@@ -94,7 +94,6 @@
         ];
         pkgsOverlays = [
           (import "${self}/pkgs/overlays.nix" inputs)
-          # { environment.systemPackages = [ nvim ]; }
         ];
         defaultModules = pkgsOverlays ++ [
           (import "${self}/modules")
