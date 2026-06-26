@@ -60,7 +60,7 @@
   outputs =
     { self, ... }@inputs:
     with inputs;
-    flake-utils.lib.eachDefaultSystem (
+    flake-utils.lib.eachDefaultSystemPassThrough (
       system:
       let
         # Definitions
@@ -113,9 +113,19 @@
         ];
       in
       {
-        formatter = pkgs.nixfmt-tree;
+        formatter."${system}" = pkgs.nixfmt-tree;
 
-        packages.nvim = nvim;
+        packages."${system}" = {
+          nvim = nvim;
+        };
+
+        devShells."${system}" = {
+          default = (import "${self}/shells/default.nix" { inherit pkgs lib; }).shell;
+          kernel = (import "${self}/shells/kernel.nix" { inherit pkgs lib; }).shell;
+          python = (import "${self}/shells/python.nix" { inherit pkgs lib; }).shell;
+          go = (import "${self}/shells/go.nix" { inherit pkgs lib; }).shell;
+          fhs = (import "${self}/shells/fhs.nix" { inherit pkgs lib; }).shell;
+        };
 
         nixosModules = {
           stateVersion = "26.05";
@@ -317,14 +327,6 @@
                 ++ optionalLocalModules attrs.modules;
               };
           };
-        };
-
-        devShells = {
-          default = (import "${self}/shells/default.nix" { inherit pkgs lib; }).shell;
-          kernel = (import "${self}/shells/kernel.nix" { inherit pkgs lib; }).shell;
-          python = (import "${self}/shells/python.nix" { inherit pkgs lib; }).shell;
-          go = (import "${self}/shells/go.nix" { inherit pkgs lib; }).shell;
-          fhs = (import "${self}/shells/fhs.nix" { inherit pkgs lib; }).shell;
         };
       }
     );
