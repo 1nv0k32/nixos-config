@@ -12,6 +12,7 @@ let
     tiling-assistant
     caffeine
     unblank
+    displays-adjustments
   ];
 in
 {

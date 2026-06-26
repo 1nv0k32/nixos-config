@@ -21,6 +21,7 @@
       networkmanagerapplet
       tor-browser
       solaar
+      ddcutil-service
 
       obs-studio
       gimp
