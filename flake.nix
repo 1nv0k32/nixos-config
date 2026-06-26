@@ -123,8 +123,8 @@
       {
         formatter."${system}" = pkgs.nixfmt-tree;
 
-        packages."${system}" = {
-          nvim = nvim;
+        packages = {
+          "${system}".nvim = nvim;
         };
 
         devShells."${system}" = {
