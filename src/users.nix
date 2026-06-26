@@ -9,8 +9,9 @@ let
   cfg = config.environment.sysConf;
 in
 {
-  users.groups."ubridge" = {
-    name = "ubridge";
+  users.groups = {
+    "ubridge".name = "ubridge";
+    "i2c".name = "i2c";
   };
 
   users.users."${cfg.user.name}" = {
