@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./pkgs.nix
+    # ./pkgs.nix
     ./xdg.nix
     ./chromium.nix
     ./gnome.nix

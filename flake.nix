@@ -60,15 +60,7 @@
   outputs =
     { self, ... }@inputs:
     with inputs;
-    let
-      systems = [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "x86_64-linux"
-      ];
-    in
-    flake-utils.lib.eachSystemPassThrough systems (
+    flake-utils.lib.eachDefaultSystemPassThrough (
       system:
       let
         # Definitions
@@ -123,8 +115,8 @@
       {
         formatter."${system}" = pkgs.nixfmt-tree;
 
-        packages = {
-          "${system}".nvim = nvim;
+        packages."${system}" = {
+          nvim = nvim;
         };
 
         devShells."${system}" = {
