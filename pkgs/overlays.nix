@@ -12,20 +12,20 @@ let
       allowUnsupportedSystem = true;
     };
   };
-  pkgs-master = _: prev: {
-    pkgs-master = import nixpkgs-master {
+  master = _: prev: {
+    master = import nixpkgs-master {
       inherit (prev.stdenv) system;
       inherit (overlayConfig) config;
     };
   };
-  pkgs-unstable = _: prev: {
-    pkgs-unstable = import nixpkgs-unstable {
+  unstable = _: prev: {
+    unstable = import nixpkgs-unstable {
       inherit (prev.stdenv) system;
       inherit (overlayConfig) config;
     };
   };
-  pkgs-old = _: prev: {
-    pkgs-old = import nixpkgs-old {
+  old = _: prev: {
+    old = import nixpkgs-old {
       inherit (prev.stdenv) system;
       inherit (overlayConfig) config;
     };
@@ -40,9 +40,9 @@ in
   nixpkgs = {
     inherit (overlayConfig) config;
     overlays = [
-      pkgs-master
-      pkgs-unstable
-      pkgs-old
+      master
+      unstable
+      old
     ];
   };
 }
