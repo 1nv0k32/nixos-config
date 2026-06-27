@@ -65,8 +65,8 @@
     {
       mode = "n";
       key = "<leader>fw";
-      action = "<CMD> w <CR>";
-      options.desc = "Write to file";
+      action = "<CMD> wa <CR>";
+      options.desc = "Write to all files";
     }
     {
       mode = "n";
