@@ -145,6 +145,21 @@
     }
   ];
 
+  autoCmd = [
+    {
+      event = [ "InsertLeave" ];
+      pattern = [ "*" ];
+      desc = "Format buffer using LSP when leaving insert mode";
+      callback = {
+        __raw = ''
+          function()
+            pcall(vim.lsp.buf.format, { async = true })
+          end
+        '';
+      };
+    }
+  ];
+
   dependencies = {
     ripgrep.enable = true;
   };
