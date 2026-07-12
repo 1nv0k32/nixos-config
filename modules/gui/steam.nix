@@ -2,7 +2,7 @@
 {
   programs.steam = {
     enable = true;
-    package = pkgs.unstable.steam;
+    package = pkgs.steam;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];

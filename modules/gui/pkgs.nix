@@ -24,7 +24,7 @@
 
       obs-studio
       gimp
-      unstable.freecad
+      freecad
 
       vscode
 
