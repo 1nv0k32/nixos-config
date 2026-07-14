@@ -27,6 +27,7 @@
       freecad
 
       vscode
+      bruno
 
       telegram-desktop
     ]
