@@ -18,7 +18,7 @@
   };
 
   boot = {
-    loader.raspberry-pi.bootloader = "kernel";
+    # loader.raspberry-pi.bootloader = "kernel";
     kernelParams = [
       "cgroup_enable=cpuset"
       "cgroup_enable=memory"
@@ -26,15 +26,15 @@
     ];
   };
 
-  hardware.raspberry-pi.config.all = {
-    base-dt-params = {
-      pciex1 = {
-        enable = true;
-      };
-      pciex1_gen = {
-        enable = true;
-        value = 3;
-      };
-    };
-  };
+  # hardware.raspberry-pi.config.all = {
+  #   base-dt-params = {
+  #     pciex1 = {
+  #       enable = true;
+  #     };
+  #     pciex1_gen = {
+  #       enable = true;
+  #       value = 3;
+  #     };
+  #   };
+  # };
 }
