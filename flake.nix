@@ -229,7 +229,8 @@
           # Raspberry Pi 5
           rpi5 =
             attrs:
-            nixos-raspberrypi.lib.nixosSystem {
+            # nixos-raspberrypi.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               specialArgs = {
                 inherit self;
