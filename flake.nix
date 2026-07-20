@@ -62,6 +62,11 @@
     with inputs;
     let
       # Definitions
+      systems = {
+        x86_64-linux = "x86_64-linux";
+        aarch64-linux = "aarch64-linux";
+        aarch64-darwin = "aarch64-darwin";
+      };
       lib = nixpkgs.lib;
       optionalLocalModules =
         nix_paths:
@@ -101,7 +106,7 @@
         (import "${self}/modules/gui")
       ];
     in
-    flake-utils.lib.eachDefaultSystemPassThrough (system: {
+    {
       nixosModules = {
         stateVersion = "26.05";
         systemTypes = {
@@ -109,7 +114,7 @@
           z13g2 =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self openstack-nix;
                 inherit (attrs) hostName domain;
@@ -126,7 +131,7 @@
           mac =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -144,7 +149,7 @@
           avf =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -162,7 +167,7 @@
           hetzner.amd =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -179,7 +184,7 @@
           hetzner.arm =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -197,7 +202,7 @@
           wsl =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -214,7 +219,7 @@
           darwin =
             attrs:
             nix-darwin.lib.darwinSystem {
-              inherit system;
+              system = systems.aarch64-darwin;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -231,7 +236,7 @@
             attrs:
             # nixos-raspberrypi.lib.nixosSystem {
             lib.nixosSystem {
-              inherit system;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -258,7 +263,7 @@
           qemu =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.x86_64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -274,7 +279,7 @@
           utm =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -291,7 +296,7 @@
           parallels =
             attrs:
             lib.nixosSystem {
-              inherit system;
+              system = systems.aarch64-linux;
               specialArgs = {
                 inherit self;
                 inherit (attrs) hostName domain;
@@ -305,7 +310,7 @@
             };
         };
       };
-    })
+    }
     // flake-utils.lib.eachDefaultSystem (
       system:
       let
