@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.systemPackages = with pkgs; [
     gnome-network-displays
@@ -35,7 +35,10 @@
   networking.networkmanager.enable = true;
 
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = lib.mkForce false;
+    };
   };
 
   security.rtkit.enable = true;
