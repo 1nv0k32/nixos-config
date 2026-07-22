@@ -19,7 +19,7 @@
       alsa-utils
       virt-manager
       networkmanagerapplet
-      tor-browser
+      # tor-browser
       solaar
 
       obs-studio
