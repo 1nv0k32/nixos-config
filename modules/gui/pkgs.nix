@@ -19,7 +19,6 @@
       alsa-utils
       virt-manager
       networkmanagerapplet
-      # tor-browser
       solaar
 
       obs-studio
@@ -36,5 +35,6 @@
       discord
       zoom-us
       slack
+      tor-browser
     ];
 }
