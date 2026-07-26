@@ -22,7 +22,6 @@
   };
 
   boot = {
-    # loader.raspberry-pi.bootloader = "kernel";
     initrd.systemd.tpm2.enable = lib.mkForce false;
     kernelParams = [
       "cgroup_enable=cpuset"
@@ -30,16 +29,4 @@
       "cgroup_memory=1"
     ];
   };
-
-  # hardware.raspberry-pi.config.all = {
-  #   base-dt-params = {
-  #     pciex1 = {
-  #       enable = true;
-  #     };
-  #     pciex1_gen = {
-  #       enable = true;
-  #       value = 3;
-  #     };
-  #   };
-  # };
 }

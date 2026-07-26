@@ -54,7 +54,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
   };
 
   outputs =
@@ -234,7 +233,6 @@
           # Raspberry Pi 5
           rpi5 =
             attrs:
-            # nixos-raspberrypi.lib.nixosSystem {
             lib.nixosSystem {
               system = systems.aarch64-linux;
               specialArgs = {
@@ -242,22 +240,14 @@
                 inherit (attrs) hostName domain;
                 inherit nixos-raspberrypi;
               };
-              modules =
-                # with nixos-raspberrypi.nixosModules;
-                [
-                  nixos-hardware.nixosModules.raspberry-pi-5
-                  (import "${self}/system/server.nix")
-                  (import "${self}/system/rpi5")
-                ]
-                # ++ [
-                #   raspberry-pi-5.base
-                #   raspberry-pi-5.page-size-16k
-                #   raspberry-pi-5.display-vc4
-                #   raspberry-pi-5.bluetooth
-                # ]
-                ++ nixosMods
-                ++ baseModules
-                ++ optionalLocalModules attrs.modules;
+              modules = [
+                nixos-hardware.nixosModules.raspberry-pi-5
+                (import "${self}/system/server.nix")
+                (import "${self}/system/rpi5")
+              ]
+              ++ nixosMods
+              ++ baseModules
+              ++ optionalLocalModules attrs.modules;
             };
           # QEMU
           qemu =
