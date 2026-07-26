@@ -11,6 +11,12 @@
   ];
 
   users.users.root.initialPassword = "root";
+
+  hardware.raspberry-pi.firmware = {
+    enable = true;
+    uboot.enable = true;
+  };
+
   networking = {
     useDHCP = lib.mkForce false;
     firewall.enable = lib.mkForce false;
