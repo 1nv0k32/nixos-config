@@ -11,14 +11,19 @@
   ];
 
   users.users.root.initialPassword = "root";
-  systemd.network.enable = true;
   networking = {
     useDHCP = lib.mkForce false;
     firewall.enable = lib.mkForce false;
   };
 
+  systemd = {
+    network.enable = true;
+    tpm2.enable = lib.mkForce false;
+  };
+
   boot = {
     # loader.raspberry-pi.bootloader = "kernel";
+    initrd.systemd.tpm2.enable = lib.mkForce false;
     kernelParams = [
       "cgroup_enable=cpuset"
       "cgroup_enable=memory"
