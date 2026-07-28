@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = [
-    (pkgs.chromium.override {
+    (pkgs.unstable.chromium.override {
       commandLineArgs = [
         "--enable-features=AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoDecodeLinuxGL,VaapiIgnoreDriverChecks"
         "--ignore-gpu-blocklist"
