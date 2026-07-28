@@ -20,14 +20,11 @@
       virt-manager
       networkmanagerapplet
       solaar
-
       obs-studio
       gimp
       freecad
-
       vscode
       bruno
-
       telegram-desktop
     ]
     ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
@@ -36,6 +33,5 @@
       zoom-us
       slack
       tor-browser
-      unstable.devin-desktop
     ];
 }
