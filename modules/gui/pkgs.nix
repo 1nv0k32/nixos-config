@@ -19,7 +19,6 @@
       alsa-utils
       virt-manager
       networkmanagerapplet
-      solaar
       obs-studio
       gimp
       freecad
