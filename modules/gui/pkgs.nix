@@ -22,9 +22,10 @@
       obs-studio
       gimp
       freecad
-      vscode
       bruno
       telegram-desktop
+      vscode
+      opencode-desktop
     ]
     ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
       spotify
