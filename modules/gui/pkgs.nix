@@ -11,6 +11,7 @@
       flameshot
       wl-clipboard
       grim
+      stirling-pdf-desktop
       libreoffice
       transmission_4
       transmission_4-gtk
