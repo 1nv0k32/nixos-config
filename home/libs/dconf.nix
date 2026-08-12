@@ -138,7 +138,7 @@ in
 
       "org/gnome/shell/extensions/unblank" = {
         power = false;
-        time = int32 600;
+        time = int32 0;
       };
 
       "org/gnome/shell/extensions/caffeine" = {
