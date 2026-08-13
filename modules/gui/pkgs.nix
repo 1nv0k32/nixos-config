@@ -24,7 +24,6 @@
       gimp
       freecad
       bruno
-      ferdium
       telegram-desktop
       vscode
       # AI
