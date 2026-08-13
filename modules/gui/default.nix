@@ -13,6 +13,7 @@
     ./steam.nix
     ./appimage.nix
     ./waydroid.nix
+    ./gpu-screen-recorder.nix
   ];
 
   environment.sysConf.gui.enable = true;
