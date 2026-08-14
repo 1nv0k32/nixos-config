@@ -15,6 +15,7 @@ in
         uhd
       ]
       ++ lib.optionals gui [
+        gnuradio
         gqrx
       ];
 
