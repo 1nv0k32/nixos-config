@@ -8,7 +8,9 @@
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
     extraSpecialArgs = {
       stateVersion = self.lib.stateVersion;
-      gui = { enable = false; };
+      gui = {
+        enable = false;
+      };
     };
     modules = [
       self.modules.homeManager.base

@@ -18,7 +18,9 @@
     ];
     extraSpecialArgs = {
       stateVersion = self.lib.stateVersion;
-      gui = { enable = false; };
+      gui = {
+        enable = false;
+      };
     };
   };
 }

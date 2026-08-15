@@ -22,7 +22,9 @@
       sharedModules = [ self.modules.homeManager.base ];
       extraSpecialArgs = {
         stateVersion = self.lib.stateVersion;
-        gui = { enable = false; };
+        gui = {
+          enable = false;
+        };
       };
       users.rick = { ... }: {
         home.username = "rick";

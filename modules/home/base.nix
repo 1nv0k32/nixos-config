@@ -7,69 +7,78 @@
   ...
 }:
 {
-  flake.modules.homeManager.base = { stateVersion, pkgs, lib, config, gui, ... }: {
-    home = {
-      stateVersion = stateVersion;
-      homeDirectory = "/home/${config.home.username}";
-      file = lib.mkIf (gui.enable) {
-        "${config.home.homeDirectory}/.background-image" = {
-          source = ./bin/backgroud-image.jpg;
-        };
-        "${config.home.homeDirectory}/.face" = {
-          source = ./bin/backgroud-image.jpg;
-        };
-      };
-    };
-
-    programs = {
-      bash = {
-        enable = true;
-        bashrcExtra = ''
-          if test -f ~/.bashrc.local; then
-            . ~/.bashrc.local
-          fi
-        '';
-      };
-
-      zsh = {
-        enable = true;
-        initContent = ''
-          if test -f ~/.zshrc.local; then
-            . ~/.zshrc.local
-          fi
-        '';
-      };
-
-      ssh = {
-        enable = true;
-        enableDefaultConfig = false;
-        includes = [
-          "~/.ssh/*.config"
-          "~/.ssh/config.d/*.config"
-        ];
-        settings."*" = {
-          ControlMaster = "auto";
-          ControlPersist = "yes";
-          ControlPath = "~/.ssh/master-%C";
+  flake.modules.homeManager.base =
+    {
+      stateVersion,
+      pkgs,
+      lib,
+      config,
+      gui,
+      ...
+    }:
+    {
+      home = {
+        stateVersion = stateVersion;
+        homeDirectory = "/home/${config.home.username}";
+        file = lib.mkIf (gui.enable) {
+          "${config.home.homeDirectory}/.background-image" = {
+            source = ./bin/backgroud-image.jpg;
+          };
+          "${config.home.homeDirectory}/.face" = {
+            source = ./bin/backgroud-image.jpg;
+          };
         };
       };
 
-      git = {
-        enable = true;
-      };
-    };
+      programs = {
+        bash = {
+          enable = true;
+          bashrcExtra = ''
+            if test -f ~/.bashrc.local; then
+              . ~/.bashrc.local
+            fi
+          '';
+        };
 
-    services = {
-      flameshot = {
-        enable = true;
-        settings = {
-          General = {
-            disabledTrayIcon = true;
-            useGrimAdapter = true;
-            disabledGrimWarning = true;
+        zsh = {
+          enable = true;
+          initContent = ''
+            if test -f ~/.zshrc.local; then
+              . ~/.zshrc.local
+            fi
+          '';
+        };
+
+        ssh = {
+          enable = true;
+          enableDefaultConfig = false;
+          includes = [
+            "~/.ssh/*.config"
+            "~/.ssh/config.d/*.config"
+          ];
+          settings."*" = {
+            ControlMaster = "auto";
+            ControlPersist = "yes";
+            ControlPath = "~/.ssh/master-%C";
+          };
+        };
+
+        git = {
+          enable = true;
+        };
+      };
+
+      services = {
+        flameshot = {
+          enable = true;
+          settings = {
+            General = {
+              disabledTrayIcon = true;
+              useGrimAdapter = true;
+              disabledGrimWarning = true;
+            };
           };
         };
       };
     };
-  };
 }

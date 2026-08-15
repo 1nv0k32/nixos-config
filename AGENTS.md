@@ -4,7 +4,7 @@
 
 ### Purpose & Target Systems
 - **Purpose**: Declarative NixOS/nix-darwin configuration management using flakes
-- **Target Systems**: 
+- **Target Systems**:
   - NixOS hosts (x86_64-linux, aarch64-linux): `nyx`, `nyxpi`, `nyxmac`, `nyxdroid`, `nyxwsl`, `nyxvm`, `nyxutm`, `nyxprl`
   - macOS (nix-darwin): `nyxdarwin`
   - Standalone home-manager configuration for user `rick`
@@ -12,7 +12,7 @@
 ### High-Level Architecture
 - **Flake-based**: Uses `flake-parts` for modular flake composition
 - **Module auto-discovery**: `import-tree` recursively imports all `.nix` files from `modules/` (except `_lib/` prefix)
-- **Namespace organization**: Modules are exposed via `flake.modules.{nixos,darwin,homeManager}.*` 
+- **Namespace organization**: Modules are exposed via `flake.modules.{nixos,darwin,homeManager}.*`
 - **Separation of concerns**: Main flake (`flake.nix`) defines configurations; deploy flake (`flakes/flake.nix`) consumes them
 
 ## Directory Layout
@@ -232,7 +232,7 @@ Each host (e.g., `modules/hosts/nyx.nix`) defines a single flake module:
       inputs.nixvim.nixosModules.nixvim
       inputs.disko.nixosModules.disko
       inputs.nixos-generators.nixosModules.all-formats
-      
+
       # Role modules (composable)
       self.modules.nixos.roles-core
       self.modules.nixos.roles-base
@@ -240,11 +240,11 @@ Each host (e.g., `modules/hosts/nyx.nix`) defines a single flake module:
       self.modules.nixos.roles-mobile
       self.modules.nixos.roles-development
       self.modules.nixos.roles-security
-      
+
       # Hardware profile
       self.modules.nixos.hardware-z13g2
     ];
-    
+
     networking.hostName = "nyx";
     networking.domain = "nyxlan.internal";
   };
@@ -269,7 +269,7 @@ Each host (e.g., `modules/hosts/nyx.nix`) defines a single flake module:
 - **Input**: Consumes main flake as `cfg` input
 - **Outputs**: Only `nixosConfigurations` and `darwinConfigurations`
 - **Usage**: `nixos-anywhere --flake github:1nv0k32/nixos-config?dir=flakes#TARGET`
-- **Local overrides**: 
+- **Local overrides**:
   - `flakes/local.nix` (empty template for local modifications)
   - `flakes/hardware-configuration.nix` (optional hardware config)
   - `flakes/checks_local.nix` (CI-only dummy filesystem)
@@ -278,7 +278,7 @@ Each host (e.g., `modules/hosts/nyx.nix`) defines a single flake module:
 
 ### StateVersion Handling
 - **Definition**: `modules/flake/state-version.nix` exports `flake.lib.stateVersion = "26.05"`
-- **Usage**: 
+- **Usage**:
   - Main flake: `self.lib.stateVersion` in `nixosConfigurations`
   - Deploy flake: `cfg.lib.stateVersion` (passed as `specialArgs`)
   - Home-manager: `stateVersion` in `extraSpecialArgs`

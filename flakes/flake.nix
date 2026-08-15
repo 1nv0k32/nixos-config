@@ -6,7 +6,13 @@
   };
 
   outputs =
-    { self, cfg, nixpkgs, nix-darwin, ... }:
+    {
+      self,
+      cfg,
+      nixpkgs,
+      nix-darwin,
+      ...
+    }:
     let
       lib = nixpkgs.lib;
       commonArgs = {
@@ -27,7 +33,8 @@
           modules = [
             { system.stateVersion = cfg.lib.stateVersion; }
             cfg.modules.nixos."host-${host}"
-          ] ++ localModules;
+          ]
+          ++ localModules;
         };
     in
     {
