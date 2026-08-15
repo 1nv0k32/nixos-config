@@ -11,7 +11,9 @@ jobs:
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Check Flake
+      - name: Check main flake
+        run: nix flake check
+      - name: Check deploy flake
         run: |
           cd flakes
           mv checks_local.nix local.nix
