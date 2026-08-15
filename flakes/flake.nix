@@ -17,6 +17,7 @@
       lib = nixpkgs.lib;
       commonArgs = {
         self = cfg;
+        inputs = cfg.lib.inputs;
         stateVersion = cfg.lib.stateVersion;
       };
       localModules = builtins.concatLists (

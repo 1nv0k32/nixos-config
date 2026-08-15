@@ -1,10 +1,4 @@
-{
-  nixpkgs,
-  nixpkgs-master,
-  nixpkgs-unstable,
-  nixpkgs-old,
-  ...
-}:
+{ inputs, ... }:
 {
   flake.modules.nixos.packages-overlays = { ... }: {
     nixpkgs = {
@@ -14,7 +8,7 @@
       };
       overlays = [
         (_: prev: {
-          master = import nixpkgs-master {
+          master = import inputs.nixpkgs-master {
             inherit (prev.stdenv) system;
             config = {
               allowUnfree = true;
@@ -23,7 +17,7 @@
           };
         })
         (_: prev: {
-          unstable = import nixpkgs-unstable {
+          unstable = import inputs.nixpkgs-unstable {
             inherit (prev.stdenv) system;
             config = {
               allowUnfree = true;
@@ -32,7 +26,7 @@
           };
         })
         (_: prev: {
-          old = import nixpkgs-old {
+          old = import inputs.nixpkgs-old {
             inherit (prev.stdenv) system;
             config = {
               allowUnfree = true;
@@ -47,6 +41,6 @@
       NIXPKGS_ALLOW_UNFREE = "1";
     };
 
-    nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+    nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   };
 }

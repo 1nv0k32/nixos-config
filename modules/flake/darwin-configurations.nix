@@ -7,7 +7,7 @@
   flake.darwinConfigurations.nyxdarwin = inputs.nix-darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     specialArgs = {
-      inherit self;
+      inherit inputs self;
       stateVersion = self.lib.stateVersion;
     };
     modules = [

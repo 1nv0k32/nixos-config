@@ -9,7 +9,7 @@ let
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
-        inherit self;
+        inherit inputs self;
         stateVersion = self.lib.stateVersion;
       };
       modules = [

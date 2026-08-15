@@ -45,7 +45,7 @@ nixos-config/
     │   ├── packages.nix               # Defines flake.packages.* (e.g., nvim)
     │   ├── formatter.nix              # Defines flake.formatter
     │   ├── devshells.nix              # Discovers per-shell devShells in modules/devshells/
-    │   └── state-version.nix          # Defines flake.lib.stateVersion
+    │   └── state-version.nix          # Defines flake.lib.stateVersion and flake.lib.inputs
     │
     ├── hosts/                         # Host-specific configurations
     │   ├── nyx.nix                    # x86_64-linux desktop
@@ -274,15 +274,17 @@ Each host (e.g., `modules/hosts/nyx.nix`) defines a single flake module:
   - `flakes/hardware-configuration.nix` (optional hardware config)
   - `flakes/checks_local.nix` (CI-only dummy filesystem)
 - **Module access**: Accesses main flake modules via `cfg.modules.nixos.*` and `cfg.modules.darwin.*`
-- **StateVersion**: Consumes `cfg.lib.stateVersion` from main flake
+- **Shared inputs/stateVersion**: Consumes `cfg.lib.inputs` and `cfg.lib.stateVersion` from main flake
 
-### StateVersion Handling
-- **Definition**: `modules/flake/state-version.nix` exports `flake.lib.stateVersion = "26.05"`
+### Shared Flake Inputs & StateVersion
+- **`modules/flake/state-version.nix`** exports:
+  - `flake.lib.stateVersion = "26.05"`
+  - `flake.lib.inputs` — the main flake's `inputs` attrset
 - **Usage**:
-  - Main flake: `self.lib.stateVersion` in `nixosConfigurations`
-  - Deploy flake: `cfg.lib.stateVersion` (passed as `specialArgs`)
-  - Home-manager: `stateVersion` in `extraSpecialArgs`
-- **Rationale**: Avoids creating an unknown flake output; centralizes version management
+  - Main flake: `self.lib.stateVersion` / `inputs` are passed in `specialArgs`
+  - Deploy flake: `cfg.lib.stateVersion` / `cfg.lib.inputs` are passed in `specialArgs`
+  - Home-manager: `stateVersion` is passed in `extraSpecialArgs`
+- **Rationale**: Avoids creating unknown flake outputs and makes the flake inputs available to modules when they are loaded outside the flake-parts evaluation context
 
 ## Role & Hardware Profile Conventions
 
@@ -444,6 +446,7 @@ mkNixos = host: system:
     inherit system;
     specialArgs = {
       self = cfg;
+      inputs = cfg.lib.inputs;
       stateVersion = cfg.lib.stateVersion;
     };
     modules = [
