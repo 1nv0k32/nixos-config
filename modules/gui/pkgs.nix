@@ -29,6 +29,7 @@
       # AI
       opencode-desktop
       openspec
+      devin-cli
       unstable.devin-desktop
     ]
     ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
