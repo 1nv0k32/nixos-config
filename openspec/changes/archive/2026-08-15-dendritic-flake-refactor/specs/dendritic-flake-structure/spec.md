@@ -36,7 +36,7 @@ Packages, development shells, formatter, and `nixosConfigurations`/`darwinConfig
 
 #### Scenario: Formatter is exposed
 
-- **WHEN** a user runs `nix fmt`
+- **WHEN** a user runs `pre-commit run --all-files` (or `nix fmt` directly)
 - **THEN** the formatter configured in `modules/flake/formatter.nix` is used
 
 #### Scenario: Dev shells are exposed

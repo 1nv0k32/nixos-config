@@ -393,12 +393,14 @@ nix flake check --no-build
 - Validates deploy flake separately
 - CI runs this with `checks_local.nix` as `local.nix`
 
-### Format Code
+### Format / Lint All Files
 ```bash
-nix fmt
+nix-shell -p pre-commit --run "pre-commit run --all-files"
 ```
-- Uses `nixfmt-tree` (defined in `modules/flake/formatter.nix`)
-- Pre-commit hook available
+- Runs the hooks defined in `.pre-commit-config.yaml`:
+  - `nixfmt` — formats Nix files via `nix fmt` (which uses `nixfmt-tree`, defined in `modules/flake/formatter.nix`)
+  - `check-yaml`, `end-of-file-fixer`, `trailing-whitespace`
+- This is the canonical formatting check; `nix fmt` is the underlying formatter invoked by the hook
 
 ## Known Warnings & Why They're Expected
 
@@ -480,8 +482,9 @@ nixos-rebuild boot --no-write-lock-file --flake github:1nv0k32/nixos-config?dir=
 - **Note**: Deploy flake check uses `|| true` (allows failure)
 
 ### Pre-Commit Configuration (`.pre-commit-config.yaml`)
+- **Command**: `nix-shell -p pre-commit --run "pre-commit run --all-files"`
 - **Hooks**:
-  - `nixfmt`: Format Nix code (`nix fmt`)
+  - `nixfmt`: Format Nix code via `nix fmt` (uses `nixfmt-tree`)
   - `check-yaml`: Validate YAML files
   - `end-of-file-fixer`: Ensure files end with newline
   - `trailing-whitespace`: Remove trailing whitespace
