@@ -21,7 +21,7 @@
     home-manager = {
       sharedModules = [ self.modules.homeManager.base ];
       extraSpecialArgs = {
-        stateVersion = self.stateVersion;
+        stateVersion = self.lib.stateVersion;
         gui = { enable = false; };
       };
       users.rick = { ... }: {

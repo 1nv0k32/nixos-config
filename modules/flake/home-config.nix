@@ -7,7 +7,7 @@
   flake.homeConfigurations.rick = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
     extraSpecialArgs = {
-      stateVersion = self.flake.stateVersion;
+      stateVersion = self.lib.stateVersion;
       gui = { enable = false; };
     };
     modules = [

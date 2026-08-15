@@ -12,12 +12,12 @@
         home = {
           username = "rick";
           homeDirectory = "/home/rick";
-          stateVersion = self.stateVersion;
+          stateVersion = self.lib.stateVersion;
         };
       }
     ];
     extraSpecialArgs = {
-      stateVersion = self.stateVersion;
+      stateVersion = self.lib.stateVersion;
       gui = { enable = false; };
     };
   };

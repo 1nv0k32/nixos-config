@@ -11,7 +11,7 @@
       lib = nixpkgs.lib;
       commonArgs = {
         self = cfg;
-        stateVersion = cfg.stateVersion;
+        stateVersion = cfg.lib.stateVersion;
       };
       localModules = builtins.concatLists (
         lib.lists.forEach [
@@ -25,7 +25,7 @@
           inherit system;
           specialArgs = commonArgs;
           modules = [
-            { system.stateVersion = cfg.stateVersion; }
+            { system.stateVersion = cfg.lib.stateVersion; }
             cfg.modules.nixos."host-${host}"
           ] ++ localModules;
         };

@@ -8,7 +8,7 @@
     system = "aarch64-darwin";
     specialArgs = {
       inherit self;
-      stateVersion = self.stateVersion;
+      stateVersion = self.lib.stateVersion;
     };
     modules = [
       self.modules.darwin."host-nyxdarwin"

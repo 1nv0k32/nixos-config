@@ -10,10 +10,10 @@ let
       inherit system;
       specialArgs = {
         inherit self;
-        stateVersion = self.stateVersion;
+        stateVersion = self.lib.stateVersion;
       };
       modules = [
-        { system.stateVersion = self.stateVersion; }
+        { system.stateVersion = self.lib.stateVersion; }
         self.modules.nixos.hardware-dummy
         self.modules.nixos."host-${name}"
       ];

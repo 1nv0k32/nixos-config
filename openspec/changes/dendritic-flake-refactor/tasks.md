@@ -18,7 +18,7 @@
 
 ## 3. Implement flake-level options and helpers
 
-- [ ] 3.1 Implement `modules/flake/state-version.nix` to expose `flake.stateVersion`.
+- [ ] 3.1 Implement `modules/flake/state-version.nix` to expose `flake.lib.stateVersion`.
 - [ ] 3.2 Implement `modules/flake/source-path.nix` to expose `flake.sourcePath` (used for `/etc/nixos/flake.nix` symlink).
 - [ ] 3.3 Implement `modules/flake/formatter.nix` to expose the formatter via `perSystem`.
 - [ ] 3.4 Implement `modules/flake/packages.nix` to expose `packages.nvim` and any other perSystem packages.

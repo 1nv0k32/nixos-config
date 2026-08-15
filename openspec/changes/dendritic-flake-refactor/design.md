@@ -74,7 +74,7 @@ This works, but the tier names (`default`, `base`, `extra`, `gui`) describe *how
 ### 7. Replace ad-hoc `specialArgs` with flake-parts options
 
 **Decision:**
-- `stateVersion` becomes a flake-parts option (e.g. `flake.stateVersion` or a custom option under `config.flake.stateVersion`).
+- `stateVersion` is exposed as `flake.lib.stateVersion` so it is available to the deploy flake and host modules without creating an unknown flake output.
 - The path used to symlink `/etc/nixos/flake.nix` becomes a flake-parts option (e.g. `config.flake.sourcePath`).
 - Drop `openstack-nix` and `nixos-raspberrypi` from `specialArgs`; they are currently unused in the repo.
 
@@ -195,7 +195,7 @@ modules/
       ];
 
       # Global flake-parts options/conventions can live here or in modules/flake/
-      flake.stateVersion = "26.05";
+      flake.lib.stateVersion = "26.05";
     };
 }
 ```
