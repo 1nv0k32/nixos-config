@@ -196,6 +196,7 @@ nixos-config/
 - Defined in: `modules/flake/home-config.nix` and `modules/flake/standalone-home.nix`
 - User: `rick` (x86_64-linux)
 - Modules: `homeManager.base`, `homeManager.dconf`, `homeManager.terminal`
+- For GUI NixOS hosts, `modules/system/users.nix` also adds `homeManager.dconf` and `homeManager.terminal` to `home-manager.sharedModules` when `environment.sysConf.gui.enable = true`
 
 #### `flake.devShells.*`
 - Defined in: `modules/devshells/*.nix` (imported via `modules/flake/devshells.nix`)

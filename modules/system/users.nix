@@ -49,7 +49,13 @@
       };
 
       home-manager = {
-        sharedModules = [ self.modules.homeManager.base ];
+        sharedModules = [
+          self.modules.homeManager.base
+        ]
+        ++ lib.optionals config.environment.sysConf.gui.enable [
+          self.modules.homeManager.dconf
+          self.modules.homeManager.terminal
+        ];
         extraSpecialArgs = {
           inherit stateVersion;
           inherit (config.environment.sysConf) gui;

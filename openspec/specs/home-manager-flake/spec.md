@@ -46,3 +46,12 @@ The standalone `homeConfigurations.rick` SHALL evaluate even when the NixOS-spec
 
 - **WHEN** `home-manager.lib.homeManagerConfiguration` is invoked with `self.modules.homeManager.base`
 - **THEN** evaluation succeeds without requiring a NixOS configuration
+
+### Requirement: Desktop home modules are applied to GUI NixOS hosts
+
+The NixOS `system-users` module SHALL include desktop home-manager modules (`dconf`, `terminal`) in `home-manager.sharedModules` when the host enables the GUI environment, so that NixOS desktop users receive the same GNOME and terminal settings as the standalone home configuration.
+
+#### Scenario: NixOS desktop user receives desktop home modules
+
+- **WHEN** a NixOS host imports `roles-desktop`, which sets `environment.sysConf.gui.enable = true`
+- **THEN** `home-manager.sharedModules` includes `self.modules.homeManager.dconf` and `self.modules.homeManager.terminal` in addition to `self.modules.homeManager.base`
