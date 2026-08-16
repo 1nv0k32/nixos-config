@@ -11,6 +11,7 @@
       lib.makeLibraryPath [
         stdenv.cc.cc
         zlib
+        zstd
       ];
   };
 }
