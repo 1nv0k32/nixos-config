@@ -10,7 +10,7 @@ let
     name = "uhd";
     paths = [ pkgs.uhd ];
     postBuild = ''
-      cp ${./uhd}/* "$out/share/uhd/images"
+      cp -r --remove-destination ${./uhd}/* "$out/share/uhd/images"
     '';
   };
 in
