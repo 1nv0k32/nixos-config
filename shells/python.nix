@@ -14,6 +14,7 @@
         zstd
         glib
         libGL
+        fontconfig
       ];
   };
 }
