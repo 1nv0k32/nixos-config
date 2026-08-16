@@ -15,6 +15,16 @@
         glib
         libGL
         fontconfig
+        dbus
+        wayland
+        libxkbcommon
+        xorg.libX11
+        xorg.libxcb
+        xorg.libXext
+        xorg.xcbutilkeysyms
+        xorg.xcbutilwm
+        xorg.xcbutilimage
+        xorg.xcbutilrenderutil
       ];
   };
 }
