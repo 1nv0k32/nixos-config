@@ -12,6 +12,7 @@
         stdenv.cc.cc
         zlib
         zstd
+        glib
       ];
   };
 }
