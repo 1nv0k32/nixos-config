@@ -13,6 +13,7 @@
         zlib
         zstd
         glib
+        libGL
       ];
   };
 }
