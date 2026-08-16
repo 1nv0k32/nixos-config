@@ -4,6 +4,9 @@
     nativeBuildInputs = with pkgs; [
       uv
       python312
+    ];
+
+    buildInputs = with pkgs; [
       urh
     ];
 
