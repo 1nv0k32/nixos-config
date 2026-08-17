@@ -6,9 +6,12 @@
 }:
 let
   gui = config.environment.sysConf.gui.enable;
-  uhdWrapped = pkgs.symlinkJoin {
-    name = "uhd";
-    paths = [ pkgs.uhd ];
+  cliWrapped = pkgs.symlinkJoin {
+    name = "sdrCliTools";
+    paths = with pkgs; [
+      uhd
+      soapysdr-with-plugins
+    ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       cp -r --remove-destination ${./uhd}/* "$out/share/uhd/images"
@@ -24,25 +27,14 @@ let
       gnuradio
       gqrx
       abracadabra
+      sdrpp
     ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       for bin in $out/bin/*; do
         wrapProgram "$bin" \
-          --set UHD_IMAGES_DIR "${uhdWrapped}/share/uhd/images"
-      done
-    '';
-  };
-  cliWrapped = pkgs.symlinkJoin {
-    name = "sdrCliTools";
-    paths = with pkgs; [
-      soapysdr-with-plugins
-    ];
-    nativeBuildInputs = [ pkgs.makeWrapper ];
-    postBuild = ''
-      for bin in $out/bin/*; do
-        wrapProgram "$bin" \
-          --set UHD_IMAGES_DIR "${uhdWrapped}/share/uhd/images"
+          --set UHD_IMAGES_DIR "${cliWrapped}/share/uhd/images" \
+          --set SOAPY_SDR_PLUGIN_PATH="${cliWrapped}/lib/SoapySDR/modules0.8"
       done
     '';
   };
@@ -50,7 +42,6 @@ in
 {
   config = lib.mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
     environment.systemPackages = [
-      uhdWrapped
       cliWrapped
     ]
     ++ lib.optionals gui [
