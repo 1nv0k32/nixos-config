@@ -18,18 +18,29 @@ let
       done
     '';
   };
+  guiWrapped = pkgs.symlinkJoin {
+    name = "guiTools";
+    paths = with pkgs; [
+      gnuradio
+      gqrx
+    ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      for bin in $out/bin/*; do
+        wrapProgram "$bin" \
+          --set UHD_IMAGES_DIR "${uhdWrapped}/share/uhd/images"
+      done
+    '';
+  };
 in
 {
   config = lib.mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
-    environment.systemPackages =
-      with pkgs;
-      [
-        uhdWrapped
-      ]
-      ++ lib.optionals gui [
-        gnuradio
-        gqrx
-      ];
+    environment.systemPackages = [
+      uhdWrapped
+    ]
+    ++ lib.optionals gui [
+      guiWrapped
+    ];
 
     services.udev.packages = with pkgs; [
       uhd
