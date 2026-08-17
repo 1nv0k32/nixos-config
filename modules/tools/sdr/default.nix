@@ -19,10 +19,24 @@ let
     '';
   };
   guiWrapped = pkgs.symlinkJoin {
-    name = "guiTools";
+    name = "sdrGuiTools";
     paths = with pkgs; [
       gnuradio
       gqrx
+      abracadabra
+    ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      for bin in $out/bin/*; do
+        wrapProgram "$bin" \
+          --set UHD_IMAGES_DIR "${uhdWrapped}/share/uhd/images"
+      done
+    '';
+  };
+  cliWrapped = pkgs.symlinkJoin {
+    name = "sdrCliTools";
+    paths = with pkgs; [
+      soapysdr-with-plugins
     ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
@@ -37,6 +51,7 @@ in
   config = lib.mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") {
     environment.systemPackages = [
       uhdWrapped
+      cliWrapped
     ]
     ++ lib.optionals gui [
       guiWrapped
