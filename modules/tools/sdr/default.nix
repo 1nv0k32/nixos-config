@@ -9,8 +9,13 @@ let
   uhdWrapped = pkgs.symlinkJoin {
     name = "uhd";
     paths = [ pkgs.uhd ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       cp -r --remove-destination ${./uhd}/* "$out/share/uhd/images"
+      for bin in $out/bin/*; do
+        wrapProgram "$bin" \
+          --set UHD_IMAGES_DIR "$out/share/uhd/images"
+      done
     '';
   };
 in
